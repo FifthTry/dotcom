@@ -224,7 +224,8 @@ color: $fpm.color.main.text-strong
 white-space: nowrap
 padding-vertical: 8
 role: $font.cta
-link: /pricing
+link: /pricing/
+
 
 
 --- ftd.text: $pricing
@@ -233,7 +234,8 @@ color: $font.cta_primary_active
 white-space: nowrap
 padding-vertical: 8
 role: $font.cta
-link: /pricing
+link: /pricing/
+
 
 
 --- ftd.text: $install

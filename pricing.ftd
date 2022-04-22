@@ -72,6 +72,28 @@ on-pricing: true
 -- subscription: Your { green: Better Documentation } journey starts today
 
 
+-- pricing-second:
+voucher-title-name: Enterprise Plans - Contact us
+cta-text: Contact us
+cta-bg: $font.cta_secondary_base
+cta-color: $fpm.color.main.text-strong
+
+
+-- pricing-second:
+voucher-title-name: Open Source Plan - free for open source projects
+cta-text: Contact us
+cta-bg: $font.cta_secondary_base
+cta-color: $fpm.color.main.text-strong
+
+
+-- pricing-second:
+voucher-title-name: Student Plan - free for students
+cta-text: Contact us
+cta-bg: $font.cta_secondary_base
+cta-color: $fpm.color.main.text-strong
+
+
+
 -- query-section: Frequently asked questions
 ques-ans : $ques-ans
 
@@ -126,7 +148,7 @@ cta-color: $fpm.color.main.text-strong
 Our way to give back to the community, Continous-Documentation system will be free forever for individuals and open source projects.
 
 --- pricing: 
-width: percent 33
+width: percent 35
 list-one: false
 list-two: true
 list-three: false
@@ -481,7 +503,7 @@ role: $font.copy-relaxed
 color: $fpm.color.main.text
 align: center
 padding-top: 16
-link: mailto: amitu@fifthtry.com
+link: mailto: enterprises@fifthtry.com
 
 
 -- ftd.row img-text:
@@ -495,4 +517,127 @@ src: $assets.files.assets.images.Circle-Check.png
 --- ftd.text: $title
 role: $font.copy-relaxed-medium
 color: $fpm.color.main.text-strong
+
+
+
+
+
+
+
+
+
+-- ftd.column pricing-second:
+optional string voucher-name:
+optional string voucher-title-name:
+optional string pricing-name:
+width: 1200
+optional string days:
+optional body body:
+optional string payment-mode:
+optional ftd.color cta-bg: $fpm.color.main.text-strong
+optional ftd.color cta-color: $font.cta_secondary_base
+padding-horizontal: 31
+background-color: $font.cta_secondary_base
+optional ftd.color bg-color: $fpm.color.main.background.step-1
+background-color: $bg-color
+padding-vertical: 14
+string cta-text:
+border-color: $font.cta_hover
+border-radius: 25
+shadow-offset-x: 0
+shadow-offset-y: 8
+shadow-size: 0
+shadow-blur: 16
+border-radius: 24
+border-color: $font.cta_primary_base
+shadow-color if $MOUSE-IN:  $font.cta_primary_base
+align: center
+margin-bottom: 50
+
+--- ftd.row:
+width: fill
+spacing: 50
+id: main-section
+
+--- ftd.column:
+width: fill
+
+--- ftd.text: $voucher-name
+if: $voucher-name is not null
+color: $cta-color
+background-color:$cta-bg
+border-color: $font.cta_hover
+border-radius: 25
+role: $font.copy-relaxed
+padding-horizontal: 24
+padding-vertical: 6
+
+--- ftd.column:
+width: fill
+id: about-container
+
+--- ftd.text: $voucher-title-name
+role: $font.list-title
+color: $fpm.color.main.text-strong
+margin-top: 32
+white-space: nowrap
+
+--- ftd.column:
+spacing: 8
+color: $fpm.color.main.text-strong
+
+--- ftd.row:
+
+--- ftd.text: $pricing-name
+role: $font.heading-hero
+white-space: nowrap
+
+--- ftd.row:
+
+--- ftd.text: $days
+role: $font.list-title
+padding-vertical: 8
+white-space: nowrap
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+
+--- ftd.text:
+if: $body is not null
+margin-top: 8
+margin-bottom: 32
+text: $body
+role: $font.copy-relaxed
+color: $fpm.color.main.text
+width: percent 40
+
+
+--- container:  main-section
+
+--- ftd.column:
+margin-top: 32
+width: fill
+id: right-side
+align: center
+
+--- ftd.row:
+align: center
+
+--- lib.cta: $cta-text
+cta-bg: $font.cta_secondary_base
+
+--- container: right-side
+
+--- ftd.row:
+align: right
+
+--- ftd.text: 
+text: $payment-mode
+role: $font.copy-relaxed
+color: $fpm.color.main.text
+align: center
+padding-top: 16
+link: mailto:enterprise@fifthtry.com
 
