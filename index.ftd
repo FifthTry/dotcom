@@ -37,7 +37,7 @@ is exactly as per docs merge both code and doc PRs.
 nav-links: $config.main-nav
 on-pricing: false
 
--- lib.hero-section: Products should reflect their Documentation. We make that a process.
+-- lib.hero-section: Products should reflect their Documentation. We make that a {lib.green:process.}
 hero-left-sub-heading: Solve it with
 hero-left-heading: Continuous Documentation
 hero-left-cta-one: Get Started
@@ -63,6 +63,12 @@ using what we call *Continuous Documentation*.
 
 -- lib.footer:
 copyright: © 2022 FifthTry. All rights reserved
+
+
+
+
+
+
 
 
 

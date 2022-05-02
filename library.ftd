@@ -3,6 +3,12 @@
 -- import: fpm
 
 
+-- ftd.type bold-small-title: $fpm.type.label-small.font
+desktop: $fpm.type.label-small.desktop
+mobile: $fpm.type.label-small.mobile
+xl: $fpm.type.label-small.xl
+weight: 700
+
 -- record tc:
 caption title:
 body body:
@@ -41,13 +47,13 @@ width: fill
 
 
 -- ftd.column header:
-optional ftd.image-src logo: $assets.files.assets.images.fifthtry-logo.png
+optional ftd.image-src logo: $assets.files.assets.images.logo-fifthtry-dark.svg
 optional string site-title:
 optional string fallback-site-title: Logo
 optional string home-url: /
 optional ftd.color header-bg: $font.header-bg
 optional ftd.image-src icon-theme-mode: $assets.files.assets.images.icon-moon.png
-optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.png
+optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.svg
 optional string github-url: https://github.com/FifthTry/dotcom
 optional ftd.image-src icon-language: $assets.files.assets.images.icon-language.png
 /optional string language-url: /translations/
@@ -109,7 +115,7 @@ optional string github-url:
 optional ftd.image-src icon-language:
 optional string language-url:
 background-color: $header-bg
-padding-horizontal: 16
+padding-horizontal: 48
 padding-vertical: 20
 width: fill
 boolean on-pricing: false
@@ -178,7 +184,7 @@ if: $config.is-mobile
 width: fill
 id: left-header
 padding-top: 8
-spacing: 10
+spacing: 8
 
 --- ftd.row:
 min-width: 110
@@ -225,8 +231,8 @@ width: fill
 --- ftd.row:
 width: fill
 border-left: 1
-padding-left: $fpm.space.space-4
-margin-left: $fpm.space.space-4
+padding-left: $fpm.space.space-5
+margin-left: $fpm.space.space-5
 border-color: $fpm.color.main.border
 
 --- fbs.fifthtry-brand-switcher:
@@ -252,26 +258,42 @@ optional string github-cta:
 boolean on-pricing: false
 optional ftd.image-src icon-github:
 optional string github-url: https://github.com/FifthTry
-spacing: 32
+spacing: 16
 align: center
+padding-top: 8
 
---- ftd.text: $pricing
-if: $on-pricing
+--- ftd.text: Blog
 color: $font.cta_primary_active
 white-space: nowrap
-padding-vertical: 8
+padding-vertical: 10
+padding-right: 8
 role: $font.cta
 link: /pricing/
 
+--- ftd.text: $pricing
+/if: $on-pricing
+color: $font.cta_primary_active
+white-space: nowrap
+padding-vertical: 10
+padding-right: $fpm.space.space-1
+role: $font.cta
+link: /pricing/
+
+--- ftd.row:
+width: fill
+border-left: 1
+padding-left: $fpm.space.space-5
+margin-left: $fpm.space.space-5
+border-color: $fpm.color.main.border
 
 
 --- ftd.text: $install
 role: $font.cta
-color: $fpm.color.main.text-strong
-padding-vertical: 16
-padding-horizontal: 16
+color: $fpm.color.main.cta-primary.base
+padding-vertical: 10
 link: https://cdoc.fifthtry.com/initiate-github-login/
 
+--- container: ftd.main
 
 --- github-button:
 sign-in: $sign-in
@@ -297,31 +319,37 @@ link: https://fifthtry.com/
 
 
 
+
 -- ftd.row github-button:
 optional string sign-in: 
 optional string github-cta:
-optional ftd.image-src icon-github:
-optional ftd.color button-bg: $font.footer-border-color
-background-color: $button-bg
-padding-horizontal: 24
-padding-vertical: 14
-border-radius: 8
-spacing: 5
+optional ftd.image-src icon-github: 
+padding-horizontal: $fpm.space.space-4
+padding-vertical: $fpm.space.space-2
+color: $fpm.color.main.background.step-1
+background-color: $fpm.color.main.cta-primary.base
+border-radius: 4
+spacing: 4
 cursor: pointer
 link: https://github.com/apps/continuous-documentation
 
 --- ftd.text: $sign-in
 white-space: nowrap
-color: $fpm.color.main.text-strong
-role: $font.cta
+role: $bold-small-title
+padding-top: 2
+color: $fpm.color.main.background.step-1
 
 --- ftd.image:
 src: $icon-github
 
+
+--- container: ftd.main
+
 --- ftd.text: $github-cta
+padding-top: 2
 white-space: nowrap
-color: $fpm.color.main.text-strong
-role: $font.cta
+role: $bold-small-title
+
 
 
 
@@ -336,7 +364,7 @@ role: $font.cta
 
 -- ftd.column hero-section:
 caption title:
-optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.png
+optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.svg
 optional string sign-in: Sign up with 
 optional string github-cta: github
 optional ftd.image-src image-hero-left:
@@ -384,7 +412,7 @@ bg-image: $bg-image
 
 -- ftd.column desktop-hero:
 caption title:
-optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.png
+optional ftd.image-src icon-github: 
 optional string sign-in: Sign up with 
 optional string github-cta: github
 optional ftd.image-src image-hero-left:
@@ -461,6 +489,7 @@ icon-github: $icon-github
 --- cta: Book a demo
 link: https://calendly.com/amitu-fifthtry/30min?month=2022-04
 cta-bg: $font.cta_secondary_base
+cta-color:  $fpm.color.main.background.step-1
 
 --- container: hero-image-section
 
@@ -512,11 +541,18 @@ margin-top: 26
 --- ftd.row:
 width: fill
 spacing: 16
+margin-top: -10
 align: center
 
---- ftd.text: $hero-right-cta-one
+
+--- cta :$hero-right-cta-one
+cta-bg: $fpm.color.main.cta-primary.disabled
+cta-color:  $fpm.color.main.cta-primary.disabled
+
+
+/--- ftd.text: $hero-right-cta-one
 role: $font.cta
-color:  $fpm.color.main.text
+color:  $fpm.color.main.cta-primary
 padding-top: 10
 
 
@@ -919,14 +955,15 @@ width: $width
 text: $title
 optional ftd.color cta-bg: $fpm.color.main.background.base
 optional ftd.color cta-color: $fpm.color.main.text-strong
-padding-vertical: 16
-padding-horizontal: 32
+padding-vertical: 10
+padding-horizontal: 16
 background-color: $cta-bg
 /background-color if $MOUSE-IN: $font.cta_hover
 role: $font.cta
 color: $cta-color
 link: $link
-border-radius: 8
+border-radius: 4
+
 
 
 
@@ -1294,11 +1331,11 @@ role: $font.copy-relaxed
 
 
 -- ftd.column footer:
-optional ftd.image-src logo: $assets.files.assets.images.fifthtry-logo.png
+optional ftd.image-src logo:  $assets.files.assets.images.logo-fifthtry-dark.svg
 optional ftd.color footer-bg: $fpm.color.glass.background.base
 optional ftd.image-src group-logo: $assets.files.assets.images.group.png
 optional ftd.image-src backed-logo: $assets.files.assets.images.backed-by.png
-optional ftd.image-src fill-logo: $assets.files.assets.images.fill.png
+optional ftd.image-src fill-logo: $assets.files.assets.images.logo-ycom-dark.svg
 optional string copyright:
 background-color: $footer-bg
 width: fill
@@ -1336,65 +1373,48 @@ optional string copyright:
 padding-horizontal: 48
 background-color: $footer-bg
 width: fill
-padding-vertical: 61
+padding-vertical: 48
 
 
 --- ftd.row:
 id: footer-container
 width: fill
+height: 48
+padding-left: $fpm.space.space-5
 
 --- ftd.row:
-width: fill
+link: \
+height: fill
 id: right-side-footer
 
 --- ftd.image:
 src: $logo
-link: \
-margin-top: 10
+height: fill
+width: auto
 
+
+--- container: footer-container
 
 --- ftd.row:
 width: fill
-border-color: $font.footer-border-color
+height: fill
+border-color: $fpm.color.main.border
 border-left: 3
 margin-left:29
 /border-width: 3
 
 
 --- ftd.row:
-margin-left: 38
-spacing: 20
-id: backed-section
-link: https://www.ycombinator.com/companies/fifthtry
-
---- ftd.row:
-padding-top:15
-
---- ftd.image:
-src: $backed-logo
-width: 118
-
---- container:  backed-section
-
---- ftd.row:
-padding-vertical: 12
-padding-horizontal: 12
-background-color: $font.fill-text-color
+link: \
+width: auto
+height: fill
+id: right-side-footer
+padding-left: $fpm.space.space-5
 
 --- ftd.image:
 src: $fill-logo
-width: 25
-
---- container:  backed-section
-
---- ftd.row:
-padding-top:10
-width: fill
-
---- ftd.image:
-src: $group-logo
-width: 183
-
+height: fill
+width: auto
 
 --- container: footer-container
 
@@ -1693,7 +1713,7 @@ margin-top: 30
 --- github-button:
 sign-in: Sign up with 
 github-cta: Github
-icon-github: $assets.files.assets.images.icon-github.png
+icon-github: $assets.files.assets.images.icon-github.svg
 
 
 --- container: ftd.main
@@ -1948,7 +1968,8 @@ color: $fpm.color.main.text-strong
 -- ftd.text orange: yo
 color: $font.orange
 
-
+-- ftd.text green: yo
+color: $fpm.color.main.accent.primary
 
 
 
