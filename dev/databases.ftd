@@ -1,0 +1,6 @@
+-- ds.page-with-toc: `cDoc` Databases
+toc: $config.db
+sub-sections: $config.dev-section
+
+
+We currently are a monolith with a single database [`main-db`](dev/main-db/).

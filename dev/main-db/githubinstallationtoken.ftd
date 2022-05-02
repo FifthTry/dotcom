@@ -1,0 +1,11 @@
+-- ds.page-with-toc: `GithubInstallationToken Model`
+toc: $config.db
+sub-sections: $config.dev-section
+
+-- ds.code:
+lang: py
+
+class GithubInstallationToken(Token):
+    github_app_installation = models.ForeignKey(
+        GithubAppInstallation, on_delete=models.CASCADE, related_name="tokens"
+    )

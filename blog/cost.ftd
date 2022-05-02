@@ -1,0 +1,64 @@
+-- ds.page-with-toc: Lack Of Documentation Is Costing You
+toc: $config.blog-toc
+
+2nd May 2022
+
+Lack of documentation is causing problems for you. If you do not have proper
+documentation, onboarding a new team member is slow. It takes a lot of time for
+that person to become productive. In at least one of the [Big
+Tech](https://en.wikipedia.org/wiki/Big_Tech), a person moving from one team to
+another and becoming productive takes 3 months.
+
+Along with onboarding, lack of adequate documentation causes problems when
+critical members of your team leave your organisation. If a critical employee
+leaves without proper documentation, it can even cause business continuity
+issues. In one of my previous organisation, an Engineering Manager left during a
+critical integration with Amazon, in the last QA stages we discovered one flow
+was not working correctly because, and it took us 5 days of "war room" to figure
+out, an entire microservice was missing. Nobody other than the EM and the dev
+who worked on it 6 months ago knew about that service and both were no longer
+in the organisation.
+
+When developers are picking an open source library or a framework, we are
+usually biassed towards those libraries that are well documented. If you are
+asked to work on a library with poor documentation, where you have to read the
+source code or wade through Stackoverflow answers, etc, you tend to not pick
+those libraries, or only do it as a last resort.
+
+What about software created by your company then? When the developers who built
+something leave or are promoted or migrate to another team, and new people join,
+how do the new people cope? Small changes take a long time. The confidence
+towards changing things is low. People feel in-adequate, and they feel like the
+way to get confidence is by rewriting the whole thing. We have a name of
+software for which people who built it have left without proper documentation:
+“legacy software”.
+
+Consider [this study](https://ieeexplore.ieee.org/document/7997917):
+
+-- ds.image: Developer Time
+src: $assets.files.images.blog.developer-time.png
+width: fill
+
+Developers spent 57% of their time on trying to understand, to comprehend, how
+things work. This does not include the time they take reading code, navigating
+from file to file, function to function, that happens after or along with
+understanding what does the product do, what kind of overall flow is being
+facilitated. Developers barely spend <20% of their time writing code and
+debugging code.
+
+This sounds quite bad, but is even an understatement, consider using a library
+you have not used before, with good documentation vs another library you have
+not used, but with poor or missing documentation. If you can do a task you can
+do in a well documented library, in only twice as much time, in a not well
+documented library, you would consider it quite a good outcome. It may take
+considerably more than double the time, you may even fail to perform the task at
+all without talking to someone who has used it before.
+
+And this is what happens right? You see developer’s calendar is full with
+meetings, people talking to each other about how things work, how to do this?
+Did you not hire people who already know what they need to do? Of course, they
+know the language and framework, but not your system. Your system is in people’s
+heads.
+
+And that is the problem FifthTry’s [Continuous Documentation](/) is trying
+to solve.

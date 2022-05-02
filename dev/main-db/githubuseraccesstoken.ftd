@@ -1,0 +1,11 @@
+-- ds.page-with-toc: `GithubUserAccessToken Model`
+toc: $config.db
+sub-sections: $config.dev-section
+
+-- ds.code:
+lang: py
+
+class GithubUserAccessToken(Token):
+    github_user = models.ForeignKey(
+        GithubUser, on_delete=models.CASCADE, related_name="access_tokens"
+    )

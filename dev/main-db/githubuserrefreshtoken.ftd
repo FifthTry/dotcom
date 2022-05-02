@@ -1,0 +1,11 @@
+-- ds.page-with-toc: `GithubUserRefreshToken Model`
+toc: $config.db
+sub-sections: $config.dev-section
+
+-- ds.code:
+lang: py
+
+class GithubUserRefreshToken(Token):
+    github_user = models.ForeignKey(
+        GithubUser, on_delete=models.CASCADE, related_name="refresh_tokens"
+    )

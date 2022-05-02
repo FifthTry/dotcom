@@ -1,0 +1,75 @@
+-- ds.page-with-toc: Introducing `cDoc`: Continuous Documentation
+toc: $config.blog-toc
+
+After much wait we are launching “Continuous Documentation” today!
+
+One common problem that many tech companies face is that their documentation is
+not up to date. Be it small teams or large, a 2 person startup or the Big Tech.
+
+-- ds.h1: Lack Of Documentation Is Costing You
+
+Developers spend upwards of 57% of their time trying to understand the codebase.
+This does not include browsing the code, when they know what they are looking
+for, rather the time to understand how things work as a whole. Some say the
+documentation or your product is your product itself. If you do not know how the
+product works at a high level, it takes too much trial and error, meetings with
+product managers etc to understand what it does and how to make it work the way
+you want to.
+
+Lack of documentation means onboarding new memebers in your organisation or team
+takes more time than needed, it means when an employee leaves they take with
+them valuable company IP which is only in their head.
+
+[Read more about why lack of documentation is costing you](blog/cost/).
+
+-- ds.h1: Does Writing Documentation Slow You Down?
+
+If documentaiton is important, why is your team not writing documentation? Is
+this because it slows you down?
+
+It is a perception in some developers that yes, in short term cutting corners on
+documentation may speed you up. But in the long term writing and maintaining
+documenation is the only reliable way to keep the development process from
+coming to a standstill. [Writing documentation speeds up your team](blog/slow/).
+
+-- ds.h1: It's About Process
+
+So if documentation indeed speeds you in the long run, why is documentation not
+getting the proper attention? Is this because people are lazy? It can not be,
+the same team produces good quality code, code with low defect, high code
+coverage, good performance, not many security issues. So why is documentation
+not good?
+
+Because **the quality of code is maintained due to a process put in place**. No
+developer makes changes to code and sends it straight to production. Change
+goes through a review process. Someone reviews the code. The entire set of test
+suites is executed on the modified code. In some teams code even goes through
+manual testing, user acceptance testing by QA team, or product managers
+themselves.
+
+Trying to keep any of the code hygiene metrics up without this review process
+would be difficult. Without such a process, expecting documentation to stay up
+to date, give accurate/reliable information about how the product works, the
+internals etc, is just too difficult. Some documentation champions will come,
+sure, they may keep the documentation up to date for a while too. But in the
+absence of constant maintenance, the documentation will slowly start going out
+of sync. And once the documentation is out of sync, the urgency to keep it up to
+date starts going down because if documentation is not up to date, people will
+not be able to make decisions based on the documentation, and will have to rely
+on talking to each other, or resorting to other means like trying it out on live
+product etc, and if people are doing that, then why bother updating
+documentation?
+
+**Continuous documentation is that process**. Just like continuous integration,
+where you do not allow a change to go ahead unless the tests are passing,
+continuous documentation does not allow change to go ahead till documentation
+has been written and approved.
+
+-- ds.image: You Need A Process To Keep Documentation Up To Date
+src: $assets.files.images.blog.process.png
+width: fill
+
+A team can use continuous documentation workflow by installing [FifthTry’s
+Github App](/) on their code repository, and the app will stop blocking a pull
+request till documentation has been updated and approved by someone.
+

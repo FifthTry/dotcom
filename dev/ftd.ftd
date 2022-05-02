@@ -1,5 +1,6 @@
 -- ds.page-with-toc: `ftd`
-toc: $config.development
+toc: $config.dev-overview
+sub-sections: $config.dev-section
 
 
 We use [ftd_django](https://fifthtry.github.io/python.ftd.dev/django/template-backend/)

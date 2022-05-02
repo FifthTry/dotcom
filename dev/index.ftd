@@ -1,5 +1,6 @@
 -- ds.page-with-toc: Developing `cdoc`
-toc: $config.development
+toc: $config.dev-overview
+sub-sections: $config.dev-section
 
 This app is deployed on `cdoc.fifthtry.com` using Heroku.
 

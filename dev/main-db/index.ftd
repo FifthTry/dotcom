@@ -1,0 +1,11 @@
+-- ds.page-with-toc: `main-db`
+toc: $config.db
+sub-sections: $config.dev-section
+
+We use `PostgreSQL` as our `main-db`. Currently this is the only database we
+have.
+
+This database is managed via `Django`, we use Django's DB migration feature to
+update the database.
+
+On prod we have our `main-db` is managed by Heroku.

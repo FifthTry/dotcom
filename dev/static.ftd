@@ -1,5 +1,6 @@
 -- ds.page-with-toc: Using `ftd_django.static()`
-toc: $config.development
+toc: $config.dev-overview
+sub-sections: $config.dev-section
 
 We use [`ftd_django.static()`](https://fifthtry.github.io/python.ftd.dev/django/static/).
 

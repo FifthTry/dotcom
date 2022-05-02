@@ -20,6 +20,15 @@ $processor$: toc
 - Development: dev/
 - Github: https://github.com/fifthtry/cdoc/
 
+-- fpm.toc-item list blog-toc:
+$processor$: toc
+
+- Introducing `cDoc`: Continuous Documentation
+  url: blog/cdoc/
+- Lack Of Documentation Is Costing You: blog/cost/
+- Does Writing Documentation Slow You Down?: blog/slow/
+
+
 -- ds.toc:
 $processor$: toc
 
@@ -43,27 +52,40 @@ $processor$: toc
 - product
 - self hosting
 
--- fpm.toc-item list development:
+-- fpm.toc-item list dev-section:
+$processor$: toc
+
+- Overview: dev/
+- Databases: dev/databases/
+
+-- fpm.toc-item list dev-overview:
 $processor$: toc
 
 - Overview: dev/
 - FTD Templates: dev/ftd/
 - Using `ftd_django.static()`: dev/static/
-- Data Models: dev/models/
-  - App Models: dev/models/app/
-    - GithubUser Model: dev/models/app/githubuser/
-    - GithubUserAccessToken Model: dev/models/app/githubuseraccesstoken/
-    - GithubUserRefreshToken Model: dev/models/app/githubuserrefreshtoken/
-    - GithubAppInstallation Model: dev/models/app/githubappinstallation/
-    - GithubAppUser Model: dev/models/app/githubappuser/
-    - GithubInstallationToken Model: dev/models/app/githubinstallationtoken/
-    - GithubRepository Model: dev/models/app/githubrepository/
-    - GithubRepoMap Model: dev/models/app/githubrepomap/
-    - GithubPullRequest Model: dev/models/app/githubpullreques/
-    - MonitoredPullRequest Model: dev/models/app/monitoredpullreques/
-    - PrApproval Model: dev/models/app/prapproval/
-    - GithubCheckRun Model: dev/models/app/githubcheckrun/
-    - GithubLoginState Model: dev/models/app/githubloginstate/
+- Decorators: dev/decorators/
+- Activity Framework: dev/activity/
+- Tracker Framework: dev/tracker/
+- Visit Framework: dev/visit/
+
+-- fpm.toc-item list db:
+$processor$: toc
+
+- Main Database: dev/main-db/
+  - GithubUser Table: dev/main-db/githubuser/
+  - GithubUserAccessToken Table: dev/main-db/githubuseraccesstoken/
+  - GithubUserRefreshToken Table: dev/main-db/githubuserrefreshtoken/
+  - GithubAppInstallation Table: dev/main-db/githubappinstallation/
+  - GithubAppUser Table: dev/main-db/githubappuser/
+  - GithubInstallationToken Table: dev/main-db/githubinstallationtoken/
+  - GithubRepository Table: dev/main-db/githubrepository/
+  - GithubRepoMap Table: dev/main-db/githubrepomap/
+  - GithubPullRequest Table: dev/main-db/githubpullreques/
+  - MonitoredPullRequest Table: dev/main-db/monitoredpullreques/
+  - PrApproval Table: dev/main-db/prapproval/
+  - GithubCheckRun Table: dev/main-db/githubcheckrun/
+  - GithubLoginState Table: dev/main-db/githubloginstate/
 
 -- fpm.toc-item list why-toc:
 $processor$: toc
@@ -87,7 +109,7 @@ $processor$: toc
 $processor$: toc
 
 - Overview: product/
-- 🚧 Feature & Journies: product/features/
+- 🚧 Features & Journies: product/features/
 - Pages, Actions and APIs: product/sitemap/
 
 

@@ -1,0 +1,63 @@
+-- ds.page-with-toc: Activity Framework
+toc: $config.dev-overview
+sub-sections: $config.dev-section
+
+We use `activity table` to capture interesting events on server side. These
+events are captured to power our primary analytics needs.
+
+-- ds.h1: What is an activity?
+
+Activity is something done by an end user. It can also be things done on behalf
+of end user via other systems, eg there if a PR is created on Github, it is an
+activity done by an end user, and we come to know about the PR event when Github
+notifies us via a webhook.
+
+Activity is also created for offline activity done by a task. Tasks are also
+created by end users, indirectly.
+
+Ideally we want to preserve a one to one mapping between one activity done by
+the end user and one row inserted in our activity table.
+
+-- ds.h1: `okind`, `oid`, `ekind`
+
+We identify acitivities by `okind`/`ekind` pair. Each activity is assumed to
+have happened on an object, eg `user` is an object, or `pull request`, `github
+repo`, `github account`, `github app installation` etc are objects.
+
+`okind` represents the name of the object on which the activity happened. `oid`
+represents unique ID of that object, and `ekind` represents the actual event
+that happened.
+
+The `okind`s that we know of right now are:
+
+-- ds.code: `analytics.events.OKind`
+lang: py
+
+class OKind(Enum):
+    USER = "USER"
+    PULL_REQUEST = "PULL_REQUEST"
+    REPOSITORY = "REPOSITORY"
+    ORGANIZATION = "ORGANIZATION"
+    INSTALLATION = "INSTALLATION"
+    VISIT = "VISIT"
+
+-- ds.markdown:
+
+The `ekind`'s that we know of right now are:
+
+-- ds.code: `analytics.events.EKind`
+lang: py
+
+class EKind(Enum):
+    GET = "GET"
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    LOGIN = "LOGIN"
+    GITHUB_HANDOVER = "GITHUB_HANDOVER"
+    CONNECT = "CONNECT"
+    DISCONNECT = "DISCONNECT"
+
+-- ds.markdown:
+
+We will soon refactor this class, and create a unique class for each OKind which
+has events only applicable for that OKind.

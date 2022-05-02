@@ -1,0 +1,59 @@
+-- ds.page-with-toc: Does Writing Documentation Slow You Down?
+toc: $config.blog-toc
+
+2nd May 2022
+
+So documentation is important. And developers do understand the importance of
+the documentation. So why do developers not write documentation? Is this
+because writing documentation is extra work, and this extra work slows you down?
+
+In some situations, yes, you are in a hurry to bring a system backup, or you
+have a very strong deadline, you can save some time by ignoring processes. All
+processes can slow you down, and judiciously avoiding processes gives high
+performing team their edge over large enterprises who tend to be slaves to
+processes to a fault.
+
+But like removing breaks doesn’t make your car go faster, or removing stopping
+traffic lights doesn’t make the traffic flow faster, removing processes doesn’t
+really make the software delivery faster. Temporarily yes, but in the medium to
+long run, it slows things down.
+
+-- ds.image: Traffic Lights Slow Traffic Down?
+src: $assets.files.images.blog.traffic.jpg
+width: fill
+
+[Image Credit: Unspash](https://unsplash.com/photos/omRFB9rakQo)
+
+We went through the same discussions with continuous integration, or test driven
+development. Now sure, not all software teams may be “test driven”, in the sense
+they write tests before they write code, but most software teams consider using
+some form of continuous testing a good practice and have adopted it. Even for
+new projects, if they do not have decent automated tests, adding it soon is on
+most team’s roadmap.
+
+Tests too slow things down. Oftentimes a good test suite is almost as many lines
+of code as the feature itself, often more. Every time someone has to refactor
+code, they have to refactor or adjust tests as well. Every time the behaviour
+of a piece of code changes, the tests have to be updated as well.
+
+It may feel like tests are slowing things down. But the reason teams continue
+with tests, increase test coverage etc despite all this is because the
+confidence you get that everything is still working after you have made some
+change, and it can go to production, allows you to actually move faster, instead
+of pussyfooting around with every change.
+
+Like tests give you confidence that you are not breaking the system, after you
+have made a change, an up to date documentation of your product, technology
+gives you confidence when you are about to make a change.
+
+Good document can start helping even in the requirement step. If you understand
+the current behaviour of the product, deciding to evolve it and add new
+behaviour becomes easier. Without a good way to understand how current
+functionality works, changing it to incorporate a customer request requires
+either wading through the product, or speaking with people who understand how
+the current product works.
+
+What do you think? Do you like working on software that has good documentation?
+Or do you think its a luxury or a crutch, and diving into code is the right way
+to go for most people?
+

@@ -268,16 +268,25 @@ white-space: nowrap
 padding-vertical: 10
 padding-right: 8
 role: $font.cta
-link: /pricing/
+link: blog/cdoc/
 
---- ftd.text: $pricing
+/--- ftd.text: $pricing
 /if: $on-pricing
 color: $font.cta_primary_active
 white-space: nowrap
 padding-vertical: 10
 padding-right: $fpm.space.space-1
 role: $font.cta
-link: /pricing/
+link: pricing/
+
+--- ftd.text: Docs
+/if: $on-pricing
+color: $font.cta_primary_active
+white-space: nowrap
+padding-vertical: 10
+padding-right: $fpm.space.space-1
+role: $font.cta
+link: cdoc/
 
 --- ftd.row:
 width: fill
