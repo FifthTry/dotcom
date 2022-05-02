@@ -1,0 +1,11 @@
+-- ds.page-with-toc: Visit Framework
+toc: $config.dev-overview
+sub-sections: $config.dev-section
+
+Every time a [tracker](dev/tracker/) comes back to `cdoc` after an idle time of
+30mins, it is considered a `visit`.
+
+-- ds:h1: `vid`
+
+A visit is identified by a guid, `vid`. `vid` is stored in
+[`activity table`](dev/main-db/activity/).

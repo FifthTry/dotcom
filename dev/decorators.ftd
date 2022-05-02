@@ -1,0 +1,24 @@
+-- ds.page-with-toc: Decorators
+toc: $config.dev-overview
+sub-sections: $config.dev-section
+
+At `cDoc` we use a few [Python decorators](https://www.geeksforgeeks.org/decorators-in-python/).
+
+-- ds.h1: `analytics.decorators.log_http_event`
+
+This is a view decorator and should only be applied on a Django View.
+
+-- ds.code:
+lang: py
+
+@log_http_event(oid=1, okind_ekind=get_okind_ekind)
+def view(request, *args, **kwargs):
+    pass
+
+-- ds.markdown:
+
+This decorator is a quick hack and we will soon refactor it to accept parameters
+from `request` object instead of hardcoding like this.
+
+
+

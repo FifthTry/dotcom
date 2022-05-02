@@ -1,0 +1,6 @@
+-- ds.page-with-toc: Tracker Framework
+toc: $config.dev-overview
+sub-sections: $config.dev-section
+
+Every browser is given a unique id `tid` to track that unique browser. Tracker
+is logged with all [activities](dev/activity/).

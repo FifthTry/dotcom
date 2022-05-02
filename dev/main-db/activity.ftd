@@ -1,0 +1,146 @@
+-- ds.page-with-toc: `Activity Table`
+toc: $config.db
+sub-sections: $config.dev-section
+
+`Activity Table` is part of [activity framework](dev/activity-framework/) for
+capture product analytics from our server.
+
+-- ds.h1: Schema
+
+-- ds.code: Activity Model
+lang: py
+
+class Activity(models.Model):
+    url = models.TextField(default="")
+    method = models.TextField(default="")
+    ua = models.TextField(default="")
+    ip = models.TextField(max_length=39)
+
+    okind = models.TextField()
+    oid = models.TextField()
+    ekind = models.TextField()
+    data = models.JSONField(default=dict)
+
+    uid = models.TextField(null=True)
+    sid = models.TextField(null=True)
+    vid = models.TextField(default="")
+    vid_created = models.BooleanField(default=False)
+    tid = models.TextField(default="")
+    tid_created = models.BooleanField(default=False)
+
+    when = models.DateTimeField(auto_now_add=True)
+    # Time in nano seconds
+    duration = models.IntegerField(default=-1)
+
+    response = models.JSONField(default=dict)
+    outcome = models.TextField(default="")  # HTTP Success
+    code = models.TextField(default="")
+
+    trace = models.JSONField(default=dict)
+    hash = models.TextField(default="")
+    rust_trace = models.TextField(null=True)
+
+    utm_source = models.TextField(null=True)
+    utm_medium = models.TextField(null=True)
+    utm_campaign = models.TextField(null=True)
+    utm_term = models.TextField(null=True)
+    utm_content = models.TextField(null=True)
+
+    site_version = models.TextField()
+
+
+-- ds.h2: `url`
+
+This is the URL of the request. If the activity is created out of the http
+request response cycle, the URL should be constructed to represent something
+meaningful. Such URLs can of this format: `__underscore__`.
+
+
+-- ds.h2: `method`
+
+The HTTP Method used for this activity. In case this is not a HTTP created
+activity a suitable method should be chosen.
+
+-- ds.h2: `ua`
+
+The useragent that was used to create this Activity. In case of web request it
+should be the UserAgent header. For a request that comes from known clients, eg
+if we have an app tomorrow, or some CLI, this should represent the client, and
+the version of the client.
+
+In case of backend task, eg cron etc, this should be the script that caused the
+activity, and version of the script.
+
+-- ds.h2: `ip`
+
+The IP address where the activity came from.
+
+-- ds.h2: `okind`, `oid`, `ekind`, `data`
+
+Unique identifier for the object this activity represents, and the event, and
+the event related data.
+
+The `data` must not contain user confidential information like credit card number
+or password etc.
+
+
+-- ds.h2: `uid`
+
+The id of the user who triggered this activity.
+
+-- ds.h2: `vid` and `vid_created`
+
+The visit ID for this activity. Checkout [`visit framework`](dev/visits/) to
+understand visits.
+
+-- ds.h2: `tid`, and `tid_created`
+
+The tracker ID for this activity. Checkout [`tracker framework`](dev/tracker/)
+to understand trackers.
+
+-- ds.h2: `when`
+
+This is when the activity happened.
+
+-- ds.h2: `duration`
+
+This is the time it took for us to handle the request that this activity occured
+on. In case of http request it will be time to serve the request, for cronjob
+and background tasks, it will be time to handle that specific task.
+
+-- ds.h2: `response`
+
+In debugging mode, or for trouble shooting we may go in special mode and start
+recording response in this column.
+
+-- ds.h2: `outcome`
+
+This is "success", "failure" or some logical thing.
+
+-- ds.h2: `code`
+
+This is a specific code and more uniquely identifies the specific `outcome`.
+
+-- ds.h2: `trace`
+
+TODO: will document this soon.
+
+-- ds.h2: `hash`
+
+TODO: will document this soon.
+
+-- ds.h2: `rust_trace`
+
+This will be renamed soon.
+
+TODO: will document this soon.
+
+-- ds.h2: `utm_*`
+
+These are the utm parameters used for [tracking marketing
+activities](https://blog.hootsuite.com/how-to-use-utm-parameters/).
+
+-- ds.h2: `site_version`
+
+This is the version of our site that created the activity. It will mostly be the
+git commit hash of the deployment.
