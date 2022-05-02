@@ -62,6 +62,7 @@ using what we call *Continuous Documentation*.
 
 
 -- lib.footer:
+footer-nav: $config.footer-nav
 copyright: © 2022 FifthTry. All rights reserved
 
 

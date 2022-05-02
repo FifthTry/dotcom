@@ -1336,6 +1336,7 @@ optional ftd.color footer-bg: $fpm.color.glass.background.base
 optional ftd.image-src group-logo: $assets.files.assets.images.group.png
 optional ftd.image-src backed-logo: $assets.files.assets.images.backed-by.png
 optional ftd.image-src fill-logo: $assets.files.assets.images.logo-ycom-dark.svg
+fpm.toc-item list footer-nav: $config.footer-nav
 optional string copyright:
 background-color: $footer-bg
 width: fill
@@ -1350,6 +1351,7 @@ backed-logo: $backed-logo
 fill-logo: $fill-logo
 footer-bg: $footer-bg
 copyright: $copyright
+footer-nav: $footer-nav
 
 
 --- footer-mobile:
@@ -1360,6 +1362,7 @@ fill-logo: $fill-logo
 logo: $logo
 footer-bg: $footer-bg
 copyright: $copyright
+footer-nav: $footer-nav
 
 
 
@@ -1369,6 +1372,7 @@ optional ftd.color footer-bg:
 optional ftd.image-src group-logo: 
 optional ftd.image-src backed-logo: 
 optional ftd.image-src fill-logo:
+fpm.toc-item list footer-nav: 
 optional string copyright:
 padding-horizontal: 48
 background-color: $footer-bg
@@ -1419,16 +1423,21 @@ width: auto
 --- container: footer-container
 
 --- ftd.column:
-align: center
 
---- ftd.row:
+--- footer-section-right:
+footer-nav: $footer-nav
+
+--- ftd.column:
+align: center
+margin-top: 16
 
 --- ftd.text:
 text: $copyright
 text-align: right
 role: $font.footer-font
-color: $fpm.color.main.text
+color: $fpm.color.main.text-strong
 white-space: nowrap
+
 
 
 
@@ -1454,6 +1463,7 @@ optional ftd.image-src fill-logo:
 optional ftd.image-src logo:
 optional ftd.color footer-bg:
 optional string copyright:
+fpm.toc-item list footer-nav: 
 padding-horizontal: 48
 background-color: $footer-bg
 width: fill
@@ -1534,12 +1544,13 @@ color: $fpm.color.main.text
 
 
 -- ftd.row footer-section-right:
-fpm.toc-item list nav-list:
-padding-vertical: 30
+fpm.toc-item list footer-nav:
 spacing: 32
 
+
+
 --- footer-nav-items: $obj.title
-$loop$: $nav-list as $obj
+$loop$: $footer-nav as $obj
 children: $obj.children
 link: $obj.url
 
@@ -1548,11 +1559,11 @@ link: $obj.url
 
 
 -- ftd.column footer-section:
-fpm.toc-item list nav-list:
+fpm.toc-item list footer-nav:
 spacing: 16
 
 --- footer-nav-items: $obj.title
-$loop$: $nav-list as $obj
+$loop$: $footer-nav as $obj
 children: $obj.children
 link: $obj.url
 
@@ -1565,12 +1576,19 @@ optional string link:
 fpm.toc-item list children:
 ftd.color text-color: $fpm.color.glass.text-strong
 
+
+
+
 --- ftd.row:
-align: center
+width: fill
+border-left: 3
+padding-left: $fpm.space.space-5
+margin-left: $fpm.space.space-5
+border-color: $fpm.color.main.border-strong
+
 
 --- ftd.text: $title
 if: $link is not null
-role: $fpm.type.label-big
 link: $link
 color: $text-color
 white-space: nowrap

@@ -120,12 +120,10 @@ $processor$: toc
 -- fpm.toc-item list footer-nav:
 $processor$: toc
 
-- Terms of Use: /Terms of Use/
-- Privacy Policy: /Privacy Policy/
-- News: /News/
-- Team: /Team/
-- Team: /Team/
 
+- About Us: /About Us/
+- Terms of Use : /Terms of Use /
+- Privacy Policy: /Privacy Policy/
 
 
 
