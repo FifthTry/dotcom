@@ -81,7 +81,7 @@ $processor$: toc
   - GithubInstallationToken Table: dev/main-db/githubinstallationtoken/
   - GithubRepository Table: dev/main-db/githubrepository/
   - GithubRepoMap Table: dev/main-db/githubrepomap/
-  - GithubPullRequest Table: dev/main-db/githubpullreques/
+  - GithubPullRequest Table: dev/main-db/githubpullrequest/
   - MonitoredPullRequest Table: dev/main-db/monitoredpullreques/
   - PrApproval Table: dev/main-db/prapproval/
   - GithubCheckRun Table: dev/main-db/githubcheckrun/
