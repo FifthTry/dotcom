@@ -215,16 +215,6 @@ src: $site-logo
 height: fill
 width: fill
 
---- container: left-header
-
---- ftd.row:
-width: fill
-border-left: 1
-padding-left: $fpm.space.space-5
-margin-left: $fpm.space.space-5
-border-color: $fpm.color.main.border
-
---- fbs.fifthtry-brand-switcher:
 
 --- container: ftd.main
 
@@ -1031,8 +1021,8 @@ overflow-y: auto
 width: 0
 width if $sidebar-open: percent 75
 align: top-left
-padding-left: 10
-padding-top: 15
+padding-left: 32
+padding-top: 32
 padding-right: 20
 padding-bottom: 40
 border-right: 1
@@ -1048,6 +1038,11 @@ shadow-blur: 10
 z-index: 1000
 padding-vertical: 48
 id: sidemenu
+
+
+
+
+--- fbs.fifthtry-brand-switcher:
 
 --- ftd.column:
 width: fill
