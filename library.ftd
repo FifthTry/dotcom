@@ -1460,6 +1460,139 @@ role: $font.copy-relaxed
 
 
 
+-- ftd.row info:
+caption right-title:
+caption left-title:
+optional ftd.image-src right-logo:
+optional ftd.image-src left-logo:
+string left-body:
+string right-body:
+
+
+
+--- info-desktop:
+if: not $config.is-mobile
+right-title: $right-title
+left-title: $left-title
+right-logo: $right-logo
+left-logo: $left-logo
+left-body: $left-body
+right-body: $right-body
+
+
+
+--- info-mobile:
+if:$config.is-mobile
+right-title: $right-title
+left-title: $left-title
+right-logo: $right-logo
+left-logo: $left-logo
+left-body: $left-body
+right-body: $right-body
+
+
+
+-- ftd.row info-desktop:
+caption right-title:
+caption left-title:
+optional ftd.image-src right-logo:
+optional ftd.image-src left-logo:
+string left-body:
+string right-body:
+padding-horizontal: 64
+padding-vertical : 64
+width: fill
+spacing: 64
+
+
+--- ftd.row:
+width: fill
+
+--- info-card: $left-title
+sites-logo: $left-logo
+body: $left-body
+
+--- container: ftd.main
+
+
+--- ftd.row:
+width: fill
+
+--- info-card: $right-title
+body: $right-body
+sites-logo: $right-logo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column info-mobile:
+caption right-title:
+caption left-title:
+optional ftd.image-src right-logo:
+optional ftd.image-src left-logo:
+string left-body:
+string right-body:
+padding-horizontal: 64
+padding-vertical : 64
+width: fill
+spacing: 64
+
+
+--- ftd.row:
+width: fill
+
+--- info-card: $left-title
+sites-logo: $left-logo
+body: $left-body
+
+--- container: ftd.main
+
+
+--- ftd.row:
+width: fill
+
+--- info-card: $right-title
+body: $right-body
+sites-logo: $right-logo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- ftd.column footer:
@@ -1741,12 +1874,12 @@ optional string link:
 fpm.toc-item list children:
 ftd.color text-color: $fpm.color.glass.text-strong
 
---- ftd.row:
+/--- ftd.row:
 width: fill
 border-left: 3
 padding-left: $fpm.space.space-5
 margin-left: $fpm.space.space-5
-border-color: $fpm.color.main.border-strong
+border-color: $fpm.color.main.
 
 --- ftd.text: $title
 if: $link is not null
@@ -2290,3 +2423,36 @@ border-width: 0
 
 
 
+
+
+
+-- ftd.row info-card:
+caption title:
+body body: 
+padding-horizontal: 32
+padding-vertical: 32
+optional ftd.image-src sites-logo:
+optional ftd.color bg-color: $fpm.color.main.background.step-1
+background-color: $bg-color
+spacing: 32
+border-radius: 8
+
+--- ftd.column:
+width: fill
+
+--- ftd.text: $title
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text-strong
+margin- bottom: 16
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+
+--- container: ftd.main
+
+--- ftd.image:
+src: $sites-logo
+width: 81
+height: auto

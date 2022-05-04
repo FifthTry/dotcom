@@ -1,6 +1,20 @@
 -- import: fifthtry.com/library as lib
 
 
+-- string left-content:
+Our suite of products are open source and available on Github. You are free to download install and customize them to your needs.
+
+
+We’d love to hear your feedback and suggestions, and collectively make Documentation easier and better for everyone 
+
+
+
+-- string right-content:
+US-based early-stage startup accelerator programme Y Combinator finalised 16 Indian startups that got selected for its winter batch of 2021, scheduled between January and March.
+
+
+FifthTry was one of those 16.
+
 
 -- lib.list-tc: Poor Documentation is Costing you
 index: 1
@@ -58,6 +72,14 @@ list-title-copy: $lib.list-tc
 FifthTry helps you solve out of date and incomplete documentation problem by
 using what we call *Continuous Documentation*.
 
+
+-- lib.info:
+left-title: FifthTry is Open Source
+right-title: YC  Winter Batch  ‘21
+left-logo: $assets.files.assets.images.logo-osi-square.png
+right-logo: $assets.files.assets.images.logo-ycom-square.png
+left-body: $left-content
+right-body: $right-content
 
 
 
