@@ -3,6 +3,91 @@
 -- import: fifthtry.com/custom-types as font
 -- import: fpm
 
+-- integer plan-selected: 1
+-- integer pricing-hover: $plan-selected
+
+
+-- string list about-list-one:
+
+-- about-list-one: Upto 20 PRs per month
+
+-- string list about-list-two:
+
+-- about-list-two: Upto 100 PRs per month
+
+
+-- string list about-list-three:
+
+-- about-list-three: Upto 500 PRs per month
+
+
+-- record plan-tc:
+caption title:
+body body:
+integer index:
+string organization-name: 
+string plan-name:
+string plan-sub-heading:
+string pricing-value:
+string days:
+string payment-mode:
+string list about-list-one:
+string cta-text:
+string owner-name:
+string next-step-info:
+
+-- plan-tc list plan-tc-list:
+
+
+-- plan-tc-list: Personal 
+index: 1
+organization-name: Continous Documentation (cDoc) by fifthtry
+plan-name: Personal 
+plan-sub-heading: scale plan help yout team
+pricing-value: \$ 0
+days: /month
+payment-mode: No Credit Card Required
+about-list-one: $about-list-one
+cta-text: Sign up
+owner-name: xyz
+next-step-info: confirm your installation and payment
+
+
+Once documentation PR is ready and approve and someone has verified code
+is exactly as per docs merge both code and doc PRs.
+
+-- plan-tc-list: Pro Plan
+index: 2
+organization-name: Continous Documentation (cDoc) by fifthtry
+plan-name: Pro Plan
+plan-sub-heading: scale plan help yout team
+pricing-value: \$ 0
+days: /month
+payment-mode: No Credit Card Required
+about-list-one: $about-list-one
+cta-text: Sign up
+owner-name: xyz
+next-step-info: confirm your installation and payment
+
+
+Once documentation PR is ready and approve and someone has verified code
+is exactly as per docs merge both code and doc PRs.
+
+-- plan-tc-list: Scale Plan
+index: 3
+organization-name: Continous Documentation (cDoc) by fifthtry
+plan-name: Scale Plan 
+plan-sub-heading: scale plan help yout team
+pricing-value: \$ 0
+days: /month
+payment-mode: No Credit Card Required
+about-list-one: $about-list-one
+cta-text: Sign up
+owner-name: xyz
+next-step-info: confirm your installation and payment
+
+Once documentation PR is ready and approve and someone has verified code
+is exactly as per docs merge both code and doc PRs.
 
 
 -- record tc:
@@ -44,18 +129,6 @@ our true-up model.
 
 
 
--- string list about-list-one:
-
--- about-list-one: Upto 20 PRs per month
-
--- string list about-list-two:
-
--- about-list-two: Upto 100 PRs per month
-
-
--- string list about-list-three:
-
--- about-list-three: Upto 500 PRs per month
 
 
 
@@ -91,6 +164,9 @@ voucher-title-name: Student Plan - free for students
 cta-text: Contact us
 cta-bg: $font.cta_secondary_base
 cta-color: $fpm.color.main.text-strong
+
+-- plan-info:
+plan-tc-list: $plan-tc-list
 
 
 -- lib.footer:
@@ -597,6 +673,252 @@ link: mailto:enterprise@fifthtry.com
 
 
 
+-- ftd.row plan-info:
+plan-tc list plan-tc-list:
+width: fill
+padding-horizontal: 48
+padding-vertical: 48
+spacing: 32
+optional ftd.color bg-color: $fpm.color.main.background.base
+background-color: $bg-color
+
+
+--- ftd.column:
+
+
+/--- title-list:
+plan-tc-list: $plan-tc-list
+
+--- plan-list-loop:
+pricing-value: $obj.pricing-value
+days: $obj.days
+title: $obj.title
+body: $obj.body
+index: $obj.index
+$loop$: $plan-tc-list as $obj
+
+
+--- container : ftd.main
+
+--- ftd.column:
+width: fill
+
+
+--- pricing-model:
+organization-name: $obj.organization-name
+plan-name: $obj.plan-name
+plan-sub-heading: $obj.plan-sub-heading
+pricing-value: $obj.pricing-value
+days: $obj.days
+payment-mode: $obj.payment-mode
+about-list-one: $obj.about-list-one
+owner-name: $obj.owner-name
+index: $obj.index
+cta-text: $obj.cta-text
+next-step-info: $obj.next-step-info
+$loop$: $plan-tc-list as $obj
+
+-- ftd.column title-list:
+plan-tc list plan-tc-list:
+id: title-row
+
+--- title-image: $obj.title
+body: $obj.body
+$loop$: $plan-tc-list as $obj
+index: $obj.index
+
+
+-- ftd.row title-image:
+caption title:
+integer index:
+body body:
+boolean mouse-in: false
+border-width: 3
+border-color if $MOUSE-IN: $font.cta_primary_base
+$on-click$: $plan-selected= $index
+$on-mouse-enter$: $mouse-in = true
+$on-mouse-leave$: $plan-selected= $index
+background-color: $fpm.color.main.background.base
+
+
+--- ftd.text: $title
+
+--- ftd.text: $body
 
 
 
+
+
+-- ftd.row plan-list-loop:
+caption title:
+body body:
+integer index:
+string pricing-value:
+string days:
+boolean mouse-in: false
+border-color if $MOUSE-IN: $font.cta_primary_base
+$on-click$: $plan-selected= $index
+$on-mouse-enter$: $mouse-in = true
+$on-mouse-leave$: $plan-selected= $index
+spacing: 8
+padding-vertical: 16
+padding-horizontal: 24
+border-radius: 8
+color: $fpm.color.main.text
+color if $MOUSE-IN:  $fpm.color.main.text-strong
+background-color if $MOUSE-IN: $fpm.color.main.accent.secondary
+width: fill
+
+--- ftd.column:
+width: fill
+
+--- ftd.text: $title
+role: $fpm.type.copy-large
+
+--- ftd.text: $body
+role: $fpm.type.copy-tight
+
+
+--- container: ftd.main
+
+--- ftd.row:
+
+
+--- ftd.text:$pricing-value
+role: $fpm.type.copy-large 
+white-space: nowrap
+
+--- ftd.text: $days
+white-space: nowrap
+
+
+
+
+
+
+-- ftd.column pricing-model:
+padding-vertical: 48
+padding-horizontal: 24
+if: $plan-selected == $index
+integer index:
+string organization-name: 
+string plan-name:
+string plan-sub-heading:
+string pricing-value:
+string days:
+string payment-mode:
+string list about-list-one:
+string cta-text:
+string owner-name:
+string next-step-info:
+boolean mouse-in: false
+border-bottom-radius: 8
+border-top:3
+border-color:$fpm.color.main.accent.secondary
+optional ftd.color bg-color: $fpm.color.main.background.step-1
+background-color: $bg-color
+shadow-offset-x: 0
+shadow-offset-y: 4
+shadow-size: 0
+shadow-blur: 4
+shadow-color: $fpm.color.main.background.step-1
+$on-mouse-enter$: $pricing-hover= $index
+$on-mouse-enter$: $mouse-in = true
+$on-mouse-leave$: $pricing-hover= $plan-selected
+color: $fpm.color.main.text
+spacing: 12
+width: fill
+
+--- ftd.row:
+width: fill
+id: plan-container
+
+--- ftd.column:
+width: fill
+spacing: 8
+
+--- ftd.text: $organization-name
+role: $fpm.type.copy-tight
+
+
+--- ftd.text: $plan-name
+role: $fpm.type.copy-large
+
+
+--- ftd.text: $plan-sub-heading
+role: $fpm.type.copy-relaxed
+
+--- container: plan-container
+
+--- ftd.column:
+
+
+--- ftd.image:
+width:81
+height: auto
+src: $assets.files.assets.images.logo-osi-square.png
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+border-top:1
+border-bottom: 1
+border-color: $fpm.color.main.background.step-2
+
+--- img-logo: $obj
+$loop$: $about-list-one as $obj
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+
+--- ftd.text: $pricing-value
+role: $font.heading-hero
+white-space: nowrap
+
+
+--- ftd.text: $days
+role: $font.list-title
+padding-vertical: 8
+white-space: nowrap
+
+--- container: ftd.main
+
+--- ftd.text: $owner-name
+
+--- ftd.row:
+width: fill
+spacing: 48
+id: button-container
+
+--- ftd.row:
+--- lib.github-button:
+link: https://cdoc.fifthtry.com/initiate-github-login/
+sign-in: $cta-text
+
+--- container: button-container
+--- ftd.row:
+width: fill
+--- ftd.text:
+text: $next-step-info
+
+
+
+
+
+
+
+-- ftd.row img-logo:
+caption title:
+padding-vertical: 8
+spacing: 8
+
+
+--- ftd.image:
+src: $assets.files.assets.images.Circle-Check.png
+
+--- ftd.text: $title
+role: $font.copy-relaxed-medium
+color: $fpm.color.main.text-strong

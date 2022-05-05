@@ -146,9 +146,9 @@ $processor$: toc
 $processor$: toc
 
 
-- About: /About Us/
-- Terms: /Terms of Use /
-- Privacy: /Privacy Policy/
+- About: https://github.com/FifthTry
+- Terms: /terms/
+- Privacy: /privacy/
 
 
 -- fpm.toc-item list main-mobile-nav:
