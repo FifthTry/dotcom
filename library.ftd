@@ -1497,6 +1497,13 @@ right-body: $right-body
 
 
 
+
+
+
+
+
+
+
 -- ftd.row info-desktop:
 caption right-title:
 caption left-title:
@@ -1536,15 +1543,6 @@ sites-logo: $right-logo
 
 
 
-
-
-
-
-
-
-
-
-
 -- ftd.column info-mobile:
 caption right-title:
 caption left-title:
@@ -1574,22 +1572,6 @@ width: fill
 --- info-card: $right-title
 body: $right-body
 sites-logo: $right-logo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1884,7 +1866,7 @@ width: fill
 border-left: 3
 padding-left: $fpm.space.space-5
 margin-left: $fpm.space.space-5
-border-color: $fpm.color.main.
+border-color: $fpm.color.main.text-strong
 
 --- ftd.text: $title
 if: $link is not null

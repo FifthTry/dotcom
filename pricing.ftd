@@ -165,7 +165,7 @@ cta-text: Contact us
 cta-bg: $font.cta_secondary_base
 cta-color: $fpm.color.main.text-strong
 
--- plan-info:
+/-- plan-info:
 plan-tc-list: $plan-tc-list
 
 
@@ -758,7 +758,8 @@ string days:
 boolean mouse-in: false
 border-color if $MOUSE-IN: $font.cta_primary_base
 $on-click$: $plan-selected= $index
-$on-mouse-enter$: $mouse-in = true
+/$on-mouse-enter$: $mouse-in = true
+$on-mouse-enter$: $pricing-hover = $index
 $on-mouse-leave$: $plan-selected= $index
 spacing: 8
 padding-vertical: 16
@@ -777,6 +778,7 @@ role: $fpm.type.copy-large
 
 --- ftd.text: $body
 role: $fpm.type.copy-tight
+
 
 
 --- container: ftd.main
@@ -799,6 +801,7 @@ white-space: nowrap
 -- ftd.column pricing-model:
 padding-vertical: 48
 padding-horizontal: 24
+if: $pricing-hover == $index
 if: $plan-selected == $index
 integer index:
 string organization-name: 
