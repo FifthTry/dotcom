@@ -1,0 +1,118 @@
+-- ds.page-with-toc: How to setup continuous documentation for your Github Repo
+toc: $config.blog-toc
+
+[Continuous Documentation](cdoc/), `cdoc` helps you keep your documentation up
+to date with your changing code by blocking pull requests from getting merged
+till documentation has been written and approved.
+
+Congratulations on taking a step towards better documentation for your team!
+**Improving documentation is the highest return on investment activity you can
+do to make you team more productive and happy!** [If you are trying to be remote
+company, documentation is one of most crucial factors in success as a remote
+company, if you belive Gitlab!](https://about.gitlab.com/company/culture/all-remote/management/#handbook-goals-and-documentation)
+
+In this post we will help you configure it for your repositories so you can
+start using it right away.
+
+`cdoc` can be used via FifthTry, a SAAS offering, or you can [download the open
+source `cdoc` source code and deploy it on your infrastructure from
+`github.com/FifthTry/cdoc`](https://github.com/FifthTry/cdoc). The easiest way
+to try out `cdoc` to see if it good for your team, is to use our SAAS offering,
+which is FREE, no credit card required till you have crossed a certain usage
+threshold. You can checkout [continuous documentation pricing page](pricing/)
+for more details.
+
+-- ds.youtube:
+id: fQzxmBMlGHk
+
+-- ds.h1: Head over to [`FifthTry.com`](index.html)
+
+In this video you saw how quickly you can set up Continuous Documentation by
+visiting [FifthTry.com](index.html) homepage, and clicking on the "Sign Up"
+button:
+
+-- ds.image: Click 1: Click On Signup On FifthTry.com
+src: $assets.files.images.blog.setup-1.png
+width: fill
+
+-- ds.h1: Install Continuous Documentation Github App
+
+This will take you to [Continuous Documentation Github App](https://github.com/apps/continuous-documentation)
+where you can click on the "Install" or "Configure" button.
+
+-- ds.image: Click 2: Install Our Github App
+src: $assets.files.images.blog.setup-2.png
+width: fill
+
+-- ds.image: Click 3: Select The Account You Want To Install It On
+src: $assets.files.images.blog.setup-3.png
+width: fill
+
+-- ds.h1: Grant Us Access To Your Repos
+
+Once installed you have to grant access to your Github repositories you want to
+use with Continuous Documentation.
+
+-- ds.image: Click 4: Grant Access - Preferably To "All Repositories"
+src: $assets.files.images.blog.setup-4.png
+width: fill
+
+Some people prefer giving access to all their repositories so repositories
+created in future are also available on FifthTry for you to use. Else in future
+you they have to go back to Github App and grant access to more repos. We
+respect your privacy, and [we will never share access to data you give to use
+with thirdparties, and we will take utmost precautions to keep them
+safe](privacy/).
+
+-- ds.h1: Connect Your Doc Repo With You Code Repo
+
+Once you grant us access, Github will redirect you to back to FifthTry.com,
+where you will find the repositories you have granted us access to.
+
+-- ds.image: You Are Back to FifthTry.com
+src: $assets.files.images.blog.setup-5.png
+width: fill
+
+The way continuous documentation, `cdoc`, works right now is by storing your
+code in one Github repository, and storing the documentation of that code in
+another Github repository. [Learn more about our doc in git workflow](blog/git/).
+
+You have to "connect" your code and doc repository next. You can locate your
+repository using search if you have too many repos:
+
+-- ds.image: Find Your Awesome Repo
+src: $assets.files.images.blog.setup-6.png
+width: fill
+
+Find every code repository on FifthTry you want to use `cdoc` on, and click on
+`Connect` button:
+
+-- ds.image: Click 5: Connect Your Code Repo with You Doc Repo
+src: $assets.files.images.blog.setup-7.png
+width: fill
+
+You will now have to chose if the repo you are trying to connect is code repo
+or a documentation repo:
+
+-- ds.image: Click 6: Chose If This Is Code Or Doc Repo
+src: $assets.files.images.blog.setup-8.png
+width: fill
+
+Once you have decided if its code or doc repo, you have to select among your
+other repos which is the corresponding doc or code repo. We currently only
+support one to one mapping between code and doc repo.
+
+
+-- ds.image: Click 7: Chose If Corresponding Repo
+src: $assets.files.images.blog.setup-9.png
+width: fill
+
+And that's it! You have activated `cdoc` on your repo.
+
+-- ds.image: You are all done!
+src: $assets.files.images.blog.setup-10.png
+width: fill
+
+Now any PR that gets created on that repo will be blocked till documentation
+has been written and approved. [Learn how to use the PR workflow on a day to day
+basis](blog/day-to-day/).

@@ -10,7 +10,26 @@
 light: $assets.files.assets.images.logo-fifthtry-dark.svg.light
 dark: $assets.files.assets.images.logo-fifthtry-dark.svg.dark
 
-/-- ds.site-name: FifthTry
+
+-- fpm.toc-item list about-section:
+$processor$: toc
+
+- About: about/
+- Legal: terms/
+
+-- fpm.toc-item list about-toc:
+$processor$: toc
+
+- About Us: about/
+- Contact Us: contact/
+- Help And Support: help/
+
+-- fpm.toc-item list legal-toc:
+$processor$: toc
+
+- Terms Of Use: terms/
+- Privacy Policy: privacy/
+
 
 -- ds.sections:
 $processor$: toc
@@ -20,11 +39,16 @@ $processor$: toc
 - Development: dev/
 - Github: https://github.com/fifthtry/cdoc/
 
+
 -- fpm.toc-item list blog-toc:
 $processor$: toc
 
 - Introducing `cDoc`: Continuous Documentation
   url: blog/cdoc/
+- Setup continuous documentation for your Github Repo in *under 2 mins!*
+  url: blog/setup/
+- Taste Of `cdoc` on Day To Day: blog/day-to-day/
+- Doc in Git™: blog/git/
 - Lack Of Documentation Is Costing You: blog/cost/
 - Does Writing Documentation Slow You Down?: blog/slow/
 

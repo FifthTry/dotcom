@@ -1,0 +1,181 @@
+-- ds.page-with-toc: Doc in Git™
+toc: $config.blog-toc
+
+For using continuous documentation effectively you have to store your
+documentation in `git`. In this blog post we will compare the documentation
+workflow used when storing documentaiton in Notion/Confluence/Google Docs vs the
+workflow when using Git.
+
+
+-- ds.h1: Requirement Document Workflow
+
+A typical way many product teams work is by creating requirement documents.
+Depending on companies, there may be one ore more requirement documents, they
+may have PRFAQ, A "One Pager", Business Requirement Document (BRD), Product
+Requirement Document (PRD), Engineering Requirement Document (ERD),
+["Shaped Up Document"](https://basecamp.com/shapeup) and so on.
+
+For each logical feature, requirement, ticket, whatever goes for development,
+there is a set of such documents. For a feature, there is set of requirement
+document, lets call them requirement document as a whole.
+
+Teams typically store these documents in Notion, Confluence, Google Docs and
+so on. They create a new requirement document for the feature or the product
+change / enhancement under consideration. This requirement document goes through
+some sort of review, approval, consensus building process, and once finalied and
+approved the requirement goes to engineering team for implementation.
+
+Engineering team then further enhances the requirement documents, with
+engineering considerations and those also go through a review / consensus
+process.
+
+In the end we have somehting that goes for engineering development. This
+describes the feature at high level. Includes wireframes or design mock of
+UI being created or updated. It will include the workflow, what happens when
+someone interacts with the UI, what notifications are triggered, what
+validations are performed. In some teams engineering decisions would also be
+included, what APIs to create or update, what database tables we are going to
+create or update, if a new microservice is going to be created, if the
+deployement instructions for the microservice is going to change. It might even
+include what kind of analytics reports are to be created, how to monitor the
+services if new services are created.
+
+All in all this single or set of document can get really comprehensive for teams
+who take documentation seriously.
+
+-- ds.h2: Problem With This Approach: Series Of Diffs
+
+So if a team is consistently creating comprehensive documentation following all
+the good practices, what is goes wrong?
+
+To understand the problem, you should look at the requirement document as a
+"diff" or a "patch" on your product. You have an existing version of live
+product, you create and give the `diff` to your engineering team, and they
+"apply" it and you have a new version of the product.
+
+So far so good, now what happens to those requirement documents once the feature
+is live? Can someone go through those documents after 6 months, and understand
+your current product? Of course not, you did not go through this "diff"/"apply"
+phase just once, you must have a lot of similar cycles play out.
+
+Imagine if the goal of the documentation was for someone to understand how your
+product works. Of course, one can understand how the product works by going
+through the product. But that's tedious. There are too many roles and journeys
+and edge cases. Product is the most accurate documentation of the product,
+followed closely by the source code. But if your goal is to understand how your
+product works, going through the live product or source code is really
+ineffecient, time consuming, and prone to human errors. There may be strong
+invariants and philosophies of your products that people may not deduce from
+just reading the code or interacting the product.
+
+Everyone tells you documentation is important, not just because it is important
+while a feature is being developed, but also because of the hope that after the
+feature is developed and someone new joins, or you have forgotten how precisely
+the feature works after a few months, you do not have to waste time reverse
+engineering your product or code to understand how feature works, that you do
+not have bring everyone who implemented the feature in same room and have a zoom
+call to rely on their memory of how things are, which is both error prone, and
+time consuming, and primary reason teams get stuck, too many meetings!
+
+There are other problems with documentation when following this workflow. In
+many cases the documentation would talk about both things that may happen in
+long run, and things that have been identified as minimal items to be
+implemented. The demarcation of what is long term vision vs what is to go for
+immediate development may not be obvious from reading the documentation. Sure
+someone may have created a section for whats really to go live, what can wait,
+but it may be inaccurate. Further, even after things go for development, and
+the release is getting delayed the cut down scope is often again cut down. And
+often this second cut down scope would only be communicated in war rooms and
+Jira tickets, and the original document would not be updated. Some could do it
+with utmost care, sure, but history teaches us humans are prone to error despite
+best intentions.
+
+So let's empathise with the poor chap or chappie for a moment, they have to go
+through the documentaiton to understand how things are, they have to mentally
+"merge" all the "released" requirement documents, somehow keep track of what of
+this is released and what is still planned, or was planned but we have changed
+out mind about it. No wonder people feel like reaching out to others on zoom
+calls instead of going through this process, it's just not humanly possible to
+get accurate picture based on documentation following this workflow.
+
+A document that is 10% in-accurate without knowing which 10% is almost useless
+because the reader has to suspect every bit, double check everything, will end
+up having very low confidence to whatever they deduced based on their reading,
+and will feel like talking to others, or trying things out. And if that is the
+alternative, why bother with documentation?
+
+And this is what so many teams do today. They will put the documentation of the
+feature in a Jira ticket! No one goes through Jira tickets that are closed,
+unless investigating some major issue, not to understand how your system works.
+People are often just resigned to "documentation is useless", or "what's the
+point of writing documentation, no one reads them any way!" etc.
+
+-- ds.h1: How Git Based Workflow Works And How It Solves This Problem
+
+When a developer joins a team, and has to go through the code base, they do not
+go through past PRs. They may, for getting clarity on some points, after all
+code is not "self documenting" as much as we like them to be. But still, the
+code went through the exact same process, there was a whole, the main branch,
+and then there were a series of diffs, each Pull Request, and once a Pull
+Request is merged, the main is updated, and everyone just keeps track of the
+main, and only looks at PR for some clarifications.
+
+This is in stark contrast with the documentation workflow with Notion/Confluence
+described above, they do not have a concept of a "pull request", so instead of
+modifying existing documents but in an isolated space (a branch), a new document
+is created.
+
+What is clearly a pull request and main, is merged into a single entity,
+document, in those systems.
+
+-- ds.h1: How Product Requirement Would Work If Stored In Git
+
+If we agree that creating a new document, instead of updating existing documents,
+and no, we can not just update existing ones, we have to create like an isolated
+copy of existing ones, and modify them, and keep it such that anyone can enter
+that isolated space and see all the documents that have been modified, and have
+some sort of "merge" mechanism that changes in that isolated space gets merged
+with the "upstream", common space, where everyone is looking at, that this is
+ineed a superior workflow, then we can quickly realise this is Git, and we should
+put our documentation in Git instead of in Notion/Confluence/Google Docs etc.
+
+For this to work you should follow some sort of documentation framework, some
+way to organise your documentation because this is going to be the common space
+where everyone will be referring to, it should be written with mutliple readers
+in mind, be well organised. You can start with something simple, and depending
+on the complexity of your product you can go for a more elaborate system. We
+at FifthTry maintain a [documentation framework](///df.fifthtry.com) that you
+can borrow from.
+
+You should pick some sort of static site generator, [there are more than 300
+available just in Open Source world](https://jamstack.org/generators/), we at
+[FifthTry also has our own static site generator](///fpm.dev), pick one of them,
+pick the documentation framework, and document the current state of the product.
+
+-- ds.h2: Incremental Documentation
+
+One might read this advice and feel overwhelmed, how can someone document their
+entire product in one go? Haven't you been in business for years, isn't there an
+enormous amount of work to be documented? Who will do it? This will surely fail,
+what are you talking about?
+
+This is where [continuous documentation](blog/cdoc/) comes in. The idea is to
+pick the documentation framework, and your static site generator, set things up,
+write some minimal skeletal document, document one or two pages, one or two
+communications, one or two microservices etc, and then call it a day. You do not
+have to document the whole thing in one go.
+
+Once continuous documentation is in place, for every new PR, every new code
+change, just go ahead and document the current behaviour that the code is trying
+to modify, and put merge this it in your main branch. And then create a PR which
+modifies the newly added current behaviour and makes it how it should be after
+the feature is implemented.
+
+By following this incremental documentation approach, and adopting continuous
+documentation, you will slowly get your documentation get more comprehensive.
+
+With traditional approaches, documentation starts out right, comprehensive and
+rots with time. With the approach described here your documentation will start
+out light, and with time it will grow more accurate and comprehensive.
+
+And there you go! You have on your hands a documentation nirvana playbook.

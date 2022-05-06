@@ -73,3 +73,8 @@ A team can use continuous documentation workflow by installing [FifthTry’s
 Github App](/) on their code repository, and the app will stop blocking a pull
 request till documentation has been updated and approved by someone.
 
+If you like this, check out our guide on [how to setup continuous documentation
+for your Github Repos](blog/setup/)! You can do it in under 2 minutes!
+
+PS: Gitlab and Bitbucket support is on our roadmap.
+

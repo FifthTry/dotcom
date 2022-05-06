@@ -1,0 +1,6 @@
+-- ds.page-with-toc: About Us
+toc: $config.about-toc
+sub-sections: $config.about-section
+
+FifthTry is the documentation platform that helps organisations maximise the
+software development effeciency.

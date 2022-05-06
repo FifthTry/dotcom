@@ -1,0 +1,201 @@
+-- ds.page-with-toc: Taste Of `cdoc` on Day To Day
+toc: $config.blog-toc
+
+Yo Hello There! So you have [understood why continuous documentation is right
+thing to improve your team's happiness](blog/cdoc/), and you have already [set
+it for your repositories](blog/setup/), and are now *eager to start using it*.
+You are in the right place!
+
+-- ds.youtube:
+id: aFMfnjauZRc
+
+
+-- ds.h1: `cdoc` is About Blocking Your PR
+
+Once `cdoc` is activated on your repo, all pull requests in that repo would have
+`cdoc` [Github Check](https://docs.github.com/en/rest/checks) installed, which
+will show all Pull Requests in broken state.
+
+-- ds.image: Now All Your PRs Will Be Blocked Till Documentation Is Done
+src: $assets.files.images.blog.process.png
+width: fill
+
+This allows you to make documentation part of your process, as _without process
+things do not happen and keep happening reliably over time when humans are
+involved_.
+
+So every PR is blocked now. How do we unblock it? By writing documentation and
+approving it!
+
+-- ds.h1: How To Write Documentation For A PR?
+
+`cdoc` works under the assumption that [the documentation for you code is stored
+in another git repository](blog/git/). For every code PR, we have to create a
+corresponding doc PR in the [doc repo that is connected with this code
+repo](blog/setup/).
+
+Once the doc PR is created, we have to "connect" it with our code PR. This step
+happens on [`FifthTry.com`](https://FifthTry.com).
+
+-- ds.image: Login On FifthTry to Connect Code PR With Doc PR
+src: $assets.files.images.blog.login.png
+width: fill
+
+You will see the your repositories that are configured with `cdoc` already.
+
+-- ds.image: Your Github Repositories Are Here
+src: $assets.files.images.blog.setup-5.png
+width: fill
+
+Note: If you do not find the repository you are looking for, follow our [setup
+instructions to install it](blog/setup/).
+
+Click on your repository, and you will see your PRs:
+
+-- ds.image: Find your PR Here
+src: $assets.files.images.blog.day-1.png
+width: fill
+
+Pro Tip: you can also come to this screen by clicking on detail in PR next to
+Github Checks.
+
+-- ds.image: Another Way To Come To Our Page
+src: $assets.files.images.blog.day-2.png
+width: fill
+
+And then click on this link:
+
+-- ds.image: Click On This Link
+src: $assets.files.images.blog.day-3.png
+width: fill
+
+And now you have to connect your code PR with the doc PR. You can do that by
+clicking on "Connect" button there:
+
+-- ds.image: Connect Doc PR With Your Code PR
+src: $assets.files.images.blog.day-4.png
+width: fill
+
+You will be greeted with this dialog, where you have to locate your doc PR.
+
+-- ds.image: Locate your Doc PR and Connect It
+src: $assets.files.images.blog.day-5.png
+width: fill
+
+The idea of connection is declaring that "hey, this code that I just wrote, look
+at this PR, which contains the documentation for this code".
+
+And there you go!
+
+-- ds.image: Finally The PRs are Connected
+src: $assets.files.images.blog.day-6.png
+width: fill
+
+We also post a comment on your behalf on Github PR saying where to find the
+documentation of the code in this PR.
+
+-- ds.image: Comment on PR So All Collaborators Are Updated
+src: $assets.files.images.blog.day-7.png
+width: fill
+
+Now that documentation has been written, PR created and connected with code,
+it's time to review things.
+
+
+
+
+-- ds.h1: Reviewing The Docs
+
+So code is usually written by one or more software developers. The documentation
+can be written by the same developers, or by product managers.
+
+The job of reviewing falls on someone else. The way code must be reviewed by a
+third person before it should go to production, the documentation should also
+be written by someone else other than the product manager/developer who wrote
+it.
+
+One suggestion for this is the Quality Assurance/manual testing team, if you
+have such a team. The quality team goes through a testing process and simplest
+way to ensure docs are up to date is by asking QA team to look at docs (the
+branch for your doc must be deployed somewhere), and rejecting the PR unless the
+behaviour on UAT environment matches exactly what what is specified in the
+documentation. This way any out of date screenshots, missing details in the
+documentation can be spotted by QA department.
+
+In absence of QA team, or along with them, especially if the changes are bit too
+technical, the person who reviews the code can also review the documentation to
+ensure the code and documentation changes are in line.
+
+Wouldn't the review process take too long? Isn't there too much documentation?
+In practice it does not, and this is why we recommend the [doc in
+git](blog/git/) workflow, as the pull request against documentation usually is
+same size or much smaller that pull request against code.
+
+Note: For now our system requires only one approval. In future we will be adding
+support for [Github Code Owners
+file](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
+and support DOC-OWNERS to decide documentation of what part of code should be
+reviewed by who.
+
+Anyways, so the job here is pretty simple, review the code PR and doc PR, and
+put your name behind it saying, "hey I have verified that the documentation for
+the code indeed is complete, and up to our companies documentation standards".
+
+This part of putting your name behind things encourages people to review the
+documentation properly, so there are no lapses.
+
+To do this, find your PR on FifthTry once again, and click on Approve button:
+
+-- ds.image: Locate Your PR and Click Approve
+src: $assets.files.images.blog.day-8.png
+width: fill
+
+You will be presented with this dialog:
+
+-- ds.image: Enter Your Name To Accept The Documentation
+src: $assets.files.images.blog.day-9.png
+width: fill
+
+You have to enter your Github username to approve. This is just a reminder that
+you have done your part in the process and things are indeed up to the
+documentation standard followed by your team.
+
+We post on Github a comment on approver's behalf that documentation has been
+approved and the PR can be merged now.
+
+-- ds.image: Enter Your Name To Accept The Documentation
+src: $assets.files.images.blog.day-10.png
+width: fill
+
+Now you can merge both the code PR and doc PR, so your documentation changes
+become visible to everyone, along with when everyone starts seeing your code
+changes land in your main branch. You may also chose to merge Doc PR when the
+code is getting deployed, instead of when it is getting merged, so anyone who
+ever reads the documentation is gauranteed that information is accurate as per
+what is currently deployed.
+
+-- ds.h1: What If Code Does Not Require Documentation?
+
+One frequent question we are asked is what if the code change is a minor bug
+fix, a minor refactor or such that it does not need any documentation?
+
+We allow such case as well, in the UI where you were trying to connect
+documentation PR with your code PR, in this case you will not have any doc PR,
+so you can click on this link:
+
+-- ds.image: In Case You Don't Need Docs! Use It Judiciously!
+src: $assets.files.images.blog.day-11.png
+width: fill
+
+You will still have to put your name behind it, and soon only people with right
+permission will be able to perform this action.
+
+-- ds.image: Sign Your Name To Confirm This PR Does Not Need Documentation
+src: $assets.files.images.blog.day-12.png
+width: 500
+align: center
+
+-- ds.h1: And There You Go
+
+With this workflow, you would be able to keep your documentation accurate and
+upto date with constantly changing software.
