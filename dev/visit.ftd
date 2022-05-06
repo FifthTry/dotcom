@@ -1,6 +1,11 @@
 -- ds.page-with-toc: Visit Framework
 toc: $config.dev-overview
 sub-sections: $config.dev-section
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
 
 Every time a [tracker](dev/tracker/) comes back to `cdoc` after an idle time of
 30mins, it is considered a `visit`.

@@ -1,6 +1,11 @@
 -- ds.page-with-toc: `MonitoredPullRequest Model`
 toc: $config.db
 sub-sections: $config.dev-section
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
 
 -- ds.code:
 lang: py
