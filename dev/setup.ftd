@@ -1,0 +1,28 @@
+-- ds.page-with-toc: Setup
+toc: $config.dev-overview
+sub-sections: $config.dev-section
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
+
+
+1. python -m venv .env
+2. Source .env/in/activate
+3. Pip install -r requirements.txt
+4. brew install redis
+5. brew services start redis
+6. Redis-cli
+7. export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+8. python manage.py migrate
+9. gunicorn cdoc.wsgi
+10. python manage.py createsuperuser
+11. python manage.py rqworker default
+12. Create a new app
+13. Generate a private key [https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps]
+14. Copy key to PRIVATE_KEY.pem
+15. Install GitHub app [https://docs.github.com/en/developers/apps/managing-github-apps/installing-github-apps]
+16. heroku git:remote -a fifthtry-cdoc
+17. git push heroku main (deploy on heroku)
+18. git push heroku testbranch:main (deploy other branch)

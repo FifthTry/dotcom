@@ -99,6 +99,7 @@ $processor$: toc
 - Activity Framework: dev/activity/
 - Tracker Framework: dev/tracker/
 - Visit Framework: dev/visit/
+- Setup: dev/setup/
 
 -- fpm.toc-item list db:
 $processor$: toc
