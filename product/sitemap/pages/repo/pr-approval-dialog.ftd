@@ -10,7 +10,7 @@ for an explicit approval.
 In case the user approves the PR without the documentation PR attached, we move 
 the PR to the "manual approved" state.
 
--- ds.h2: Design
+-- ds.h1: Design
 
 -- ds.image:
 src: $assets.files.images.product-manual.routes.pages.approve-connected-pr-dialog.png

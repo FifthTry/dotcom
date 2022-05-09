@@ -8,21 +8,21 @@ login-button: true
 For teams that are serious about maintaining upto date documentation for the
 product, that are not using `cDoc`, nor an adhoc implementation of a very
 similar process, they keep the documentation upto date either by storing the
-documentation as part of Git, or by relyin on will power of documentation
+documentation as part of Git, or by relying on will power of documentation
 champions.
 
 -- ds.h1: Documentation As Part Of PR
 
-Some teams keep their documentaiton along with source code, and require every
+Some teams keep their documentation along with source code, and require every
 pull request to update both code and documentation. The job of the person doing
 the PR review is to verify that code and docs are in sync.
 
-The documentation in code has a few problems. Poeple using this method usually
+The documentation in code has a few problems. People using this method usually
 only keep the documentation related to engineering in their code repository.
 
 We believe documentation review should happen by the product and testing team as
 well. Assigning the job of code review to product managers or testing team is
-not feasible, and does not happen. End result is documentaiton is too biased
+not feasible, and does not happen. End result is documentation is too biased
 and limited towards engineering aspects, and how does the product work is
 missing. Which means a new developer who joins still does not know how the
 product works overall and has to take sessions with product manager etc to
@@ -30,14 +30,14 @@ understand how it works etc.
 
 Another drawback of this approach is that documentation is in Git, and updating
 files in Git is hard for many product managers, QA team etc. Only developers
-are used to ideosyncracies of working with Git, resolving conflicts, merging
+are used to idiosyncrasies of working with Git, resolving conflicts, merging
 changes from each other etc.
 
 While current `cDoc` does work with `git` and requires everyone to be
 comfortable with `git`, we at FifthTry are creating our own version control
 system and web based editing and change request system, where non developers
 can easily participate same process, but without having to learn many of the
-complexities that plagues git's usablity for non developers.
+complexities that plagues git's usability for non developers.
 
 -- ds.h1: It Is Done When Documentation Is Written
 

@@ -2,21 +2,22 @@
 toc: $config.user-manual-pages-toc
 sub-sections: $config.user-manual-header
 
-Whenever a pull request is opened for a code repository, the cdoc check run
+Whenever a pull request is opened for a code repository, the `cDoc` check run
 is invoked which keeps a track of the documentation changes.
 
 Every code PR should carry a documentation PR associated with it. For this actions
 the Pull Request Mapping Dialog is used.
 
-Whenever a PR is encountered by the cdoc system, it initiates the check in the 
-`AWAITING_DOCUMENTATION_PR` status. correspondingto this action, the dialog is 
+Whenever a PR is encountered by the `cDoc` system, it initiates the check in the
+
+`AWAITING_DOCUMENTATION_PR` status. corresponding to this action, the dialog is
 displayed which lists all the open PRs available in the documentation repository.
 
 You can also approve the PR directly without associating a documentation PR. This 
 action can be taken by clicking on the link below the available documentation PR
 list.
 
--- ds.h2: Design
+-- ds.h1: Design
 
 -- ds.image:
 src: $assets.files.images.product-manual.routes.pages.attach-documentation-pr-dialog.png

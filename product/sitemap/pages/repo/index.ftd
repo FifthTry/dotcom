@@ -21,7 +21,7 @@ Parameters:
   Type: string
 
 
--- ds.h2: Workflow
+-- ds.h1: Workflow
 
 This page tracks all the open pull request of the repository. A pull request can
 be in one of the following states:

@@ -6,7 +6,7 @@ nav-sub-title: How to setup continuous documentation for your Github Repo
 nav-sub-title-url: blog/setup/
 login-button: true
 
-[Continuous Documentation](cdoc/), `cdoc` helps you keep your documentation up
+[Continuous Documentation](cdoc/), `cDoc` helps you keep your documentation up
 to date with your changing code by blocking pull requests from getting merged
 till documentation has been written and approved.
 
@@ -14,15 +14,15 @@ Congratulations on taking a step towards better documentation for your team!
 **Improving documentation is the highest return on investment activity you can
 do to make you team more productive and happy!** [If you are trying to be remote
 company, documentation is one of most crucial factors in success as a remote
-company, if you belive Gitlab!](https://about.gitlab.com/company/culture/all-remote/management/#handbook-goals-and-documentation)
+company, if you believe Gitlab!](https://about.gitlab.com/company/culture/all-remote/management/#handbook-goals-and-documentation)
 
 In this post we will help you configure it for your repositories so you can
 start using it right away.
 
-`cdoc` can be used via FifthTry, a SAAS offering, or you can [download the open
-source `cdoc` source code and deploy it on your infrastructure from
+`cDoc` can be used via FifthTry, a SAAS offering, or you can [download the open
+source `cDoc` source code and deploy it on your infrastructure from
 `github.com/FifthTry/cdoc`](https://github.com/FifthTry/cdoc). The easiest way
-to try out `cdoc` to see if it good for your team, is to use our SAAS offering,
+to try out `cDoc` to see if it good for your team, is to use our SAAS offering,
 which is FREE, no credit card required till you have crossed a certain usage
 threshold. You can checkout [continuous documentation pricing page](pricing/)
 for more details.
@@ -66,7 +66,7 @@ Some people prefer giving access to all their repositories so repositories
 created in future are also available on FifthTry for you to use. Else in future
 you they have to go back to Github App and grant access to more repos. We
 respect your privacy, and [we will never share access to data you give to use
-with thirdparties, and we will take utmost precautions to keep them
+with third parties, and we will take utmost precautions to keep them
 safe](privacy/).
 
 -- ds.h1: Connect Your Doc Repo With You Code Repo
@@ -78,7 +78,7 @@ where you will find the repositories you have granted us access to.
 src: $assets.files.images.blog.setup-5.png
 width: fill
 
-The way continuous documentation, `cdoc`, works right now is by storing your
+The way continuous documentation, `cDoc`, works right now is by storing your
 code in one Github repository, and storing the documentation of that code in
 another Github repository. [Learn more about our doc in git workflow](blog/git/).
 
@@ -89,7 +89,7 @@ repository using search if you have too many repos:
 src: $assets.files.images.blog.setup-6.png
 width: fill
 
-Find every code repository on FifthTry you want to use `cdoc` on, and click on
+Find every code repository on FifthTry you want to use `cDoc` on, and click on
 `Connect` button:
 
 -- ds.image: Click 5: Connect Your Code Repo with You Doc Repo
@@ -112,7 +112,7 @@ support one to one mapping between code and doc repo.
 src: $assets.files.images.blog.setup-9.png
 width: fill
 
-And that's it! You have activated `cdoc` on your repo.
+And that's it! You have activated `cDoc` on your repo.
 
 -- ds.image: You are all done!
 src: $assets.files.images.blog.setup-10.png

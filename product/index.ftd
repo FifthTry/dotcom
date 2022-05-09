@@ -7,7 +7,7 @@ login-button: true
 
 `cDoc` helps you implement a workflow that ensures documentation stays up to
 date with code changes. `cDoc` is a Github App that blocks pull requests from
-getting merged till documentaiton is written and approved.
+getting merged till documentation is written and approved.
 
 -- ds.image: What `cDoc` Does In A Nutshell
 src: $assets.files.images.blog.process.png
@@ -33,7 +33,7 @@ productivity and developer happiness.
 We believe the [lack of documentation is costing software teams](blog/cost/).
 It's harder to onboard new developers. On day to day basis if there is not
 enough documentation people have to ask each other a lot of questions or
-discover how things work by ineffecient trial and error way. And finally when
+discover how things work by inefficient trial and error way. And finally when
 employees exit organisation they take with them valuable information.
 
 -- ds.image: Developer Waste A Lot Of Time Understanding Software
@@ -46,9 +46,9 @@ Code quality is acceptable in most teams because it goes through a code review
 and continuous integration process, in some teams it every PR also goes through
 manual testing. Without this process code would suffer.
 
-Today there is no such process for documentaiton. Documentation quality depends
+Today there is no such process for documentation. Documentation quality depends
 on the will and effort of some team members, but due to lack of a process the
-documentaiton keeps going out of date as software keeps changing.
+documentation keeps going out of date as software keeps changing.
 
 -- ds.h1: How Does `cDoc` Work?
 
@@ -70,7 +70,7 @@ src: $assets.files.images.blog.day-5.png
 width: fill
 
 To connect the code PR with doc PR one has to go to `fifthtry.com`. Similarly
-to approce the PRs one has to go `fifthtry.com`.
+to approve the PRs one has to go `fifthtry.com`.
 
 -- ds.image: Approve That Documentation And Code Are In Sync
 src: $assets.files.images.blog.day-9.png

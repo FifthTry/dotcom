@@ -7,14 +7,14 @@ dashboard gives you a complete overview of the various documentation and
 the code repository mapping. The page is divided in two sections
 
 - Mapped Repositories: The repositories that have been mapped to their 
-  respective documentation repositories
+  respective documentation repositories.
 - Available Repositories: The repositories that have not been mapped as of now 
   and are available for connection.
 
 Along with this, the page also carries a search box which can be used to filter 
 the results.
 
--- ds.h2: URL and Parameters
+-- ds.h1: URL and Parameters
 
 URL: `/`
 For the unauthenticated user, refer to login page
@@ -28,17 +28,16 @@ Parameters:
   
   Type: string
 
+  The search query is case insensitive.
 
--- ds.h3: Constraints
+  The search query can be a substring of the repository name.
 
-- The page is accessible only to authenticated users
-- The search query is case insensitive.
-- The search query can be a substring of the repository name.
-- The page displays at 10 results in each category. We currently don't support 
-  pagination, if you can't find your repository, please filter the results in 
+
+-- ds.h1: Design
+- The page is accessible only to authenticated users.
+- The page displays 10 results in each category. We currently don't support
+  pagination, if you can't find your repository, please filter the results in
   the search box.
-
--- ds.h2: Design
 
 -- ds.image:
 src: $assets.files.images.product-manual.routes.pages.dashboard-page.png

@@ -9,18 +9,20 @@ section.
 Connection of the repository is a two step process. First you select the function
 a repository serves in the framework.
 
-A repository can be either a `Code repository` or a `documentation repository` 
+A repository can be either a `Code Repository` or a `Documentation Repository`
 as described in the design #1.
 
 Once the category of the repository is selected, another modal opens up where 
 the user can select the corresponding repository for the mapping.
 
--- ds.h3: Constraints
+-- ds.h1: Constraints
 
-- A repository can only be mapped once. Either as a documentation repository or a code repository.
-- Repository connection is an irreversible process. Once the connection is made, the repository is locked and cannot be changed.
+- A repository can only be mapped once. Either as a documentation repository or
+  a code repository.
+- Repository connection is an irreversible process. Once the connection is made,
+  the repository is locked and cannot be changed.
 
--- ds.h2: Design
+-- ds.h1: Design
 
 -- ds.image:
 src: $assets.files.images.product-manual.routes.pages.repo-function-selection-dialog.png
