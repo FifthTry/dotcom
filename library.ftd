@@ -364,7 +364,6 @@ color: $fpm.color.main.background.step-1
 background-color: $fpm.color.main.cta-primary.base
 border-radius: 4
 width: $width
-spacing: 4
 cursor: pointer
 link: $link
 align: center
@@ -372,17 +371,19 @@ align: center
 --- ftd.text: $sign-in
 white-space: nowrap
 role: $bold-small-title
-align: center
 text-align: center
-padding-top: 2
 color: $fpm.color.main.background.step-1
+margin-right: 4
 
 --- ftd.image:
 src: $icon-github
+height: 16
+width: auto
 
 
 --- ftd.text: $github-cta
-padding-top: 2
+if: $github-cta is not null
+margin-left: 4
 white-space: nowrap
 role: $bold-small-title
 
@@ -996,7 +997,7 @@ padding-vertical: 8
 padding-horizontal: 16
 background-color: $cta-bg
 /background-color if $MOUSE-IN: $font.cta_hover
-role: $font.cta
+role: $bold-small-title
 color: $cta-color
 link: $link
 border-radius: 4
