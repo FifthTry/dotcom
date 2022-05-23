@@ -2,6 +2,17 @@
 -- import: fbs
 -- import: fpm
 
+-- boolean show-brand: true
+
+-- boolean login-button: true
+
+-- string site-url: index.html
+-- optional string site-name: 
+-- optional ftd.image-src site-logo:
+
+-- ftd.color header-bg:
+light: rgba(45, 212, 143, 0.05)
+dark: rgba(45, 212, 143, 0.05)
 
 -- ftd.type bold-small-title: $fpm.type.label-small.font
 desktop: $fpm.type.label-small.desktop
@@ -32,8 +43,26 @@ append-at: content-container
 boolean on-pricing: false
 
 
---- header:
-on-pricing: $on-pricing
+
+--- h.header:
+show-brand: $show-brand
+login-button: $login-button
+sections: $config.main-nav
+site-logo: $assets.files.assets.images.logo-fifthtry-dark.svg
+site-url: $site-url
+site-name: $site-name
+background: $header-bg
+text-color: $fpm.color.main.cta-primary.base
+active-text-color: $fpm.color.main.cta-primary.base
+menu-bg: $fpm.color.main.background.step-1
+menu-hover-bg: $fpm.color.main.background.step-2
+menu-link: $fpm.color.main.cta-primary.focused
+menu-link-active: $fpm.color.main.cta-primary.focused
+logo-height: 38
+menu-right: 0
+menu-left: -88
+current-url: /home/
+
 
 --- container: ftd.main
 
@@ -45,62 +74,6 @@ width: fill
 
 
 
-
--- ftd.column header:
-optional ftd.image-src logo: $assets.files.assets.images.logo-fifthtry-dark.svg
-optional string site-title:
-optional string fallback-site-title: Logo
-optional string home-url: /
-optional ftd.color header-bg: $font.header-bg
-optional ftd.image-src icon-theme-mode: $assets.files.assets.images.icon-moon.png
-optional ftd.image-src icon-github: $assets.files.assets.images.icon-github.svg
-optional string github-url: https://github.com/FifthTry/dotcom
-optional ftd.image-src icon-language: $assets.files.assets.images.icon-language.png
-/optional string language-url: /translations/
-optional string sign-in: Sign up
-optional string github-cta: 
-optional string pricing: Pricing
-optional string install: Login
-fpm.toc-item list main-nav: $config.empty-toc
-width: fill
-boolean on-pricing: false
-
---- mobile-sidebar:
- if: $sidebar-open
-
---- container: ftd.main
-
---- mobile-sidebar-menu:
-if: $sidebar-open
-nav-list: $config.main-mobile-nav
-footer-list: $config.footer-nav
-
---- container: ftd.main
-
---- header-desktop:
-if: not $config.is-mobile
-logo: $logo
-sign-in: $sign-in
-github-cta: $github-cta
-pricing: $pricing
-install: $install
-icon-theme-mode: $icon-theme-mode
-icon-language: $icon-language
-icon-github: $icon-github
-header-bg: $header-bg
-on-pricing: $on-pricing
-
---- header-mobile:
-if: $config.is-mobile
-logo: $logo
-sign-in: $sign-in
-install: $install
-icon-theme-mode: $icon-theme-mode
-icon-language: $icon-language
-icon-github: $icon-github
-header-bg: $header-bg
-main-nav: $main-nav
-on-pricing: $on-pricing
 
 
 
