@@ -42,26 +42,12 @@ open: true
 append-at: content-container
 boolean on-pricing: false
 
-
-
---- h.header:
-show-brand: $show-brand
-login-button: $login-button
+--- ds.page:
 sections: $config.main-nav
-site-logo: $assets.files.assets.images.logo-fifthtry-dark.svg
-site-url: $site-url
-site-name: $site-name
-background: $header-bg
-text-color: $fpm.color.main.cta-primary.base
-active-text-color: $fpm.color.main.cta-primary.base
-menu-bg: $fpm.color.main.background.step-1
-menu-hover-bg: $fpm.color.main.background.step-2
-menu-link: $fpm.color.main.cta-primary.focused
-menu-link-active: $fpm.color.main.cta-primary.focused
-logo-height: 38
-menu-right: 0
-menu-left: -88
-current-url: /home/
+login-button: true
+
+
+
 
 
 --- container: ftd.main

@@ -1,4 +1,5 @@
 -- ds.page: Dashboard Page
+login-button: true
 
 For an authenticated user, the `/` page renders the user's dashboard. The 
 dashboard gives you a complete overview of the various documentation and 

@@ -1,4 +1,5 @@
 -- ds.page: Repository Connection Dialog
+login-button: true
 
 You can access the repository connection dialog by clicking on the `Connect` 
 button corresponding to the repository listed in the `Available Repositories` 
