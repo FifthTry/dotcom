@@ -1,6 +1,7 @@
 -- import: fifthtry.com/custom-types as font
 -- import: fbs
 -- import: fpm
+-- import: ds
 
 -- boolean show-brand: true
 
@@ -33,28 +34,14 @@ boolean is-last: false
 
 -- integer image-hover: 1
 
--- ftd.column homepage:
-optional ftd.color bg-color: $fpm.color.main.background.base
-background-color: $bg-color
-fpm.toc-item list nav-links: $empty-nav
-width: fill
-open: true
-append-at: content-container
-boolean on-pricing: false
 
---- ds.page:
+
+-- ds.page homepage:
+fpm.toc-item list sections:
 sections: $config.main-nav
 login-button: true
+widthfill: true
 
-
-
-
-
---- container: ftd.main
-
---- ftd.column:
-id: content-container
-width: fill
 
 
 
