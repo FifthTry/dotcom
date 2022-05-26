@@ -2060,8 +2060,8 @@ link-text: $link-text
 caption title:
 body body: 
 optional string link-text:
-padding-horizontal: 32
-padding-vertical: 32
+padding-horizontal: $fpm.space.space-7
+padding-vertical: $fpm.space.space-7
 optional ftd.image-src sites-logo:
 optional ftd.color bg-color: $fpm.color.main.background.step-1
 background-color: $bg-color
@@ -2074,7 +2074,7 @@ width: fill
 --- ftd.text: $title
 role: $fpm.type.heading-medium
 color: $fpm.color.main.text-strong
-margin- bottom: 16
+margin-bottom: $fpm.space.space-4
 
 --- ftd.text:
 text: $body
@@ -2119,7 +2119,7 @@ height: auto
 --- ftd.text: $title
 role: $fpm.type.heading-medium
 color: $fpm.color.main.text-strong
-margin- bottom: 16
+margin-bottom: $fpm.space.space-6
 white-space: nowrap
 
 --- ftd.text:
