@@ -83,6 +83,7 @@ using what we call *Continuous Documentation*.
 -- lib.info:
 left-title: FifthTry is Open Source
 right-title: YC  Winter Batch  ‘21
+cta: Full Story »
 left-logo: $assets.files.assets.images.logo-osi-square.png
 right-logo: $assets.files.assets.images.logo-ycom-square.png
 left-body: $left-content

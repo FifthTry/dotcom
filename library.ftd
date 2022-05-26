@@ -1085,6 +1085,7 @@ optional ftd.image-src right-logo:
 optional ftd.image-src left-logo:
 string left-body:
 string right-body:
+string cta:
 
 
 
@@ -1093,6 +1094,7 @@ if: not $config.is-mobile
 right-title: $right-title
 left-title: $left-title
 right-logo: $right-logo
+cta: $cta
 left-logo: $left-logo
 left-body: $left-body
 right-body: $right-body
@@ -1103,6 +1105,7 @@ right-body: $right-body
 if:$config.is-mobile
 right-title: $right-title
 left-title: $left-title
+cta: $cta
 right-logo: $right-logo
 left-logo: $left-logo
 left-body: $left-body
@@ -1124,6 +1127,7 @@ optional ftd.image-src right-logo:
 optional ftd.image-src left-logo:
 string left-body:
 string right-body:
+string cta:
 padding-horizontal: 64
 padding-vertical : 64
 width: fill
@@ -1144,6 +1148,7 @@ body: $left-body
 width: fill
 
 --- info-card: $right-title
+link-text: $cta
 body: $right-body
 sites-logo: $right-logo
 
@@ -1163,7 +1168,7 @@ optional ftd.image-src right-logo:
 optional ftd.image-src left-logo:
 string left-body:
 string right-body:
-padding-horizontal: 64
+string cta:
 padding-vertical : 64
 width: fill
 spacing: 64
@@ -1183,6 +1188,7 @@ body: $left-body
 width: fill
 
 --- info-card: $right-title
+link-text: $cta
 body: $right-body
 sites-logo: $right-logo
 
@@ -2029,6 +2035,31 @@ border-width: 0
 -- ftd.row info-card:
 caption title:
 body body: 
+optional string link-text:
+optional ftd.image-src sites-logo:
+optional ftd.color bg-color: $fpm.color.main.background.step-1
+background-color: $bg-color
+spacing: 32
+border-radius: 8
+
+
+--- info-card-desktop: $title
+if: not $config.is-mobile
+sites-logo: $sites-logo
+body: $body
+link-text: $link-text
+
+--- info-card-mobile: $title
+if:$config.is-mobile
+sites-logo: $sites-logo
+body: $body
+link-text: $link-text
+
+
+-- ftd.row info-card-desktop:
+caption title:
+body body: 
+optional string link-text:
 padding-horizontal: 32
 padding-vertical: 32
 optional ftd.image-src sites-logo:
@@ -2050,9 +2081,56 @@ text: $body
 role: $fpm.type.copy-relaxed
 color: $fpm.color.main.text
 
+
+--- ftd.text:
+if: $link-text is not null
+text: $link-text
+color: $fpm.color.main.cta-primary.base
+link: https://www.ycombinator.com/companies/fifthtry
+
 --- container: ftd.main
 
 --- ftd.image:
 src: $sites-logo
-width: 81
+width: 80
 height: auto
+
+
+-- ftd.column info-card-mobile:
+caption title:
+body body: 
+optional string link-text:
+padding-horizontal: $fpm.space.space-4
+padding-vertical: $fpm.space.space-5
+optional ftd.image-src sites-logo:
+optional ftd.color bg-color: $fpm.color.main.background.step-1
+background-color: $bg-color
+spacing: 8
+border-radius: 8
+width: fill
+
+
+--- ftd.image:
+src: $sites-logo
+width: 80
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text-strong
+margin- bottom: 16
+white-space: nowrap
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+
+
+--- ftd.text:
+if: $link-text is not null
+text: $link-text
+color: $fpm.color.main.cta-primary.base
+link: https://www.ycombinator.com/companies/fifthtry
+
