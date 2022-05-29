@@ -8,6 +8,7 @@ zip: github.com/fifthtry/dotcom/archive/refs/heads/main.zip
 -- fpm.dependency: fifthtry.github.io/product-switcher as ps
 -- fpm.dependency: fifthtry.github.io/fifthtry-brand-switcher as fbs
 -- fpm.dependency: fifthtry.github.io/blog-components as blg
+-- fpm.dependency: fifthtry.github.io/octicon 
 
 
 -- fpm.auto-import: ds
