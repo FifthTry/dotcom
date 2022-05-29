@@ -3,7 +3,7 @@
 -- import: fpm
 -- import: ds
 -- import: ps
-
+-- import: fifthtry.github.io/octicon as octicons
 
 -- boolean login-button: true
 
@@ -25,6 +25,7 @@ weight: 700
 caption title:
 body body:
 integer index:
+optional ftd.image-src thumbnail:
 boolean is-last: false
 
 -- tc list list-tc:
@@ -83,6 +84,10 @@ border-radius: 4
 width: $width
 cursor: pointer
 link: $link
+align: center
+
+--- ftd.row:
+width: fill
 align: center
 
 --- ftd.text: $sign-in
@@ -622,6 +627,79 @@ title: $obj.title
 copy: $obj.body
 index: $obj.index
 is-last: $obj.is-last
+
+
+
+
+
+
+
+-- ftd.column list-loop-mobile:
+string title:
+string copy:
+ftd.image-src thumbnail:
+ftd.color text-color: $fpm.color.main.text
+ftd.color text-hover: $fpm.color.main.text-strong
+integer index:
+boolean is-last:
+width: fill
+boolean mouse-in: false
+z-index: 0
+spacing: 24
+margin-bottom: $fpm.space.space-6
+
+
+--- ftd.text: $title
+role: $font.list-title
+color: $fpm.color.main.text
+width: fill
+min-height: 72
+
+--- ftd.row:
+width: fill
+
+--- ftd.image:
+src: $thumbnail
+width: 318
+height: 200
+
+
+--- container: ftd.main
+
+
+--- ftd.text: $copy
+role: $fpm.type.copy-tight
+color: $text-color
+width: fill
+min-height: 80
+
+--- container: ftd.main
+
+--- ftd.column:
+id: moving-container
+width: fill
+
+--- ftd.row:
+align: center
+if: not $is-last
+
+
+--- octicons.arrow-right:
+color: $fpm.color.main.text-strong
+
+
+--- container:moving-container
+
+
+--- ftd.row:
+align: center
+if: $is-last
+
+--- octicons.arrow-left:
+color: $fpm.color.main.text-strong
+
+
+
 
 
 
@@ -1543,10 +1621,6 @@ $on-click$: toggle $sidebar-open
 
 -- ftd.row slideshow-left:
 caption title:
-optional ftd.image-src image-1:
-optional ftd.image-src image-2:
-optional ftd.image-src image-3:
-optional ftd.image-src image-4:
 optional body body:
 optional ftd.color bg-color: $fpm.color.main.background.step-1
 optional string title-copy:
@@ -1557,10 +1631,6 @@ background-color: $bg-color
 
 --- slideshow-left-desktop: $title
 if: not $config.is-mobile
-image-1: $image-1
-image-2: $image-2
-image-3: $image-3
-image-4: $image-4
 body: $body
 bg-color: $bg-color
 title-copy: $title-copy
@@ -1569,10 +1639,6 @@ list-title-copy: $list-title-copy
 
 --- slideshow-left-mobile: $title
 if: $config.is-mobile
-image-1: $image-1
-image-2: $image-2
-image-3: $image-3
-image-4: $image-4
 body: $body
 bg-color: $bg-color
 title-copy: $title-copy
@@ -1585,10 +1651,6 @@ list-title-copy: $list-title-copy
 
 -- ftd.row slideshow-left-desktop:
 caption title:
-optional ftd.image-src image-1:
-optional ftd.image-src image-2:
-optional ftd.image-src image-3:
-optional ftd.image-src image-4:
 optional body body:
 optional ftd.color bg-color:
 optional string title-copy:
@@ -1642,25 +1704,21 @@ width: percent 65
 id: right-section
 margin-top: 90
 
---- ftd.image:
-if: $image-hover == 1
-src: $image-1
-width: fill
+--- list-loop-image:
+$loop$: $list-title-copy as $obj
+thumbnail: $obj.thumbnail
+index: $obj.index
+
+
+-- ftd.row list-loop-image:
+ftd.image-src thumbnail:
+integer index:
 
 --- ftd.image:
-if: $image-hover == 2
-src: $image-2
+if: $image-hover == $index 
+src: $thumbnail
 width: fill
 
---- ftd.image:
-if: $image-hover == 3
-src: $image-3
-width: fill
-
---- ftd.image:
-if: $image-hover == 4
-src: $image-4
-width: fill
 
 
 
@@ -1672,10 +1730,6 @@ width: fill
 
 -- ftd.column slideshow-left-mobile:
 caption title:
-optional ftd.image-src image-1:
-optional ftd.image-src image-2:
-optional ftd.image-src image-3:
-optional ftd.image-src image-4:
 optional body body:
 optional ftd.color bg-color:
 optional string title-copy:
@@ -1684,6 +1738,7 @@ width: fill
 padding-vertical: 24
 padding-horizontal: 16
 margin-bottom: 44
+spacing: 16
 
 
 --- ftd.column:
@@ -1699,55 +1754,28 @@ width: fill
 text-align: center
 role: $font.section-title
 color: $fpm.color.main.text-strong
-margin-bottom: 16
+
 
 --- container: ftd.main
-
---- ftd.row:
-width: fill
-
---- ftd.image:
-if: $image-hover == 1
-src: $image-1
-width: fill
-margin-bottom: 16
-
---- ftd.image:
-if: $image-hover == 2
-src: $image-2
-width: fill
-margin-bottom: 16
-
---- ftd.image:
-if: $image-hover == 3
-src: $image-3
-width: fill
-margin-bottom: 16
-
---- ftd.image:
-if: $image-hover == 4
-src: $image-4
-width: fill
-margin-bottom: 16
-
---- container: ftd.main
-
---- ftd.row:
-
 
 --- ftd.text:
+width: fill
 text: $body
-role: $font.list-body
+role: $fpm.type.copy-tight
 color: $fpm.color.main.text
-margin-bottom: 16
 
 
 --- container: ftd.main
 
---- ftd.column:
 
---- list-loop:
+--- ftd.row:
+width: fill
+overflow-x: auto
+spacing: 20
+
+--- list-loop-mobile:
 $loop$: $list-title-copy as $obj
+thumbnail: $obj.thumbnail
 title: $obj.title
 copy: $obj.body
 index: $obj.index
@@ -1756,7 +1784,20 @@ is-last: $obj.is-last
 
 
 
+--- container: ftd.main
 
+--- ftd.column:
+width: fill
+
+
+--- ftd.row:
+align: center
+
+
+--- github-button:
+sign-in: Sign up with 
+github-cta: Github
+icon-github: $assets.files.assets.images.icon-github.svg
 
 
 
@@ -2086,6 +2127,7 @@ color: $fpm.color.main.text
 --- ftd.text:
 if: $link-text is not null
 text: $link-text
+role: $fpm.type.label-small
 color: $fpm.color.main.cta-primary.base
 link: https://www.ycombinator.com/companies/fifthtry
 role: $fpm.type.label-small
@@ -2121,6 +2163,7 @@ height: auto
 role: $fpm.type.heading-medium
 color: $fpm.color.main.text-strong
 
+
 --- ftd.text:
 text: $body
 role: $fpm.type.copy-relaxed
@@ -2130,6 +2173,7 @@ color: $fpm.color.main.text
 --- ftd.text:
 if: $link-text is not null
 text: $link-text
+role: $fpm.type.label-small
 color: $fpm.color.main.cta-primary.base
 link: https://www.ycombinator.com/companies/fifthtry
 role: $fpm.type.label-small

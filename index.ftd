@@ -26,6 +26,7 @@ FifthTry was one of those 16.
 
 
 -- lib.list-tc: Poor Documentation is Costing you
+thumbnail: $assets.files.assets.images.slide-show-image-1.png
 index: 1
 
 Onboarding new team members take time, lack of docs means calendar full of
@@ -34,6 +35,7 @@ meetings, critical employee leaving.
 
 
 -- lib.list-tc: Gate the changes
+thumbnail: $assets.files.assets.images.slide-show-image-2.png
 index: 2
 
 
@@ -43,12 +45,14 @@ till documentation is written and approved.
 
 
 -- lib.list-tc: Write the Docs
+thumbnail: $assets.files.assets.images.slide-show-image-3.png
 index: 3
 
 Store documentation in Github repo, and write documentation in a PR against that
 repo. Connect the doc PR with code PR on FifthTry.
 
 -- lib.list-tc: Verify The Docs
+thumbnail: $assets.files.assets.images.slide-show-image-4.png
 index: 4
 is-last: true
 
@@ -70,10 +74,6 @@ image-hero-right: $assets.files.assets.images.doc-to-trans.png
 
 
 -- lib.slideshow-left: Continuous Documentation
-image-1: $assets.files.assets.images.slide-show-image-1.png
-image-2: $assets.files.assets.images.slide-show-image-2.png
-image-3: $assets.files.assets.images.slide-show-image-3.png
-image-4: $assets.files.assets.images.slide-show-image-4.png
 list-title-copy: $lib.list-tc
 
 FifthTry helps you solve out of date and incomplete documentation problem by
