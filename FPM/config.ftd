@@ -76,6 +76,17 @@ $processor$: toc
 -- post: How to setup continuous documentation for your Gitlab Repo
 index: 1
 is-left: true
+thumbnail: $assets.files.images.blog.setup-gitlab.1.png
+link: blog/setup-gitlab/
+
+[Continuous Documentation](cdoc/), `cDoc` helps you keep your documentation up
+to date with your changing code by blocking pull requests from getting merged
+till documentation has been written and approved.
+
+
+-- post: How to setup continuous documentation for your Github Repository
+index: 2
+is-left: false
 thumbnail: $assets.files.images.blog.setup-2.png
 link: blog/setup/
 
@@ -85,8 +96,8 @@ till documentation has been written and approved.
 
 
 -- post: Taste Of `cDoc` on Day To Day
-index: 2
-is-left: false
+index: 3
+is-left: true
 thumbnail: $assets.files.images.blog.day-9.png
 link: blog/day-to-day/
 
@@ -97,8 +108,8 @@ You are in the right place!
 
 
 -- post: Lack Of Documentation Is Costing You
-index: 3
-is-left: true
+index: 4
+is-left: false
 thumbnail: $assets.files.images.blog.developer-time.png
 link: blog/cost/
 
@@ -111,8 +122,8 @@ another and becoming productive takes 3 months.
 
 
 -- post: Does Writing Documentation Slow You Down?
-index: 4
-is-left: false
+index: 5
+is-left: true
 thumbnail: $assets.files.images.blog.traffic.jpg
 link: blog/slow/
 

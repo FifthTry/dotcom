@@ -1,0 +1,55 @@
+-- ds.page: `GithubRepoMap Model`
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
+
+-- ds.code:
+lang: py
+
+class MonitoredRepositoryMap(models.Model):
+    class IntegrationType(models.TextChoices):
+        """
+        FULL integration restricts the PRs to process only after the related PR is merged
+        PARTIAL check is not restrictive
+        """
+
+        FULL = "FULL", "Full"
+        PARTIAL = "PARTIAL", "Partial"
+
+    # integration = models.ForeignKey(AppInstallation, on_delete=models.PROTECT)
+    code_repo = models.ForeignKey(
+        Repository, on_delete=models.PROTECT, related_name="code_repos"
+    )
+    documentation_repo = models.ForeignKey(
+        Repository, on_delete=models.PROTECT, related_name="documentation_repos"
+    )
+    integration_type = models.CharField(max_length=20, choices=IntegrationType.choices)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("code_repo", "documentation_repo")
+
+-- ds.h2: `code_repo`
+
+Foreign Key to the [Repository Table](/dev/main-db/repository). Represents the
+Code repository for the Repository mapping
+
+
+-- ds.h2: `documentation_repo`
+
+Foreign Key to the [Repository Table](/dev/main-db/repository). Represents the
+Documentation repository for the Repository mapping
+
+
+-- ds.h2: `integration_type` [Deprecated]
+
+Represents the type of integration to be performed.
+- FULL: restricts the PRs to process only after the related PR is merged
+- PARTIAL: check is not restrictive
+
+
+-- ds.h2: `created_at`
+
+Timestamp of the creation of the mapping

@@ -35,6 +35,8 @@ base: https://raw.githubusercontent.com/fifthtry/dotcom/main
   url: blog/cdoc/
 - Setup continuous documentation for your Github Repo in *under 2 mins!*
   url: blog/setup/
+- Setup continuous documentation for your Gitlab Repo in *under 2 mins!*
+  url: blog/setup-gitlab/
 - Taste Of `cdoc` on Day To Day: blog/day-to-day/
 - Doc in Git™: blog/git/
 - Lack Of Documentation Is Costing You: blog/cost/
@@ -94,18 +96,14 @@ base: https://raw.githubusercontent.com/fifthtry/dotcom/main
 ## Databases: dev/databases/
 
 - Main Database: dev/main-db/
-  - GithubUser Table: dev/main-db/githubuser/
-  - GithubUserAccessToken Table: dev/main-db/githubuseraccesstoken/
-  - GithubUserRefreshToken Table: dev/main-db/githubuserrefreshtoken/
-  - GithubAppInstallation Table: dev/main-db/githubappinstallation/
-  - GithubAppUser Table: dev/main-db/githubappuser/
-  - GithubInstallationToken Table: dev/main-db/githubinstallationtoken/
-  - GithubRepository Table: dev/main-db/githubrepository/
-  - GithubRepoMap Table: dev/main-db/githubrepomap/
-  - GithubPullRequest Table: dev/main-db/githubpullrequest/
+  - Activity Table: dev/main-db/activity/
+  - AppInstallation Table: dev/main-db/appinstallation/
+  - AppUser Table: dev/main-db/appuser/
   - MonitoredPullRequest Table: dev/main-db/monitoredpullrequest/
-  - PrApproval Table: dev/main-db/prapproval/
-  - GithubCheckRun Table: dev/main-db/githubcheckrun/
-  - GithubLoginState Table: dev/main-db/githubloginstate/
-
+  - Monitored Repository Map: dev/main-db/monitoredrepositorymap/
+  - PR Approval Table: dev/main-db/prapproval/
+  - PullRequest Table: dev/main-db/pullrequest/
+  - PullRequestCheck Table: dev/main-db/pullrequestcheck/
+  - Repository: dev/main-db/repository/
+  - UserRepoAccess Table: dev/main-db/userrepoaccess/
 

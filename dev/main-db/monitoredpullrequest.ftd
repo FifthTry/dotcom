@@ -26,12 +26,12 @@ class MonitoredPullRequest(models.Model):
         MANUAL_APPROVAL = "MANUALLY_APPROVED", "Manual Approval"
 
     code_pull_request = models.OneToOneField(
-        GithubPullRequest,
+        PullRequest,
         on_delete=models.CASCADE,
         related_name="monitored_code",
     )
     documentation_pull_request = models.ForeignKey(
-        GithubPullRequest,
+        PullRequest,
         on_delete=models.CASCADE,
         blank=True,
         null=True,
@@ -42,7 +42,7 @@ class MonitoredPullRequest(models.Model):
         choices=PullRequestStatus.choices,
         default=PullRequestStatus.NOT_CONNECTED,
     )
-    integration = models.ForeignKey(GithubAppInstallation, on_delete=models.CASCADE)
+    # integration = models.ForeignKey(AppInstallation, on_delete=models.CASCADE)
 
     class Meta:
         unique_together = ("code_pull_request", "documentation_pull_request")
@@ -52,14 +52,6 @@ class MonitoredPullRequest(models.Model):
 
     def save(self, *args, **kwargs):
         if (
-            self.documentation_pull_request is not None
-            and self.pull_request_status
-            == MonitoredPullRequest.PullRequestStatus.NOT_CONNECTED
-        ):
-            self.pull_request_status = (
-                MonitoredPullRequest.PullRequestStatus.APPROVAL_PENDING
-            )
-        elif (
             self.documentation_pull_request is None
             and self.pull_request_status
             != MonitoredPullRequest.PullRequestStatus.MANUAL_APPROVAL
@@ -67,6 +59,14 @@ class MonitoredPullRequest(models.Model):
         ):
             self.pull_request_status = (
                 MonitoredPullRequest.PullRequestStatus.NOT_CONNECTED
+            )
+        if (
+            self.documentation_pull_request is not None
+            and self.pull_request_status
+            == MonitoredPullRequest.PullRequestStatus.NOT_CONNECTED
+        ):
+            self.pull_request_status = (
+                MonitoredPullRequest.PullRequestStatus.APPROVAL_PENDING
             )
         return super().save(*args, **kwargs)
 
@@ -85,3 +85,21 @@ class MonitoredPullRequest(models.Model):
             return self.prapproval_set.latest("created_on")
         except:
             return None
+
+-- ds.h2: `code_pull_request`
+
+Unique Foreign key to the [PullRequest](/dev/main-db/monitoredpullrequest/)
+
+-- ds.h2: `documentation_pull_request`
+
+Foreign key to the documentation pull request.
+
+-- ds.h2: `pull_request_status`
+
+State management of the status on the cdoc platform. Can be one of the following:
+- Not Connected
+- Approval Pending
+- Stale Code
+- Stale Approval
+- Approved
+- Manual Approval

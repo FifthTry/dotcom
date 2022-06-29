@@ -1,0 +1,29 @@
+-- ds.page: `GithubAppUser Model`
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
+
+-- ds.code:
+lang: py
+
+class AppUser(models.Model):
+    installation = models.ForeignKey(AppInstallation, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("installation", "user")
+
+-- ds.h2: `installation`
+
+Foreign Key to the [AppInstallation](dev/main-db/appinstallation) model
+
+-- ds.h2: `user`
+
+Foreign Key to the auth.User Model
+
+-- ds.h2: `created_at`
+
+Timestamp of the User attachment to the AppInstallation

@@ -1,0 +1,106 @@
+-- ds.page: How to setup continuous documentation for your Gitlab Repo
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Gitlab Repo
+nav-sub-title-url: blog/setup-gitlab/
+login-button: true
+
+
+-- ds.h1: Head over to [`cdoc.fifthTry.com`](https://cdoc.fifthtry.com)
+
+Head over to [`cdoc.fifthTry.com`](https://cdoc.fifthTry.com) and click on the "sign in with gitlab" button to authenticate the app with your gitlab account.
+
+-- ds.image: Click 1: Click On "Sign in with Gitlab" On cdoc.fifthtry.com
+src: $assets.files.images.blog.setup-gitlab.1.png
+width: fill
+
+-- ds.h1: Grant access to your account to continuous documentation
+
+On clicking the "sign in with gitlab" button, you will be redirected to the gitlab sign in page.
+Click on the `Authorize` button to proceed
+
+-- ds.image: Gitlab application authorization screen
+src: $assets.files.images.blog.setup-gitlab.2.png
+width: fill
+
+-- ds.h1: Connect Your Doc Repo With You Code Repo
+
+Once you grant us access, Github will redirect you to back to FifthTry.com,
+where you will find the repositories you have granted us access to.
+
+-- ds.image: You Are Back to FifthTry.com
+src: $assets.files.images.blog.setup-5.png
+width: fill
+
+The way continuous documentation, `cDoc`, works right now is by storing your
+code in one Github repository, and storing the documentation of that code in
+another Github repository. [Learn more about our doc in git workflow](blog/git/).
+
+You have to "connect" your code and doc repository next. You can locate your
+repository using search if you have too many repos:
+
+-- ds.image: Find Your Awesome Repo
+src: $assets.files.images.blog.setup-6.png
+width: fill
+
+Find every code repository on FifthTry you want to use `cDoc` on, and click on
+`Connect` button:
+
+-- ds.image: Click 5: Connect Your Code Repo with You Doc Repo
+src: $assets.files.images.blog.setup-7.png
+width: fill
+
+You will now have to chose if the repo you are trying to connect is code repo
+or a documentation repo:
+
+-- ds.image: Click 6: Chose If This Is Code Or Doc Repo
+src: $assets.files.images.blog.setup-8.png
+width: fill
+
+Once you have decided if its code or doc repo, you have to select among your
+other repos which is the corresponding doc or code repo. We currently only
+support one to one mapping between code and doc repo.
+
+
+-- ds.image: Click 7: Chose If Corresponding Repo
+src: $assets.files.images.blog.setup-9.png
+width: fill
+
+And that's it! You have activated `cDoc` on your repo.
+
+-- ds.h1: Setup the continuous documentation pipeline on the code repository
+
+-- ds.image: You are all done!
+src: $assets.files.images.blog.setup-10.png
+width: fill
+
+-- ds.h1: Setup the continuous documentation pipeline on the code repository
+
+In your gitlab CI/CD file(gitlab-ci.yml), add the following configuration to the master branch
+
+-- ds.code:
+lang: yml
+caption: gitlab-ci.yml
+
+stages:
+  # Other stages
+  - continuous-documentation
+
+# ...
+
+continuous-documentation-job:
+  stage: continuous-documentation
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+  script:
+    - |
+      exit $(curl --request POST https://cdoc.fifthtry.com/app/gitlab/pipeline-check/ \
+      --data "{\"project_id\":\"$CI_PROJECT_ID\",\"merge_request_id\":\"$CI_MERGE_REQUEST_ID\",\"merge_request_iid\":\"$CI_MERGE_REQUEST_IID\", \"source_branch\": \"$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME\", \"source_sha\": \"$CI_COMMIT_SHA\", \"project_path\": \"$CI_PROJECT_PATH\", \"job_token\": \"$CI_JOB_TOKEN\"}" \
+      --header "Content-Type: application/json")
+
+
+-- ds.markdown:
+
+Now any PR that gets created on that repo will be blocked till documentation
+has been written and approved. [Learn how to use the PR workflow on a day to day
+basis](blog/day-to-day/).

@@ -8,7 +8,7 @@ login-button: true
 -- ds.code:
 lang: py
 
-class GithubPullRequest(models.Model):
+class PullRequest(models.Model):
     pr_id = models.BigIntegerField()
     pr_number = models.BigIntegerField()
     pr_head_commit_sha = models.CharField(max_length=40)
@@ -24,12 +24,13 @@ class GithubPullRequest(models.Model):
     pr_merged = models.BooleanField(default=False)
     pr_owner_username = models.CharField(max_length=100)
     updated_on = models.DateTimeField(auto_now=True)
-    repository = models.ForeignKey(GithubRepository, on_delete=models.PROTECT)
+    repository = models.ForeignKey(Repository, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return f"{self.repository.repo_full_name}/{self.pr_number} @ {self.pr_head_commit_sha[:7]}"
 
     def get_url(self):
-        return (
-            f"https://github.com/{self.repository.repo_full_name}/pull/{self.pr_number}"
-        )
+        if self.repository.app.provider == "gitlab":
+            return f"https://gitlab.com/{self.repository.repo_full_name}/-/merge_requests/{self.pr_number}"
+        else:
+            return f"https://github.com/{self.repository.repo_full_name}/pull/{self.pr_number}"

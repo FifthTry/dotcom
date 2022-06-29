@@ -18,3 +18,22 @@ class PrApproval(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+
+-- ds.h2: `updated_on`
+
+Timestamp of approval row updation.
+
+
+-- ds.h2: `created_on`
+
+Timestamp of approval row creation.
+
+
+-- ds.h2: `monitored_pull_request`
+
+Foreign key reference to the [`MonitoredPullRequest`](/dev/main-db/monitoredpullrequest/) model.
+
+
+-- ds.h2: `approver`
+
+Foreign key reference to the `auth.User` model.

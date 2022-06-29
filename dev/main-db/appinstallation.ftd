@@ -1,0 +1,87 @@
+-- ds.page: `GithubAppInstallation Model`
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
+
+-- ds.code:
+lang: py
+
+
+
+class AppInstallation(models.Model):
+    """
+    This model takes care of the Github installations.
+    """
+
+    class InstallationState(models.TextChoices):
+        INSTALLED = "INSTALLED", "Installed"
+        UNINSTALLED = "UNINSTALLED", "Uninstalled"
+        SUSPENDED = "SUSPENDED", "Suspended"
+
+    social_app = models.ForeignKey(social_models.SocialApp, on_delete=models.PROTECT)
+    installation_id = models.BigIntegerField(unique=True, db_index=True)
+    creator = models.ForeignKey(get_user_model(), on_delete=models.PROTECT)
+    state = models.CharField(max_length=20, choices=InstallationState.choices)
+    account_name = models.CharField(max_length=200)
+    account_id = models.BigIntegerField()
+    account_type = models.CharField(max_length=20)
+    avatar_url = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("social_app", "installation_id")
+
+    def __str__(self) -> str:
+        return f"{self.account_name}[{self.installation_id}] Owner: {self.creator.username}"
+
+    def get_app_token(self):
+        if self.social_app.provider == "github":
+            return self.app_token.token
+        return None
+
+
+-- ds.h2: `social_app`
+
+The ForeignKey reference to the `SocialApp` table. The SocialApp keeps a track
+of the OAuth app this installation belongs to.
+
+-- ds.h2: `installation_id`
+
+Unique identifier of the installation. Provided during the installation
+
+-- ds.h2: `creator`
+
+The Owner of the installation. This user is the one who installed the app.
+
+-- ds.h2: `state`
+
+State of the installation. Can be one of the following:
+- INSTALLED
+- UNINSTALLED
+- SUSPENDED
+
+-- ds.h2: `account_name`
+
+Account name of the installation. More useful for Github Integration where the 
+installation is tied to a specific organization. On GitLab it maps to the owner 
+of the account
+
+-- ds.h2: `account_id`
+
+Unique identifier of the account of the installation. Provided by Oauth installation.
+
+-- ds.h2: `account_type`
+
+Type of the account. Can be one of the following:
+- Personal
+- Organization
+
+-- ds.h2: `avatar_url`
+
+Profile Avatar URL.
+
+-- ds.h2: `created_at`
+
+Timestamp of installation creation.

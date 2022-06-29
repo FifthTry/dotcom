@@ -1,0 +1,54 @@
+-- ds.page: `GithubRepoMap Model`
+nav-title: Blog
+nav-title-url: blog/
+nav-sub-title: How to setup continuous documentation for your Github Repo
+nav-sub-title-url: blog/setup/
+login-button: true
+
+-- ds.code:
+lang: py
+
+class UserRepoAccess(models.Model):
+    class AccessLevel(models.TextChoices):
+        OWNER = 50, "Owner"
+        MAINTAINER = 40, "Maintainer"
+        DEVELOPER = 30, "Developer"
+        REPORTER = 20, "Reporter"
+        GUEST = 10, "Guest"
+        MINIMAL = 5, "Minimal"
+        NO_ACCESS = 0, "No Access"
+
+    repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
+    social_account = models.ForeignKey(
+        social_models.SocialAccount, on_delete=models.CASCADE
+    )
+    access = models.IntegerField(choices=AccessLevel.choices)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("repository", "social_account")
+
+
+-- ds.h2: `repository`
+
+Foreign key to the `Repository` model.
+
+
+-- ds.h2: `social_account`
+
+Foriegn key to the `allauth.social.SocialAccount` model.
+
+-- ds.h2: `access`
+
+Integer choice field. Access scope can be one of the following:
+- 50: Owner
+- 40: Maintainer
+- 30: Developer
+- 20: Reporter
+- 10: Guest
+- 5: Minimal
+- 0: No Access
+
+-- ds.h2: `created_at`
+
+Timestamp of when the `UserRepoAccess` row was created on cdoc platform.

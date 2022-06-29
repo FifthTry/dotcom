@@ -8,7 +8,7 @@ login-button: true
 -- ds.code:
 lang: py
 
-class GithubCheckRun(models.Model):
+class PullRequestCheck(models.Model):
     run_id = models.BigIntegerField(blank=True, null=True)
     unique_id = models.UUIDField(default=uuid.uuid4)
     # Head of the request when it was run
@@ -34,9 +34,19 @@ class GithubCheckRun(models.Model):
 
         if not self.pk:
             # PK doesn't exist, new instance being saved to the DB. Create a new check
-            token = (
-                self.ref_pull_request.code_pull_request.repository.owner.creator.access_token
+            from app import lib as app_lib  # noqa
+
+            highest_access_account = (
+                self.ref_pull_request.code_pull_request.repository.userrepoaccess_set.order_by(
+                    "-access"
+                )
+                .first()
+                .social_account
             )
+            token = app_lib.get_active_token(highest_access_account).token
+            # token = (
+            #     self.ref_pull_request.code_pull_request.repository.owner.creator.access_token
+            # )
             github_app_instance = github.Github(token)
             github_repo = github_app_instance.get_repo(
                 self.ref_pull_request.code_pull_request.repository.repo_id
@@ -53,3 +63,27 @@ class GithubCheckRun(models.Model):
             )
             self.run_id = check_run_instance.id
         super().save(*args, **kwargs)
+
+-- ds.h2: `run_id`
+
+`Run id` at the provider's end
+
+-- ds.h2: `unique_id`
+
+Unique identifier for the check run.
+
+-- ds.h2: `run_sha`
+
+`SHA` of the head commit when the check was run.
+
+
+-- ds.h2: `ref_pull_request`
+
+Foreign key to the `MonitoredPullRequest` model.
+
+
+-- ds.h2: `force_approve` [Deprecated]
+
+Maintains the state of the approval action.
+- None: If the documentation_pr exists and pr has been approved(i.e. webhook for approval received)
+- True: The documentation_pr does not exist and the action was invoked manually
