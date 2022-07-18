@@ -10,6 +10,7 @@ base: https://raw.githubusercontent.com/fifthtry/dotcom/main
 -- fpm.dependency: fifthtry.github.io/fifthtry-brand-switcher as fbs
 -- fpm.dependency: fifthtry.github.io/blog-components as blg
 -- fpm.dependency: fifthtry.github.io/octicon
+-- fpm.dependency: fifthtry.github.io/roboto-mono as mono
 
 
 -- fpm.auto-import: ds
