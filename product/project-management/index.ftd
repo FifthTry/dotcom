@@ -1,0 +1,106 @@
+-- ds.page: Project Management
+
+At FifthTry we follow a project management practice that takes a project from
+initial conception stage till publishing updates about it for all stakeholders.
+
+-- ds.h1: Work In Progress
+
+We use Github Issues to manage projects. For each project there is a Github
+Issue, which keeps a summary of the project, and status of the project. Issues
+are created against respective repositories.
+
+-- ds.h2: Where Do Issues Live?
+
+Most of our work is related to some software project, and the issue for that is
+created against the repository of that project. Some of our tasks are not
+related to any specific project, in that case we have two repositories,
+`FifthTry/handbook` and `FifthTry/fti`, for public and private stuff
+respectively, and we create the issue against one of these.
+
+-- ds.h2: `<Sprint Project>`
+
+We work in 2-week sprints. For every sprint we create a Github Project, and all
+the issues that we want to work on in that sprint to that Project. Project name
+for Sprint starts with "Sprint-<number>: <sprint title>".
+
+Sprint Projects are private.
+
+-- ds.h2: Project Tracking: `/current/`
+
+`fifthtry.com/current/` shows the status of all the tasks in the current sprint
+by fetching the tasks from Sprint project, and show all non-fti-tasks here.
+
+`i.fifthtry.com/current/` shows the status of the tasks without filtering.
+
+Note: The `current.ftd` document powering these pages uses [`http
+processor`](https://fpm.dev/http/) and our open source service
+`gpm.fifthtry.com` which provides task data.
+
+In sprint project we use the following status: "Prioritised", "Requirement
+Accepted", "In Progress", "Code Done", "Finished". Each task moves forward
+through these statuses in Github Project. We also use other labels like "Stuck",
+"On Track" etc to indicate project status.
+
+-- ds.h1: News Updates
+
+Once a task is done we have to publish it for public consumption in the news
+section of respective project, eg `ftd.dev/news/` so people who are interested
+in `ftd.dev` can see whats up with this project.
+
+We also duplicate the information on `fifthtry.com/news/` and
+`i.fifthtry.com/news/` so people can see what we are doing as a company as a
+whole, publicly and privately respectively.
+
+We also store this information on `fifthtry.com/people/<person>/`, and on
+`i.fifthtry.com/people/<person>/`, so people can what someone specifically is
+doing.
+
+-- ds.h2: `<task.ftd>`
+
+Once a task is done, our `gpm` service generates an FTD file containing all
+information about that task, which is stored in the `news` folder of respective
+project.
+
+So eg if say `title was added to iframe` task was done we create
+`ftd.dev/news/2022/july/image-title.ftd` containing all the information about
+that task, in a variable named `.update`.
+
+We then import `ftd.dev/news/2022/july/image-title` from
+`ftd.dev/news/2022/july.ftd` and call `gpm.fifthtry.com/show-update` component
+to render the `.update`.
+
+We similarly import `ftd.dev/news/2022/july/image-title` from
+`fifthtry.com/news/2022/july.ftd`, and `fifthtry.com/people/priyanka/2022/july.ftd`
+and their `i.` versions.
+
+In future we will automate this, for now this is done manually.
+
+-------
+
+
+-- ds.h1: Some Note Points
+
+fti will have a page current.ftd, It will only contain current on going tasks
+and it will also contain issue description
+
+fti will also have a done.ftd with yearly and monthly which will link to actual
+documentation, it can link to complete page or a section of a page
+
+handbook will also have a page current.ftd
+
+fti will also have a done.ftd with yearly and monthly
+
+main(fpm, fpm.dev, ftd, ftd.dev, etc) repo will have implementation documentation
+
+fti and handbook will link to main repo pages
+
+django-microservice for github communication that will provide data from github
+to handbook and fti
+
+
+To do a task we have to create an issue within corresponding repository,
+
+let's say that we have created an issue for `fpm-authentication` in `fpm` github
+repository.
+
+Then we will link that issue to handbook(public content) and fti(private content)

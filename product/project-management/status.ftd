@@ -1,0 +1,39 @@
+-- ds.page: GitHub Project Statuses
+
+
+-- ds.h1: Project Statuses
+
+We have different status to track for each task
+
+-- ds.h2: Prioritised
+
+Project has been prioritised, means it has picked by someone in the team and
+discussion started.
+
+
+-- ds.h2: Requirement Accepted
+
+After prioritised the task, people have to discuss requirements about the
+project, so there will be a documentation/video about the task, after that has
+been communicated we will update status to `Requirement Accepted`
+
+-- ds.h2: In Progress
+
+After requirement accepted, someone from team will pick that task to start
+work, before start the work, person has to updated the status to `In Progress`
+
+-- ds.h2: Code Ready
+
+Task will be moved to `Code Ready` status, when branch is ready to merge.
+
+-- ds.h2: Stuck/Pause
+
+Task will be moved to this status if there is some other dependency and that
+person has to move to different task or have to wait to complete that task.
+
+
+-- ds.h2: Finished
+
+Task will moved to `Finished` status when everything is done, like code merged
+and documentation is also merged, demo video is ready.
+
