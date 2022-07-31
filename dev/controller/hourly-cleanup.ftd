@@ -1,0 +1,26 @@
+-- ft.page: Hourly Cleanup
+
+Every hour we will shut down all [`fpm instances`](/dev/controller/instance/)
+corresponding [`plan=free` packages](/dev/controller/package/#plan) that:
+
+- did not receive any requests in that hr
+- or have exceeded their 18 hr quota
+
+This service will run on the same machine as nginx and django, and be deployed
+as cron job.
+
+Note: Shobhit feel free to convert it to background task, but for now we are
+running entire infra on one machine (other than instances).
+
+The logic of cleanup is in the django serice, cronjob will simply call
+/hourly-cleanup/ on django.
+
+When cleaning up it will first call `/terminate/` API to django.
+
+-- ft.h1: How would we detect if a machine was idle?
+
+1. We can ask each `fpm server` if they got any request in last 1 hrs.
+2. We can also ask each fpm server to notify us if they have not received any
+   request in last 1 hr.
+
+Option 2 has an advantage that we do not need any polling.

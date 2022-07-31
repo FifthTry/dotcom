@@ -1,0 +1,16 @@
+-- ft.page: FPM Controller DJango Service
+
+FPM `controller` is a django service that launches [`fpm
+instances`](/dev/controller/instance/).
+
+The primary purpose of this service is to manage [nginx configuration
+files](/dev/controller/nginx), and [packages](/dev/package/) and
+[instances](/dev/instance/) tables. This service exposes the following APIs:
+
+- [add-package](/dev/controller/add-package/)
+- [get-package](/dev/controller/get-package/)
+- [fpm-ready](/dev/controller/fpm-ready/)
+
+It also has a special view that gets called when a request comes for a package
+on free plan whose [fpm instance](/dev/controller/instance/) is shut down due
+to inactivity.

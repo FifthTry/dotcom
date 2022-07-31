@@ -1,0 +1,6 @@
+-- ft.page: Updating An Already Deployed Package
+
+To update a package, we will ask the current fpm instance to update itself. It
+will create a new folder, and checkout the latest code, and try to do a git
+pull on it. If it succeeds it will start serving from the new location, and
+tell the controller what is the latest hash deployed.

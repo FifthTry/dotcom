@@ -1,0 +1,27 @@
+-- ft.page: /add-package/ API
+
+A new package would be added by `/add-package/` api.
+
+This API is implemented by [`fpm controller django
+service`](/dev/controller/django/).
+
+-- ft.h1: Input
+
+-- ft.h2: `name`
+
+Name of the package.
+
+-- ft.h2: `git`
+
+Git URL of the package.
+
+Note: can we easily do a git check?
+
+-- ft.h2: `plan`
+
+Plan for the package. Can be either `free` or `paid` only.
+
+-- ft.h1: Side Effect: update nginx
+
+This calls adds the initial `<domain>.conf` for nginx. For initial configuration
+it makes nginx point to django.

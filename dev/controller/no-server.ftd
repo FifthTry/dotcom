@@ -1,0 +1,28 @@
+-- ft.page: No Server View
+
+Nginx sends traffic to django when there is not [`fpm
+instance`](/dev/controller/instance/) correspnding to some package. This django
+view is responsible for serving all such requests.
+
+This view shows the info "hey we are not yet ready, this is the state". This is
+like how heroku returns a non configured or server down page.
+
+Question: Do we return 200 or 500?
+
+This view also triggers launch of a new fpm instance corresponding to that
+package if no one is looking at it.
+
+-- ft.h1: Startup Coordination
+
+The purpose of status column in [packages table](/dev/controller/package/) is
+to ensure there is no race condition, we do not accidentally launch more than
+one ec2 instance, when we are going to change the `state` from `idle` (no
+instance ready) to `intialising` (setting up the instance).
+
+The way we ensure that is by using row level locking using the `for update`
+clause `SELECT` query when checking the status.
+
+If request came to django it means there is no service. So first request will
+change the status from idle to starting. Others requests will see status as
+starting and will do nothing.
+

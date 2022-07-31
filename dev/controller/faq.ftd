@@ -1,0 +1,6 @@
+-- ft.page: FAQ
+
+-- ft.h1: Do We Do API Auth?
+
+Since our controller and fpm instances are both running on VPC, we do not have
+to worry about API auth.

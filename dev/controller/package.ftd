@@ -1,0 +1,50 @@
+-- ft.page: `packages table`
+
+This table contains information about all the packages that we are serving.
+
+-- ft.code:
+lang: py
+
+class Package(models.Model):
+    name = models.CharField(
+        unique=True, help_text="name of the FPM package", max_length=255
+    )
+    base = models.CharField(help_text="git url of FPM package", max_length=1023)
+    hash = models.CharField(
+        null=True, blank=True, help_text="latest deployed hash of git", max_length=512
+    )
+    plan = models.CharField(
+        help_text="We have different plans like free, paid for serving FPM package",
+        max_length=255,
+    )
+    hours = models.IntegerField(default=0)
+    status = models.CharField(
+        help_text="status of the package", max_length=255, choices=package_status
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+-- ft.h1: `hash`
+
+This is the commit hash that is currently deployed.
+
+-- ft.h1: `base`
+
+The github, gitlab or bit buket URL that we can clone from or can download
+individual files.
+
+-- ft.h1: `plan`
+
+We have the following plans for now:
+
+-- ft.h2: `free`
+
+These plans would be cleaned up every hr if they are idle. Also they will get
+18 hrs per day max.
+
+-- ft.h2: `paid`
+
+These plans will not be cleaned up when idle.
+
+
+-- ft.h2: `status`

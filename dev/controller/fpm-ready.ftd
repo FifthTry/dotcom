@@ -1,0 +1,32 @@
+-- ft.page: /fpm-ready/ API
+
+This API is called from fpm instance after it is done initialising itself and
+is ready to serve HTTP requests.
+
+This API is implemented by [`fpm controller django
+service`](/dev/controller/django/).
+
+This api will change the status from `initialising` to `ready`. Note if the
+status is anything but initialising this will give 500 so someone looks at it
+in Sentry.
+
+-- ft.h1: Input: `ec2_reservation`
+-- ft.h1: Input: `hash`
+
+`hash` is the git commit hash that has been deployed.
+
+-- ft.h1: Output
+
+-- ft.code:
+lang: json
+
+{
+    "success": true
+}
+
+
+-- ft.h1: Side Effect: Update Nginx
+
+Before this API returns success it will update nginx's configuration for the
+domain corresponding to given package, to add a rule about forwarding the domain
+to ec2 instance.

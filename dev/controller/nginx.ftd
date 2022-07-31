@@ -1,0 +1,12 @@
+-- ft.page: Nginx For FPM Controller
+
+All traffic from all domains our customers are using gets routed to this nginx.
+
+-- ft.h1: Nginx Configuration Management
+
+For every domain we will have a document, `/etc/nginx/<domain>.conf` file,
+which will contain a forwarding rule either to [FPM
+instance](/dev/controller/instance/) or the [no-server view handler of fpm
+Controller django service](/dev/controller/no-server/) running on localhost.
+
+

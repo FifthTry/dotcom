@@ -1,0 +1,8 @@
+-- ds.page: `fpm instance`
+
+All instances are stored in [dedicated instances
+table](/dev/controller/dedicated-instances/). In future we may create `shared
+instances`.
+
+FPM instance is a ubuntu server running `fpm serve`. We currenlty only have
+dedicated instances, meaning each package that is

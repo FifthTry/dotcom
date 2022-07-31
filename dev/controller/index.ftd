@@ -1,0 +1,18 @@
+-- ds.page: FPM Controller Service
+
+FPM Controller Machine is the entry point, all domains being served by us point
+to this machine. For now we have a dedicated single instance, in future we will
+make it load balanced etc.
+
+This service runs [nginx](/dev/controller/nginx/) and
+[django](/dev/controller/django/).
+
+-- ds.image:
+src: $assets.images.controller.png
+
+The main operations are:
+
+- [adding a new package](/dev/controller/add-package/)
+- [hourly cleanup of idle machines on free plan](/dev/controller/hourly-cleanup/)
+- [handing no server for idle machines on free plan](/dev/controller/no-server/)
+- [updating a package](/dev/controller/updating-package/)

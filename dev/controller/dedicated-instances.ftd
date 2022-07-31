@@ -1,0 +1,53 @@
+-- ft.page: Dedicated Instances Table
+
+This table keeps track of all the FPM Service instances that are currently
+running. Each instance is a ubuntu machine, which is running `fpm serve`, and
+serves one fpm package.
+
+We have decided to pick EC2 for now.
+
+-- ft.code:
+lang: py
+
+class DedicatedInstance(models.Model):
+    package = models.ForeignKey(Package, on_delete=models.CASCADE)
+    ec2_reservation = models.CharField(db_index=True, max_length=255)
+    ec2_instance_id = models.CharField(null=True, blank=True, max_length=255)
+    status = models.CharField(
+        help_text="status of EC2 instance, ready, initializing, ect...",
+        max_length=127,
+        choices=instance_status,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+-- ft.h1: `ec2_reservation`
+
+An instance would only be created in the table if we have gotten a EC2
+reservation id, which will be stored in this field.
+
+-- ft.h1: `ec2_instance_id`
+
+NOTE: research EC2 API docs to see if they give us one or two ids.
+
+-- ft.h1: `status`
+
+The status of the instance would be store here.
+
+-- ft.h2: `status: getting-instance`
+
+When a row is inserted after getting the reservation id, this would be the
+status.
+
+-- ft.h2: `status: initializing`
+
+After starting up the instance would fetch the package that they would be
+serving by calling [`/get-zip/` API](/dev/controller/get-zip/). When the API
+is called, the status would change from `getting-instance` to `initializing`.
+
+-- ft.h2: `status: ready`
+
+Once the fpm instance has download the zip and fetched its dependencies, started
+the HTTP service and is ready, the instance calls `/fpm-ready/` API, which
+changes the state from `initialising` to `ready`.
+
