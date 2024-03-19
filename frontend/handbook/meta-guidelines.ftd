@@ -1,0 +1,70 @@
+
+
+
+-- ds.page: Meta Guidelines: Guidelines About Guideline
+
+-- ds.h1: Every Guideline Should Be In Writing
+
+We at FifthTry do not give out guidelines, and instructions etc without first
+building a concensus about it, writing it down etc. We add examples of
+exceptions etc also in the guideline so we know when we can ignore the
+guideline.
+
+-- ds.h1: All Guidelines Are Open To Change/Discussion
+
+In every one-on-one, anyone can bring up, the guidelines they want added or
+revised/clarified, with their manager.
+
+-- ds.code:
+lang: ftd
+
+\-- propose-guideline-update:
+when: in every one on one
+about: guidelines they want added or revised/clarified
+with: the manager
+
+-- ds.markdown:
+
+If you are adding a guideline or proposing a guideline, try to create a
+consensus on it, get some other people's feedback etc.
+
+-- ds.h1: Guidelines Are Largely Followed, Not Religiously So
+
+We create guidelines to make our day to day life smoother, so there are fewer
+coordination issues, and general benefits. We are not courts and creating laws
+for the country that must be strictly adhered or else..
+
+-- ds.image: We Mean Guideline In This Literal Sense, Lines On The Floor To Guide You
+src: $assets.files.images.blog.guidelines.jpg
+;;align: center
+
+Guidelines are like these yellow lines. If everyone walked on the yellow line
+and they wanted to reach the lift, they will do it optimally. If someone strays
+out, there is no one punish them. Having said life is whole lot better if most
+people followed most guidelines most of the time.
+
+-- ds.h1: Guidelines Are For Everyone
+
+When creating or proposing guidelines we should use empathy, we should not think
+that we are the rule makers and everyone will follow our rule. Maybe when
+hiring juniors or people who need job you can force them, but if you are
+courting people to join you, you may start relaxing your guidelines.
+
+This is bad. It makes your company treat different people differently. So we
+should think of proper guidelines which are not too much effort for people
+following.
+
+-- ds.h1: Too Many Guidelines?
+
+If people do know what all guidelines they have to follow, if they are either
+too many, or if they are hard in hard to find places, then people start second
+guessing everything, and this disrupts the flow.
+
+We create traffic signals to increase the speed of traffic not to decrese it,
+and if a traffic signal is not increasing the traffic on net it must be taken
+down. Same with guidelines.
+
+Guidelines should be few, clearly communicated, no one should be surprised that
+there is yet another guideline for something.
+
+-- end: ds.page

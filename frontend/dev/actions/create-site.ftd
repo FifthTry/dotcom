@@ -1,0 +1,93 @@
+-- import: www.fifthtry.com/dev/actions
+exposing: action, user-field, system-field, validation
+
+-- action: create-site
+redirect: /s/<site-slug>/
+url: /ft-ep/action/create-site/
+code-reference: ft/src/action/create_site.rs
+unimplemented: true
+
+-- action.system-fields:
+
+	-- system-field: org-slug
+	
+	-- system-field.validations:
+	
+		-- validation: no-such-org
+		error-message: No such organisation. Maybe the slug of the organisation has changed, or organisation has been deleted.
+		
+		Check if org is present.
+		
+		-- validation: not-org-member
+		error-message: Only organization members can perform this action. You may have been removed.
+		status: done
+		
+		Check if user is org member
+		
+		-- validation: unauthorized-role
+		status: done
+		description: Only roles admin or manager can create a site.
+		
+		-- validation: maximum-site-count-not-exceeded
+		status: done
+		error-message: Organization site limit reached. Your organization has exceeded the maximum number of sites.
+		description: We only allow upto 100 sites per org.
+		
+	-- end: system-field.validations
+
+-- end: action.system-fields
+
+
+
+
+
+
+-- action.user-fields:
+
+	-- user-field: site-slug
+	
+	-- user-field.validations:
+	
+		-- validation: site-slug-is-empty
+		error-message: site-slug is a required field can't be empty.
+		description: Check if the site-slug is not empty
+		status: done
+		
+		-- validation: site-slug-is-lowercase
+		error-message: site-slug must be in lower case
+		description: Check if the site-slug is lowercase.
+		status: done
+		
+		-- validation: site-slug-regex
+		error-message: Invalid site slug. Must be lowercase, alphanumeric, and may contain hyphens.
+		description: Must confirm with our regex for valid slugs.
+		status: done
+		
+		-- validation: unique-site-slug
+		error-message: Site with this domain <domain> already exists.
+		description: Must not exist in DB.
+		status: done
+		
+	-- end: user-field.validations
+
+-- end: action.user-fields
+
+
+
+
+
+
+-- action.other-validations:
+
+	-- validation: global-rate-limit
+	description: We only create max of 100 sites per min.
+	implement-in-future: true
+	
+	-- validation: create-site-org-rate-limit-reached
+	description: A single org can only create 5 sites per minute.
+	error-message: We only allow creating 5 sites per minute. Please try after some time.
+	status: done
+	
+-- end: action.other-validations
+
+-- end: action

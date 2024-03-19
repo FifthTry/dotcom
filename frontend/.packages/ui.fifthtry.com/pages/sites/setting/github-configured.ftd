@@ -1,0 +1,109 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/actions/sites/github/remove-github-access
+-- import: ui.fifthtry.com/components/sites/utils as u
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+sites-records.gh-oidc-data data:
+module remove-github-access: remove-github-access
+optional string top-message:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+dashboard-url: $page.dashboard-url
+current-page: github
+top-message: $page.top-message
+
+	-- ds.section-column:
+	   inset: $ds.spaces.inset-square.large
+	   spacing: $ds.spaces.vertical-gap.large
+	   margin: $ds.spaces.vertical-gap.extra-extra-large
+	
+		-- ds.section-column:
+		flush: full
+		inset: $ds.spaces.inset-square.zero
+		spacing: $ds.spaces.vertical-gap.large
+		margin: $ds.spaces.vertical-gap.extra-extra-large
+		align-content: top-left
+		
+			-- ds.row:
+			align-content: left
+			spacing: $ds.spaces.horizontal-gap.small
+			
+				-- ftd.image:
+				src: $assets.files.assets.sites.info.svg
+				
+				-- ds.copy-small: Use clift to update your site from github
+				
+			-- end: ds.row
+
+			-- ds.row:
+			radius: $ds.radius.medium
+			inset: $ds.spaces.inset-square.large
+			border: $ds.borders.uniform.small
+			spacing: $ds.spaces.horizontal-gap.space-between
+			background.solid: $ds.colors.background.step-1
+			
+				-- ds.link:
+				 color: $ds.colors.text-strong
+				 link: /
+				
+				   $description(account=$page.data.account, repo=$page.data.repo, branch=$page.data.branch, domain=$page.site.primary-domain)
+				
+				-- ds.row:
+				spacing: $ds.spaces.horizontal-gap.medium
+				align-content: right
+				width.fixed.px: 285
+				
+					-- ds.danger-button: Remove Access
+					 radius: curved
+					 $on-click$: $page.remove-github-access.submit(site_slug=$page.site.site-slug)
+					 width: full
+					
+					-- ds.secondary-button: Edit
+					radius: curved
+					width: full
+					link: $page.data.configure-url
+					
+				-- end: ds.row
+
+			-- end: ds.row
+
+			-- ftd.text: $page.remove-github-access.manage-site-error
+			color: red
+			if: { page.remove-github-access.manage-site-error != NULL }
+			
+		-- end: ds.section-column
+
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+-- string description(account, repo,branch,domain):
+string account:
+string repo:
+string branch:
+string domain:
+
+"**[" +
+account +
+"/" +
+repo +
+"](https://github.com/" + account + "/" + repo + ")** (`" +
+branch +
+"` branch) on Github is allowed to update **" +
+domain +
+"**."

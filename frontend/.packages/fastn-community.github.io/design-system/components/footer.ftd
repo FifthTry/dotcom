@@ -1,0 +1,51 @@
+-- component footer-heading:
+caption title:
+
+-- ds.heading-medium: $footer-heading.title
+
+-- end: footer-heading
+
+
+
+
+-- component footer-secondary-heading:
+caption title:
+
+-- ds.copy-regular:
+
+$footer-secondary-heading.title
+
+-- end: footer-secondary-heading
+
+
+
+
+-- component footer-link:
+caption title:
+string link:
+boolean $hover: false
+
+-- ftd.text: $footer-link.title
+link: $footer-link.link
+role: $ds.types.copy-regular
+color: $ds.colors.text
+color if { footer-link.hover }: $ds.colors.text-strong
+$on-mouse-enter$: $ftd.set-boolean($a = $footer-link.hover, v = true)
+$on-mouse-enter$: $ftd.set-boolean($a = $footer-link.hover, v = false)
+
+-- end: footer-link
+
+
+
+
+
+-- component copyright-text:
+caption or body text:
+ftd.resizing width: hug-content
+
+-- ds.copy-regular:
+width: $copyright-text.width
+
+$copyright-text.text
+
+-- end: copyright-text

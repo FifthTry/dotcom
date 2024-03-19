@@ -1,0 +1,159 @@
+-- ds.page-widths widths:
+regular.px: 1400
+narrow.px: 1200
+wide.px: 1600
+
+
+-- ds.page: FifthTry | Building fastn and hostn
+widths: $widths
+
+-- header:
+
+;; There is a build issue in the below component call
+;; will fix this later
+/-- products:
+
+-- footer:
+
+-- end: ds.page
+
+
+
+-- component footer:
+
+-- ds.section-row:
+
+	-- ftd.image:
+	src: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-ycom-dark.svg
+	
+	-- ds.row:
+	spacing: $ds.spaces.horizontal-gap.extra-large
+	
+		-- ds.footer-link: Our Partners
+		link: /
+		
+		
+		-- ds.footer-link: Why partner with us?
+		link: /
+		
+		
+		-- ds.footer-link: How to partner with us?
+		link: /
+		
+		-- ds.copyright-text: © 2023 FifthTry. All rights reserved
+		
+	-- end: ds.row
+
+-- end: ds.section-row
+
+-- end: footer
+
+
+
+-- component products:
+
+-- ds.section-row:
+outer-background.solid: $ds.colors.background.step-1
+align-content: top-center
+margin: $ds.spaces.vertical-gap.extra-extra-large
+
+	-- product: FTD Language for prose
+	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/ftd-logo.svg
+	link: /
+	
+	FTD is the innovative programming language for writing prose. Say goodbye to
+	the complexities of traditional programming languages and hello to a simplified
+	and intuitive experience.
+	
+	
+	-- product: Fastn static site generator
+	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/fastn-logo.svg
+	link: /
+	
+	Fastn is a powerful command line tool written in Rust that offers a seamless
+	experience for ftd package management and static site generation. With Fastn,
+	you can easily convert your .ftd files into .html files.
+	
+	
+	-- product: HOSTN hosting fastn sites
+	link: /
+	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/hostn-logo.svg
+	
+	An FASTN package contains one or more “ftd modules”, and the modules export one
+	or more “symbols”, eg records, variables, components and so on. Hosting FASTN
+	sites made simple by HOSTN.
+	
+-- end: ds.section-row
+
+-- end: products
+
+
+-- component product:
+caption title:
+string icon:
+body about:
+string link:
+
+-- ds.column:
+background.solid: $ds.colors.background.step-2
+inset: $ds.spaces.inset-tall.large
+height: fill-container
+
+	-- ds.row:
+	
+		-- ftd.image: $product.icon
+		-- ds.heading-small: $product.title
+		
+	-- end: ds.row
+
+	-- ds.copy-regular:
+	height: fill-container
+	
+	$product.about
+	
+	-- ds.phosphor-icon-button: Read More
+	icon: arrow-right
+	link: $product.link
+	icon-position: at-end
+	
+-- end: ds.column
+
+-- end: product
+
+
+
+
+
+
+-- component header:
+
+-- ds.section-row:
+outer-background.solid: $ds.colors.background.step-1
+inset: $ds.spaces.inset-square.large
+spacing: $ds.spaces.horizontal-gap.space-between
+flush: full
+margin: $ds.spaces.vertical-gap.extra-large
+
+	-- ftd.image:
+	height.fixed.px: 38
+	max-width.fixed.px: 120
+	src: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+	
+	-- ds.inline-row:
+	spacing: $ds.spaces.horizontal-gap.large
+	
+		-- ds.header-link: Home
+		link: /
+		
+		-- ds.header-link: Team
+		link: /
+		
+		-- ds.header-link: Handbook
+		link: /
+		
+		
+	-- end: ds.inline-row
+
+-- end: ds.section-row
+
+-- end: header

@@ -1,0 +1,284 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+
+
+
+-- or-type input-size:
+
+-- constant integer large: 0
+-- constant integer medium: 1
+-- constant integer small: 2
+
+-- end: input-size
+
+
+
+-- or-type input-radius:
+
+-- constant integer none: 0
+-- constant integer curved: 1
+
+-- end: input-radius
+
+
+
+
+
+
+
+
+
+
+
+-- component text-input:
+optional caption label:
+optional string hint:
+optional string error:
+optional ftd.image-src icon-start:
+optional ftd.image-src icon-end:
+input-size size: medium
+input-radius radius: none
+boolean $flag: false
+boolean rounded: false
+
+-- ds.column:
+align-content: top-left
+spacing: $ds.spaces.vertical-gap.small
+inset: $ds.spaces.inset-square.small
+
+	-- ds.copy-small: $text-input.label
+	if: { text-input.label != NULL }
+	
+	-- ds.row:
+	width: fill-container
+	border-color: $inherited.colors.border
+	radius if { text-input.rounded }: $ds.radius.large
+	radius if { text-input.radius == none }: $ds.radius.zero
+	radius if { text-input.radius == curved }: $ds.radius.medium
+	border: $ds.borders.uniform.small
+	height.fixed.px if { $text-input.size == small }: 40
+	height.fixed.px if { $text-input.size == medium }: 46
+	height.fixed.px if { $text-input.size == large }: 49
+	inset if { $text-input.size == small }: $ds.spaces.inset-wide.small
+	inset if { $text-input.size == medium }: $ds.spaces.inset-wide.medium
+	inset if { $text-input.size == large }: $ds.spaces.inset-wide.large
+	border-color if { text-input.error }: $ds.colors.cta-danger.border
+	background.solid: $inherited.colors.background.step-1
+	border-color if { text-input.flag }: $inherited.colors.shadow
+	
+		-- ftd.image:
+		if: { text-input.icon-start }
+		src: $text-input.icon-start
+		width.fixed.px: 20
+		align-self: center
+		
+		-- ftd.text-input:
+		placeholder: placeholder
+		width: fill-container
+		background.solid: $inherited.colors.background.step-1
+		color: $ds.colors.text-strong
+		color if { text-input.error }: $ds.colors.cta-danger.text
+		$on-focus$: $ftd.set-bool($a = $text-input.flag, v = true)
+		$on-blur$: $ftd.set-bool($a = $text-input.flag, v = false)
+		
+		-- ftd.image:
+		if: { text-input.icon-end }
+		src: $text-input.icon-end
+		width.fixed.px: 20
+		align-self: center
+		
+	-- end: ds.row
+
+	-- ds.copy-small: $text-input.hint
+	if: { text-input.hint != NULL }
+	
+	-- ds.copy-small: $text-input.error
+	if: { text-input.error != NULL }
+	color: $ds.colors.cta-danger.text
+	
+-- end: ds.column
+
+-- end: text-input
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Text Input
+
+-- ds.section-column:
+flush: full
+align-content: center
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Icon Buttons
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.row:
+	
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: small
+		 hint: hint
+		 icon-start: $assets.files.assets.convert.svg
+		 icon-end: $assets.files.assets.convert.svg
+		
+			-- text-input: Label
+			size: small
+			hint: hint
+			icon-start: $assets.files.assets.convert.svg
+			icon-end: $assets.files.assets.convert.svg
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: small
+		 hint: hint
+		 radius: curved
+		 icon-start: $assets.files.assets.convert.svg
+		
+			-- text-input: Label
+			size: small
+			hint: hint
+			radius: curved
+			icon-start: $assets.files.assets.convert.svg
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: small
+		 hint: hint
+		 rounded: true
+		
+			-- text-input: Label
+			size: small
+			hint: hint
+			rounded: true
+			
+		-- end: ds.rendered
+
+	-- end: ds.row
+
+	-- ds.row:
+	
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: medium
+		 hint: hint
+		
+			-- text-input: Label
+			size: medium
+			hint: hint
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: medium
+		 hint: hint
+		 radius: curved
+		
+			-- text-input: Label
+			size: medium
+			hint: hint
+			radius: curved
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: medium
+		 hint: hint
+		 rounded: true
+		
+			-- text-input: Label
+			size: medium
+			hint: hint
+			rounded: true
+			
+		-- end: ds.rendered
+
+	-- end: ds.row
+
+	-- ds.row:
+	
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: large
+		 hint: hint
+		
+			-- text-input: Label
+			size: large
+			hint: hint
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: large
+		 hint: hint
+		 radius: curved
+		
+			-- text-input: Label
+			size: large
+			hint: hint
+			radius: curved
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		 \-- text-input: Label
+		 size: large
+		 hint: hint
+		 rounded: true
+		
+			-- text-input: Label
+			size: large
+			hint: hint
+			rounded: true
+			
+		-- end: ds.rendered
+
+	-- end: ds.row
+
+	;; error message to be added
+
+	-- ds.rendered:
+	
+	 \-- text-input: Label
+	 size: small
+	 error: error
+	
+		-- text-input: Label
+		size: small
+		error: error
+		
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

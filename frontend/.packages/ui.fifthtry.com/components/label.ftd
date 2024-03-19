@@ -1,0 +1,79 @@
+
+;; String value input-label
+-- component input-label:
+caption key:
+optional string default-value:
+optional string placeholder:
+
+-- ftd.row:
+width: hug-content
+spacing.fixed.px: 10
+align-content: center
+
+	-- ftd.text: $input-label.key
+	role: $inherited.types.copy-large
+	color: $inherited.colors.text-strong
+	
+	-- ftd.text-input:
+	placeholder: $input-label.placeholder
+	default-value: $input-label.default-value
+	width.fixed.px: 200
+	height: fill-container
+	padding.px: 10
+	
+-- end: ftd.row
+
+-- end: input-label
+
+
+
+
+
+
+
+-- component label:
+caption key:
+string value:
+
+-- ds.row:
+spacing: $ds.spaces.horizontal-gap.medium
+align-content: top-left
+
+	-- ds.copy-regular:
+	text: $label.key
+	width: hug-content
+	
+	-- ds.copy-regular:
+	text: $label.value
+	width: hug-content
+	
+-- end: ds.row
+
+-- end: label
+
+
+
+-- component label-with-button:
+caption key:
+string value:
+string cta-text:
+optional string cta-link:
+
+-- ds.row:
+spacing: $ds.spaces.horizontal-gap.medium
+align-content: left
+
+	-- ds.copy-regular:
+	text: $label-with-button.key
+	width: hug-content
+	
+	-- ds.copy-regular:
+	text: $label-with-button.value
+	width: hug-content
+	
+	-- ds.primary-button: $label-with-button.cta-text
+	link: $label-with-button.cta-link
+	
+-- end: ds.row
+
+-- end: label-with-button

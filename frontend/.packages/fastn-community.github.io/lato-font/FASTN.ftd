@@ -1,0 +1,206 @@
+-- import: fastn
+
+-- fastn.package: fastn-community.github.io/lato-font
+
+-- fastn.dependency: fifthtry.github.io/package-doc
+
+
+
+
+-- fastn.sitemap:
+
+# Home: index.html
+
+- Custom Font: custom/
+
+# GitHub
+  url: https://github.com/fastn-community/lato-font
+
+
+
+
+
+
+
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 100
+woff2: -/fastn-community.github.io/lato-font/static/Lato-100-italic-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 100
+woff2: -/fastn-community.github.io/lato-font/static/Lato-100-italic-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 300
+woff2: -/fastn-community.github.io/lato-font/static/Lato-300-italic-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 300
+woff2: -/fastn-community.github.io/lato-font/static/Lato-300-italic-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 400
+woff2: -/fastn-community.github.io/lato-font/static/Lato-400-italic-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 400
+woff2: -/fastn-community.github.io/lato-font/static/Lato-400-italic-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 700
+woff2: -/fastn-community.github.io/lato-font/static/Lato-700-italic-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 700
+woff2: -/fastn-community.github.io/lato-font/static/Lato-700-italic-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 900
+woff2: -/fastn-community.github.io/lato-font/static/Lato-900-italic-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: italic
+weight: 900
+woff2: -/fastn-community.github.io/lato-font/static/Lato-900-italic-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 100
+woff2: -/fastn-community.github.io/lato-font/static/Lato-100-normal-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 100
+woff2: -/fastn-community.github.io/lato-font/static/Lato-100-normal-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 300
+woff2: -/fastn-community.github.io/lato-font/static/Lato-300-normal-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 300
+woff2: -/fastn-community.github.io/lato-font/static/Lato-300-normal-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 400
+woff2: -/fastn-community.github.io/lato-font/static/Lato-400-normal-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 400
+woff2: -/fastn-community.github.io/lato-font/static/Lato-400-normal-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 700
+woff2: -/fastn-community.github.io/lato-font/static/Lato-700-normal-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 700
+woff2: -/fastn-community.github.io/lato-font/static/Lato-700-normal-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 900
+woff2: -/fastn-community.github.io/lato-font/static/Lato-900-normal-latin-ext.woff2
+unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+
+
+
+
+-- fastn.font: Lato
+style: normal
+weight: 900
+woff2: -/fastn-community.github.io/lato-font/static/Lato-900-normal-latin.woff2
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+
+    

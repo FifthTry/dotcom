@@ -1,0 +1,454 @@
+-- or-type display-type:
+
+-- constant integer inline: 1
+-- constant integer inline-block: 3
+-- constant integer center: 4
+-- constant integer left: 5
+-- constant integer right: 6
+-- constant integer justify: 7
+
+-- end: display-type
+
+
+
+
+
+
+
+-- component heading-hero:
+caption text:
+ftd.resizing width: hug-content
+ftd.color color: $ds.colors.text-strong
+display-type align: inline
+optional ds.gap margin:
+optional string link:
+ftd.text-style list style:
+
+-- ftd.text: $heading-hero.text
+width: $heading-hero.width
+color: $heading-hero.color
+role: $ds.types.heading-hero
+text-align if { heading-hero.align == left }: start
+text-align if { heading-hero.align == right }: end
+text-align if { heading-hero.align == center }: center
+text-align if { heading-hero.align == justify }: justify
+display if { heading-hero.align == inline }: inline
+display if { heading-hero.align == inline-block }: inline-block
+margin-bottom.px if { heading-hero.margin != NULL }: $heading-hero.margin.gap
+link: $heading-hero.link
+style: $heading-hero.style
+
+
+-- end: heading-hero
+
+
+
+
+
+
+-- component heading-eyebrow:
+caption text:
+ftd.resizing width: hug-content
+ftd.color color: $ds.colors.text-strong
+display-type align: inline
+optional ds.gap margin:
+optional string link:
+ftd.text-style list style:
+;; todo: style: uppercase, bold, code
+
+-- ftd.text: $heading-eyebrow.text
+width: $heading-eyebrow.width
+color: $heading-eyebrow.color
+role: $ds.types.heading-small
+text-align if { heading-eyebrow.align == left }: start
+text-align if { heading-eyebrow.align == right }: end
+text-align if { heading-eyebrow.align == center }: center
+text-align if { heading-eyebrow.align == justify }: justify
+display if { heading-eyebrow.align == inline }: inline
+display if { heading-eyebrow.align == inline-block }: inline-block
+margin-bottom.px if { heading-eyebrow.margin != NULL }: $heading-eyebrow.margin.gap
+link: $heading-eyebrow.link
+style: $heading-eyebrow.style
+
+-- end: heading-eyebrow
+
+
+-- component heading-large:
+caption text:
+ftd.resizing width: hug-content
+display-type align: inline
+optional ds.gap margin:
+ftd.color color: $ds.colors.text-strong
+optional string link:
+ftd.text-style list style:
+
+-- ftd.text: $heading-large.text
+width: $heading-large.width
+color: $heading-large.color
+role: $ds.types.heading-large
+text-align if { heading-large.align == left }: start
+text-align if { heading-large.align == right }: end
+text-align if { heading-large.align == center }: center
+text-align if { heading-large.align == justify }: justify
+display if { heading-large.align == inline }: inline
+display if { heading-large.align == inline-block }: inline-block
+margin-bottom.px if { heading-large.margin != NULL }: $heading-large.margin.gap
+link: $heading-large.link
+style: $heading-large.style
+
+-- end: heading-large
+
+
+-- component heading-medium:
+caption text:
+ftd.resizing width: hug-content
+display-type align: inline
+optional ds.gap margin:
+ftd.color color: $ds.colors.text-strong
+optional string link:
+ftd.text-style list style:
+
+-- ftd.text: $heading-medium.text
+width: $heading-medium.width
+color: $heading-medium.color
+role: $ds.types.heading-medium
+text-align if { heading-medium.align == left }: start
+text-align if { heading-medium.align == right }: end
+text-align if { heading-medium.align == center }: center
+text-align if { heading-medium.align == justify }: justify
+display if { heading-medium.align == inline }: inline
+display if { heading-medium.align == inline-block }: inline-block
+margin-bottom.px if { heading-medium.margin != NULL }: $heading-medium.margin.gap
+link: $heading-medium.link
+style: $heading-medium.style
+
+-- end: heading-medium
+
+
+-- component heading-small:
+caption text:
+ftd.resizing width: hug-content
+display-type align: inline
+optional ds.gap margin:
+ftd.color color: $ds.colors.text-strong
+optional string link:
+ftd.text-style list style:
+
+-- ftd.text: $heading-small.text
+width: $heading-small.width
+color: $heading-small.color
+role: $ds.types.heading-small
+text-align if { heading-small.align == left }: start
+text-align if { heading-small.align == right }: end
+text-align if { heading-small.align == center }: center
+text-align if { heading-small.align == justify }: justify
+display if { heading-small.align == inline }: inline
+display if { heading-small.align == inline-block }: inline-block
+margin-bottom.px if { heading-small.margin != NULL }: $heading-small.margin.gap
+link: $heading-small.link
+style: $heading-small.style
+
+-- end: heading-small
+
+
+
+
+
+-- component heading-tiny:
+caption text:
+ftd.resizing width: hug-content
+display-type align: inline
+optional ds.gap margin:
+ftd.color color: $ds.colors.text-strong
+optional string link:
+ftd.text-style list style:
+
+-- ftd.text: $heading-tiny.text
+width: $heading-tiny.width
+color: $heading-tiny.color
+role: $ds.types.heading-tiny
+text-align if { heading-tiny.align == left }: start
+text-align if { heading-tiny.align == right }: end
+text-align if { heading-tiny.align == center }: center
+text-align if { heading-tiny.align == justify }: justify
+display if { heading-tiny.align == inline }: inline
+display if { heading-tiny.align == inline-block }: inline-block
+margin-bottom.px if { heading-tiny.margin != NULL }: $heading-tiny.margin.gap
+link: $heading-tiny.link
+style: $heading-tiny.style
+
+-- end: heading-tiny
+
+
+
+
+
+
+-- component copy-large:
+caption or body text:
+ftd.color color: $ds.colors.text
+optional string link:
+display-type align: inline
+optional ds.gap margin:
+ftd.text-style list style:
+
+-- ftd.text: $copy-large.text
+color: $copy-large.color
+role: $ds.types.copy-large
+text-align if { copy-large.align == left }: start
+text-align if { copy-large.align == right }: end
+text-align if { copy-large.align == center }: center
+text-align if { copy-large.align == justify }: justify
+display if { copy-large.align == inline }: inline
+display if { copy-large.align == inline-block }: inline-block
+margin-bottom.px if { copy-large.margin != NULL }: $copy-large.margin.gap
+style: $copy-large.style
+link: $copy-large.link
+
+-- end: copy-large
+
+
+
+-- component copy-regular:
+caption or body text:
+ftd.color color: $ds.colors.text
+optional string link:
+optional ds.gap margin:
+display-type align: inline
+ftd.resizing width: hug-content
+optional ftd.resizing height:
+ftd.text-style list style:
+optional ftd.white-space white-space:
+
+-- ftd.text: $copy-regular.text
+color: $copy-regular.color
+role: $ds.types.copy-regular
+margin-bottom.px if { copy-regular.margin != NULL }: $copy-regular.margin.gap
+height: $copy-regular.height
+text-align if { copy-regular.align == left }: start
+text-align if { copy-regular.align == right }: end
+text-align if { copy-regular.align == center }: center
+text-align if { copy-regular.align == justify }: justify
+white-space if { copy-regular.white-space != NULL }: $copy-regular.white-space
+display if { copy-regular.align == inline }: inline
+display if { copy-regular.align == inline-block }: inline-block
+width: $copy-regular.width
+style: $copy-regular.style
+link: $copy-regular.link
+
+-- end: copy-regular
+
+
+
+
+
+-- component copy-small:
+caption or body text:
+ftd.color color: $ds.colors.text
+optional string link:
+display-type align: inline
+optional ds.gap margin:
+ftd.text-style list style:
+
+-- ftd.text: $copy-small.text
+color: $copy-small.color
+role: $ds.types.copy-small
+text-align if { copy-small.align == left }: start
+text-align if { copy-small.align == right }: end
+text-align if { copy-small.align == center }: center
+text-align if { copy-small.align == justify }: justify
+display if { copy-small.align == inline }: inline
+display if { copy-small.align == inline-block }: inline-block
+margin-bottom.px if { copy-small.margin != NULL }: $copy-small.margin.gap
+style: $copy-small.style
+link: $copy-small.link
+
+-- end: copy-small
+
+
+
+
+
+-- component fine-print:
+caption or body text:
+ftd.color color: $ds.colors.text
+optional string link:
+display-type align: inline
+optional ds.gap margin:
+
+-- ftd.text: $fine-print.text
+color: $fine-print.color
+role: $ds.types.fine-print
+text-align if { fine-print.align == left }: start
+text-align if { fine-print.align == right }: end
+text-align if { fine-print.align == center }: center
+text-align if { fine-print.align == justify }: justify
+display if { fine-print.align == inline }: inline
+display if { fine-print.align == inline-block }: inline-block
+margin-bottom.px if { fine-print.margin != NULL }: $fine-print.margin.gap
+link: $fine-print.link
+
+-- end: fine-print
+
+
+
+
+-- component link:
+caption or body text:
+string link:
+ftd.color color: $ds.colors.cta-primary.base
+display-type align: inline
+optional ds.gap margin:
+
+-- ftd.text: $link.text
+color: $link.color
+role: $ds.types.link
+link: $link.link
+white-space: nowrap
+text-align if { link.align == left }: start
+text-align if { link.align == right }: end
+text-align if { link.align == center }: center
+text-align if { link.align == justify }: justify
+display if { link.align == inline }: inline
+display if { link.align == inline-block }: inline-block
+margin-bottom.px if { link.margin != NULL }: $link.margin.gap
+
+-- end: link
+
+
+
+
+
+
+
+
+
+-- ds.page: Typography
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Typography
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- heading-hero: Heading hero typography
+		-- heading-hero: Heading hero typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- heading-large: Heading large typography
+		-- heading-large: Heading large typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- heading-medium: Heading medium typography
+		-- heading-medium: Heading medium typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- heading-small: Heading small typography
+		-- heading-small: Heading small typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- heading-tiny: Heading tiny typography
+		-- heading-tiny: Heading tiny typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- copy-large:
+	
+	Copy large typography
+	
+		-- copy-large:
+		
+		Copy large typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- copy-regular:
+	
+	Copy regular typography
+	
+		-- copy-regular:
+		
+		Copy regular typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- copy-small:
+	
+	Copy small typography
+	
+		-- copy-small:
+		
+		Copy small typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- fine-print:
+	
+	Fine print typography
+	
+		-- fine-print:
+		
+		Fine print typography
+		
+	-- end: ds.rendered
+
+
+
+	-- ds.rendered:
+	
+	\-- link: Link typography
+	link: /
+		-- link: Link typography
+		link: /
+		
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

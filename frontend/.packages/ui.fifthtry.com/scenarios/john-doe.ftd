@@ -1,0 +1,15 @@
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- ud.user-data jd:
+notifications: 0
+username: john-doe
+name: John Doe
+is-logged-in: true
+
+
+-- ud.user-data anon:
+notifications: 0
+username: john-doe
+name: John Doe
+is-logged-in: false

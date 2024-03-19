@@ -1,0 +1,21 @@
+-- import: ui.fifthtry.com/pages/org/dashboard
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: fastn/processors as pr
+
+
+-- string org-slug:
+$processor$: pr.request-data
+
+-- dashboard.page:
+data: $data.page
+user-data: $data.ud
+
+-- record dashboard-data-api:
+ud.dashboard-data page:
+ud.user-data ud:
+
+
+-- dashboard-data-api data:
+$processor$: pr.http
+url: /ft2/org/dashboard/
+org-slug: $org-slug

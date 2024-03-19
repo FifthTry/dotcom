@@ -1,0 +1,85 @@
+-- ds.page: clift
+
+-- ds.h1: client - server protocol
+
+-- ds.h2: client sends list of files
+
+API: /api/initiate-upload/
+
+Client finds the file names, sizes and hashes of all files in the directory and sends them to the server.
+
+Server responds with a list of files that need to be uploaded (`UploadSession.json.new-content.map(.file-name)``).
+On server we create a S3 file, `<content-bucket>/<TejarFile.ekey>.data`, and create its signed upload url.
+
+-- ds.code:
+lang: ftd
+
+\-- record initiate-upload-response:
+string list file-names:
+string signed-s3-upload-url:
+string upload-session-id:  # ekey of UploadSession
+
+-- ds.markdown:
+
+At this point server has created a new `UploadSession` and `TejarFile` in the database.
+
+-- ds.h3: `UploadSession.json`
+
+We will store:
+
+-- ds.code:
+lang: ftd
+
+
+\-- record content-to-upload:
+string file-name:   ;; name of the file
+string sha256-hash: ;; hash of the file
+integer file-size:    ;; size of the file
+
+\-- record shared-content-item:
+string file-name:   ;; name of the file
+string content-id:  ;; id of TejarContent
+
+\-- record json:
+shared-content-item list existing-content:
+content-to-upload list new-content:
+string list content-to-delete:
+
+-- ds.h3: Universal Hash Optimisation
+
+If the hash is present in our `TejarContent` table, for any client, we do not need to re-upload that
+file.
+
+This makes deleting stuff difficult, but not so difficult also, say if we have to delete a package, since the
+package's content now could be used by others packages because of this optimisation, we have to check for that
+when deleting, create a new S3 tejar file, and update the database.
+
+
+-- ds.h2: client uploads files to S3
+
+Client concatenates all the files that server asked to upload and uploads them to S3. It must be in the
+order that server sent.
+
+-- ds.h2: /api/commit-upload/
+
+Request params: hostn_tejar_file::id, hostn_upload_session::id
+
+Client sends the `id: initiate-upload-response.upload-session-id` to the server. Server returns ok.
+Server create entry in hostn_tejar_content for hostn_upload_session::json.new-content
+and delete hostn_document entry for hostn_upload_session::json.content-to-delete and update
+hostn_document entry for hostn_upload_session::json.existing-content
+
+-- ds.h1: FAQ
+
+-- ds.h2: Should we zip things?
+
+It's usually said not to gzip images. Also there is a question of gzip vs brotli etc. We can gzip text files,
+but most content is going to be images etc.
+
+I think we can gzip text content (and also store gzipped in our in memory cache).
+
+Since this is an optimisation, lets not do it now, without access to data. We can switch from non compressed
+to compressed in backward compatible way by adding a `compressed` flag in the `TejarFile` table tomorrow, so
+existing content will be `un-compressed` and new content will be `compressed`.
+
+-- end: ds.page

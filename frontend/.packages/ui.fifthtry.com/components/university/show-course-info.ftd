@@ -1,0 +1,41 @@
+-- import: ui.fifthtry.com/pages/university
+
+-- component show-course-info:
+caption university.course-info course:
+
+-- ds.column:
+width.fixed.calc: 50% - 20px
+radius: $ds.radius.medium
+/border-width.px: 2
+border-color: $ds.colors.cta-primary.base
+inset: $ds.spaces.inset-square.zero
+spacing: $ds.spaces.vertical-gap.zero
+
+	-- ds.row:
+	background.solid: $ds.colors.cta-primary.base
+	inset: $ds.spaces.inset-wide.medium
+	
+		-- ds.heading-tiny: $show-course-info.course.title
+		color: $ds.colors.cta-primary.text
+		
+	-- end: ds.row
+
+	-- ds.column:
+	inset: $ds.spaces.inset-square.medium
+	align-content: right
+	
+		-- ds.copy-regular:
+		
+		$show-course-info.course.about
+		
+		-- ds.phosphor-icon-button: $show-course-info.course.cta
+		icon: arrow-right
+		link: $show-course-info.course.url
+		icon-position: at-end
+		
+		
+	-- end: ds.column
+
+-- end: ds.column
+
+-- end: show-course-info

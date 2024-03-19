@@ -1,0 +1,68 @@
+-- import: ui.fifthtry.com/pages/slides/presentation-settings
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+
+-- presentation-settings.page:
+user-data: $john-doe.jd
+data: $data
+team-slug: fifthtry
+presentation-slug: fifthtry-presentation
+
+-- presentation-settings.settings-data data:
+fastn-conf: $fastn-conf
+settings-conf: $settings-conf
+is-template: true
+editor-url: /slides/scenarios/fastn-presentation-logged-in/
+presentation-title: FifthTry Presentation
+team-name: fifthtry
+
+
+
+
+
+;; -------------------------- DEFAULT SETTINGS ----------------------------
+-- string settings-conf:
+
+\;; ---------- << SLIDE COMPONENT DEFINITION >> ----------------
+
+\-- component slide:
+children wrapper:
+optional caption title:
+optional string subtitle:
+
+\-- ftd.column:
+width: fill-container
+height: fill-container
+background.solid: black
+border-width.px: 2
+border-color: white
+
+\-- ftd.text: $slide.title
+if: { slide.title != NULL }
+role: $inherited.types.heading-large
+color: white
+width: fill-container
+text-align: center
+
+\-- ftd.text: $slide.subtitle
+if: { slide.subtitle != NULL }
+role: $inherited.types.heading-small
+color: white
+width: fill-container
+text-align: center
+
+\-- ftd.column:
+width: fill-container
+margin-vertical.px: 10
+children: $slide.wrapper
+
+\-- end: ftd.column
+
+\-- end: ftd.column
+
+\-- end: slide
+
+-- string fastn-conf:
+
+\-- import: fastn
+\-- fastn.package: fastn-slide

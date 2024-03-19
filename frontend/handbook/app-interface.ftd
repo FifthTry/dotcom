@@ -1,0 +1,27 @@
+
+
+
+-- ds.page: App Interface
+
+We have a concept of an app interface. An App Interface defines how level
+features and UI of an app. How the user interacts with the app, how many fields
+are there, etc.
+
+When building the app, we have one implementation of the app interface. But any
+number of app implementations can be created for same app interface.
+
+Consider Kameri app for example. We have built this app once in Django using
+PostgreSQL But then we ported it to WASM using Supabase. Tomorrow someone can
+port the same app to Django using Redis or S3 etc. Or WASM using Github etc.
+
+Each implementation is slightly different for some reason, usually technical
+reason. Where are we storing the data.
+
+If apps have same interface, switching from one implementation to another is
+mostly a no brainer. We just have to look at technical/cost requirements and
+decide, we do not have to understand if the two implementations are different
+functionally.
+
+Building like this means all implementations of same interface can use same UI.
+This also means designers can create a lot UI variations, and they will know
+that each variation will work with all the implementation of the same interface.

@@ -1,0 +1,12 @@
+-- import: ui.fifthtry.com/pages/org/dashboard
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/scenarios/user/dashboard as user-dashboard
+
+
+-- dashboard.page:
+user-data: $john-doe.jd
+site-data: scenario-site
+data: $user-dashboard.data

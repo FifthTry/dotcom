@@ -1,0 +1,46 @@
+-- import: fastn/processors as pr
+
+-- optional string current-language:
+$processor$: pr.current-language
+
+
+
+
+
+-- component dropdown:
+
+-- ftd.row:
+if: { current-language != NULL }
+align-content: center
+spacing.fixed.px: 10
+
+	-- ds.primary-button: English
+	if: { current-language == "en" }
+	
+	-- ftd.text: English
+	color: $inherited.colors.text-strong
+	role: $inherited.types.label-medium
+	if: { current-language != "en" }
+	$on-click$: $set-language(language = en)
+	
+	-- ds.primary-button: हिन्दी
+	if: { current-language == "hi" }
+	
+	-- ftd.text: हिन्दी
+	color: $inherited.colors.text-strong
+	role: $inherited.types.label-medium
+	if: { current-language != "hi" }
+	$on-click$: $set-language(language = hi)
+	
+-- end: ftd.row
+
+-- end: dropdown
+
+
+
+
+-- void set-language(language):
+string language:
+js: $assets.files.assets.functions.js
+
+set_language(language)

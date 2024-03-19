@@ -1,0 +1,9 @@
+-- optional string $domain-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, domain):
+string site_slug:
+string domain:
+js: $assets.files.assets.functions.js
+
+callAlert("Adding domain: " + domain + ", for site: " + site_slug)

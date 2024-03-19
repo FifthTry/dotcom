@@ -1,0 +1,12 @@
+-- ds.page: Slide Page
+
+On this page we can see the slide, its code and preview, and issues etc.
+
+`fastn` URL: /p/<presentation-ekey>/<order>/
+
+Django URL: /slide/<presentation-ekey>/<order>/
+
+Output: `public.slide`.
+
+
+-- end: ds.page

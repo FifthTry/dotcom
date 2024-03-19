@@ -1,0 +1,461 @@
+-- import: fastn-community.github.io/design-system/components/button
+-- import: fastn-community.github.io/svg-icons/phosphor
+-- import: fastn-community.github.io/svg-icons/fa
+
+-- or-type icon-position:
+
+-- constant integer at-start: 0
+-- constant integer at-end: 1
+
+-- end: icon-position
+
+
+
+
+
+-- component icon-button:
+optional caption title:
+ftd.image-src icon:
+icon-position icon-position: at-start
+optional string link:
+button.button-width width: default
+button.button-variant variant: solid
+button.button-size size: medium
+button.button-kind kind: primary
+button.button-radius radius: curved
+boolean rounded: false
+boolean $hover: false
+
+-- button-wrapper:
+title: $icon-button.title
+icon-position: $icon-button.icon-position
+link: $icon-button.link
+variant: $icon-button.variant
+width: $icon-button.width
+size: $icon-button.size
+kind: $icon-button.kind
+radius: $icon-button.radius
+rounded: $icon-button.rounded
+
+	-- ftd.image:
+	src: $icon-button.icon
+	width.fixed.px: 18
+	height.fixed.px: 18
+	
+-- end: button-wrapper
+
+-- end: icon-button
+
+
+
+
+-- component square-button:
+caption ftd.image-src icon:
+optional string link:
+boolean enabled: true
+button.button-size size: medium
+button.button-kind kind: primary
+;; private stuff
+boolean $hover: false
+
+-- ftd.container:
+width.fixed.px: 30
+height.fixed.px: 30
+border-radius.px: 5
+background.solid: $ds.colors.background.step-1
+background.solid if { square-button.hover }: $ds.colors.background.step-2
+padding.px: 5
+link: $square-button.link
+$on-mouse-enter$: $ftd.set-bool($a = $square-button.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $square-button.hover, v = false)
+
+	-- ftd.image: $square-button.icon
+	width: fill-container
+	
+-- end: ftd.container
+
+-- end: square-button
+
+
+
+-- component circle-button:
+ftd.image-src icon:
+optional string link:
+boolean enabled: true
+button.button-size size: medium
+button.button-kind kind: primary
+;; private stuff
+boolean $hover: false
+
+-- ftd.container:
+width.fixed.px: 30
+height.fixed.px: 30
+border-radius.percent: 50
+background.solid: $ds.colors.background.step-1
+background.solid if { circle-button.hover }: $ds.colors.background.step-2
+padding.px: 5
+link: $circle-button.link
+$on-mouse-enter$: $ftd.set-bool($a = $circle-button.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $circle-button.hover, v = false)
+
+	-- ftd.image: $circle-button.icon
+	width: fill-container
+	
+-- end: ftd.container
+
+-- end: circle-button
+
+
+
+-- component circle-text-button:
+caption text:
+optional string link:
+
+-- ds.column:
+background.solid: $ds.colors.cta-primary.base
+border-color: $ds.colors.cta-primary.border
+border: $ds.borders.uniform.small
+radius: $ds.radius.round
+width.fixed.px: 32
+height.fixed.px: 32
+align-content: center
+link: $circle-text-button.link
+
+	-- ds.copy-regular: $circle-text-button.text
+	color: $ds.colors.cta-primary.text
+	align: center
+	
+-- end: ds.column
+
+-- end: circle-text-button
+
+
+
+
+
+
+
+
+-- or-type phosphor-variant:
+
+-- constant integer regular: 0
+-- constant integer bold: 1
+-- constant integer duotone: 2
+-- constant integer fill: 3
+-- constant integer light: 4
+-- constant integer thin: 5
+
+-- end: phosphor-variant
+
+
+
+-- component phosphor-icon-button:
+optional caption title:
+phosphor-variant phosphor-variant: bold
+string icon:
+icon-position icon-position: at-start
+optional string link:
+button.button-variant variant: solid
+button.button-width width: default
+button.button-size size: medium
+button.button-kind kind: primary
+;; private stuff
+boolean $hover: false
+
+-- button-wrapper:
+title: $phosphor-icon-button.title
+icon-position: $phosphor-icon-button.icon-position
+link: $phosphor-icon-button.link
+variant: $phosphor-icon-button.variant
+width: $phosphor-icon-button.width
+size: $phosphor-icon-button.size
+kind: $phosphor-icon-button.kind
+
+	-- phosphor.regular: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == regular }
+	
+	-- phosphor.bold: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == bold }
+	
+	-- phosphor.duotone: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == duotone }
+	
+	-- phosphor.fill: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == fill }
+	
+	-- phosphor.light: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == light }
+	
+	-- phosphor.thin: $phosphor-icon-button.icon
+	size: 16
+	if: { phosphor-icon-button.phosphor-variant == thin }
+	
+-- end: button-wrapper
+
+-- end: phosphor-icon-button
+
+
+
+
+
+
+
+
+
+
+-- component fa-icon-button:
+optional caption title:
+boolean brand: false
+string icon:
+icon-position icon-position: at-start
+optional string link:
+button.button-variant variant: solid
+button.button-width width: default
+button.button-size size: medium
+button.button-kind kind: primary
+;; private stuff
+boolean $hover: false
+
+-- button-wrapper:
+title: $fa-icon-button.title
+icon-position: $fa-icon-button.icon-position
+link: $fa-icon-button.link
+variant: $fa-icon-button.variant
+width: $fa-icon-button.width
+size: $fa-icon-button.size
+kind: $fa-icon-button.kind
+
+	-- fa.brand: $fa-icon-button.icon
+	size: 13
+	if: { fa-icon-button.brand }
+	
+	-- fa.regular: $fa-icon-button.icon
+	size: 13
+	if: { !fa-icon-button.brand }
+	
+-- end: button-wrapper
+
+-- end: fa-icon-button
+
+
+
+
+
+
+
+
+
+
+
+
+-- component button-wrapper:
+optional caption title:
+icon-position icon-position: at-start
+optional string link:
+boolean $hover: false
+button.button-width width: default
+button.button-radius radius: curved
+button.button-variant variant: solid
+boolean rounded: false
+button.button-size size: medium
+button.button-kind kind: primary
+children uis:
+
+-- ds.row:
+background.solid if { button-wrapper.kind == primary && button-wrapper.kind != link && button-wrapper.variant == solid}: $ds.colors.cta-primary.base
+background.solid if { button-wrapper.kind == secondary && button-wrapper.kind != link && button-wrapper.variant == solid}: $ds.colors.cta-secondary.base
+background.solid if { button-wrapper.kind == danger && button-wrapper.kind != link && button-wrapper.variant == solid}: $ds.colors.cta-danger.base
+radius if { button-wrapper.rounded }: $ds.radius.large
+radius if { button-wrapper.radius == none }: $ds.radius.zero
+radius if { button-wrapper.radius == curved }: $ds.radius.medium
+border if { button-wrapper.kind == secondary }: $ds.borders.uniform.small
+border-color if { button-wrapper.kind == secondary }: $ds.colors.cta-secondary.border
+inset if { button-wrapper.size == small && button-wrapper.kind != tertiary }: $ds.spaces.inset-wide.small
+inset if { button-wrapper.size == medium && button-wrapper.kind != tertiary }: $ds.spaces.inset-wide.medium
+inset if { button-wrapper.size == large && button-wrapper.kind != tertiary }: $ds.spaces.inset-wide.large
+align-content: center
+background.solid if { button-wrapper.hover }: $ds.colors.background.step-2
+$on-mouse-enter$: $ftd.set-bool($a = $button-wrapper.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $button-wrapper.hover, v = false)
+spacing: $ds.spaces.horizontal-gap.small
+width if { button-wrapper.width == default }: hug-content
+width.fixed.px if { button-wrapper.width == wide }: 200
+width if { button-wrapper.width == full }: fill-container
+color if { button-wrapper.kind == link }: $ds.colors.accent.primary
+color if { button-wrapper.kind == primary }: $ds.colors.cta-primary.text
+color if { button-wrapper.kind == secondary }: $ds.colors.cta-secondary.text
+color if { button-wrapper.kind == tertiary }: $ds.colors.cta-tertiary.text
+color if { button-wrapper.kind == danger }: $ds.colors.cta-danger.text
+color if { button-wrapper.kind == secondary && button-wrapper.variant == outline }: $ds.colors.text-strong
+link: $button-wrapper.link
+wrap: true
+
+	-- ftd.text: $button-wrapper.title
+	if: { button-wrapper.title != NULL && button-wrapper.icon-position == at-end}
+	role: $ds.types.button-small
+	align-self: center
+	
+	-- ui:
+	for: $ui in $button-wrapper.uis
+	
+	-- ftd.text: $button-wrapper.title
+	if: { button-wrapper.title != NULL && button-wrapper.icon-position == at-start}
+	role: $ds.types.button-small
+	align-self: center
+	
+-- end: ds.row
+
+-- end: button-wrapper
+
+
+
+
+
+
+
+
+
+-- ds.page: Icon Buttons
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Icon Buttons
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- icon-button: Icon
+	icon: $assets.files.assets.convert.svg
+	link: /
+	kind: primary
+	
+		-- icon-button: Icon
+		icon: $assets.files.assets.convert.svg
+		link: /
+		kind: primary
+		
+	-- end: ds.rendered
+
+
+
+
+	-- ds.rendered:
+	
+	\-- icon-button: Icon
+	icon: $assets.files.assets.convert.svg
+	link: /
+	kind: secondary
+	
+		-- icon-button: Icon
+		icon: $assets.files.assets.convert.svg
+		link: /
+		kind: secondary
+		
+	-- end: ds.rendered
+
+
+
+
+
+	-- ds.rendered:
+	
+	\-- icon-button: Icon
+	icon: $assets.files.assets.convert.svg
+	link: /
+	kind: tertiary
+	
+		-- icon-button: Icon
+		icon: $assets.files.assets.convert.svg
+		link: /
+		kind: tertiary
+		
+	-- end: ds.rendered
+
+
+
+
+
+
+
+
+
+	-- ds.rendered:
+	
+	\-- icon-button: Icon
+	icon: $assets.files.assets.convert.svg
+	link: /
+	kind: danger
+	
+		-- icon-button: Icon
+		icon: $assets.files.assets.convert.svg
+		link: /
+		kind: danger
+		
+	-- end: ds.rendered
+
+	-- ds.rendered:
+	
+	\-- square-button:
+	icon: $assets.files.assets.convert.svg
+	link: /
+		-- square-button:
+		icon: $assets.files.assets.convert.svg
+		link: /
+		
+	-- end: ds.rendered
+
+
+	-- ds.rendered:
+	
+	\-- circle-button:
+	icon: $assets.files.assets.convert.svg
+	link: /
+		-- circle-button:
+		icon: $assets.files.assets.convert.svg
+		link: /
+		
+	-- end: ds.rendered
+
+
+	-- ds.rendered:
+	
+	\-- phosphor-icon-button: PI button
+	icon: app-store-logo
+	link: /
+	
+		-- phosphor-icon-button: PI button
+		icon: app-store-logo
+		link: /
+		
+	-- end: ds.rendered
+
+
+	-- ds.rendered:
+	
+	\-- fa-icon-button: FAI button
+	icon: bell
+	link: /
+	
+		-- fa-icon-button: FAI button
+		icon: bell
+		link: /
+		
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

@@ -1,0 +1,27 @@
+-- import: fastn
+
+-- fastn.get: recreate-db
+url: /recreate-db/
+;; no body, so status must return 200
+
+-- fastn.get: opening register page (to get csrf cookie)
+url: /register/
+
+;; obviously we can disable CSRF checks in test mode and avoid this
+;; to make tests faster
+
+-- fastn.post: register
+url: /register/
+
+{
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "asd",
+    "repeat-password": "asd",
+}
+
+;; note on off-band data, django can chose to return the following headers:
+
+;; X-FASTN-TEST-DATA-username: admin
+
+

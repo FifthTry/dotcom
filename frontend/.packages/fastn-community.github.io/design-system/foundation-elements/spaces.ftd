@@ -1,0 +1,170 @@
+;; https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
+
+-- integer HACK-SPACE-BETWEEN-MAGIC-NUMBER: -4321
+
+-- record hv:
+caption integer horizontal:
+integer vertical:
+
+-- record insets:
+hv zero:
+hv extra-small:
+hv small:
+hv medium:
+hv large:
+hv extra-large:
+
+
+;; for buttons and cell-like containers like a data table or list item.
+-- record wides:
+hv small:
+hv medium:
+hv large:
+hv small-zero:
+hv medium-zero:
+hv large-zero:
+
+;; for text-boxes, text-area, and other form elements.
+-- record talls:
+hv small:
+hv medium:
+hv large:
+hv zero-small:
+hv zero-medium:
+
+
+-- record gap:
+caption integer gap:
+
+-- record gaps:
+gap extra-extra-small: ;; the largest name
+gap extra-small:
+gap small:
+gap medium:
+gap large:
+gap extra-large:
+gap extra-extra-large:
+gap space-between:
+gap zero:
+
+
+;; $ds.spaces.inset-square.small
+-- record space-data:
+insets inset-square:
+wides inset-wide:
+talls inset-tall:
+gaps vertical-gap:
+gaps horizontal-gap:
+
+
+-- space-data spaces:
+inset-square: $insets_
+inset-wide: $wides_
+inset-tall: $talls_
+vertical-gap: $gaps_
+horizontal-gap: $gaps_
+
+
+-- hv insets_zero:
+horizontal: 0
+vertical: 0
+
+-- hv insets_xs:
+horizontal: 4
+vertical: 4
+
+-- hv insets_s:
+horizontal: 8
+vertical: 8
+
+-- hv insets_m:
+horizontal: 16
+vertical: 16
+
+-- hv insets_l:
+horizontal: 32
+vertical: 32
+
+-- hv insets_xl:
+horizontal: 64
+vertical: 64
+
+-- insets insets_:
+zero: $insets_zero
+extra-small: $insets_xs
+small: $insets_s
+medium: $insets_m
+large: $insets_l
+extra-large: $insets_xl
+
+-- hv wides_s:
+horizontal: 8
+vertical: 4
+
+-- hv wides_m:
+horizontal: 16
+vertical: 8
+
+-- hv wides_l:
+horizontal: 32
+vertical: 16
+
+
+-- hv wides_sz:
+horizontal: 8
+vertical: 0
+
+-- hv wides_mz:
+horizontal: 16
+vertical: 0
+
+-- hv wides_lz:
+horizontal: 32
+vertical: 0
+
+-- wides wides_:
+small: $wides_s
+medium: $wides_m
+large: $wides_l
+small-zero: $wides_sz
+medium-zero: $wides_mz
+large-zero: $wides_lz
+
+
+-- hv talls_s:
+horizontal: 8
+vertical: 12
+
+-- hv talls_m:
+horizontal: 16
+vertical: 24
+
+-- hv talls_l:
+horizontal: 24
+vertical: 36
+
+-- hv talls_zs:
+horizontal: 0
+vertical: 12
+
+-- hv talls_zm:
+horizontal: 0
+vertical: 24
+
+-- talls talls_:
+small: $talls_s
+medium: $talls_m
+large: $talls_l
+zero-small: $talls_zs
+zero-medium: $talls_zm
+
+-- gaps gaps_:
+extra-extra-small: 2
+extra-small: 4
+small: 8
+medium: 16
+large: 32
+extra-large: 64
+extra-extra-large: 128
+space-between: $HACK-SPACE-BETWEEN-MAGIC-NUMBER
+zero: 0

@@ -1,0 +1,35 @@
+-- import: fastn-community.github.io/svg-icons/helper
+
+
+
+-- component brand:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$brand.name, prefix=brands)
+size: $brand.size
+
+-- end: brand
+
+
+
+
+-- component regular:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$regular.name, prefix=regular)
+size: $regular.size
+
+-- end: regular
+
+
+
+
+-- string svg-url(icon, prefix):
+string icon:
+string prefix:
+
+"raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/" + prefix + "/" + icon + ".svg"

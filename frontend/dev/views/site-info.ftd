@@ -1,0 +1,79 @@
+-- import: www.fifthtry.com/dev/views
+exposing: view, view-argument, validation
+
+
+-- view: site-info
+url: /ft-ep/views/site-info/
+unimplemented: true
+
+-- view.description:
+
+This view will fetch the site info page contents.
+
+-- view.view-arguments:
+
+	-- view-argument: site-slug
+	
+	-- view-argument.validations:
+	
+		-- validation: unknown-site
+		error-message: There is no such site. Maybe the slug of the site has changed, or site has been deleted.
+		status: done
+		
+		Check if site exists.
+		
+	-- end: view-argument.validations
+
+-- end: view.view-arguments
+
+
+-- view.other-validations:
+
+	-- validation: not-org-member
+	status: done
+	
+	Only people who have any role in the org can view the dashboard.
+	
+	-- validation: endpoint-per-add-domain-org-rate-limit-reached
+	implement-in-future: true
+	
+	A single org will be allowed at max 2 requests per second to this endpoint.
+	
+	-- validation: global-rate-limit
+	implement-in-future: true
+	
+	We only allow 100 requests per second to this endpoint.
+	
+-- end: view.other-validations
+
+
+
+-- view.response:
+
+;; Expected = site-info-data
+\-- record site-info-data:
+string user:
+string dashboard-url:
+site current-site:
+toc-data list site-urls:
+toc-data list header-links:
+toc-data list sub-header-links:
+
+\-- record site:
+string name:
+string domain:
+string domain-with-host:
+string detail-url:
+string last-updated:
+string created-on:
+ftd.image-src placeholder-image:
+
+\-- record toc-data:
+string name:
+string full-name:
+optional string link:
+boolean is-active:
+optional ftd.image-src icon:
+toc-data list children:
+
+-- end: view

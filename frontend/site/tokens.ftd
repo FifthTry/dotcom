@@ -1,0 +1,41 @@
+-- import: ui.fifthtry.com/pages/sites/setting/tokens
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: www.fifthtry.com/action/site/tokens/create-token
+-- import: www.fifthtry.com/action/site/tokens/delete-token
+-- import: fastn/processors as pr
+
+
+
+
+
+-- tokens.page:
+site: $data.site
+dashboard-url: $data.dashboard-url
+user-data: $data.ud
+tokens: $data.page
+create-token: create-token
+delete-token: delete-token
+
+
+
+
+
+
+
+-- string site-slug:
+$processor$: pr.request-data
+
+
+
+
+-- record tokens-api:
+sites-records.token list page:
+sites-records.site-common-data site:
+string dashboard-url:
+ud.user-data ud:
+
+-- tokens-api data:
+$processor$: pr.http
+url: /ft2/site/setting/tokens/
+site-slug: $site-slug

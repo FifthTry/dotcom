@@ -1,0 +1,81 @@
+-- import: ui.fifthtry.com/pages/card as p
+
+
+
+-- ftd.background-image card-bg:
+src: $assets.files.assets.onboarding.card-background.svg
+size: cover
+
+-- string card-id: onboarding-card
+
+-- component card:
+caption name:
+ftd.image-src avatar:
+string title:
+string id: $card-id
+
+-- ftd.column:
+width.fixed.px: 500
+height: hug-content
+background.image: $card-bg
+padding.px: 20
+id: $card.id
+
+	-- ftd.row:
+	width: fill-container
+	height: hug-content
+	
+		-- ftd.image: $assets.files.assets.logo.svg
+		align-self: end
+		height.fixed.px: 50
+		
+	-- end: ftd.row
+
+	-- ftd.image: $assets.files.assets.onboarding.color-bar-broad.svg
+	width.fixed.percent: 90
+	anchor: parent
+	top.px: 200
+	z-index: 1
+	
+	-- ftd.image: $card.avatar
+	align-self: center
+	border-radius.px: 20
+	height.fixed.px: 250
+	margin-left.px: 150
+	z-index: 2
+	
+	-- ftd.column:
+	padding-vertical.px: 20
+	width: fill-container
+	margin-horizontal.px: 20
+	
+		-- ftd.text: Welcome
+		role: $ds.types.heading-large
+		color: $ds.colors.cta-primary.base
+		style: extra-bold
+		
+		-- ftd.text: $card.name
+		role: $ds.types.heading-medium
+		color: $ds.colors.text-strong
+		
+		-- ftd.row:
+		width: fill-container
+		spacing.fixed.px: 5
+		role: $ds.types.copy-regular
+		
+			-- ftd.text: $card.title
+			color: $ds.colors.text-strong
+			
+			-- ftd.text: @
+			color: $ds.colors.cta-primary.base
+			
+			-- ftd.text: FifthTry
+			color: $ds.colors.text-strong
+			
+		-- end: ftd.row
+
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: card

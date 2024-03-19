@@ -1,0 +1,27 @@
+-- import: fastn
+
+-- fastn.package: ui.fifthtry.com
+favicon: /favicon.svg
+zip: https://codeload.github.com/fifthtry/ui/zip/refs/heads/main
+default-language: en
+translation-en: ui.fifthtry.com/i18n/en
+translation-hi: ui.fifthtry.com/i18n/hi
+
+-- fastn.dependency: fastn-community.github.io/design-system
+provided-via: ui.fifthtry.com/ds
+
+-- fastn.dependency: fastn-stack.github.io/fastn-js
+-- fastn.dependency: fastn-community.github.io/doc-site
+-- fastn.dependency: fastn-community.github.io/dark-mode-switcher
+-- fastn.dependency: fastn-community.github.io/midnight-storm-typography
+-- fastn.dependency: fastn-community.github.io/dark-flame-cs
+-- fastn.dependency: fastn-community.github.io/svg-icons
+-- fastn.dependency: fastn-community.github.io/code-block
+
+
+-- fastn.auto-import: ui.fifthtry.com/assets
+-- fastn.auto-import: ui.fifthtry.com/ds
+
+-- fastn.url-mappings:
+
+/onboarding/scenarios/onboarding-ishaan/ -> /scenarios/cards/onboarding-ishaan/

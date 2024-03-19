@@ -1,0 +1,467 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/utils
+-- import: ui.fifthtry.com/actions/slides/create-user
+
+
+
+
+
+
+-- component page:
+module site-data: site-data
+module signup-action: create-user
+private string $current-name: *$ftd.empty
+private string $current-email: *$ftd.empty
+private string $current-username: *$ftd.empty
+private string $current-password: *$ftd.empty
+private string $confirm-password: *$ftd.empty
+private boolean $accept-tos: false
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.row:
+		radius: $ds.radius.zero
+		background.solid: $ds.colors.background.step-1
+		align-content: top-center
+		
+			-- ftd.image:
+			src: $assets.files.assets.background.svg
+			width.fixed.percent: 70
+			fit: cover
+			
+			-- ds.column:
+			align-content: top-center
+			inset: $ds.spaces.inset-tall.large
+			width.fixed.percent: 30
+			spacing: $ds.spaces.vertical-gap.large
+			
+				-- ftd.image:
+				src: $page.site-data.logo
+				width.fixed.px: 89
+				height.fixed.px: 33
+				fit: cover
+				
+				-- ds.heading-small: $lang.sign-up
+				width: hug-content
+				
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.medium
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Name
+						
+						-- ftd.text-input:
+						width: fill-container
+						type: text
+						$on-input$: $ftd.set-string($a = $page.current-name, v = $VALUE)
+						                  $on-input$: $utils.set-null($var = $page.signup-action.name-error)
+						height.fixed.px: 40
+						border-radius.px: 8
+						placeholder: Enter name
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.signup-action.name-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.signup-action.name-error
+						if: { page.signup-action.name-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Username
+						
+						-- ftd.text-input:
+						width: fill-container
+						type: text
+						$on-input$: $ftd.set-string($a = $page.current-username, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.signup-action.username-error)
+						height.fixed.px: 40
+						border-radius.px: 8
+						placeholder: Enter username
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.signup-action.username-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.signup-action.username-error
+						if: { page.signup-action.username-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Email
+						
+						-- ftd.text-input:
+						placeholder: Enter email
+						type: email
+						$on-input$: $ftd.set-string($a = $page.current-email, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.signup-action.email-error)
+						width: fill-container
+						height.fixed.px: 40
+						border-radius.px: 8
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.signup-action.email-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.signup-action.email-error
+						if: { page.signup-action.email-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Password
+						
+						-- ftd.text-input:
+						placeholder: Enter password
+						type: password
+						$on-input$: $ftd.set-string($a = $page.current-password, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.signup-action.password-error)
+						width: fill-container
+						height.fixed.px: 40
+						border-radius.px: 8
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.signup-action.password-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.signup-action.password-error
+						if: { page.signup-action.password-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Confirm Password
+						
+						-- ftd.text-input:
+						placeholder: Enter password again
+						type: password
+						$on-input$: $ftd.set-string($a = $page.confirm-password, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.signup-action.password2-error)
+						width: fill-container
+						height.fixed.px: 40
+						border-radius.px: 8
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.signup-action.password2-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.signup-action.password2-error
+						if: { page.signup-action.password2-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					;; Accept Terms and Conditions checkbox
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.checkbox: I accept Terms and Conditions
+						$is-checked: $page.accept-tos
+						$on-click$: $utils.set-null($var = $page.signup-action.accept-terms-error)
+						size: small
+						
+						-- ds.copy-small: $page.signup-action.accept-terms-error
+						if: { page.signup-action.accept-terms-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.primary-button: Sign up
+					$on-click$: $page.signup-action.submit-values(name = $page.current-name, email = $page.current-email, username = $page.current-username, password = $page.current-password, password2 = $page.confirm-password, accept_terms = $page.accept-tos)
+					width: full
+					radius: curved
+					
+					-- ds.row:
+					spacing: $ds.spaces.horizontal-gap.extra-small
+					inset: $ds.spaces.inset-square.small
+					wrap: true
+					
+						-- ds.copy-regular: $lang.create-account
+						text if { page.site-data.sign-in-url }: $lang.existing-account
+						width: hug-content
+						
+						-- ds.link: $lang.sign-in
+						color: $ds.colors.accent.primary
+						link: $page.site-data.sign-in-url
+						
+					-- end: ds.row
+
+					/-- ds.column:
+					border: $ds.borders.top.small
+					radius: $ds.radius.zero
+					spacing: $ds.spaces.vertical-gap.medium
+					inset: $ds.spaces.inset-tall.zero-small
+					
+						-- ds.copy-small: Or Sign up using
+						
+						-- ds.icon-button: Continue with Github
+						icon: $assets.files.assets.github-mark-white.svg
+						link: $page.site-data.github-url
+						kind: secondary
+						width: full
+						
+					-- end: ds.column
+
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ds.row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.column:
+		align-content: center
+		inset: $ds.spaces.inset-wide.large
+		background.solid: $ds.colors.background.step-1
+		spacing: $ds.spaces.vertical-gap.large
+		height.fixed.vh: 100
+		radius: $ds.radius.zero
+		
+			-- ftd.image:
+			src: $page.site-data.logo
+			width.fixed.px: 89
+			height.fixed.px: 33
+			fit: cover
+			
+			-- ds.heading-small: $lang.sign-up
+			width: hug-content
+			
+			-- ds.column:
+			width: hug-content
+			
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Name
+					
+					-- ftd.text-input:
+					width: fill-container
+					type: text
+					$on-input$: $ftd.set-string($a = $page.current-name, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.signup-action.name-error)
+					height.fixed.px: 40
+					border-radius.px: 8
+					placeholder: name
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.signup-action.name-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.signup-action.name-error
+					if: { page.signup-action.name-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Username
+					
+					-- ftd.text-input:
+					width: fill-container
+					type: text
+					$on-input$: $ftd.set-string($a = $page.current-username, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.signup-action.username-error)
+					height.fixed.px: 40
+					border-radius.px: 8
+					placeholder: username
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.signup-action.username-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.signup-action.username-error
+					if: { page.signup-action.username-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Email
+					
+					-- ftd.text-input:
+					placeholder: Enter email
+					type: email
+					$on-input$: $ftd.set-string($a = $page.current-email, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.signup-action.email-error)
+					width: fill-container
+					height.fixed.px: 40
+					border-radius.px: 8
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.signup-action.email-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.signup-action.email-error
+					if: { page.signup-action.email-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Password
+					
+					-- ftd.text-input:
+					placeholder: Enter password
+					type: password
+					$on-input$: $ftd.set-string($a = $page.current-password, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.signup-action.password-error)
+					width: fill-container
+					height.fixed.px: 40
+					border-radius.px: 8
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.signup-action.password-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.signup-action.password-error
+					if: { page.signup-action.password-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Confirm Password
+					
+					-- ftd.text-input:
+					placeholder: Enter password again
+					type: password
+					$on-input$: $ftd.set-string($a = $page.confirm-password, v = $VALUE)
+					$on-input$: $utils.set-null($var = $page.signup-action.password2-error)
+					width: fill-container
+					height.fixed.px: 40
+					border-radius.px: 8
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.signup-action.password2-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.signup-action.password2-error
+					if: { page.signup-action.password2-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				;; Accept Terms and Conditions checkbox
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.checkbox: I accept Terms and Conditions
+					$is-checked: $page.accept-tos
+					$on-click$: $utils.set-null($var = $page.signup-action.accept-terms-error)
+					size: small
+					
+					-- ds.copy-small: $page.signup-action.accept-terms-error
+					if: { page.signup-action.accept-terms-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.primary-button: Sign up
+				$on-click$: $page.signup-action.submit-values(name = $page.current-name, email = $page.current-email, username = $page.current-username, password = $page.current-password, password2 = $page.confirm-password, accept_terms = $page.accept-tos)
+				width: full
+				radius: curved
+				
+				-- ds.row:
+				spacing: $ds.spaces.horizontal-gap.extra-small
+				align-content: center
+				inset: $ds.spaces.inset-square.medium
+				
+					-- ds.copy-regular: $lang.create-account
+					text if { page.site-data.sign-in-url }: $lang.existing-account
+					width: hug-content
+					
+					-- ds.link: $lang.sign-in
+					color: $ds.colors.accent.primary
+					link: $page.site-data.sign-in-url
+					
+				-- end: ds.row
+
+				-- ds.column:
+				border: $ds.borders.top.small
+				radius: $ds.radius.zero
+				spacing: $ds.spaces.vertical-gap.medium
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.copy-small: Or Sign Up using
+					
+					-- ds.icon-button: Continue with Github
+					icon: $assets.files.assets.github-mark-white.svg
+					link: $page.site-data.github-url
+					kind: secondary
+					width: full
+					
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ds.column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: page

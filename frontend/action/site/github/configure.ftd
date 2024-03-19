@@ -1,0 +1,21 @@
+-- optional string $github-org-name-error:
+-- optional string $github-repo-name-error:
+-- optional string $github-repo-branch-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, github_org, github_repo_name, github_repo_branch):
+string site_slug:
+string github_org:
+string github_repo_name:
+string github_repo_branch:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/github/configure/",
+    "www.fifthtry.com/action/site/github/configure",
+    "POST",
+    ("site-slug", site_slug),
+    ("github-org", github_org),
+    ("github-repo-name", github_repo_name),
+    ("github-repo-branch", github_repo_branch),
+)

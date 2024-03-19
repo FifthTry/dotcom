@@ -1,0 +1,42 @@
+-- component title-slide:
+caption title:
+optional string subtitle:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+align-content: center
+
+	-- ftd.text: $title-slide.title
+	role: $ds.types.heading-large
+	color: black
+	
+	-- ftd.text: $title-slide.subtitle
+	if: { title-slide.subtitle != NULL }
+	role: $ds.types.heading-small
+	color: black
+	margin-top.px: 10
+	
+-- end: ftd.column
+
+-- end: title-slide
+
+
+
+
+-- component blank-slide:
+optional caption title:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+align-content: center
+
+	-- ftd.text: $blank-slide.title
+	if: { blank-slide.title != NULL }
+	color: $ds.colors.text-strong
+	role: $ds.types.heading-large
+	
+-- end: ftd.column
+
+-- end: blank-slide

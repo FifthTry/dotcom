@@ -1,0 +1,1355 @@
+-- import: fastn/processors as pr
+-- import: www.fifthtry.com/header as h
+-- import: fastn-community.github.io/dark-mode-switcher as dms
+-- import: www.fifthtry.com/assets
+
+-- integer $current-slide-number: 1
+-- boolean unimplemented: true
+
+;; TODO: Issue with name preview-url which gets stored as "preview_url"
+-- record slide:
+optional string code:
+optional string preview_url:
+
+;; Thumbnail data for all slides belonging to the presentation
+-- record thumbnail-data:
+string thumbnail-url:
+integer id:
+integer order:
+
+;; -------------------- << Component Definitions >> ---------------------------
+
+;; PAGE COMPONENT --------------------------------
+-- component page:
+optional caption title:
+optional string document-title:
+optional string document-description:
+optional ftd.raw-image-src document-image:
+optional body body:
+ftd.image-src site-logo: $common.site-logo
+string site-url: $common.site-url
+optional string site-name:
+pr.toc-item list sections: $common.sitemap.sections
+pr.toc-item list sub-sections: $common.sitemap.subsections
+optional pr.toc-item current-section: $common.sitemap.current-section
+optional pr.toc-item current-subsection: $common.sitemap.current-subsection
+optional pr.toc-item current-page: $common.sitemap.current-page
+children wrapper:
+boolean sidebar: false
+pr.toc-item list toc: $common.sitemap.toc
+ftd.type-data types: $typo.types
+ftd.color-scheme colors: $cs.main
+
+-- ftd.document:
+title if { page.document-title != NULL }: $page.document-title
+title: $page.title
+og-title if { page.document-title != NULL }: $page.document-title
+og-title: $page.title
+description: $page.document-description
+description if { page.document-description == NULL }: $page.title
+og-image: $page.document-image
+
+	-- ftd.column:
+	width: fill-container
+	height: fill-container
+	background.solid: $inherited.colors.background.base
+	
+		-- ftd.desktop:
+		
+			-- doc-page-desktop: $page.title
+			toc: $page.toc
+			wrapper: $page.wrapper
+			sections: $page.sections
+			body: $page.body
+			site-name: $page.site-name
+			site-logo: $page.site-logo
+			site-url: $page.site-url
+			sidebar: $page.sidebar
+			current-section: $page.current-section
+			current-subsection: $page.current-subsection
+			current-page: $page.current-page
+			sub-sections: $page.sub-sections
+			
+		-- end: ftd.desktop
+
+		-- ftd.mobile:
+		
+			-- doc-page-mobile: $page.title
+			wrapper: $page.wrapper
+			sections: $page.sections
+			toc: $page.toc
+			body: $page.body
+			site-name: $page.site-name
+			site-logo: $page.site-logo
+			site-url: $page.site-url
+			
+		-- end: ftd.mobile
+
+		-- dms.dark-mode-switcher-float:
+		
+	-- end: ftd.column
+
+-- end: ftd.document
+
+-- end: page
+
+
+
+
+
+
+;; SUBSECTION LINKS --------------------------------
+-- component subsections-links:
+caption title:
+optional boolean is-active:
+optional string url:
+pr.toc-item list item:
+
+-- ftd.column:
+
+
+	-- ftd.text: $subsections-links.title
+	if: { !subsections-links.is-active }
+	role: $inherited.types.copy-regular
+	link if { subsections-links.url != NULL }: $subsections-links.url
+	white-space: nowrap
+	color: $inherited.colors.text
+	
+	-- ftd.text: $subsections-links.title
+	if: { subsections-links.is-active }
+	role: $inherited.types.copy-regular
+	white-space: nowrap
+	link if { subsections-links.url != NULL }: $subsections-links.url
+	color: $inherited.colors.text-strong
+	style: bold
+	
+-- end: ftd.column
+
+-- end: subsections-links
+
+
+
+
+
+
+
+;; DOC-PAGE-DESKTOP COMPONENT --------------------------------
+-- component doc-page-desktop:
+optional caption title:
+optional body body:
+optional string site-name:
+pr.toc-item list toc:
+ftd.image-src site-logo:
+string site-url:
+pr.toc-item list sections:
+pr.toc-item list sub-sections:
+optional pr.toc-item current-section:
+optional pr.toc-item current-page:
+optional pr.toc-item current-subsection:
+boolean sidebar: false
+children wrapper:
+
+-- ftd.column:
+background.solid: $inherited.colors.background.base
+align-self: center
+width: fill-container
+height: fill-container
+padding-bottom.px: 16
+
+	-- h.header:
+	sections: $doc-page-desktop.sections
+	sub-sections: $doc-page-desktop.sub-sections
+	current-section: $doc-page-desktop.current-section
+	current-subsection: $doc-page-desktop.current-subsection
+	current-page: $doc-page-desktop.current-page
+	site-logo: $doc-page-desktop.site-logo
+	site-url: $doc-page-desktop.site-url
+	site-name: $doc-page-desktop.site-name
+	menu-icon: $assets.files.assets.hamburger.svg
+	toc: $doc-page-desktop.toc
+	
+	-- ftd.row:
+	width: fill-container
+	height: fill-container
+	
+		-- ftd.column:
+		if: { doc-page-desktop.sidebar }
+		width.fixed.percent: 20
+		min-height.fixed.calc: 100vh - 200px
+		height: fill-container
+		
+			-- render-toc:
+			if: { !ftd.is_empty(doc-page-desktop.toc) }
+			toc-obj: $doc-page-desktop.toc
+			
+		-- end: ftd.column
+
+		-- ftd.column:
+		max-width.fixed.percent if { doc-page-desktop.sidebar }: 80
+		width: fill-container
+		height: fill-container
+		border-left-width.px if { doc-page-desktop.sidebar }: 1
+		border-color if { doc-page-desktop.sidebar }: $inherited.colors.border
+		
+			-- ftd.row:
+			if: { doc-page-desktop.current-section != NULL && doc-page-desktop.sidebar }
+			padding-vertical.px: 24
+			padding-horizontal.px: 40
+			width: fill-container
+			align-content: center
+			border-bottom-width.px: 1
+			border-color: $inherited.colors.border
+			
+				-- ftd.row:
+				width: fill-container
+				spacing.fixed.px: 8
+				
+					-- ftd.image:
+					src: $assets.files.assets.multi-user.svg
+					align-self: center
+					width.fixed.px: 24
+					
+					-- ftd.text: $doc-page-desktop.current-section.title
+					if: { doc-page-desktop.current-section.title != NULL }
+					role: $inherited.types.label-large
+					color: $inherited.colors.text-strong
+					link: $doc-page-desktop.current-section.url
+					align-self: center
+					style: regular
+					
+					-- ftd.image:
+					if: { doc-page-desktop.current-subsection != NULL }
+					src: $assets.files.assets.right-arrow.svg
+					align-self: center
+					
+					-- ftd.text: $doc-page-desktop.current-subsection.title
+					if: { doc-page-desktop.current-subsection != NULL }
+					role: $inherited.types.label-large
+					color: $inherited.colors.text-strong
+					link: $doc-page-desktop.current-subsection.url
+					white-space: nowrap
+					align-self: center
+					style: regular
+					
+					-- ftd.image:
+					if: { doc-page-desktop.current-page != NULL }
+					src: $assets.files.assets.right-arrow.svg
+					align-self: center
+					
+					-- ftd.text: $doc-page-desktop.current-page.title
+					if: { doc-page-desktop.current-page != NULL }
+					role: $inherited.types.label-large
+					color: $inherited.colors.text-strong
+					link: $doc-page-desktop.current-page.url
+					white-space: nowrap
+					align-self: center
+					style: bold
+					
+				-- end: ftd.row
+
+				-- ftd.row:
+				width: hug-content
+				align-content: center
+				spacing.fixed.rem: 2
+				
+					-- subsections-links: $obj.title
+					for: $obj in $doc-page-desktop.sub-sections
+					is-active: $obj.is-active
+					url: $obj.url
+					
+				-- end: ftd.row
+
+			-- end: ftd.row
+
+			-- ftd.text: $doc-page-desktop.title
+			if: { doc-page-desktop.title != NULL }
+			color: $inherited.colors.text-strong
+			role: $inherited.types.heading-medium
+			padding-left.px: 40
+			padding-bottom.px: 24
+			padding-top.px: 8
+			style: bold
+			
+			-- ftd.column:
+			height: fill-container
+			width: fill-container
+			children: $doc-page-desktop.wrapper
+			padding-horizontal.px: 40
+			
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: doc-page-desktop
+
+
+
+
+
+
+
+
+
+;; DOC-PAGE-MOBILE COMPONENT --------------------------------
+-- component doc-page-mobile:
+optional caption title:
+optional body body:
+optional string site-name:
+ftd.image-src site-logo:
+pr.toc-item list toc:
+string site-url:
+pr.toc-item list sections:
+boolean $open-right-sidebar-info: false
+children wrapper:
+boolean github-icon: false
+optional string github-url:
+
+-- ftd.column:
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+	-- h.header:
+	sections: $doc-page-mobile.sections
+	site-logo: $doc-page-mobile.site-logo
+	site-url: $doc-page-mobile.site-url
+	site-name: $doc-page-mobile.site-name
+	menu-icon: $assets.files.assets.hamburger.svg
+	
+	-- ftd.column:
+	width: fill-container
+	padding-horizontal.px: 24
+	padding-vertical.px: 24
+	spacing.fixed.px: 24
+	min-height.fixed.calc: 100vh
+	
+		-- ftd.column:
+		children: $doc-page-mobile.wrapper
+		spacing.fixed.px: 32
+		width.fixed.percent: 100
+		
+		-- end: ftd.column
+
+		-- ftd.column:
+		if: { doc-page-mobile.open-right-sidebar-info }
+		anchor: parent
+		top.px: 0
+		bottom.px: 0
+		left.px: 0
+		right.px: 0
+		background.solid: $inherited.colors.background.overlay
+		z-index: 1
+		width: fill-container
+		height.fixed.calc: 100% - 0px
+		$on-click$: $ftd.set-bool($a = $doc-page-mobile.open-right-sidebar-info, v = false)
+		
+			-- ftd.image:
+			src: $assets.files.assets.cross-dark.svg
+			height.fixed.px: 16
+			width: auto
+			margin-top.px: 30
+			margin-left.px: 16
+			$on-click$: $ftd.toggle($a = $doc-page-mobile.open-right-sidebar-info)
+			
+		-- end: ftd.column
+
+		-- ftd.column:
+		if: { doc-page-mobile.open-right-sidebar-info }
+		width.fixed.calc: 100% - 48px
+		height.fixed.calc: 100% - 0px
+		overflow-y: auto
+		align-content: top-right
+		anchor: parent
+		right.px: 0
+		top.px: 0
+		background.solid: $inherited.colors.background.step-1
+		z-index: 1
+		padding-horizontal.px: 24
+		
+		-- end: ftd.column
+
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: doc-page-mobile
+
+
+
+
+
+
+
+;; RENDER-TOC --------------------------------
+-- component render-toc:
+pr.toc-item list toc-obj:
+
+-- ftd.column:
+min-width.fixed.percent: 20
+min-height.fixed.calc: 100vh - 200px
+height: fill-container
+width: fill-container
+padding-right.px: 26
+padding-left.px: 41
+padding-vertical.px: 24
+spacing.fixed.px: 24
+
+	-- toc-instance:
+	for: $obj in $render-toc.toc-obj
+	toc: $obj
+	
+-- end: ftd.column
+
+-- end: render-toc
+
+
+
+
+
+
+
+;; TOC-INSTANCE -----------------------------------------
+-- component toc-instance:
+pr.toc-item toc:
+pr.toc-item $toc-clone: *$toc-instance.toc
+
+-- ftd.column:
+width: fill-container
+padding-left.px: 14
+
+	-- ftd.row:
+	width: fill-container
+	spacing.fixed.px: 15
+	$on-click$: $ftd.toggle($a = $toc-instance.toc-clone.is-open)
+	background.solid if { $toc-instance.toc-clone.is-open }: $inherited.colors.background.step-2
+	padding.px: 8
+	border-radius.px: 8
+	
+		-- ftd.image:
+		src: $assets.files.assets.home.svg
+		align-self: center
+		width.fixed.px: 24
+		
+		-- ftd.text:
+		link if { toc-instance.toc.url != NULL }: $toc-instance.toc.url
+		text: $toc-instance.toc.title
+		role: $inherited.types.copy-regular
+		color: $inherited.colors.text
+		color if { toc-instance.toc.is-active }: $inherited.colors.text-strong
+		width: fill-container
+		style if { !toc-instance.toc.is-active }: medium
+		
+		-- ftd.image:
+		src: $assets.files.assets.right-arrow.svg
+		align-self: center
+		
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: toc-instance
+
+
+;; CHILD COMPONENTS --------------------------------
+-- component childrens:
+pr.toc-item toc:
+
+-- ftd.column:
+width: fill-container
+
+	-- ftd.text:
+	link if { childrens.toc.url != NULL }: $childrens.toc.url
+	text: $childrens.toc.title
+	role: $inherited.types.button-medium
+	color: $inherited.colors.text-strong
+	color if { childrens.toc.is-active }: $inherited.colors.text
+	
+	-- ftd.column:
+	if: {!ftd.is_empty(childrens.toc.children) }
+	width: fill-container
+	margin-top.px: 24
+	spacing.fixed.px: 24
+	
+		-- child-of-childrens:
+		for: $obj in $childrens.toc.children
+		toc: $obj
+		
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: childrens
+
+
+
+
+
+
+
+
+
+
+-- component child-of-childrens:
+pr.toc-item toc:
+
+-- ftd.column:
+width: fill-container
+padding-left.px: 10
+spacing.fixed.px: 24
+
+	-- ftd.text:
+	link if { child-of-childrens.toc.url != NULL }: $child-of-childrens.toc.url
+	text: $child-of-childrens.toc.title
+	role: $inherited.types.copy-small
+	color: $inherited.colors.text
+	color if { child-of-childrens.toc.is-active }: $inherited.colors.text-strong
+	
+	-- ftd.column:
+	if: { !ftd.is_empty(child-of-childrens.toc.children) }
+	width: fill-container
+	
+		-- child-of-childrens:
+		for: $obj in $child-of-childrens.toc.children
+		toc: $obj
+		
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: child-of-childrens
+
+
+
+;; PROJECT-SLIDE COMPONENT --------------------------------
+-- component project-slide:
+caption title:
+common.slide-image list slide-list:
+common.all-comment list all-comments:
+common.all-slide list all-slides:
+common.all-style list all-styles:
+optional boolean $toggle: true
+optional string code:
+boolean $responsive: false
+boolean $mobile: false
+boolean $desktop: false
+boolean $comment: false
+slide $current-slide:
+string list thumbnails:
+string presentation-slug:
+string org-slug:
+integer order:
+string $thumbnail-url: https://fastn.com/-/fastn.com/images/fastn-logo.png
+boolean is-invalid-slide:
+boolean is-invalid-presentation:
+boolean $new-slides-popup: false
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+background.solid: $inherited.colors.background.base
+
+	-- ftd.row:
+	width: fill-container
+	padding-horizontal.px: 24
+	spacing: space-between
+	padding-vertical.px: 12
+	align-content: center
+	
+		-- ftd.text: $project-slide.title
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-tiny
+		
+		-- ftd.row:
+		if: { project-slide.order >= 1 && !project-slide.is-invalid-slide && !project-slide.is-invalid-presentation }
+		align-content: center
+		spacing.fixed.px: 16
+		
+			-- button: Save
+			button-icon: $assets.files.assets.save-floppy.svg
+			$on-click$: $http(url = render/, method = post, content = $project-slide.current-slide.code, presentation=$project-slide.presentation-slug, order = $project-slide.order, $s = $project-slide.current-slide)
+			
+			;; Will present with current slide
+			-- button: Present
+			button-icon: $assets.files.assets.play.svg
+			button-link: $present-link(presentation=$project-slide.presentation-slug, order = $project-slide.order)
+			
+			-- button: Download
+			if: { !unimplemented }
+			button-link: /
+			button-icon: $assets.files.assets.download.svg
+			
+			-- button: Add to pipeline
+			if: { !unimplemented }
+			button-link: /
+			button-icon: $assets.files.assets.pipeline.svg
+			
+			-- ftd.image:
+			src: $assets.files.assets.toggle-down.svg
+			src if { project-slide.toggle }: $assets.files.assets.toggle-up.svg
+			width.fixed.px: 38
+			height.fixed.px: 38
+			padding.px: 7
+			background.solid: $inherited.colors.background.step-2
+			border-radius.px: 8
+			$on-click$: $ftd.toggle($a = $project-slide.toggle)
+			
+		-- end: ftd.row
+
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { project-slide.toggle }
+	width: fill-container
+	background.solid: $inherited.colors.background.base
+	spacing: space-between
+	padding-vertical.px: 16
+	align-content: center
+	
+		-- ftd.row:
+		if: { !project-slide.is-invalid-slide && !project-slide.is-invalid-presentation }
+		width: fill-container
+		spacing.fixed.px: 16
+		padding-left.px: 24
+		
+			-- slide-images:
+			for: $obj in $project-slide.thumbnails
+			src: $obj
+			order: $increment-by-one(a = $LOOP.COUNTER) ;; FIX THIS
+			presentation-slug: $project-slide.presentation-slug
+			org-slug: $project-slide.org-slug
+			active-slide-order: $project-slide.order
+			
+			-- ftd.image:
+			src: $assets.files.assets.plus.png
+			cursor: pointer
+			fit: cover
+			height.fixed.px: 64
+			$on-click$: $create-slide-http(url = create-slide/, method = post, presentation = $project-slide.presentation-slug)
+			$on-click$: $ftd.set-bool($a = $project-slide.new-slides-popup, v= true)
+			
+		-- end: ftd.row
+
+		-- ftd.column:
+		if: { project-slide.order >= 1 && !project-slide.is-invalid-slide && !project-slide.is-invalid-presentation }
+		align-content: right
+		spacing.fixed.px: 8
+		padding-right.px: 24
+		
+			-- ftd.image:
+			if: { !unimplemented }
+			src: $assets.files.assets.square.svg
+			width.fixed.px: 38
+			height.fixed.px: 38
+			padding.px: 7
+			background.solid: $inherited.colors.background.step-1
+			border-radius.px: 8
+			
+			-- ftd.image:
+			src: $assets.files.assets.setting.svg
+			width.fixed.px: 38
+			height.fixed.px: 38
+			padding.px: 7
+			background.solid: $inherited.colors.background.step-1
+			border-radius.px: 8
+			link: $settings-link(presentation=$project-slide.presentation-slug)
+			
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { project-slide.is-invalid-presentation }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: Invalid presentation (Not found)
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { project-slide.is-invalid-slide }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: Invalid slide (Not found)
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { project-slide.order == 0 && !project-slide.is-invalid-presentation }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: This is a blank presentation. Click `+` to add slide
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { project-slide.order >= 1 && !project-slide.is-invalid-slide && !project-slide.is-invalid-presentation }
+	width: fill-container
+	height: fill-container
+	
+		-- ftd.column:
+		if: { !project-slide.responsive }
+		;;width.fixed.percent: 40
+		width.fixed.px: 486
+		width.fixed.px if { project-slide.comment }: 341
+		height: fill-container
+		
+			-- ftd.text-input:
+			placeholder: Enter ftd code here
+			default-value: $project-slide.current-slide.code
+			width: fill-container
+			height: fill-container
+			multiline: true
+			resize: vertical
+			padding-horizontal.px: 10
+			padding-top.px: 10
+			$on-input$: $ftd.set-string($a = $project-slide.current-slide.code, v = $VALUE)
+			
+		-- end: ftd.column
+
+		-- ftd.column:
+		width.fixed.px: 1032
+		width if { project-slide.responsive }: fill-container
+		width.fixed.px if { project-slide.comment }: 833
+		height: fill-container
+		/min-height.fixed.px: 650
+		border-left-width.px: 1
+		border-color: $inherited.colors.border
+		background.solid: $inherited.colors.background.step-2
+		
+			-- ftd.column:
+			if: { project-slide.new-slides-popup }
+			width.fixed.px: 680
+			height.fixed.px: 587
+			anchor: parent
+			top.px: 0
+			left.px: 0
+			z-index: 6
+			background.solid: $inherited.colors.background.step-1
+			padding.px: 24
+			border-radius.px: 8
+			shadow: $s
+			
+				-- ftd.row:
+				width: fill-container
+				spacing: space-between
+				border-bottom-width.px: 1
+				border-color: $inherited.colors.border
+				
+					-- ftd.text: Add new slides
+					role: $inherited.types.copy-regular
+					color: $inherited.colors.text
+					
+					-- ftd.image:
+					src: $assets.files.assets.cross.svg
+					width.fixed.px: 16
+					height.fixed.px: 16
+					$on-click$: $ftd.set-bool($a = $project-slide.new-slides-popup, v = false)
+					
+				-- end: ftd.row
+
+				-- ftd.row:
+				width: fill-container
+				spacing.fixed.px: 16
+				wrap: true
+				padding-top.px: 16
+				
+					-- all-slide-details: $obj.title
+					for: $obj in $project-slide.all-slides
+					src: $obj.src
+					
+				-- end: ftd.row
+
+			-- end: ftd.column
+
+			-- ftd.row:
+			width: fill-container
+			border-bottom-width.px: 1
+			border-top-width.px: 1
+			border-color: $inherited.colors.border-strong
+			padding-vertical.px: 8
+			padding-horizontal.px: 24
+			spacing: space-between
+			
+				-- ftd.text: Preview
+				role: $inherited.types.copy-regular
+				color: $inherited.colors.text-strong
+				
+				-- ftd.row:
+				/width: fill-container
+				height: fill-container
+				spacing.fixed.px: 24
+				align-content: right
+				
+					-- ftd.image:
+					src: $assets.files.assets.comment.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					background.solid if { project-slide.comment }: $inherited.colors.accent.primary
+					border-radius.px: 8
+					$on-click$: $ftd.set-bool($a = $project-slide.comment, v = true)
+					
+					-- ftd.image:
+					src: $assets.files.assets.responsive.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					border-radius.px: 8
+					$on-click$: $ftd.toggle($a = $project-slide.mobile)
+					
+					-- ftd.image:
+					src: $assets.files.assets.expand.svg
+					src if { project-slide.responsive }: $assets.files.assets.collapse.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					border-radius.px: 8
+					$on-click$: $ftd.toggle($a = $project-slide.responsive)
+					
+				-- end: ftd.row
+
+			-- end: ftd.row
+
+			-- ftd.column:
+			width: fill-container
+			height: fill-container
+			css: $assets.files.css.slide.css
+			classes: aspect-ratio-container
+			
+				-- ftd.iframe:
+				if: { project-slide.current-slide != NULL && project-slide.current-slide.preview_url != NULL }
+				src: $project-slide.current-slide.preview_url
+				height.fixed.percent: 80
+				width.fixed.percent: 80
+				width.fixed.px if { project-slide.comment }: 600
+				width if { project-slide.responsive }: fill-container
+				height if { project-slide.responsive }: fill-container
+				border-radius.px: 2
+				border-color: white
+				background.solid: white
+				align-self: center
+				margin-top.percent if { !project-slide.responsive }: 5
+				margin-left.percent if { !project-slide.responsive }: 10
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			if: { project-slide.mobile }
+			width: fill-container
+			padding.px: 15
+			margin-top.px: -32
+			border-top-width.px: 1
+			border-color: $inherited.colors.border
+			
+				-- ftd.row:
+				width: fill-container
+				spacing: space-between
+				
+					-- ftd.text: Style
+					role: $inherited.types.copy-small
+					color: $inherited.colors.text
+					
+					-- ftd.image:
+					src: $assets.files.assets.cross.svg
+					width.fixed.px: 16
+					height.fixed.px: 16
+					$on-click$: $ftd.set-bool($a = $project-slide.mobile, v= false)
+					
+				-- end: ftd.row
+
+				-- ftd.row:
+				width: fill-container
+				spacing.fixed.px: 16
+				wrap: true
+				padding-top.px: 16
+				
+					-- all-style-details:
+					for: $obj in $project-slide.all-styles
+					src: $obj.src
+					
+				-- end: ftd.row
+
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+		-- ftd.column:
+		if: { project-slide.comment }
+		width.fixed.px: 364
+		height: fill-container
+		
+			-- ftd.row:
+			width: fill-container
+			padding-vertical.px: 8
+			padding-horizontal.px: 24
+			border-top-width.px: 1
+			border-bottom-width.px: 1
+			border-color: $inherited.colors.border-strong
+			spacing: space-between
+			align-content: center
+			
+				-- ftd.text: Comment
+				role: $inherited.types.copy-regular
+				color: $inherited.colors.text-strong
+				
+				-- ftd.image:
+				src: $assets.files.assets.cross.svg
+				width.fixed.px: 16
+				height.fixed.px: 16
+				$on-click$: $ftd.set-bool($a = $project-slide.comment, v = false)
+				
+			-- end: ftd.row
+
+			-- ftd.column:
+			width: fill-container
+			spacing.fixed.px: 32
+			height.fixed.px: 600
+			overflow-y: scroll
+			
+				-- comment-details:
+				for: $obj in $project-slide.all-comments
+				name: $obj.name
+				avatar: $obj.avatar
+				body: $obj.body
+				timestamp: $obj.timestamp
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: project-slide
+
+
+
+
+
+
+
+
+
+-- component all-slide-details:
+caption title:
+ftd.image-src src:
+
+-- ftd.column:
+width.fixed.px: 200
+spacing.fixed.px: 8
+border-radius.px: 4
+align-content: center
+
+	-- ftd.image:
+	src: $all-slide-details.src
+	width: fill-container
+	fit: cover
+	
+	-- ftd.text: $all-slide-details.title
+	role: $inherited.types.copy-small
+	color: $inherited.colors.text
+	
+-- end: ftd.column
+
+-- end: all-slide-details
+
+
+
+
+
+
+
+
+
+
+
+-- component all-style-details:
+caption title:
+ftd.image-src src:
+
+-- ftd.image:
+src: $all-style-details.src
+width.fixed.px: 150
+border-radius.px: 4
+fit: cover
+
+-- end: all-style-details
+
+
+
+
+
+
+
+
+
+-- component comment-details:
+string name:
+string timestamp:
+ftd.image-src avatar:
+body body:
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 16
+padding-vertical.px: 16
+padding-horizontal.px: 16
+
+	-- ftd.row:
+	align-content: center
+	spacing.fixed.px: 8
+	
+		-- ftd.image:
+		src: $comment-details.avatar
+		width.fixed.px: 24
+		height.fixed.px: 24
+		align-self: center
+		
+		-- ftd.column:
+		spacing.fixed.px: 4
+		width.fixed.px: 260
+		
+			-- ftd.text: $comment-details.name
+			role: $inherited.types.button-medium
+			color: $inherited.colors.text
+			style: bold
+			
+			-- ftd.text: $comment-details.timestamp
+			role: $inherited.types.copy-small
+			color: $inherited.colors.text
+			
+		-- end: ftd.column
+
+		-- ftd.checkbox:
+		width.fixed.px: 24
+		height.fixed.px: 24
+		
+	-- end: ftd.row
+
+	-- ftd.text:
+	role: $inherited.types.lanel-large
+	color: $inherited.colors.text
+	
+	$comment-details.body
+	
+-- end: ftd.column
+
+-- end: comment-details
+
+
+
+
+
+
+
+;; SLIDE-IMAGES COMPONENT --------------------------------
+-- component slide-images:
+ftd.image-src src:
+integer order:
+string presentation-slug:
+string org-slug:
+integer active-slide-order:
+
+-- ftd.column:
+
+	-- ftd.image:
+	src: $slide-images.src
+	cursor: pointer
+	width.fixed.px: 96
+	height.fixed.px: 64
+	fit: cover
+	border-color if { slide-images.active-slide-order == slide-images.order }: $inherited.colors.cta-primary.base
+	border-width.px if { slide-images.active-slide-order == slide-images.order }: 4
+	link: $construct-slide-url(team=$slide-images.org-slug, presentation=$slide-images.presentation-slug, order=$slide-images.order)
+	
+	-- ftd.image:
+	src: $assets.files.assets.delete.svg
+	width.fixed.px: 30
+	height.fixed.px: 30
+	align-self: end
+	padding.px: 7
+	background.solid: $inherited.colors.background.step-1
+	border-radius.px: 8
+	$on-click$: $delete-slide-http(url=delete-slide/, method=post, presentation=$slide-images.presentation-slug, order=$slide-images.order)
+	
+-- end: ftd.column
+
+
+-- end: slide-images
+
+
+
+
+
+
+
+
+
+
+
+;; CODE-BLOCK-SYSTEM COMPONENT --------------------------------
+-- component code-block-system:
+optional caption title:
+optional ftd.color bgcolor: $inherited.colors.background.overlay
+optional ftd.color code-bg: $inherited.colors.background.code
+optional body body:
+optional string lang:
+optional boolean show-double: true
+children code:
+
+-- ftd.column:
+width: fill-container
+spacing: space-between
+
+	-- ftd.column:
+	height: fill-container
+	width: fill-container
+	border-bottom-width.px: 1
+	border-top-width.px: 1
+	border-color: $inherited.colors.border
+	
+		-- ftd.text: $code-block-system.title
+		if: { code-block-system.title != NULL }
+		role: $inherited.types.copy-regular
+		color: $inherited.colors.text-strong
+		border-color: $inherited.colors.border
+		border-right-width.px: 1
+		padding-vertical.px: 8
+		padding-horizontal.px: 24
+		
+	-- end: ftd.column
+
+	-- ftd.column:
+	width: fill-container
+	
+		-- code:
+		body: $code-block-system.body
+		lang: $code-block-system.lang
+		
+	-- end: ftd.column
+
+	-- ftd.column:
+	width: fill-container
+	align-content: right
+	padding-right.px: 16
+	
+		-- cta-button: Add image
+		cta-button-link: /
+		
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: code-block-system
+
+
+
+
+
+
+
+
+
+;; CODE COMPONENT --------------------------------
+-- component code:
+optional body body:
+optional string lang:
+
+-- ftd.code:
+min-height.fixed.px: 496
+text: $code.body
+lang: $code.lang
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text-strong
+padding-right.px: 20
+white-space: break-spaces
+show-line-number: true
+padding-vertical.px: 24
+
+-- end: code
+
+
+
+
+
+
+
+
+
+
+
+
+;; BUTTON COMPONENT --------------------------------
+-- component button:
+optional caption title:
+optional string button-link:
+optional ftd.image-src button-icon:
+boolean $hover: false
+optional ftd.resizing icon-width:
+optional ftd.resizing icon-height:
+
+-- ftd.row:
+background.solid: $inherited.colors.background.step-1
+border-radius.px: 8
+padding-horizontal.px: 16
+padding-vertical.px: 10
+align-content: center
+background.solid if { button.hover }: $inherited.colors.background.step-2
+$on-mouse-enter$: $ftd.set-bool($a = $button.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $button.hover, v = false)
+spacing.fixed.px: 8
+width: hug-content
+min-width: auto
+
+	-- ftd.image: $button.button-icon
+	if: { button.button-icon != NULL }
+	width.fixed.px: 16
+	width if { button.icon-width != NULL }: $button.icon-width
+	height.fixed.px: 16
+	height if { button.icon-height != NULL }: $button.icon-height
+	
+	-- ftd.text: $button.title
+	if: { button.title != NULL }
+	role: $inherited.types.button-small
+	color: $inherited.colors.text-strong
+	link: $button.button-link
+	white-space: nowrap
+	
+-- end: ftd.row
+
+-- end: button
+
+
+
+
+
+
+
+
+
+;; CTA-BUTTON COMPONENT --------------------------------
+-- component cta-button:
+optional caption title:
+optional string cta-button-link:
+optional ftd.image-src cta-button-icon:
+boolean $hover: false
+
+-- ftd.row:
+background.solid: $inherited.colors.cta-primary.base
+border-radius.px: 8
+padding-horizontal.px: 15
+padding-vertical.px: 8
+align-content: center
+background.solid if { cta-button.hover }: $inherited.colors.cta-primary.hover
+$on-mouse-enter$: $ftd.set-bool($a = $cta-button.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $cta-button.hover, v = false)
+link: $cta-button.cta-button-link
+
+	-- ftd.image: $cta-button.cta-button-icon
+	if: { cta-button.cta-button-icon != NULL }
+	width.fixed.px: 16
+	height.fixed.px: 16
+	
+	-- ftd.text: $cta-button.title
+	role: $inherited.types.button-small
+	color: $inherited.colors.text-strong
+	
+-- end: ftd.row
+
+-- end: cta-button
+
+
+
+;; FUNCTIONS --------------------------------
+
+-- void http(url,method,content,presentation_slug,order):
+string url:
+string method:
+string content:
+string presentation:
+integer order:
+slide $s:
+js: $assets.files.functions.js
+
+http(url, method, null, ("content", content), ("presentation-slug", presentation), ("order", order))
+
+-- void create-slide-http(id,url,method):
+string presentation:
+string url:
+string method:
+js: $assets.files.functions.js
+
+http(url, method, null, ("presentation-slug", presentation))
+
+-- void delete-slide-http(id,order,url,method):
+string presentation:
+integer order:
+string url:
+string method:
+js: $assets.files.functions.js
+
+http(url, method, null, ("presentation-slug", presentation), ("order", order))
+
+
+
+
+-- string present-link(presentation,order):
+string presentation:
+integer order:
+
+"pre/" + presentation + "/" + order + "/"
+
+-- string settings-link(presentation):
+string presentation:
+
+"s/" + presentation + "/"
+
+-- string construct-slide-url(presentation,team,order):
+string presentation:
+string team:
+integer order: 0
+
+"p/" + team + "/" + presentation + "/" + order + "/"
+
+-- integer increment-by-one(a):
+integer a:
+
+a + 1
+
+-- void go-back():
+js: $assets.files.functions.js
+
+goBack()
+
+
+
+
+-- ftd.shadow s:
+color: #000000
+x-offset.px: 2
+y-offset.px: 4
+blur.px: 12
+spread.px: 0

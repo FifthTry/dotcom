@@ -1,0 +1,46 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/header
+-- import: ui.fifthtry.com/components/footer
+-- import: ui.fifthtry.com/components/header-message as hm
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+optional string product:
+children children:
+optional caption title:
+ds.gap margin: $ds.spaces.vertical-gap.zero
+ds.flush flush: to-header
+boolean hide-footer: false
+boolean hide-header: false
+boolean theme-toggle: true
+optional string top-message:
+
+-- ds.page: $page.title
+
+-- hm.header-message: $page.top-message
+if: { $page.top-message }
+
+-- header.header:
+if: { !page.hide-header }
+site-data: $page.site-data
+user-data: $page.user-data
+margin: $page.margin
+theme-toggle: $page.theme-toggle
+
+-- ds.section-column:
+inset: $ds.spaces.inset-wide.medium
+inset if { page.hide-header }: $ds.spaces.inset-tall.large
+content: $page.children
+flush: $page.flush
+margin: $ds.spaces.vertical-gap.zero
+
+-- end: ds.section-column
+
+-- footer.footer:
+if: { !page.hide-footer }
+
+-- end: ds.page
+
+-- end: page

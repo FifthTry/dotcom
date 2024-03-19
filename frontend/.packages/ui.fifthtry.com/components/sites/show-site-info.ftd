@@ -1,0 +1,119 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/utils
+
+-- component show-site-info:
+caption sites-records.site-common-data site:
+
+-- ds.section-column:
+
+-- ftd.desktop:
+
+    -- ds.row:
+    radius: $ds.radius.medium
+    inset: $ds.spaces.inset-square.large
+    border: $ds.borders.uniform.small
+    spacing: $ds.spaces.horizontal-gap.large
+    background.solid: $ds.colors.background.step-1
+    link: $show-site-info.site.info-url
+
+        -- ftd.image:
+        src: $show-site-info.site.preview-image
+        fit: cover
+        width: fill-container
+
+        -- ds.column:
+        spacing: $ds.spaces.vertical-gap.large
+        align-content: top-left
+
+        -- ds.column:
+        spacing: $ds.spaces.vertical-gap.extra-small
+        align-content: top-left
+
+        -- ds.copy-regular: Website name
+
+        -- ds.heading-tiny: $show-site-info.site.site-name
+
+        -- end: ds.column
+
+        -- ds.column:
+        spacing: $ds.spaces.vertical-gap.extra-small
+        align-content: top-left
+
+        -- ds.copy-regular: Primary Domain
+
+            -- ds.heading-tiny: $show-site-info.site.primary-domain
+
+        -- end: ds.column
+
+        -- ds.column:
+        spacing: $ds.spaces.vertical-gap.extra-small
+        align-content: top-left
+
+        -- ds.copy-regular: Last Updated
+
+            -- ds.heading-tiny: $show-site-info.site.updated-on
+
+        -- end: ds.column
+
+        -- end: ds.column
+
+        -- ds.column:
+        height: fill-container
+        align-content: bottom-right
+
+            -- ds.icon-button: Visit Site
+            icon: $assets.files.assets.sites.link.svg
+            link: $utils.with-https(domain = $show-site-info.site.primary-domain)
+            icon-position: at-end
+            kind: secondary
+
+        -- end: ds.column
+
+    -- end: ds.row
+
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
+    -- ds.column:
+    radius: $ds.radius.medium
+    inset: $ds.spaces.inset-square.medium
+    border: $ds.borders.uniform.small
+    spacing: $ds.spaces.vertical-gap.large
+    background.solid: $ds.colors.background.step-1
+    link: $show-site-info.site.info-url
+
+        -- ftd.image:
+        src: $show-site-info.site.preview-image
+        fit: cover
+        width: fill-container
+
+        -- ds.column:
+        spacing: $ds.spaces.vertical-gap.medium
+        align-content: top-left
+
+            -- ds.heading-small: $show-site-info.site.site-name
+
+            -- ds.copy-small: $show-site-info.site.primary-domain
+
+            -- ds.copy-small: $show-site-info.site.updated-on
+
+        -- end: ds.column
+
+            -- ds.icon-button: Visit Site
+            icon: $assets.files.assets.sites.link.svg
+            link: $utils.with-https(domain = $show-site-info.site.primary-domain)
+            icon-position: at-end
+            kind: secondary
+            width: full
+
+    -- end: ds.column
+
+-- end: ftd.mobile
+
+-- end: ds.section-column
+
+-- end: show-site-info
+
+
+

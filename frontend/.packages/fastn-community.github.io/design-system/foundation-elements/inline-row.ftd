@@ -1,0 +1,24 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+
+-- component inline-row:
+optional caption title:
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap spacing: $ds.spaces.horizontal-gap.medium
+ftd.resizing width: hug-content
+children content:
+boolean wrap: false
+
+-- ftd.row:
+width: $inline-row.width
+padding-vertical.px: $inline-row.inset.vertical
+padding-horizontal.px: $inline-row.inset.horizontal
+spacing.fixed.px: $inline-row.spacing.gap
+spacing if { inline-row.spacing.gap == spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+align-content: center
+children: $inline-row.content
+wrap: $inline-row.wrap
+
+-- end: ftd.row
+
+
+-- end: inline-row

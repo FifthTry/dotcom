@@ -1,0 +1,9 @@
+-- optional string $token-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, token_about):
+string site_slug:
+string token_about:
+js: $assets.files.assets.functions.js
+
+callAlert("Adding token: " + token_about + ", for site: " + site_slug)

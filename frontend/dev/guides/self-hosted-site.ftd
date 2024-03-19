@@ -1,0 +1,15 @@
+-- ds.page: FifthTry Sites
+
+-- ds.h1: How Is A Site Created?
+
+Someone will have to setup a linux server, and install fastn on it, and create the fastn package.
+They will have to setup at least one authentication mechanism in FASTN.ftd. The admin will have
+to also map the domain name and manage the SSL certificates etc.
+
+-- ds.h1: API
+
+All future operations will happen over the `login`, `clone` and `sync` APIs. The API endpoint would be
+the package name of the site itself. If domain or SSL certificate expires or is misconfigured, the API
+will not be available.
+
+-- end: ds.page

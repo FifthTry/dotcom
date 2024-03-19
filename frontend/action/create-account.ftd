@@ -1,0 +1,39 @@
+-- optional string $name-error:
+-- optional string $username-error:
+-- optional string $email-error:
+-- optional string $password-error:
+-- optional string $password2-error:
+-- optional string $accept-terms-error:
+
+
+-- ftd.http-options opts:
+redirect: follow
+method: POST
+fastn-module: www.fifthtry.com/action/create-account
+
+-- void submit-values(name, email, username, password, password2, accept_terms, opts):
+string name:
+string email:
+string username:
+string password:
+string password2:
+boolean accept_terms:
+ftd.http-options opts: $opts
+optional string name_err: $name-error
+optional string username_err: $username-error
+optional string email_err: $email-error
+optional string password_err: $password-error
+optional string accept_terms_err: $accept-terms-error
+js: $assets.files.functions.js
+
+send_form_request(
+    (name_err, username_err, email_err, password_err, accept_terms_err),
+    "/-/auth/create-account/",
+    opts,
+    ("name", name),
+    ("email", email),
+    ("username", username),
+    ("password", password),
+    ("password2", password2),
+    ("accept_terms", accept_terms),
+)

@@ -1,0 +1,163 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+
+-- component container:
+optional caption title:
+ds.hv inset: $ds.spaces.inset-square.zero
+ftd.resizing width: fill-container
+optional ftd.background background:
+ds.element-radius radius: $ds.radius.zero
+children content:
+optional ftd.resizing height:
+ds.gap margin-vertical: $ds.spaces.vertical-gap.zero
+ds.gap margin-horizontal: $ds.spaces.vertical-gap.zero
+ds.border-data border: $ds.borders.uniform.zero
+ftd.color border-color: $ds.colors.border
+
+-- ftd.container:
+width: $container.width
+min-height.fixed.px: $container.height
+padding-vertical.px: $container.inset.vertical
+padding-horizontal.px: $container.inset.horizontal
+children: $container.content
+background: $container.background
+border-top-left-radius.px if { container.radius.top-left != $radius.HACK-RADIUS-ROUND }: $container.radius.top-left
+border-top-right-radius.px if { container.radius.top-right != $radius.HACK-RADIUS-ROUND }: $container.radius.top-right
+border-bottom-left-radius.px if { container.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $container.radius.bottom-left
+border-bottom-right-radius.px if { container.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $container.radius.bottom-right
+border-top-left-radius.percent if { container.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+border-top-right-radius.percent if { container.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-left-radius.percent if { container.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-right-radius.percent if { container.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+margin-vertical.px: $container.margin-vertical.gap
+margin-horizontal.px: $container.margin-horizontal.gap
+border-top-width.px: $container.border.top
+border-bottom-width.px: $container.border.bottom
+border-left-width.px: $container.border.left
+border-right-width.px: $container.border.right
+border-color: $container.border-color
+
+-- end: ftd.container
+
+-- end: container
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Container
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Container
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.code:
+	
+	\-- ds.container:
+	width.fixed.px: 200
+	height.fixed.px: 200
+	border-top: $ds.borders.thick
+	border-left: $ds.borders.thick
+	border-right: $ds.borders.thick
+	border-bottom: $ds.borders.thick
+	radius: $ds.radius.large
+	background.solid: $ds.colors.custom.three
+	border-color: $ds.colors.border
+	margin-vertical: $ds.spaces.vertical-gap.medium
+	margin-horizontal: $ds.spaces.vertical-gap.small
+	
+	\-- ds.row:
+	spacing: $ds.spaces.horizontal-gap.large
+	inset: $ds.spaces.inset-square.small
+	
+	\-- ds.column:
+	width.fixed.px: 220
+	height.fixed.px: 120
+	inset: $ds.spaces.inset-square.small
+	background.solid: $ds.colors.background.step-2
+	
+	\-- ds.copy-small:
+	text: Column inside row
+	
+	\-- end: ds.column
+	
+	\-- ds.column:
+	width.fixed.px: 220
+	height.fixed.px: 120
+	inset: $ds.spaces.inset-square.small
+	background.solid: $ds.colors.background.step-2
+	
+	\-- ds.copy-small:
+	text: Column inside row
+	
+	\-- end: ds.column
+	
+	\-- end: ds.row
+	
+	\-- end: ds.container
+	
+	
+	-- ds.container:
+	width: fill-container
+	height.fixed.px: 200
+	border: $ds.borders.uniform.small
+	radius: $ds.radius.large
+	background.solid: $ds.colors.background.step-1
+	border-color: $ds.colors.border
+	margin-vertical: $ds.spaces.vertical-gap.medium
+	margin-horizontal: $ds.spaces.vertical-gap.small
+	inset: $ds.spaces.inset-square.small
+	
+		-- ds.copy-regular:
+		text: This is inside a container
+		
+		-- ds.row:
+		spacing: $ds.spaces.horizontal-gap.large
+		inset: $ds.spaces.inset-square.small
+		
+		
+			-- ds.column:
+			width.fixed.px: 220
+			height.fixed.px: 120
+			inset: $ds.spaces.inset-square.small
+			background.solid: $ds.colors.background.step-2
+			
+				-- ds.copy-small:
+				text: Column inside row
+				
+			-- end: ds.column
+
+			-- ds.column:
+			width.fixed.px: 220
+			height.fixed.px: 120
+			inset: $ds.spaces.inset-square.small
+			background.solid: $ds.colors.background.step-2
+			
+				-- ds.copy-small:
+				text: Column inside row
+				
+			-- end: ds.column
+
+		-- end: ds.row
+
+	-- end: ds.container
+
+-- end: ds.section-column
+
+-- end: ds.page

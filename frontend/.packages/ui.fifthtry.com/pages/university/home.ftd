@@ -1,0 +1,36 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/pages/university
+-- import: ui.fifthtry.com/components/university/show-course-info
+
+
+-- component page:
+university.course-info list courses:
+module site-data: site-data
+ud.user-data user-data:
+
+-- p.page:
+user-data: $page.user-data
+site-data: $page.site-data
+margin: $ds.spaces.vertical-gap.extra-large
+
+	-- ds.heading-medium: $lang.university-title
+	align: center
+	
+	
+	-- ftd.row:
+	wrap: true
+	width.fixed.percent: 80
+	align-content: top-left
+	margin-top.px: 20
+	spacing.fixed.px: 40
+	
+		-- show-course-info.show-course-info: $course
+		for: course in $page.courses
+		
+	-- end: ftd.row
+
+-- end: p.page
+
+-- end: page

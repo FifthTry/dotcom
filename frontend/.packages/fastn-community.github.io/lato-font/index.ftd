@@ -1,0 +1,103 @@
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/forest-theme as ds
+-- import: fastn-community.github.io/lato-font/custom
+-- import: fifthtry.github.io/package-doc/footer
+
+
+
+
+-- ds.page: 
+show-footer: true
+site-name: `lato-font`
+
+-- ds.page.footer:
+
+-- footer.fastn-footer:
+
+-- end: ds.page.footer
+
+-- pd.package: FTD lato-font package
+name: fastn-community.github.io/lato-font
+
+This FTD font `lato` can be used for your ftd web projects. 
+
+To Use this lato inside `FTD` project visit [lato-typography](https://fastn-community.github.io/lato-typography).
+
+-- ds.h3: lato various sizes
+
+-- ftd.text: 
+role: $custom.lato-size-12-400
+color: $inherited.colors.text-strong
+
+`font-size: 12px, font-weight: 400` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+
+-- ftd.text: 
+role: $custom.lato-size-12-800
+color: $inherited.colors.text-strong
+
+`font-size: 12px, font-weight: 500` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text: 
+role: $custom.lato-size-12-800
+color: $inherited.colors.text-strong
+
+`font-size: 12px, font-weight: 800` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+
+-- ftd.text: 
+role: $custom.lato-size-18-400
+color: $inherited.colors.text-strong
+
+`font-size: 18px, font-weight: 400` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text: 
+role: $custom.lato-size-18-500
+color: $inherited.colors.text-strong
+
+`font-size: 18px, font-weight: 500` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text: 
+role: $custom.lato-size-18-800
+color: $inherited.colors.text-strong
+
+`font-size: 18px, font-weight: 800` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text: 
+role: $custom.lato-size-48-400
+color: $inherited.colors.text-strong
+
+`font-size: 48px, font-weight: 400` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text: 
+role: $custom.lato-size-48-500
+color: $inherited.colors.text-strong
+
+`font-size: 48px, font-weight: 500` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- ftd.text:
+role: $custom.lato-size-48-800
+color: $inherited.colors.text-strong
+
+`font-size: 48px, font-weight: 800` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- end: ds.page
+

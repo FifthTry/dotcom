@@ -1,0 +1,6 @@
+-- ds.page: PDF Export
+
+Any presentation is composed a bunch of slides, and each slide has a snapshot attached. We have a feature that allows
+you to combine all these snapshots and download a PDF file. This is useful for printing or sharing the presentation.
+
+-- end: ds.page

@@ -1,0 +1,26 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/components/slides/action-header
+
+
+-- component page:
+module site-data: site-data
+children uis:
+boolean header: false
+
+-- ftd.column:
+colors: $ds.colors
+types: $ds.types
+width: fill-container
+background.solid: $inherited.colors.background.base
+height: fill-container
+
+	-- action-header.header:
+	if: { page.header }
+	site-data: $page.site-data
+	
+	-- ui:
+	for: $ui in $page.uis
+	
+-- end: ftd.column
+
+-- end: page

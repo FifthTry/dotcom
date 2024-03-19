@@ -1,0 +1,45 @@
+-- import: ui.fifthtry.com/pages/sites/setting/domains
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: www.fifthtry.com/action/site/domains/add-domain
+-- import: www.fifthtry.com/action/site/domains/delete-domain
+-- import: www.fifthtry.com/action/site/domains/make-primary-domain
+-- import: www.fifthtry.com/action/site/domains/re-check-domain
+-- import: fastn/processors as pr
+
+
+
+
+
+-- domains.page:
+site: $data.site
+dashboard-url: $data.dashboard-url
+user-data: $data.ud
+domains: $data.page
+add-domain: add-domain
+delete-domain: delete-domain
+make-primary-domain: make-primary-domain
+re-check-domain: re-check-domain
+
+
+
+
+
+
+
+-- string site-slug:
+$processor$: pr.request-data
+
+
+
+
+-- record domains-api:
+sites-records.domain list page:
+sites-records.site-common-data site:
+string dashboard-url:
+ud.user-data ud:
+
+-- domains-api data:
+$processor$: pr.http
+url: /ft2/site/setting/domains/
+site-slug: $site-slug

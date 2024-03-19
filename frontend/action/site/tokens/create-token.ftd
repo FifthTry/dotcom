@@ -1,0 +1,17 @@
+-- optional string $token-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, token_about):
+string site_slug:
+string token_about:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/site/token/create/",
+    "www.fifthtry.com/action/site/tokens/create-token",
+    "POST",
+    ("site-slug", site_slug),
+    ("about", token_about),
+    ("can-read", true),
+    ("can-write", true),
+)

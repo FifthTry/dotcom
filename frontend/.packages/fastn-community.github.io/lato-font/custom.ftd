@@ -1,0 +1,274 @@
+-- import: fastn-community.github.io/lato-font/assets as lato-assets
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/forest-theme as ds
+-- import: fifthtry.github.io/package-doc/footer
+
+
+
+
+
+
+-- ds.page: 
+show-footer: true
+site-name: `lato-font`
+
+-- ds.page.footer:
+
+-- footer.fastn-footer:
+
+-- end: ds.page.footer
+
+-- pd.package: FTD lato package
+name: fastn-community.github.io/lato-font
+
+This FTD font `lato` package is for your ftd web projects. To Use this
+lato inside `FTD` project follow below instructions.
+
+-- ds.h3: How to use lato?
+
+-- ds.code: Add this to your FASTN.ftd
+lang: ftd
+
+\-- fastn.dependency: fastn-community.github.io/lato-font
+
+-- ds.markdown: 
+
+After adding lato dependency inside you `FASTN.ftd` file, You need to add
+lato assets and import it inside you `ftd` file where you are using this
+font for your custom font types. To include lato into your `ftd` file
+follow below instructions.
+
+-- ds.code:
+lang: ftd
+
+\-- import: fastn-community.github.io/lato-font/assets as lato-assets
+
+
+-- ds.h3: How to create a custom lato type? 
+
+-- ds.markdown: 
+
+How to use `ftd.type` to create a custom font `types` using lato? 
+
+We don't recommend creating custom types. We recommend to use 
+our [lato-typography](https://fastn-community.github.io/lato-typography)
+
+If you're using [lato-typography](https://fastn-community.github.io/lato-typography) 
+and still your designer has introduced new font size which is not included or 
+part of our [lato-typography](https://fastn-community.github.io/lato-typography) 
+then only define custom types. 
+
+We hope you shouldn't need to define a custom type.
+
+Below is an example of creating a custom `ftd.type` using lato.
+
+-- ds.rendered:
+
+-- ds.rendered.input:
+
+\-- ftd.type lato-size-12-desktop:
+size.px: 12
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+
+\-- ftd.type lato-size-12-mobile:
+size.px: 12
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+\-- ftd.responsive-type lato-size-12-400:
+desktop: $lato-size-12-desktop
+mobile: $lato-size-12-mobile
+
+-- ds.rendered.output:
+
+-- ftd.text: 
+role: $lato-size-12-400
+color: $inherited.colors.text-strong
+
+`font-size: 12px, font-weight: 400` 
+
+👉 The quick brown fox jumps over the lazy dog 
+
+-- end: ds.rendered.output
+
+-- end: ds.rendered
+
+-- end: ds.page
+
+
+
+
+
+
+
+
+
+
+-- ftd.type lato-size-12-desktop:
+size.px: 12
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-12-mobile:
+size.px: 12
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-12-400:
+desktop: $lato-size-12-desktop
+mobile: $lato-size-12-mobile
+
+
+
+
+
+-- ftd.type lato-size-12-500-desktop:
+size.px: 12
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-12-500-mobile:
+size.px: 12
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-12-500:
+desktop: $lato-size-12-500-desktop
+mobile: $lato-size-12-500-mobile
+
+
+
+
+
+-- ftd.type lato-size-12-800-desktop:
+size.px: 12
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-12-800-mobile:
+size.px: 12
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-12-800:
+desktop: $lato-size-12-800-desktop
+mobile: $lato-size-12-800-mobile
+
+
+
+
+
+-- ftd.type lato-size-18-desktop:
+size.px: 18
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-18-mobile:
+size.px: 18
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-18-400:
+desktop: $lato-size-18-desktop
+mobile: $lato-size-18-mobile
+
+
+
+
+
+-- ftd.type lato-size-18-500-desktop:
+size.px: 18
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-18-500-mobile:
+size.px: 18
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-18-500:
+desktop: $lato-size-18-500-desktop
+mobile: $lato-size-18-500-mobile
+
+
+
+
+
+-- ftd.type lato-size-18-800-desktop:
+size.px: 18
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-18-800-mobile:
+size.px: 18
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-18-800:
+desktop: $lato-size-18-800-desktop
+mobile: $lato-size-18-800-mobile
+
+
+
+
+
+-- ftd.type lato-size-48-desktop:
+size.px: 48
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-48-mobile:
+size.px: 48
+weight: 400
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-48-400:
+desktop: $lato-size-48-desktop
+mobile: $lato-size-48-mobile
+
+
+
+
+
+-- ftd.type lato-size-48-500-desktop:
+size.px: 48
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-48-500-mobile:
+size.px: 48
+weight: 500
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-48-500:
+desktop: $lato-size-48-500-desktop
+mobile: $lato-size-48-500-mobile
+
+
+
+
+
+-- ftd.type lato-size-48-800-desktop:
+size.px: 48
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+
+-- ftd.type lato-size-48-800-mobile:
+size.px: 48
+weight: 800
+font-family: $lato-assets.fonts.Lato
+
+-- ftd.responsive-type lato-size-48-800:
+desktop: $lato-size-48-800-desktop
+mobile: $lato-size-48-800-mobile

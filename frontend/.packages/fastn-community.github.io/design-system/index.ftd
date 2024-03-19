@@ -1,0 +1,142 @@
+-- import: fastn-community.github.io/dark-flame-cs
+-- import: fastn-community.github.io/saturated-sunset-cs
+-- import: fastn-community.github.io/roboto-typography
+-- import: fastn-community.github.io/design-system/demos
+
+-- import: fastn-community.github.io/design-system/foundation-elements/borders as _
+export: border-data, border-thickness, borders
+exposing: border-data, border-thickness, borders
+
+-- import: fastn-community.github.io/design-system/foundation-elements/shadow as _
+export: shadow-data, shadow
+
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces as _
+export: hv, gap, insets, squishes, stretches, gaps, space-data, spaces
+
+-- import: fastn-community.github.io/design-system/foundation-elements/radius as _
+export: element-radius, radius-data, radius
+
+-- import: fastn-community.github.io/code-block as _
+export: code, rendered
+
+-- import: fastn-community.github.io/design-system/components/button as _
+export: button, button-kind, button-variant, button-width, button-size, primary-button, secondary-button, tertiary-button, danger-button, header-link, link-button
+
+-- import: fastn-community.github.io/design-system/components/header as _
+export: header-link
+
+-- import: fastn-community.github.io/design-system/components/footer as _
+export: footer-heading, footer-secondary-heading, footer-link, copyright-text
+
+-- import: fastn-community.github.io/design-system/components/alert as _
+export: alert
+
+-- import: fastn-community.github.io/design-system/components/checkbox as _
+export: checkbox
+
+-- import: fastn-community.github.io/design-system/components/input as _
+export: text-input
+
+-- import: fastn-community.github.io/design-system/components/toggle as _
+export: toggle-button
+
+-- import: fastn-community.github.io/design-system/components/label-text as _
+export: label-text
+
+-- import: fastn-community.github.io/design-system/components/clipboard as _
+export: copy-to-clipboard-text
+
+-- import: fastn-community.github.io/design-system/components/button-group as _
+export: button-group
+
+-- import: fastn-community.github.io/design-system/foundation-elements/page as _
+export: page, flush, page-widths, narrow-widths, widths
+exposing: narrow-widths
+
+-- import: fastn-community.github.io/design-system/foundation-elements/section-row as _
+export: section-row
+
+-- import: fastn-community.github.io/design-system/foundation-elements/section-column as _
+export: section-column
+
+-- import: fastn-community.github.io/design-system/foundation-elements/container as _
+export: container
+
+-- import: fastn-community.github.io/design-system/foundation-elements/column as _
+export: column
+
+-- import: fastn-community.github.io/design-system/foundation-elements/floater as _
+export: floater
+
+-- import: fastn-community.github.io/design-system/foundation-elements/row as _
+export: row
+
+-- import: fastn-community.github.io/design-system/foundation-elements/inline-row as _
+export: inline-row
+
+-- import: fastn-community.github.io/design-system/components/icon-button as _
+export: icon-button, circle-button, circle-text-button, phosphor-icon-button, fa-icon-button, icon-position, phosphor-variant
+
+-- import: fastn-community.github.io/design-system/typography as _
+export: heading-hero, heading-large, heading-medium, heading-small, heading-tiny, copy-large, copy-regular, copy-small, fine-print, source-code, link
+exposing: heading-large, copy-regular
+
+
+
+
+
+;; -- ftd.color-scheme colors: $saturated-sunset-cs.main
+-- ftd.color-scheme colors: $dark-flame-cs.main
+
+-- ftd.type-data types: $roboto-typography.types
+
+
+
+
+-- ds.page: Design System
+widths: $narrow-widths
+
+-- ds.section-column:
+spacing: $ds.spaces.vertical-gap.medium
+align-content: left
+
+	-- ds.heading-hero: Design System
+	
+	-- ds.button-group:
+	
+		-- ds.phosphor-icon-button: Github
+		icon: github-logo
+		link: https://github.com/fastn-community/design-system/
+		
+		-- ds.phosphor-icon-button: BSD (Open Source)
+		icon: scales
+		link: https://github.com/fastn-community/design-system/blob/main/LICENSE
+		
+	-- end: ds.button-group
+
+	-- ds.copy-regular:
+	
+	This is the package you have been waiting for!
+	
+	- [Alert](components/alert/)
+	- [Buttons](components/button/)
+	- [Icon Buttons](components/icon-button/)
+	- [Button Group (WIP)](components/button-group/)
+	- [Toggle](components/toggle/)
+	- [Label Text](components/label-text/)
+	- [Clipboard](components/clipboard/)
+	- [Checkbox](components/checkbox/)
+	- [Input](components/input/)
+	- [Typography](typography/)
+	- [Page](foundation-elements/page/)
+	- [Column](foundation-elements/column/)
+	- [Container](foundation-elements/container/)
+	- [Row](foundation-elements/row/)
+	- [section-row](foundation-elements/section-row/)
+	- [section-column](foundation-elements/section-column/)
+	
+	-- demos.demo:
+	
+-- end: ds.section-column
+
+-- end: ds.page

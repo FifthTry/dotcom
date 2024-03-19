@@ -1,0 +1,23 @@
+-- string with-https(domain):
+string domain:
+
+"https://" + domain
+
+
+-- string dashboard-url(org_slug):
+string org_slug:
+
+"/s/" + org_slug + "/"
+
+
+-- string github-access-url(site_slug, org_slug):
+string site_slug:
+string org_slug:
+
+"/s/" + org_slug + "/" + site_slug + "/github/"
+
+
+-- string set-null(var):
+optional string $var:
+
+var = null

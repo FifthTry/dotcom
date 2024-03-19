@@ -1,0 +1,19 @@
+-- ds.page: `serve-image` API
+
+We store images in database, and use this api to serve them to users. Read more
+about this design in the [snapshots guide](/dev/guides/snapshots/).
+
+-- ds.h1: URL & Parameters
+
+/page/serve-image/?slide=<id>&preview=true
+
+-- ds.h2: `id`
+
+This parameter will be the `id` of the `slide`. It is a required parameter.
+
+-- ds.h2: `preview`
+
+This parameter is optional. If it is set to `true`, the image will be served in
+a smaller size. This is useful for show preview images in the editor etc.
+
+-- end: ds.page

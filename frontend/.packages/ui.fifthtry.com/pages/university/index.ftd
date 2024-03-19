@@ -1,0 +1,28 @@
+-- record course-info:
+caption title:
+;; ftd.image-src: icon
+body about:
+string cta: $lang.enroll-now
+string url:
+
+
+
+-- record course:
+caption title:
+string url:
+;; ftd.image-src icon:
+boolean is-current: false
+chapter list chapters:
+
+-- record chapter:
+caption title:
+string url:
+boolean is-current: false
+concept list concepts:
+
+-- record concept:
+caption title:
+string url:
+boolean is-current: false   ;; if this is the current page
+boolean is-done: false      ;; if the user is done with this concept
+string list environments:   ;; list of environments where this concept is mastered in

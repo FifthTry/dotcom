@@ -1,0 +1,8 @@
+-- ds.page: Member
+
+These are normal members of a team. They can create and edit presentations by default, but can not create
+team templates, nor can they manage members.
+
+They can not create/update pipelines, but can submit presentations to pipelines.
+
+-- end: ds.page

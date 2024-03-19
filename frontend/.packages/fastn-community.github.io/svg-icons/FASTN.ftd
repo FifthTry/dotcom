@@ -1,0 +1,10 @@
+-- import: fastn
+
+-- fastn.package: fastn-community.github.io/svg-icons
+
+-- fastn.dependency: fastn-community.github.io/design-system
+
+-- fastn.auto-import: fastn-community.github.io/svg-icons/assets
+
+
+

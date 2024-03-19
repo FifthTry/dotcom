@@ -1,0 +1,173 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/blog/blog-post as post
+;; -- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/pages/blogs/authors as author-bio
+
+
+-- component page:
+ud.user-data user-data:
+;; module site-data: site-data
+;; optional string top-message:
+
+-- p.page:
+user-data: $page.user-data
+;; site-data: $page.site-data
+;; top-message: $page.top-message
+
+-- ds.section-column:
+
+-- post.blog-info: Launching fifthtry.com
+name: Nandhini Devi
+date: 1st March 2024
+
+-- ds.row:
+inset: $ds.spaces.inset-wide.large
+
+-- ds.copy-regular:
+
+The past three years have been quite a journey for us. With over [400 releases](https://github.com/fastn-stack/fastn/releases) and [450+ stars on GitHub](https://github.com/fastn-stack/fastn), and our community expanding to [3000+ engineers, creators, and founders](https://discord.com/invite/eNXVBMq4xt), we've moved closer to our mission — helping you build 
+websites faster and better. Today, we are excited to launch our [Hosting Solution.](https://fastn.com/ft/)
+
+For those new to FifthTry, let me give you a quick rundown of who we are.
+
+At FifthTry, we set out to tackle the challenges in today's website development. 
+The existing options cater either to seasoned programmers or 
+those averse to coding, leaving a significant segment underserved. **This 
+exclusivity seemed unfair to us.**
+
+-- end: ds.row
+
+-- ds.column:
+inset: $ds.spaces.inset-wide.large
+align-content: left
+
+-- ds.heading-medium: The Growing Complexity 
+
+-- ds.copy-regular:
+
+HTML, CSS, and JavaScript remain foundational, but have grown quite complex 
+over time. When you hire developers to work on your websites, you have the 
+challenge of managing separate front-end and back-end systems alongwith the 
+constant need to stay updated. 
+
+Frameworks like React have undergone a ton of changes to the very basics of 
+how we work. The way we do basic things is changing fundamentally 
+every few years. And the necessity to adapt and change stacks, workflows, 
+and tools is not exclusive to front-end development.
+
+**Whether it's languages, frameworks, databases, ORMs, web servers, or package 
+mangers, transitioning between them demands a huge investment of time 
+and effort, often spanning several weeks of dedicated learning.**
+
+Additionally, even minor updates to the website can strain your development 
+bandwidth, originally allocated for crucial product building. Alternatively, 
+some turn to nocode or low code website builders.
+
+-- ds.heading-medium: The Tempting Modern Website Builders
+
+-- ds.copy-regular:
+
+However promising they may seem, modern website builders operate on the **Pareto 
+principle of 80-20**, solving 80 percent of your use cases but leaving the 
+remaining 20 percent uncertain. They also pose the **risk of migration** to another 
+platform due to changes in features, pricing, or even business closures.
+
+At the end, both options demand users to either delve into the intricacies of 
+the latest frontend technology or relinquish control to modern website 
+builders—an imbalance we sought to rectify.
+
+-- ds.heading-medium: FifthTry's Solution
+
+-- ds.copy-regular:
+
+Our response to these challenges was rooted in a simple idea: provide an 
+opportunity for everyone to **learn to program and build their websites/webapps 
+without the steep learning curves or reliance on third-party solutions.**
+
+Enter [**`fastn`**](https://fastn.com/)—an open-source, full-stack programming language designed 
+specifically for website development. **The learning curve from zero programming 
+language to building an entire website is under a week.**
+
+Myself, a [content writer](https://fastn.com/writer/), made the leap from using [Canva and Notion](https://fastn.com/blog/personal-website-1/) to building 
+my website in less than a week using fastn. As someone with no previous tech 
+background, today I'm creating tutorials on how to make the most of our [**design 
+system package.**](https://fastn.com/blog/design-system/)
+
+Here are a few things you should know about [**`fastn`**](https://fastn.com/):
+
+1) In modern editors you must select a template and modify content— a seemingly 
+  straightforward process, but the real challenge arises when you need to 
+  customize the color scheme, typography, or undertake branding. This becomes tedious as adjustments must be made for individual UI elements separately. Additionally, when content is altered, the design may not support it, and vice versa. Opting for another template means starting anew.
+    
+    However, [**`fastn`**](https://fastn.com/) eliminates these issues. After selecting a category and 
+    choosing a theme, you can modify the color scheme and typography or 
+    completely **change the entire layout with just a few lines of code.** Plus 
+    your **content remains unaffected when design changes occur**, and vice versa. Read our [Case Study](https://fastn.com/acme) to learn more. 
+
+2) Designed for humans, fastn prioritizes [minimal syntax](https://fastn.com/react/) and readability. 
+  That means, your marketing and content teams can easily learn to program and 
+  keep your website updated without solely depending on programmers.
+
+3) fastn facilitates both [front-end](https://fastn.com/frontend/) and [back-end development.](https://fastn.com/backend/) You can build 
+  custom components with ease, perform event handling, manage data, integrate 
+  with backend APIs, generate dynamic URLs, query data from sqlite and much more.
+
+4) You can deploy your fastn website on [FifthTry Hosting](https://fastn.com/ft/), [GitHub Pages,](https://fastn.com/github-pages/) [Heroku](https://fastn.com/heroku/), 
+  or the infrastructure of your choice.
+
+5) Our latest [design system package](https://fastn-community.github.io/design-system/) provides pre-defined layouts for sections, 
+  buttons, links, headers, footers, and other UI components. This ensures you no 
+  longer need to concern yourself with individually designing each component for 
+  a cohesive look, eliminating worries about pixel size, color, and font choices.
+
+-- ds.heading-medium: Where are we today?
+
+-- ds.copy-regular:
+
+Just like programming languages, hosting solutions 
+have their own complexities for non-programmers—tackle domain mapping 
+intricacies, manage AWS or Vercel configurations and oversee server/build 
+configurations, uptime monitoring, and security. 
+
+**FifthTry Hosting provides fast and secure hosting tailored for non-developers.** 
+With just a few clicks, you can easily [host a fastn-powered website on FifthTry.]((https://fastn.com/ft/))
+
+-- ds.heading-medium: What’s next?
+
+-- ds.copy-regular:
+
+As commendable as GitHub/Git may be, they prove challenging for non-programmers. 
+Hence, we're building our own **version control system and a 
+collaborative 'change request'-based workflow.** Set to launch soon, it has an 
+intuitive GUI for easy updates to your website, simplifying the collaboration 
+process for both developers and non-developers alike.
+
+-- ds.heading-medium: Try FifthTry for Your Website
+
+-- ds.copy-regular:
+
+If you're a startup or an individual looking for a reliable and user-friendly 
+solution for your website, give FifthTry a try. [Create your account](https://www.fifthtry.com/-/auth/create-account/) to get started.  
+
+We value your feedback and invite you to [join our Discord community](https://discord.com/invite/eNXVBMq4xt) to stay in the loop.
+
+-- end: ds.column
+
+-- author-bio.author-nandhini:
+
+-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+
+
+
+
+
+

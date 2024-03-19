@@ -1,0 +1,40 @@
+-- import: ui.fifthtry.com/site-data  ;; this is global site data for FifthTry.com
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/footer
+-- import: ui.fifthtry.com/components/sites/header as site-header
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/header-message as hm
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+string current-page:
+children children:
+optional string top-message:
+
+-- ds.page: FifthTry | Better way To Build Websites
+spacing: $ds.spaces.vertical-gap.small.gap
+margin: $ds.spaces.vertical-gap.zero
+
+    -- hm.header-message: $page.top-message
+    if: { $page.top-message }
+	
+	-- site-header.header:
+	site-data: $page.site-data
+	user-data: $page.user-data
+	current-page: $page.current-page
+	dashboard-url: $page.dashboard-url
+	site: $page.site
+	
+	-- child:
+	for: $child in $page.children
+	
+	-- footer.footer:
+	site-data: $page.site-data
+	
+-- end: ds.page
+
+-- end: page

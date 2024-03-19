@@ -1,0 +1,251 @@
+-- record border-data:
+integer left:
+integer right:
+integer top:
+integer bottom:
+
+
+-- record border-thickness:
+border-data zero:
+border-data small:
+border-data medium:
+border-data large:
+
+-- record all-borders-data:
+border-thickness uniform:
+border-thickness vertical:
+border-thickness horizontal:
+border-thickness top:
+border-thickness bottom:
+border-thickness left:
+border-thickness right:
+
+-- all-borders-data borders:
+uniform: $uniform
+vertical: $vertical
+horizontal: $horizontal
+top: $top
+bottom: $bottom
+left: $left
+right: $right
+
+
+-- border-thickness uniform:
+
+-- uniform.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- uniform.small:
+top: 1
+bottom: 1
+right: 1
+left: 1
+
+-- uniform.medium:
+top: 4
+bottom: 4
+right: 4
+left: 4
+
+-- uniform.large:
+top: 8
+bottom: 8
+right: 8
+left: 8
+
+-- end: uniform
+
+
+
+
+
+-- border-thickness vertical:
+
+-- vertical.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- vertical.small:
+top: 1
+bottom: 1
+right: 0
+left: 0
+
+-- vertical.medium:
+top: 4
+bottom: 4
+right: 0
+left: 0
+
+-- vertical.large:
+top: 8
+bottom: 8
+right: 0
+left: 0
+
+-- end: vertical
+
+
+
+
+
+-- border-thickness horizontal:
+
+-- horizontal.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- horizontal.small:
+top: 0
+bottom: 0
+right: 1
+left: 1
+
+-- horizontal.medium:
+top: 0
+bottom: 0
+right: 4
+left: 4
+
+-- horizontal.large:
+top: 0
+bottom: 0
+right: 8
+left: 8
+
+-- end: horizontal
+
+
+
+
+
+-- border-thickness top:
+
+-- top.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- top.small:
+top: 1
+bottom: 0
+right: 0
+left: 0
+
+-- top.medium:
+top: 4
+bottom: 0
+right: 0
+left: 0
+
+-- top.large:
+top: 8
+bottom: 0
+right: 0
+left: 0
+
+-- end: top
+
+
+
+
+
+-- border-thickness bottom:
+
+-- bottom.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- bottom.small:
+top: 0
+bottom: 1
+right: 0
+left: 0
+
+-- bottom.medium:
+top: 0
+bottom: 4
+right: 0
+left: 0
+
+-- bottom.large:
+top: 0
+bottom: 8
+right: 0
+left: 0
+
+-- end: bottom
+
+
+
+
+
+-- border-thickness left:
+
+-- left.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- left.small:
+top: 0
+bottom: 0
+right: 0
+left: 1
+
+-- left.medium:
+top: 0
+bottom: 0
+right: 0
+left: 4
+
+-- left.large:
+top: 0
+bottom: 0
+right: 0
+left: 8
+
+-- end: left
+
+
+
+
+
+-- border-thickness right:
+
+-- right.zero:
+top: 0
+bottom: 0
+right: 0
+left: 0
+
+-- right.small:
+top: 0
+bottom: 0
+right: 1
+left: 0
+
+-- right.medium:
+top: 0
+bottom: 0
+right: 4
+left: 0
+
+-- right.large:
+top: 0
+bottom: 0
+right: 8
+left: 0
+
+-- end: right

@@ -1,0 +1,83 @@
+-- ds.page: Views, Actions and APIs
+
+At FifthTry we use these terms in a particular way. This page explains what we mean by them.
+
+-- ds.h1: What is a "view"?
+
+View is a HTTP request that is sent from our ftd code to our backend (`ft` service is our
+"backend"), and the request is originated from a [HTTP processor](https://fastn.com/http/).
+
+We use measures to ensure that no one else can call these views, that requests only come from our
+ftd code. This is not currently implemented, we will soon add a token to the request headers to
+ensure that the request is coming from our ftd code. Further we will add rules in nginx to also not
+allow outside IPs to call these views.
+
+Views are generally GET requests, but in some cases rare cases may chose to use POST as well, in case
+the data is too large to be sent in a GET request, or it is more convenient to send JSON data instead
+of query parameters[1]. Though we will try to avoid POST requests as much as possible.
+
+The data sent as part of views are usually extracted from the request sent by untrusted clients,
+so all data must be properly validated and sanitized before using it. At the least views should
+see if the current user has access to the data they are trying to access.
+
+Views must return JSON data. The JSON data must confirm with the "schema", usually a ftd record,
+defined as part of the "page" that triggered the HTTP request.
+
+[1]: Example of this is say the page itself contains data, entered as ftd records etc, and the
+     purpose of the view is to "augment" this data, say of the page is a blog post, the data of
+     the post, its authors etc, will be page itself. But say we want to include the number of
+     likes to this blog post, this data can not be in the page, as this is dynamic data, so we
+     have to send the data extracted from the page to our backend, to "enrich" it with the number
+     of views. In such cases, since we have data in ftd records, it is more convenient to send
+     the record itself as JSON to the backend, instead of trying to convert the record to query
+     params.
+
+-- ds.h1: What is an "action"?
+
+Action is a HTTP request that is sent from frontend, using the `ftd.http()` function, to our
+backend. The request is routed from browser to `nginx`, which goes to `hostn`, and the "endpoint"
+feature in `fastn` proxies the request to our backend (`ft` service).
+
+All actions are triggered via some form in the frontend, some times they will not be traditional
+form, eg a like button on a blog post, is also a form, but it is not a traditional form, just a
+button.
+
+Actions are always POST requests. The data is sent as JSON body.
+
+The actions return JSON data on validation error. If for some reason the action can not be performed,
+it is a validation error, sometimes also called form error.
+
+The action data contains keys for every user visible field in the form. These fields are called
+"form fields". The action data also contains other data attached, which captures the context of the
+form, eg if you are trying to add a domain to a site, the context is the site, and we need to know
+which site are you adding the domain to, so the site-slug is also sent as part of the action data.
+Such data is called "context fields".
+
+The errors we return should be keyed on the form fields, and the error message should be a string.
+If more than one error happens on a field, the error messages should be concatenated. The error
+keys and form fields must be the same.
+
+You can not return errors for context fields, as they are not visible to the user.
+
+-- ds.h1: APIs
+
+In a lot of places, what we call actions, are called APIs. In fact what we call views are also
+called APIs. We call API only to things that are called from "external systems". Our website,
+and in future our mobile apps, are not "external systems". They are our "official UIs". Official
+UIs use actions and views, not APIs.
+
+APIs are exposed to other customers, or to our products that are not "official UIs", eg our
+clift, cli tool to interact with our backend. This is only because clift is not trying to be
+an official "UI", but is a special purse tool. If tomorrow we make clift a general purpose
+cli UI, then we will modify the client, and make it use actions and views, not APIs.
+
+APIs are few and they are stable. Views and actions are lot more mutable, we can keep on changing
+them as we see fit. Once we have mobile apps, we may not be able to change them as easily as
+we will have to support older versions of our app, but they would still be "private" to us, and
+the only reason to not change them is to not break our own apps, not because they are exposed to
+others.
+
+APIs are also documented on our website, and they are versioned. We will not change the APIs.
+Actions and views are documented as part of our internal documentation.
+
+-- end: ds.page

@@ -1,0 +1,29 @@
+-- component button-group:
+children buttons:
+ds.gap spacing: $ds.spaces.vertical-gap.small
+
+-- ftd.row:
+spacing.fixed.px: $button-group.spacing.gap
+children: $button-group.buttons
+
+-- end: ftd.row
+
+-- end: button-group
+
+
+
+
+-- ds.page: Button Group
+
+-- ds.phosphor-icon-button: Back
+icon: arrow-left
+link: index.html
+
+-- ds.rendered:
+
+\-- button-group:
+	-- ds.button-group:
+	
+-- end: ds.rendered
+
+-- end: ds.page

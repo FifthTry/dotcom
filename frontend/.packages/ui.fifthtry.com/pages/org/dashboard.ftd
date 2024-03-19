@@ -1,0 +1,35 @@
+-- import: ui.fifthtry.com/components/user/page as user-page
+-- import: ui.fifthtry.com/components/sites/show-site-info
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+ud.dashboard-data data:
+optional string top-message:
+
+-- user-page.page:
+site-data: $page.site-data
+user-data: $page.user-data
+create-site-url: $page.data.create-site-url
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-wide.large
+	spacing: $ds.spaces.vertical-gap.large
+	;;border: $ds.borders.top.small
+	radius: $ds.radius.zero
+	margin: $ds.spaces.vertical-gap.zero
+	
+		-- show-site-info.show-site-info: $s
+		for: s in $page.data.sites
+		
+	-- end: ds.section-column
+
+-- end: user-page.page
+
+-- end: page

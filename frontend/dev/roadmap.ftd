@@ -1,0 +1,31 @@
+-- ds.page: Roadmap
+
+-- ds.h1: 17th Nov 2023
+
+On this demo day I want to update code in browser, and see the preview. Only one text field is real,
+everything else can be mocked.
+
+- [ ] slide page
+- [ ] activate end-point
+- [ ] render api
+- [ ] /iframe/ support
+
+
+-- ds.h1: Backlog
+
+-- ds.h2: Prioritised
+
+- [ ] slide page api
+- [ ] enable django admin
+- [ ] add ekey stuff
+- [ ] save changes to db (which includes preview etc)
+- [ ] cookie support in http processor
+
+-- ds.h2: Remaining
+
+- [ ] 404 support in http processor
+- [ ] ekey support in fastn
+
+
+
+-- end: ds.page

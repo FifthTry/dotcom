@@ -1,0 +1,18 @@
+;; this is site data for the scenario site. This file must contain all the variables defined in
+;; ui.fifthtry.com/site-data.ftd.
+
+-- string homepage: /scenarios/logged-in-home/
+
+-- ftd.image-src logo: $assets.files.assets.logo.svg
+
+-- string sign-in-url: /scenarios/signin-page/
+-- string sign-up-url: /scenarios/signup-page/
+-- string github-url: /-/auth/github/
+-- string forgot-url: /-/auth/forgot/
+-- string logout-url: /scenarios/logged-out-home/
+
+-- string pricing-url: /scenarios/about/pricing/
+-- string team-url: /team/
+-- string terms-url: /scenarios/terms-page/
+-- string privacy-url: /scenarios/privacy-page/
+-- string about-url: /about/

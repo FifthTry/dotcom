@@ -1,0 +1,59 @@
+-- component author:
+caption title:
+body description:
+string profile:
+string bio-url:
+ftd.image-src photo:
+
+-- ds.section-row:
+
+-- ds.container:
+inset: $ds.spaces.inset-square.large
+background.solid: $ds.colors.background.step-1
+width.fixed.percent: 70
+radius: $ds.radius.large
+
+-- ds.row:
+width: fill-container
+align-content: left
+spacing: $ds.spaces.horizontal-gap.large
+
+-- ftd.image:
+src: $author.photo
+width.fixed.percent: 30
+border-radius.px: 15
+
+-- ds.column:
+spacing: $ds.spaces.horizontal-gap.space-between
+align-content: left
+
+-- ds.heading-small: $author.title
+color: $inherited.colors.text-strong
+
+-- ds.copy-regular:
+color: $inherited.colors.text-strong
+
+$author.profile
+
+-- ds.copy-regular:
+color: $inherited.colors.text
+
+$author.description
+
+-- ds.link: Learn More
+link: $author.bio-url
+
+-- end: ds.column
+
+-- end: ds.row
+
+-- end: ds.container
+
+-- end: ds.section-row
+
+-- end: author
+
+
+
+
+

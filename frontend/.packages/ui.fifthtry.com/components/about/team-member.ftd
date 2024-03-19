@@ -1,0 +1,165 @@
+-- component team-member:
+caption title:
+ftd.image-src photo:
+string link:
+string designation:
+private boolean $mouse-in: false
+
+-- ftd.column:
+spacing: space-between
+align-content: center
+link: $team-member.link
+width.fixed.px: 300
+margin-bottom.px: 80
+z-index: 0
+
+	-- ftd.mobile:
+	
+		-- ftd.column:
+		width: fill-container
+		spacing.fixed.px: 24
+		align-content: center
+		
+			-- ftd.column:
+			if: { team-member.mouse-in }
+			width: fill-container
+			height.fixed.px: 300
+			
+				-- ftd.column:
+				width: fill-container
+				height: fill-container
+				anchor: parent
+				border-radius.px: 10
+				border-width.px: 5
+				border-color: $inherited.colors.accent.primary
+				top.px: -18
+				right.px: -18
+				z-index: -1
+				
+				-- end: ftd.column
+
+				-- ftd.image:
+				src: $team-member.photo
+				classes if { !team-member.mouse-in }: grayscale
+				css: $assets.files.assets.css.grayscale.css
+				height.fixed.percent: 100
+				min-width.fixed.px: 300
+				border-radius.px: 10
+				fit: cover
+				$on-mouse-leave$: $ftd.set-bool($a = $team-member.mouse-in, v = false)
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			if: { !team-member.mouse-in }
+			width: fill-container
+			height.fixed.px: 300
+			
+				-- ftd.image:
+				src: $team-member.photo
+				classes if { !team-member.mouse-in }: grayscale
+				css: $assets.files.assets.css.grayscale.css
+				height.fixed.percent: 100
+				min-width.fixed.px: 300
+				border-radius.px: 10
+				fit: cover
+				$on-mouse-enter$: $ftd.set-bool($a = $team-member.mouse-in, v = true)
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			width: fill-container
+			
+				-- ftd.text: $team-member.title
+				role: $inherited.types.heading-tiny
+				color: $inherited.colors.text-strong
+				
+				-- ftd.text: $team-member.designation
+				role: $inherited.types.copy-small
+				color: $inherited.colors.text-strong
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+	-- end: ftd.mobile
+
+
+
+
+
+	-- ftd.desktop:
+	
+		-- ftd.column:
+		width: fill-container
+		spacing.fixed.px: 24
+		align-content: center
+		
+			-- ftd.column:
+			if: { team-member.mouse-in }
+			width: fill-container
+			height.fixed.px: 300
+			
+				-- ftd.column:
+				width: fill-container
+				height: fill-container
+				anchor: parent
+				border-radius.px: 10
+				border-width.px: 5
+				border-color: $inherited.colors.accent.primary
+				top.px: -18
+				right.px: -18
+				z-index: -1
+				
+				-- end: ftd.column
+
+				-- ftd.image:
+				src: $team-member.photo
+				classes if { !team-member.mouse-in }: grayscale
+				css: $assets.files.assets.css.grayscale.css
+				height.fixed.percent: 100
+				min-width.fixed.px: 300
+				border-radius.px: 10
+				fit: cover
+				$on-mouse-leave$: $ftd.set-bool($a = $team-member.mouse-in, v = false)
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			if: { !team-member.mouse-in }
+			width: fill-container
+			height.fixed.px: 300
+			
+				-- ftd.image:
+				src: $team-member.photo
+				classes if { !team-member.mouse-in }: grayscale
+				css: $assets.files.assets.css.grayscale.css
+				height.fixed.percent: 100
+				min-width.fixed.px: 300
+				border-radius.px: 10
+				fit: cover
+				$on-mouse-enter$: $ftd.set-bool($a = $team-member.mouse-in, v = true)
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			width: fill-container
+			
+				-- ftd.text: $team-member.title
+				role: $inherited.types.heading-tiny
+				color: $inherited.colors.text-strong
+				
+				-- ftd.text: $team-member.designation
+				role: $inherited.types.copy-small
+				color: $inherited.colors.text-strong
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+	-- end: ftd.desktop
+
+
+-- end: ftd.column
+
+-- end: team-member

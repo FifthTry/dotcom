@@ -1,0 +1,425 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/about/product
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+optional string top-message:
+
+-- p.page:
+user-data: $page.user-data
+site-data: $page.site-data
+top-message: $page.top-message
+
+	-- ds.section-column: Tearm FifthTry | Better way To Build Websites
+	spacing: $ds.spaces.vertical-gap.large
+	inset: $ds.spaces.inset-tall.zero-medium
+	align-content: left
+
+		-- ds.heading-large: TERMS AND CONDITIONS
+		
+		-- ds.copy-regular:
+		align: left
+		
+		The following Terms and Conditions is a legal document being executed between you
+		and FifthTry that outlines both your obligations and the company’s. It is
+		important for you and FifthTry that you are comfortable with these terms.
+		While it may not be exciting reading, you should read the entire agreement
+		before agreeing to use the Service. If you do not understand or agree to any
+		part of the agreement, you should not further engage in the Service.
+		
+		Last updated: May 04, 2022
+		
+		Please read these Terms and Conditions (“Terms”, “Terms and Conditions”) carefully
+		before using the www.fifthtry.com website or the FifthTry Platform (the “Service”)
+		operated by FifthTry Inc. (“us”, “we”, or “our”).
+		
+		Your access to and use of the Service is conditioned upon your acceptance of and
+		compliance with these Terms. These Terms apply to all visitors, users and others
+		who wish to access or use the Service.
+		
+		By accessing or using the Service you agree to be bound by these Terms. If you
+		disagree with any part of the terms then you do not have permission to access
+		the Service.
+		
+		
+		-- ds.heading-medium: Description of Service
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		The FifthTry Service (the “Service”), as further described at www.fifthtry.com
+		(the “Site“), is a Software as a Service (“SaaS”) solutions provider, which
+		provides you—you individually or the entity that you represent, with a tool.
+		
+		
+		-- ds.heading-medium: Purchases
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		If you wish to purchase any product or service made available through the Service
+		(“Purchase”), you may be asked to supply certain information relevant to your
+		Purchase including, without limitation, your credit card number, the expiration
+		date of your credit card, your billing address, and your shipping information.
+		
+		You represent and warrant that: (i) you have the legal right to use any credit
+		card(s) or other payment method(s) in connection with any Purchase; and that
+		(ii) the information you supply to us is true, correct and complete.
+		
+		The service may employ the use of third-party services for the purpose of
+		facilitating payment and the completion of Purchases.
+		
+		By submitting your information, you grant us the right to provide the
+		information to these third parties subject to our Privacy Policy.
+		
+		We reserve the right to refuse or cancel your order at any time for reasons
+		including but not limited to: product or service availability, errors in the
+		description or price of the product or service, error in your order or other reasons.
+		
+		We reserve the right to refuse or cancel your order if fraud or an unauthorized
+		or illegal transaction is suspected.
+		
+		
+		-- ds.heading-medium: Availability, Errors and Inaccuracies
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		We are constantly updating product and service offerings on the Service.
+		We may experience delays in updating information on the Service and in our
+		advertising on other web sites. The information found on the Service may
+		contain errors or inaccuracies and may not be complete or current. Products or
+		services may be mispriced, described inaccurately, or unavailable on the Service
+		and we cannot guarantee the accuracy or completeness of any information found on
+		the Service.
+		
+		We therefore reserve the right to change or update information and to correct
+		errors, inaccuracies, or omissions at any time without prior notice.
+		
+		
+		
+		
+		
+		-- ds.heading-medium: Subscriptions
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		FifthTry’s Services are billed on a subscription basis (“Subscription(s)”).
+		You will be billed in advance on a recurring and periodic basis (“Billing Cycle”).
+		Billing cycles are set either on a monthly, quarterly or annual basis, depending
+		on the type of subscription plan you select when purchasing a Subscription.
+		
+		At the end of each Billing Cycle, your Subscription will automatically renew under
+		the exact same conditions unless you cancel it or FifthTry Inc., cancels it.
+		You may cancel your Subscription renewal either through your online account
+		management page or by contacting FifthTry Inc., customer support team.
+		
+		A valid payment method, including credit card or PayPal, is required to process
+		the payment for your Subscription. You shall provide FifthTry, Inc. with accurate
+		and complete billing information including full name, address, state, zip code,
+		telephone number, and a valid payment method information. By submitting such
+		payment information, you automatically authorize FifthTry Inc., to charge all
+		Subscription fees incurred through your account to any such payment instruments.
+		
+		Should automatic billing fail to occur for any reason, FifthTry Inc., will issue
+		an electronic invoice indicating that you must proceed manually, within a certain
+		deadline date, with the full payment corresponding to the billing period as
+		indicated on the invoice.
+		
+		
+		-- ds.heading-medium: Fee Changes
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		FifthTry, Inc. in its sole discretion and at any time, may modify the Subscription
+		fees for the Subscriptions. Any Subscription fee change will become effective at
+		the end of the then-current Billing Cycle.
+		
+		FifthTry, Inc. will provide you with a reasonable prior notice of any change in
+		Subscription fees to give you an opportunity to terminate your Subscription before
+		such change becomes effective.
+		
+		Your continued use of the Service after the Subscription fee change comes into
+		effect constitutes your agreement to pay the modified Subscription fee amount.
+		
+		
+		-- ds.heading-medium: Refunds
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		Except when required by law, paid Subscription fees are non-refundable.
+		
+		
+		
+		
+		-- ds.heading-medium: Accounts
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		When you create an account with us, you guarantee that you are above the age of
+		18 (Eighteen), and that the information you provide us is accurate, complete,
+		and current at all times. Inaccurate, incomplete, or obsolete information may
+		result in the immediate termination of your account on the Service.
+		
+		You are responsible for maintaining the confidentiality of your account and
+		password, including but not limited to the restriction of access to your computer
+		and/or account. You agree to accept responsibility for any and all activities
+		or actions that occur under your account and/or password, whether your password
+		is with our Service or a third-party service. You must notify us immediately
+		upon becoming aware of any breach of security or unauthorized use of your account.
+		
+		You will not (a) use the Platform other than as described in these Terms; (b)
+		copy, prepare derivative works of, decompile or reverse engineer Platform, or
+		any portion of Platform; (c) use Platform to store or transmit any malware,
+		spyware, adware, or any other malicious programs or code; (d) sell, resell,
+		license, sublicense, distribute, rent or lease Platform or the developer account
+		or any access thereto or derive revenues from the use or provision of the Platform,
+		whether for direct commercial or monetary gain or otherwise; (e) attempt to
+		cloak or conceal your identity or your application’s identity when requesting
+		authorization to use the Platform; (f) use the Platform in a manner that
+		adversely impacts the stability of FifthTry’s servers or adversely impacts
+		the behavior of other applications; (g) give any third party access to the
+		Platform without FifthTry’s prior written approval in each instance; (h) make
+		any representations about your use of the Platform and/or any and all
+		applications developed in connection with your use of the Platform that are
+		false or misleading; (i) mislead, confuse, or surprise users (e.) any
+		application developed in connection with your use of the Platform should be0
+		transparent in terms of its functionality and should obtain all necessary and
+		appropriate user consent including but not limited to any consent to store or
+		share user’s content or data); or (j) state or imply any endorsement by FifthTry
+		of you or your Applications developed in connection with the Platform. In
+		addition, you will not remove any trademark, copyright, or other proprietary
+		rights notices which appears on the Platform. In addition, you will not use the
+		Platform for any unlawful or fraudulent purpose including, but not limited to:
+		(i) impersonating any person or entity, (ii) harvesting or collecting any
+		personal information in violation of applicable law or (iii) promoting any
+		product, service or business that is unethical, obscene or in violation of
+		any applicable law or regulation. If your use of the Platform collects data
+		or information about other users, you agree that such data will be collected,
+		processed, transmitted, maintained, stored and used in compliance with all
+		applicable laws, industry standard security practices, and your publicly
+		posted and clearly available privacy policy that is at least as stringent
+		as FifthTry’s privacy policy, as may be amended by FifthTry from time to time.
+		
+		We reserve the right to refuse service, terminate accounts, remove or edit
+		content, or cancel orders in our sole discretion.
+		
+		
+		
+		
+		
+		-- ds.heading-medium: Feedback
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		Any feedback that you provide in connection with your use of the Platform may
+		be used, modified and/or incorporated by FifthTry in its sole discretion,
+		including in its Platform and documentation and you grant to FifthTry a perpetual,
+		irrevocable, worldwide, non-exclusive, royalty free, sublicensable license to
+		FifthTry to use any and all testimonials, feedback, comments, and/or suggestions
+		in FifthTry’s sole discretion with no obligation to you. You further grant to
+		FifthTry the right to display your name and logo on its website as a client
+		and, as reasonably necessary, share your contact information with other Beta
+		participations for verification purposes.
+		
+		
+		
+		
+		-- ds.heading-medium: Intellectual Property
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		The Service and its original content, features and functionality are and will
+		remain the exclusive property of FifthTry, Inc. and its licensors. The Service
+		is protected by copyright, trademark, and other laws of both the United States
+		and foreign countries. Our trademarks and trade dress may not be used in
+		connection with any product or service without the prior written consent of
+		FifthTry, Inc.
+		
+		
+		
+		-- ds.heading-medium: Links To Other Web Sites
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		Our Service may contain links to third party web sites or services that are
+		not owned or controlled by FifthTry Inc.
+		
+		FifthTry Inc., has no control over, and assumes no responsibility for the
+		content, privacy policies, or practices of any third-party web sites or services.
+		We do not warrant the offerings of any of these entities/individuals or their
+		websites.You acknowledge and agree that FifthTry Inc., shall not be responsible
+		or liable, directly or indirectly, for any damage or loss caused or alleged to
+		be caused by or in connection with use of or reliance on any such content,
+		goods or services available on or through any such third-party web sites or services.
+		
+		We strongly advise you to read the terms and conditions and privacy policies of
+		any third-party web sites or services that you visit.
+		
+		
+		
+		-- ds.heading-medium: Termination
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		We may terminate or suspend your account and bar access to the Service
+		immediately, without prior notice or liability, under our sole discretion,
+		for any reason whatsoever and without limitation, including but not limited
+		to a breach of the Terms.
+		
+		If you wish to terminate your account, you may simply discontinue using the
+		Service.All provisions of the Terms which by their nature should survive
+		termination shall survive termination, including, without limitation, ownership
+		provisions, warranty disclaimers, indemnity and limitations of liability
+		
+		
+		
+		-- ds.heading-medium: Indemnification
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		You agree to defend, indemnify and hold harmless FifthTry, Inc., and its
+		licensee and licensors, and their employees, contractors, agents, officers and
+		directors, from and against any and all claims, damages, obligations, losses,
+		liabilities, costs or debt, and expenses (including but not limited to attorney’s
+		fees), resulting from or arising out of a) your use and access of the Service,
+		by you or any person using your account and password, or b) a breach of these
+		Terms.
+		
+		
+		-- ds.heading-medium: Limitation Of Liability
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		In no event shall FifthTry, Inc., nor its directors, employees, partners, agents,
+		suppliers, or affiliates, be liable for any indirect, incidental, special,
+		consequential or punitive damages, including without limitation, loss of profits,
+		data, use, goodwill, or other intangible losses, resulting from (i) your access
+		to or use of or inability to access or use the Service; (ii) any conduct or
+		content of any third party on the Service; (iii) any content obtained from the
+		Service; and (iv) unauthorized access, use or alteration of your transmissions
+		or content, whether based on warranty, contract, tort (including negligence)
+		or any other legal theory, whether or not we have been informed of the
+		possibility of such damage, and even if a remedy set forth herein is found
+		to have failed of its essential purpose.
+		
+		
+		
+		-- ds.heading-medium: Privacy Policy
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		See the FifthTry Privacy Policy at https://www.fifthtry.com/privacy
+		for disclosures relating to the collection and use of your information
+		
+		
+		-- ds.heading-medium: Disclaimer
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		Your use of the Service is at your sole risk. The Service is provided on an
+		“AS IS” and “AS AVAILABLE” basis. The Service is provided without warranties
+		of any kind, whether express or implied, including, but not limited to, implied
+		warranties of merchantability, fitness for a particular purpose, non-infringement
+		or course of performance.
+		
+		FifthTry, Inc., its subsidiaries, affiliates, and its licensors do not warrant
+		that a) the Service will function uninterrupted, secure or available at any
+		particular time or location; b) any errors or defects will be corrected; c)
+		the Service is free of viruses or other harmful components; or d) the results
+		of using the Service will meet your requirements
+		
+		
+		
+		
+		
+		-- ds.heading-medium: Exclusions
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		Some jurisdictions do not allow the exclusion of certain warranties or the
+		exclusion or limitation of liability for consequential or incidental damages,
+		so the limitations above may not apply to you.
+		
+		
+		-- ds.heading-medium: Governing Law
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		These Terms shall be governed and construed in accordance with the laws of
+		Delaware, United States, without regard to its conflict of law provisions.
+		
+		Our failure to enforce any right or provision of these Terms will not be
+		considered a waiver of those rights. If any provision of these Terms is held
+		to be invalid or unenforceable by a court, the remaining provisions of these
+		Terms will remain in effect. These Terms constitute the entire agreement between
+		us regarding our Service, and supersede and replace any prior agreements we
+		might have had between us regarding the Service.
+		
+		
+		
+		-- ds.heading-medium: Changes
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		We reserve the right, at our sole discretion, to modify or replace these Terms
+		at any time. If a revision is material, we will provide at least 30 (Thirty)
+		days’ notice prior to any new terms taking effect. What constitutes a material
+		change will be determined at our sole discretion.
+		
+		By continuing to access or use our Service after any revisions become effective,
+		you agree to be bound by the revised terms. If you do not agree to the new terms,
+		you are no longer authorized to use the Service.
+		
+		
+		-- ds.heading-medium: Contact Us
+		align: left
+		
+		-- ds.copy-regular:
+		align: left
+		
+		If you have any questions about these Terms, please contact us at
+		legal@fifthtry.com.
+		
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

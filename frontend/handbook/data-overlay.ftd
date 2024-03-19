@@ -1,0 +1,80 @@
+
+
+
+-- ds.page: Data Overlay
+
+At FifthTry we believe in a concept called data overlay.
+
+-- ds.h1: Who owns data?
+
+Consider a workshop or a course. A course is created by the author of the
+course. The author probably has a website where they have published the course.
+You want to buy the course and you should go to the authors site to buy the
+content of the course, or maybe to even read it every time you have to read it,
+so author can easily publish updates, remind you of other stuff the author has
+that you may be interested etc. Of course the author should not make the
+reading experience shitty.
+
+Now if you are learning the course, and making progress, and course is published
+with a software that lets you track your progress so you can more effectively
+learn.
+
+The course is the property of the author, and you have been given time based
+(including lifetime) partial access (you can read but can redistribute) etc.
+But your progress in the course, is that also the property of the author?
+
+Author sure can do something with this information, they can show your progress
+compared to rest of the people who are taking the course. Or maybe they can look
+at progress stats to decide which part of their course people get stuck at, and
+make them more accessible, fun etc.
+
+But these are "statistical data", do the author need to know where exactly you
+in particular have reached? Sure if the author is also teaching you, then author
+can see where you are stuck and can offer you help.
+
+But what is you are learning with someone else? Say your professor, you're
+someone in your company or friend circle, who is teaching you. Do you want to
+share your progress with the author of the course, or the person who is helping
+you with the course?
+
+Further, what is the workshop software allows you take notes, highlight
+passages etc. Who does this data belong to? The author of the course? Or the
+person who took the notes?
+
+We at FifthTry believe that while the work done by author belongs to author, and
+they can give you access to that work for a limited time, the progress made by
+you belongs to you and not the author. The notes taken you belong to you not the
+author.
+
+Such data should be with you for the rest of your lives, even if the author has
+removed your access to their material.
+
+The way a lot of software is written today, where there is some sort of database
+which keeps track of data, and you are supposed to create account on authors
+site, and your progress is kept in the database owned by the author, this data
+ownership is hard to ensure.
+
+-- ds.h1: How Would Data Overlay work?
+
+We at FifthTry believe the software running on author's behalf should not make
+you sign up, but instead should communicate with another software owned by you,
+and running on your behalf, so the authors software can query your software to
+find out your status and notes, so they can show the progress on authors site.
+But you remain the sole owner of the data. The data owned by you is overlayed
+on the site by the author.
+
+Some people will say that if author has sold your work to you, you must be able
+to download that work, and fully use it on your device. While this must be a
+commercial model available, we know that this is not a model that suits all
+needs. Subscription model works. It is lot cheaper to subscribe to Netflix or
+an access to a library, than to buy every movie or book we want.
+
+If we were indeed buying, maybe the entire data must be owned by us. Even this
+does pose some problem. What if the author wants to use some software to author
+their content. If you buy the content, you will have to get that software as
+well. And this can become tricky.
+
+The clear separation of author data and reader data may not be possible, and for
+optimal experience we must use data overlay.
+
+-- end: ds.page

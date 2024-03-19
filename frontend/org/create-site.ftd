@@ -1,0 +1,16 @@
+-- import: ui.fifthtry.com/pages/user/create-site
+-- import: www.fifthtry.com/actions/user/create-site
+-- import: www.fifthtry.com/just-user-data
+-- import: fastn/processors as pr
+
+
+-- string org-slug:
+$processor$: pr.request-data
+
+-- create-site.page:
+data: $data
+user-data: $just-user-data.ud
+create-site: create-site
+
+-- create-site.create-site-data data:
+org-slug: $org-slug

@@ -1,0 +1,100 @@
+-- import: fastn-community.github.io/svg-icons/helper
+
+
+
+
+-- component bold:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$bold.name, prefix=bold)
+size: $bold.size
+
+-- end: bold
+
+
+
+
+
+-- component duotone:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$duotone.name, prefix=duotone)
+size: $duotone.size
+
+-- end: duotone
+
+
+
+
+
+-- component fill:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$fill.name, prefix=fill)
+size: $fill.size
+
+-- end: fill
+
+
+
+
+-- component light:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$light.name, prefix=light)
+size: $light.size
+
+-- end: light
+
+
+
+
+-- component thin:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $svg-url(icon=$thin.name, prefix=thin)
+size: $thin.size
+
+-- end: thin
+
+
+
+
+-- component regular:
+caption string name:
+optional ftd.color color:
+integer size: 24
+
+-- helper.icon: $regular-svg-url(icon=$regular.name)
+size: $regular.size
+
+-- end: regular
+
+
+
+
+
+-- string svg-url(prefix, icon):
+string prefix:
+string icon:
+
+"raw.githubusercontent.com/phosphor-icons/core/main/raw/" + prefix + "/" + icon + "-" + prefix + ".svg"
+
+
+
+
+
+-- string regular-svg-url(icon):
+string icon:
+
+"raw.githubusercontent.com/phosphor-icons/core/main/raw/regular/" + icon + ".svg"

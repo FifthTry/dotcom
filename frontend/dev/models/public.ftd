@@ -1,0 +1,66 @@
+-- ds.page: Common Data Types
+
+These are public data we will send to client.
+
+-- ds.code: `slide`
+lang: ftd
+
+\-- record slide:
+string ekey:
+presentation presentation:
+string code:
+string preview-url:
+issue list issues:
+integer order:
+optional error string:
+string status:
+
+
+-- ds.h1: Slide Preview
+
+This is used to power slide preview on slide page.
+
+-- ds.code: `slide`
+lang: ftd
+
+\-- record slide-preview:
+string ekey:
+string order:
+boolean is-current:
+string preview-url:
+slide-status status:
+
+\-- or-type slide-status:
+
+-- string constant error: has error
+-- string constant wip: work in progress
+-- string constant pending: waiting for approval
+-- string constant has-issues: has-issues
+-- string constant approved: approved
+
+\-- end: slide-status
+
+
+-- ds.h1: Presentation Info
+
+To be used on dashboard page etc.
+
+\-- record presentation-info:
+string ekey:
+string preview-url:
+string title:
+
+-- ds.h1: Presentation Detail
+
+To be used on presentation detail page.
+
+-- ds.code: `presentation`
+lang: ftd
+
+\-- record presentation:
+string ekey:
+string title:
+slide-preview list slides:
+
+
+-- end: ds.page

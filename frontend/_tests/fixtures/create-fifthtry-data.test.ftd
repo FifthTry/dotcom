@@ -1,0 +1,7 @@
+-- import: fastn
+
+-- fastn.test: Create FifthTry Org Data
+
+-- fastn.post: Creating data
+url: /itest/action/create-fifthtry-data/
+body: {} ;; remove this later

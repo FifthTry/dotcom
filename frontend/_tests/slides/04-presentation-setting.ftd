@@ -1,0 +1,27 @@
+-- import: fastn
+
+-- fastn.test: Presentation Settings Test
+fixtures: recreate-db, create-blank-template
+
+-- fastn.get: Fetching Presentation Settings contents
+url: /slides/view/presentation-settings/
+
+-- fastn.get.query-params:
+
+-- fastn.query: org-slug
+value: fifthtry
+
+-- fastn.query: presentation-slug
+value: blank-template
+
+-- end: fastn.get.query-params
+
+-- fastn.get.test:
+
+fastn.assert.exists(fastn.http_response["presentation-title"]);
+fastn.assert.eq(fastn.http_response["presentation-title"], "Blank Template");
+fastn.assert.exists(fastn.http_response["settings-conf"]);
+fastn.assert.exists(fastn.http_response["fastn-conf"]);
+fastn.assert.exists(fastn.http_response["is-template"]);
+fastn.assert.eq(fastn.http_response["is-template"], true);
+fastn.assert.exists(fastn.http_response["editor-url"]);

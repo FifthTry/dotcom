@@ -1,0 +1,71 @@
+-- integer HACK-RADIUS-ROUND: -321
+
+-- record element-radius:
+integer top-left:
+integer top-right:
+integer bottom-left:
+integer bottom-right:
+
+-- record radius-data:
+element-radius zero:
+element-radius small:
+element-radius medium:
+element-radius large:
+element-radius round:
+uniform-radius-data uniform:
+
+-- radius-data radius:
+zero: $zero
+small: $small
+medium: $medium
+large: $large
+round: $round
+uniform: $uniform
+
+-- element-radius zero:
+top-left: 0
+top-right: 0
+bottom-left: 0
+bottom-right: 0
+
+-- element-radius small:
+top-left: 4
+top-right: 4
+bottom-left: 4
+bottom-right: 4
+
+-- element-radius medium:
+top-left: 8
+top-right: 8
+bottom-left: 8
+bottom-right: 8
+
+-- element-radius large:
+top-left: 16
+top-right: 16
+bottom-left: 16
+bottom-right: 16
+
+-- element-radius round:
+top-left: $HACK-RADIUS-ROUND
+top-right: $HACK-RADIUS-ROUND
+bottom-left: $HACK-RADIUS-ROUND
+bottom-right: $HACK-RADIUS-ROUND
+
+
+
+
+
+-- record uniform-radius-data:
+integer zero:
+integer small:
+integer medium:
+integer large:
+integer round:
+
+-- uniform-radius-data uniform:
+zero: 0
+small: 4
+medium: 8
+large: 16
+round: $HACK-RADIUS-ROUND

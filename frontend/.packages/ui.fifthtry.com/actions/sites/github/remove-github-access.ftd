@@ -1,0 +1,7 @@
+-- optional string $manage-site-error:
+
+-- void submit(site_slug):
+string site_slug:
+js: $assets.files.assets.functions.js
+
+callAlert("Remove github access")

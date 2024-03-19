@@ -1,0 +1,23 @@
+-- ds.page: Site Model
+
+-- ds.code:
+lang: py
+
+class Site(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Domain(models.Model):
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
+    domain = models.CharField(max_length=100)
+    # possible values of status: active, not-connected, expired, ssl-issue
+    status = models.CharField(max_length=100)
+    is_primary = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+-- end: ds.page

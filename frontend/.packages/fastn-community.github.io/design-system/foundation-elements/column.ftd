@@ -1,0 +1,119 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+-- import: fastn-community.github.io/design-system/foundation-elements/shadow
+
+-- component column:
+optional caption title:
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap spacing: $ds.spaces.vertical-gap.medium
+ftd.resizing width: fill-container
+optional ftd.resizing max-width:
+children content:
+ftd.align align-content: center
+optional ftd.background background:
+optional ftd.resizing height:
+ds.element-radius radius: $ds.radius.medium
+ds.border-data border: $ds.borders.uniform.zero
+ftd.color border-color: $ds.colors.border
+optional ftd.color color:
+string list css:
+optional string link:
+string list js:
+optional ftd.shadow shadow:
+
+-- ftd.column:
+width: $column.width
+max-width.fixed.px: $column.max-width
+link: $column.link
+padding-vertical.px: $column.inset.vertical
+padding-horizontal.px: $column.inset.horizontal
+spacing.fixed.px: $column.spacing.gap
+spacing if { column.spacing.gap == spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+children: $column.content
+background: $column.background
+align-content: $column.align-content
+border-color: $column.border-color
+height: $column.height
+border-top-left-radius.px if { column.radius.top-left != $radius.HACK-RADIUS-ROUND }: $column.radius.top-left
+border-top-right-radius.px if { column.radius.top-right != $radius.HACK-RADIUS-ROUND }: $column.radius.top-right
+border-bottom-left-radius.px if { column.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $column.radius.bottom-left
+border-bottom-right-radius.px if { column.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $column.radius.bottom-right
+border-top-left-radius.percent if { column.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+border-top-right-radius.percent if { column.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-left-radius.percent if { column.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-right-radius.percent if { column.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+border-top-width.px: $column.border.top
+border-bottom-width.px: $column.border.bottom
+border-left-width.px: $column.border.left
+border-right-width.px: $column.border.right
+color: $column.color
+css: $column.css
+js: $column.js
+shadow: $column.shadow
+
+-- end: ftd.column
+
+-- end: column
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Column
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Column
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- ds.column:
+	width.fixed.px: 200
+	height.fixed.px: 200
+	border: $ds.borders.uniform.small
+	radius: $ds.radius.small
+	background.solid: $ds.colors.custom.two
+	align-content: center
+	
+	-- ds.column:
+	width.fixed.px: 200
+	height.fixed.px: 200
+	radius: $ds.radius.small
+	border: $ds.borders.uniform.small
+	background.solid: $ds.colors.background.step-1
+	align-content: center
+	inset: $ds.spaces.inset-square.small
+	
+		-- ds.copy-regular:
+		text: Column Text
+		width: hug-content
+		
+		-- ds.copy-regular:
+		text: Column Text
+		width: hug-content
+		
+		-- ds.copy-regular:
+		text: Column Text
+		width: hug-content
+		
+	-- end: ds.column
+
+-- end: ds.section-column
+
+-- end: ds.page

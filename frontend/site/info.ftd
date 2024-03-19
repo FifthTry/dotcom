@@ -1,0 +1,22 @@
+-- import: ui.fifthtry.com/pages/sites/site-info
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: fastn/processors as pr
+
+-- string site-slug:
+$processor$: pr.request-data
+
+-- site-info.page:
+site: $data.site
+dashboard-url: $data.dashboard-url
+user-data: $data.ud
+
+-- record site-info-api:
+sites-records.site-common-data site:
+string dashboard-url:
+ud.user-data ud:
+
+-- site-info-api data:
+$processor$: pr.http
+url: /ft2/site/info/
+site-slug: $site-slug

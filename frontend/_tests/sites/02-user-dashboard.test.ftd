@@ -1,0 +1,8 @@
+-- import: fastn
+
+-- fastn.test: User Dashboard
+fixtures: recreate-db, create-fifthtry-data
+
+;; (without login returns default dashboard content)
+-- fastn.get: Fetching Dashboard contents
+url: /ft-ep/view/user/dashboard/

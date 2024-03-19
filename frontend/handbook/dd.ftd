@@ -1,0 +1,181 @@
+
+
+
+-- ds.page: Demo Day
+
+
+FifthTry has a tradition of weekly demo day on Friday. We follow a
+demo-day-driven-development, where everyone who works at FifthTry has to try to
+demo the things they have done this week to everyone.
+
+We are an open source company, we are building open source product, we want to
+do our decision making in public as well, so the event is a public event. You
+can find the past demo days listed on our [events page](/events/).
+
+-- ds.h1: Why We Do This?
+
+We are now fully remote company. Demo days are an important part of our, how to
+do remote right initiative. Since we do not sit in the same office it is hard
+for us to see what everyone is working on. The demo day announcement and the
+demo day helps us know what everyone is working on.
+
+Also the demo day presentation lets us hear and talk to everyone in the company,
+understand what they are passionate about etc.
+
+We also want to become better speakers, presenters, writers (we will eventually
+start demo day writeup also), and marketer. If you have built it, showing it
+off.
+
+Finally, we will someday start performance appraisals, and we will look at the
+past demo days to see what everyone delivered.
+
+-- ds.h1: Demo Day Announcement
+
+Everyone does an announcement of what they are trying to show on the upcoming
+demo day. This list is not binding, this is an aspirational list. This also
+helps us plan and course correct, so say if someone announces they are going
+to try to show so and so on the upcoming demo day, someone can intervene and
+say maybe we should not do so and so for this and that reason.
+
+-- ds.h1: A Typical Demo Day
+
+At the beginning of each week we create a planning document for the upcoming
+demo day where we list what we hope to demo. [Planning document for 11th
+demo day](/events/dd/2022/11/).
+
+We announce the demo day details on social media platforms, Twitter, LinkedIn,
+Discord etc a few days before the demo day. We send another follow up right
+before the start of the demo as well.
+
+The demo days are recorded using Zoom. The zoom link is shared with our social
+media platforms.
+
+A typical demo day starts with the AmitU talking about any highlights he wants
+to mention, and followed by individual presenters giving their demo. Presenters
+are made host so they can share their screen. Post the presentation there is a
+quick question answer session, and we move on to next.
+
+In the end we conclude the demos and stop recording. Since everyone is present
+we often do an informal discussion about random things.
+
+Post demo, AmitU downloads the recording and uploads it on YouTube, and adds an
+entry in the events section of this site summarizing what was covered in the
+demo.
+
+-- ds.h1: Video Based Demos
+
+Starting 18th Apr 2023, we are trying to do demos in a new format. Why are we
+changing it? We have been doing demo day quite successfully, all the original
+goals are met, we are showing off what we have done, people are more informed
+what everyone is doing, and we are running remote without any issues.
+
+After this success we are trying to be more ambitous and trying to do even
+better by creating pre-recorded demos.
+
+Why? All the demo day videos are recorded and recordings are available, many on
+youtube, rest on AmitU's laptop. Problem is each video is 1.5-2hr long video
+and no one wants to see the whole video again.
+
+We are also reaching a stage in the company that we are starting to get a
+following, and we need quality content to share with our community. What gets
+built every week is a good content worth sharing. But the content is getting
+locked in our 2 hr long demo day recording videos.
+
+We can edit things out, cut the video into smaller sections, but even then the
+quality of those individual videos is not great to act as a standalone videos.
+The way we speak is also very impromptu, there is often very litttle
+preperation, and the internet audiance is fickle. The videos should be short,
+crisp, to the point etc. Maybe they should also have music, and some editing.
+
+-- ds.h2: Pre Demo Videos
+
+So what we are proposing is now on we pre-create videos and upload them on
+YouTube etc. And during the demo we use [Zoom's share pre-recorded
+video](https://support.zoom.us/hc/en-us/articles/360051673592-Sharing-a-recorded-video-with-sound-during-your-meeting)
+feature to play each video.
+
+Each person who has anything to demo will share the YouTube link with AmitU by
+5PM, and AmitU will download the video and upload them to FifthTry's YouTube
+channel. AmitU will also keep the video around, and share the mp4s during the
+demo day.
+
+-- ds.h1: General Advice For Presenters And Attendees
+
+Since the demo days are recorded, and are meant for general audiance, beyond
+just FifthTry employees, it would be helpful if we try to keep demos light and
+breezy.
+
+The audiance of the demo can be our investors (current or future), our
+customers, future employees, etc. We have to try to channel our inner Steve
+Jobs.
+
+Demo day is not to show off details, do deep dive on what you have built or why.
+
+The purpose of demo day is to keep everyone upto date, and get high level
+feedback. The purpose is try to excite others about what you are doing.
+
+Tech questions about how something is implemented, or if discussion about edge
+cases should be avoided. Exception would be if the tech implementation or the
+edge cases was a crucial part. Presenters should only bring up edge cases etc,
+if they feel this is worth talking about. But audiance should focus only on high
+level.
+
+-- ds.h1: Tips For Demo Day Presenters
+
+No need to do extensive reharsal and presentation. Do not spend more than 5-10
+mins on demo preperation. The idea is for the event to be light weight and fun
+for the participents, but it is ideal to be prepared for demo before hand so it
+is most enjoyable to the audiance as well.
+
+Since you will be presenting your screen it is advisable to close unrelated
+windows and tabs. If you are going to use browser for demo, it is best to create
+a new browser window, and not have dozens of your existing tabs visible, as they
+distract, and sometimes you can get lost and have to search for the right tab,
+wasting screen time and is a bit boring to watch.
+
+Regarding Browser, you should assume that during the demo your internet is down
+your code has suddently stopped compiling etc, and do the demo without relying
+on running programs or opening new tabs. If possible keep all tabs open before
+hand. Maybe not even click on links, and just show the next tab. If you have
+a series of tabs in pre-configured states it becomes very easy to go back as
+well.
+
+Also you should consider switching off notifications since the event will be
+recorded and we do not want to do post processing to cut things out.
+
+Since a lot of people will be watching the videos later, lower the screen
+resolution to the lowest possible setting you can work with. Increase the font
+size as much.
+
+Also do not ask if your screen is visible. Every demo starting with "is my
+screen visible" and waiting for someone unmuting themselves and saying, "yeah,
+yeah, go ahead" is annoying. If your screen is not visible, people will inform
+you, do not worry.
+
+Another common mistake to avoid is to try to prove things when answering
+questions, like if someone asks "can X do this Y?", an answer of "Yes it can",
+or "no it can not but in future will", or "it is not designed to do y" is
+suffecient. No need to show, see it can really do y. Often this is followed by
+out of script setup, you have to go to some other URL, or sometimes people write
+or edit code. Avoid that, just answer and move on.
+
+Editing code deserves its own para. Avoid writing code. Keep things in notes,
+or clipboard like I recently say Abrar do, before the presentation he had copied
+the code he wanted, and during presentation he showed the before code, and then
+pasted, and magically code appeared.
+
+Prefer giving demo against published URLs. A demo with `127.0.0.1:8000` does not
+have the same impact as one against `abrark.herokuapps.com` for example. If the
+URL is public, we can link to it from the demo day summary page after the demo,
+so audiance can click and explore the URLs. It also tells people that you have
+finished everything, pushed your code, gotten it reviewed and merged, created
+new release etc. It is lot more impressive to see demos with proper URLs instead
+of output of local code, which may or may not be comitted yet (you may even lose
+the change if you forget to commit, or do more changes and get in a state that
+it is no longer working).
+
+Of course if you do not have any of these, still give a demo, these are not
+requirements, but just guidelines. We should never not give demo because we are
+not prepared. If the feature is working, please demo it!
+
+-- end: ds.page

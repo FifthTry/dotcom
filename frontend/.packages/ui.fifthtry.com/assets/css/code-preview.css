@@ -1,0 +1,12 @@
+.mobile {
+  border-image: url("mobile.svg") 134 / 31 / 12.74 stretch;
+}
+
+.desktop {
+  border-image: url("desktop.svg") 74 / 97 / 39 stretch;
+}
+
+
+.tablet {
+  border-image: url("tablet.svg") 164 / 31 / 27.74 stretch;
+}

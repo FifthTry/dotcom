@@ -1,0 +1,71 @@
+-- ds.page: Editor
+
+-- ds.h1: Preview Pane
+
+-- ds.h2: Preview Pane Shows Unsaved Changes
+
+If any file is changed, we will do a post request to the server, with the content of the
+file, and the server will return the rendered page. The preview pane will show the rendered
+page.
+
+If there are multiple files changed but not saved, editor will send the content of all the
+files, and the server will render the page.
+
+-- ds.h2: Live Preview
+
+We will reload the page in the preview pane, when the content of any editor tab changes.
+
+This will have a corresponding toggle UI, which can be used to disable this feature, say
+if we are working with a heavy page, or a page with a form.
+
+
+-- ds.h2: Minimise Preview Pane
+
+There would be a minimize button in the editor pane, which will hide it, and show a floating
+maximize button, similar to the dark mode switcher we have currently, near the bottom right
+corner of the screen.
+
+-- ds.h2: Desktop | Mobile | Tablet
+
+This set of buttons (or icons) will be used to switch between the different device sizes. The
+preview pane size will change accordingly.
+
+-- ds.h2: Full Screen Preview
+
+This button will open the preview pane in full screen mode. Even mobile or tablet views can
+open in full screen mode.
+
+If we have a presentation in the ftd, full screen should be function as a presentation mode.
+
+-- ds.h2: URL Display
+
+In the page we should always see the relative URL (the portion starting from the `/` after the
+domain name). This will be editable, and the page will be reloaded when the URL is changed.
+
+-- ds.h2: Open In Live
+
+From the preview we should be able to view the live version of the site. We should have both
+open live, and copy live url functions there.
+
+-- ds.h2: Follow Editor Toggle
+
+When we switch from one file to next in the editor, the preview pane should follow the editor,
+if the follow editor toggle is on. This toggle should be on by default. This toggle should is
+needed for scenarios like if you are editing a component in say `lib.ftd`, but the component
+is never called from `lib.ftd`, only from `index.ftd`, so I will navigate to `/` in the preview
+pane, and click off the follow editor toggle, so that the preview pane does not follow, and
+then switch back to `lib.ftd` in the editor, and start editing the component.
+
+Follow should also do the reverse, if follow toggle is on, and I click on a link in the preview
+pane, and the next page is part of current site, the editor should open the corresponding file.
+
+-- ds.h2: Page Variable View
+
+From the preview pane, we should be able to view the page variables.
+
+-- ds.h1: Logs Pane
+
+Along with preview pane, we should have a logs pane, which will show the logs from the server,
+when rendering any page in the preview pane.
+
+-- end: ds.page

@@ -1,0 +1,190 @@
+-- import: ui.fifthtry.com/components/slides/full-page
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/slides/toggle-template
+-- import: ui.fifthtry.com/actions/slides/save-presentation-settings
+-- import: ui.fifthtry.com/actions/slides/change-presentation-title
+
+-- record settings-data:
+string fastn-conf:
+string settings-conf:
+boolean is-template:
+string editor-url:
+string presentation-title:
+string team-name:
+
+-- string toggle-template-module-name: ui.fifthtry.com/actions/slides/toggle-template
+-- string save-presentation-settings-module-name: ui.fifthtry.com/actions/slides/save-presentation-settings
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+module toggle-template: toggle-template
+module save-presentation-settings: save-presentation-settings
+module change-presentation-title: change-presentation-title
+settings-data data:
+string presentation-slug:
+string team-slug:
+string $current-fastn-conf: *$page.data.fastn-conf
+string $current-settings-conf: *$page.data.settings-conf
+string $current-presentation-title: *$page.data.presentation-title
+
+-- full-page.page:
+site-data: $page.site-data
+user-data: $page.user-data
+team-name: $page.data.team-name
+
+	-- ftd.column:
+	width: fill-container
+	margin-horizontal.px: 40
+	
+		-- ftd.text: Presentation Settings
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		
+		-- ds.phosphor-icon-button: Go Back to Presentation
+		icon: arrow-fat-left
+		link: $page.data.editor-url
+		
+		-- ftd.column:
+		width: fill-container
+		margin-vertical.px: 5
+		spacing.fixed.px: 5
+		
+			-- ftd.row:
+			width: hug-content
+			spacing.fixed.px: 10
+			align-content: center
+			
+				-- ftd.text: Presentation title:
+				color: $inherited.colors.text-strong
+				role: $inherited.types.copy-regular
+				
+				-- ftd.text-input:
+				margin-horizontal.px: 5
+				padding.px: 2
+				default-value: $page.current-presentation-title
+				role: $inherited.types.copy-small
+				$on-input$: $ftd.set-string($a = $page.current-presentation-title, v = $VALUE)
+				
+				-- ds.phosphor-icon-button: Save title
+				icon: floppy-disk
+				$on-click$: $page.change-presentation-title.submit(team = $page.team-slug, presentation = $page.presentation-slug, title= $page.current-presentation-title, module = $page.change-presentation-title)
+				
+				
+				
+			-- end: ftd.row
+
+			-- ds.copy-regular:
+			if: { page.change-presentation-title.title-error != NULL }
+			color: red
+			
+			$page.change-presentation-title.title-error
+			
+			-- kv-string: Team:
+			value: $page.data.team-name
+			
+			-- kv-bool: Is Template Presentation ?
+			value: $page.data.is-template
+			
+			-- ds.phosphor-icon-button: Convert to Template
+			title if { page.data.is-template }: Revert back to Normal Presentation
+			icon: swap
+			$on-click$: $page.toggle-template.submit(team = $page.team-slug, presentation = $page.presentation-slug, module = $toggle-template-module-name)
+			
+		-- end: ftd.column
+
+		-- ftd.text: `FASTN.ftd` configuration
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-small
+		margin-vertical.px: 10
+		
+		-- ftd.text-input:
+		padding.px: 10
+		multiline: true
+		placeholder: Fetching configuration...
+		default-value: $page.current-fastn-conf
+		width.fixed.percent: 40
+		height.fixed.px: 200
+		margin-vertical.px: 10
+		$on-input$: $ftd.set-string($a = $page.current-fastn-conf, v = $VALUE)
+		
+		-- ftd.text: `settings.ftd` configuration
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-small
+		margin-vertical.px: 10
+		
+		-- ftd.text-input:
+		padding.px: 10
+		multiline: true
+		placeholder: Fetching configuration...
+		default-value: $page.current-settings-conf
+		width.fixed.percent: 40
+		height.fixed.px: 200
+		margin-vertical.px: 10
+		$on-input$: $ftd.set-string($a = $page.current-settings-conf, v = $VALUE)
+		
+		-- ds.phosphor-icon-button: Save
+		icon: floppy-disk
+		$on-click$: $page.save-presentation-settings.submit(team = $page.team-slug, presentation = $page.presentation-slug, settings = $page.current-settings-conf, fastn = $page.current-fastn-conf, module = $toggle-template-module-name)
+		
+	-- end: ftd.column
+
+-- end: full-page.page
+
+-- end: page
+
+
+
+-- component kv-bool:
+caption label:
+boolean value:
+optional ftd.type label-role:
+optional ftd.type value-role:
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 10
+
+	-- ftd.text: $kv-bool.label
+	color: $inherited.colors.text-strong
+	role: $inherited.types.copy-regular
+	role if { kv-bool.label-role != NULL }: $kv-bool.label-role
+	
+	-- ftd.text: Yes
+	text if { !kv-bool.value }: No
+	color: green
+	color if { !kv-bool.value }: red
+	role: $inherited.types.copy-regular
+	role if { kv-bool.value-role != NULL }: $kv-bool.value-role
+	
+-- end: ftd.row
+
+-- end: kv-bool
+
+
+
+-- component kv-string:
+caption label:
+string value:
+optional ftd.type label-role:
+optional ftd.type value-role:
+
+-- ftd.row:
+width: hug-content
+spacing.fixed.px: 10
+align-content: center
+
+	-- ftd.text: $kv-string.label
+	color: $inherited.colors.text-strong
+	role: $inherited.types.copy-regular
+	role if { kv-string.label-role != NULL }: $kv-string.label-role
+	
+	-- ftd.text: $kv-string.value
+	color: $inherited.colors.text-strong
+	role: $inherited.types.copy-regular
+	role if { kv-string.value-role != NULL }: $kv-string.value-role
+	
+-- end: ftd.row
+
+-- end: kv-string

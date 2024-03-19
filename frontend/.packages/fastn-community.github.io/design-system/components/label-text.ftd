@@ -1,0 +1,98 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+
+
+
+
+-- or-type text-placement:
+
+-- string horizontal: 0
+-- string vertical: 1
+
+-- end: text-placement
+
+
+
+-- component label-text:
+caption title:
+string value:
+text-placement placement: horizontal
+
+-- ds.section-row:
+margin: $ds.spaces.vertical-gap.zero
+
+-- ds.row:
+if: { label-text.placement == horizontal }
+spacing: $ds.spaces.horizontal-gap.small
+align-content: left
+
+-- ds.heading-tiny: $label-text.title
+
+-- ds.copy-regular: $label-text.value
+
+-- end: ds.row
+
+-- ds.column:
+if: { label-text.placement == vertical }
+spacing: $ds.spaces.vertical-gap.extra-extra-small
+align-content: left
+
+-- ds.heading-tiny: $label-text.title
+
+-- ds.copy-regular: $label-text.value
+
+-- end: ds.column
+
+-- end: ds.section-row
+
+-- end: label-text
+
+
+
+
+
+-- ds.page: Label Text
+
+-- ds.section-column: 
+ flush: full
+ align-content: center
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: /
+		
+		-- ds.heading-hero: Label Text
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+		
+		\-- label-text: Create At:
+		value: 2 Hours
+		placement: horizontal
+		
+			-- label-text: Create At:
+			value: 2 Hours
+			placement: horizontal
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		\-- label-text: Create At:
+		value: 2 Hours
+		placement: vertical
+		
+			-- label-text: Create At:
+			value: 2 Hours
+			placement: vertical
+			
+		-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

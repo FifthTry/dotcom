@@ -1,0 +1,591 @@
+{
+    "files": {
+        "static/Source-Code-Pro-800-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-600-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-200-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-200-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-500-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-800-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "index.ftd": {
+            "name": "index.ftd",
+            "checksum": "35508832CC22C0EA4EC91AEF339D38196208943F45385304914E4B40802BF10D",
+            "size": 2534
+        },
+        "static/Source-Code-Pro-800-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-800-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-700-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-200-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-300-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-200-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-800-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-500-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-500-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-700-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "README.md": {
+            "name": "README.md",
+            "checksum": "51A6EE82BDE091385B6B1CEC552FD673726CF017F9340457D2F3A59B8C08A59D",
+            "size": 1068
+        },
+        "static/Source-Code-Pro-500-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-900-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-700-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-500-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-600-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-900-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-500-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-700-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-800-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-200-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-600-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-500-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-300-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-600-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-300-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-700-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-200-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-400-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-600-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-600-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-700-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-500-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-600-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-700-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-800-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-400-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-300-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-900-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-900-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-300-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-500-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-200-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-700-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-200-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-200-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-300-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-400-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-600-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-600-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-300-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-700-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-800-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-200-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-500-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-500-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-800-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-700-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-400-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-200-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-300-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-700-normal-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-normal-cyrillic-ext.woff2",
+            "checksum": "694A7241FAFA56368A3CB0BCAA40E1B5DE8C62107D3A0872D4457D6C9B537DD5",
+            "size": 8568
+        },
+        "static/Source-Code-Pro-600-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-300-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-800-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-900-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-300-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-900-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-800-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-400-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "FASTN.ftd": {
+            "name": "FASTN.ftd",
+            "checksum": "FBFE708184618032492A20324C98CE8345B24CC4587C895D772AD6D889C153F9",
+            "size": 30375
+        },
+        "custom.ftd": {
+            "name": "custom.ftd",
+            "checksum": "A71FE6A0092A974A6DD98DC64233CF16A42E55960E03916E9EBBEF809DDAF625",
+            "size": 7104
+        },
+        "static/Source-Code-Pro-300-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-800-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-900-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-800-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-800-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-200-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-400-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-500-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-400-normal-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-latin-ext.woff2",
+            "checksum": "F0822E318C26ABD88E06BEE65B7F652849A495AAD58789BFC4BDCF411CA660F1",
+            "size": 18580
+        },
+        "static/Source-Code-Pro-700-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "LICENSE": {
+            "name": "LICENSE",
+            "checksum": "95A9632336410243B2147554EB1C5CC0FCA6C8DBED399E8F787FC84BD22F7C27",
+            "size": 4011
+        },
+        "static/Source-Code-Pro-900-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-400-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-600-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-200-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-200-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        },
+        "static/Source-Code-Pro-200-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-200-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-500-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-900-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-500-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-500-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-700-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-400-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-300-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-400-italic-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-400-italic-cyrillic.woff2",
+            "checksum": "52F1BE651D4996B6D0C9FFE54DAF123F7881115686130A6991665E85612CC556",
+            "size": 2276
+        },
+        "static/Source-Code-Pro-600-italic-latin-ext.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-latin-ext.woff2",
+            "checksum": "9DB52F0802B6868522EB058BCC189C91302369DD22EA18B68286B0EFB06BFB3C",
+            "size": 19016
+        },
+        "static/Source-Code-Pro-900-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-400-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-900-normal-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-greek-ext.woff2",
+            "checksum": "F94C4DB05AF2CFED6A18F487056B7D65B6C515482AA855EE41B45AA270A59057",
+            "size": 2932
+        },
+        "static/Source-Code-Pro-600-italic-greek.woff2": {
+            "name": "static/Source-Code-Pro-600-italic-greek.woff2",
+            "checksum": "F1AED2DDE40E1601D2244FAC4A3B4E694B8A98AF216ADE3DE8042E21C5ED9BE9",
+            "size": 1812
+        },
+        "static/Source-Code-Pro-700-italic-greek-ext.woff2": {
+            "name": "static/Source-Code-Pro-700-italic-greek-ext.woff2",
+            "checksum": "6BF569B40C5C1BDB4D61DB6EC0C348FB6647C8A35EA1DCB44E8983BBA24ACAAC",
+            "size": 1596
+        },
+        "static/Source-Code-Pro-900-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-400-normal-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-vietnamese.woff2",
+            "checksum": "FC05CBC40BDF5143CFE350F7709525C7E793B17D99C5A819217F02C9DB70D115",
+            "size": 6484
+        },
+        "static/Source-Code-Pro-300-italic-vietnamese.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-vietnamese.woff2",
+            "checksum": "273763F3F54B9A2E13AB770582843A15EBD4897CF027C6BBBDC464D66D5F174E",
+            "size": 6832
+        },
+        "static/Source-Code-Pro-600-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-600-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-900-normal-cyrillic.woff2": {
+            "name": "static/Source-Code-Pro-900-normal-cyrillic.woff2",
+            "checksum": "9E1B7252FE72E65A2960693F48CD7F29B745B4C97926C111195ABEAB4B3EC4EF",
+            "size": 13948
+        },
+        "static/Source-Code-Pro-400-normal-greek.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-greek.woff2",
+            "checksum": "DA8EB43FDA905E8EEBDFA9CD73D85D8851E3E8B830352FB96B0D97D3A86FE626",
+            "size": 10236
+        },
+        "static/Source-Code-Pro-300-italic-cyrillic-ext.woff2": {
+            "name": "static/Source-Code-Pro-300-italic-cyrillic-ext.woff2",
+            "checksum": "6D77F2BDED90D6512525ABD91A49DEABB1852DF9EC55598FA6C3BE98F01E6964",
+            "size": 1852
+        },
+        "static/Source-Code-Pro-400-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-400-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-800-normal-latin.woff2": {
+            "name": "static/Source-Code-Pro-800-normal-latin.woff2",
+            "checksum": "1C2E64053B56AFDCC933AF75555920CF89C08B8CA04961F4815ABDBD0BDCDBC3",
+            "size": 19680
+        },
+        "static/Source-Code-Pro-900-italic-latin.woff2": {
+            "name": "static/Source-Code-Pro-900-italic-latin.woff2",
+            "checksum": "D88DBA344859F9D4A501DCEE8F4B400ABA374350988D72E24C90316C6166B983",
+            "size": 20388
+        }
+    },
+    "zip_url": "https://github.com/fastn-community/source-code-pro-font/archive/e59a2edd040f7eb4a955bebd877d1d2590e0aae8.zip",
+    "checksum": "957D01D03F501B2402BFE9E551987F880D89601B0E34DB467FE0EE718E28857E"
+}

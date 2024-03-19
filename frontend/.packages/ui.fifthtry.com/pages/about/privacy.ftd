@@ -1,0 +1,748 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/about/product
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+optional string top-message:
+
+-- p.page: Privacy FifthTry | Better way To Build Websites
+user-data: $page.user-data
+site-data: $page.site-data
+top-message: $page.top-message
+
+	-- ds.section-column:
+	spacing: $ds.spaces.vertical-gap.large
+	inset: $ds.spaces.inset-tall.zero-medium
+	align-content: left
+	
+		-- ds.heading-large: Privacy Policy – FifthTry Inc.
+		
+		-- ds.heading-tiny: Last updated: May 04, 2022
+		align: left
+		
+		-- ds.copy-regular:
+		
+		FifthTry is committed to protecting the privacy of our customers. FifthTry
+		is a platform providing clients Service as a Software ([“SaaS”]) solutions.
+		
+		Our Privacy Policy is designed to help you understand how we collect and use
+		personally identifiable information (“Personal Information”) that you provide
+		us and to help you make informed decisions when using our website and services
+		(collectively, “FifthTry”, Company, or “Website”).
+		
+		By visiting or using any part of this Website, you agree to the terms of this
+		Privacy Policy as they may be amended from time to time. As we update our Website
+		over time, this Privacy Policy may change, so please check for updates.
+		
+		-- ds.heading-medium: Your Online Privacy Responsibilities
+		
+		-- ds.copy-regular:
+		
+		By using this site, you agree to take basic steps to ensure your privacy online.
+		You agree to log out of this Website when you are finished which protects your
+		information from other users. You also agree not to share your password or login
+		ID with anyone else. In addition, you agree to take reasonable precautions against
+		malware and viruses by installing an anti-virus software to protect your online
+		activities.
+		
+		
+		-- ds.heading-medium: What Is Personal Information?
+		
+		-- ds.copy-regular:
+		
+		“Personal Information” means any information relating to an identified or
+		identifiable natural person; an identifiable natural person is one who can be
+		identified, directly or indirectly, in particular by reference to an identifier
+		such as a name, an identification number, location data, an online identifier
+		or to one or more factors specific to the physical, physiological, genetic,
+		mental, economic, cultural or social identity of that natural person.
+		
+		Personal Information may include the following: name, Address, State, Province,
+		ZIP/Postal code,City and contact data (i.e., email address, telephone number,
+		and employer name).
+		
+		We may also collect information that is related to you but that does not personally
+		identify you (“Non-personal Information”). Non-personal Information also includes
+		information that could personally identify you in its original form, but that
+		we have modified (for instance,by aggregating, anonymizing or de-identifying
+		such information) in order to remove or hide any Personal Information.
+		
+		
+		
+		-- ds.heading-medium: Scope of This Privacy Policy
+		
+		-- ds.copy-regular:
+		
+		This Privacy Policy applies to Personal Information and other information collected
+		by FifthTry or its service providers from or about:
+		
+		
+		•	Visitors to, or users of, its websites;
+		
+		•	Prospective and current customers using FifthTry services;
+		
+		•	Service providers and business partners;
+		
+		•	Prospective and current employees;
+		
+		•	Other third-parties that it interacts with.
+		
+		We collect this information to continually improve and enhance the functionality
+		of FifthTry. We gather certain information automatically. This information may
+		include IP addresses, browser type, Internet service provider (ISP),
+		referring/exit pages, operating system, date/time stamp, and/or clickstream
+		data, hardware model and other unique device identifiers and settings of the
+		device you use to access the Service. We may link this automatically
+		collected data to other information we collect about you.
+		
+		
+		-- ds.heading-medium: Collection of Personal Information
+		
+		-- ds.copy-regular:
+		
+		We take your privacy seriously and employ information protection controls in
+		keeping with industry standards and practices to safeguard your information and
+		protect your anonymity. Personal information about you may be collected from you
+		through various sources, including information i) that is entered manually and
+		voluntarily by you on the Site’s application and other forms or postings on
+		the Site; ii) that you provide regarding your preferences (for example, based
+		on your activity on our Website); iii) from other sources with your consent
+		(for example, from other institutions such as auditors or administrators or
+		third party service providers we connect on your behalf, such as, Google,
+		Github, etc.); iv) from sources in the public domain; and v) from other
+		interactions you may have with us (for example, discussions or
+		emails with our staff, including through the use of the Site’s contact features).
+		
+		
+		
+		In addition, when you visit our Site, we may gather anonymous technical and
+		navigational information,such as computer browser type, Internet protocol address,
+		cookie information, pages visited, and average time spent on our Website. This
+		information does not personally identify you and may be used,for example, to
+		alert you to software compatibility issues, to customize any advertising or
+		content you see, fulfil your requests for products and services, contact you,
+		conduct research or analyze and improve our Site design and functionality.
+		
+		
+		
+		
+		Such information collected by us may be stored and processed in the United States
+		or any other country in which our agents or we maintain facilities. By using
+		the Service, you consent to the foregoing collection and use of information and
+		any such transfer of information outside of your country. We make no
+		representation or warranty with respect to any duty to permanently store any
+		personal information you may provide.
+		
+		
+		
+		
+		-- ds.heading-medium: Personal information you choose to provide
+		
+		-- ds.copy-regular:
+		
+		In order to provide the best experience when you visit our website, we may ask
+		you for Personal information. Personal information includes, for example,
+		your name and e-mail address,both of which you may be asked to provide when
+		registering with FifthTry. A description of some of the ways that you may
+		provide personal information to us, as well as further details
+		on how we may use such personal information, is given below.
+		
+		
+		-- ds.heading-medium: Contact us/feedback
+		
+		-- ds.copy-regular:
+		
+		If you email us using a “Contact us” link on the Website, we may ask you for
+		information such as your name and e-mail address so we can respond to your
+		questions and comments. If you choose to correspond with us via e-mail,
+		we may retain the content of your e-mail messages,your e-mail address and our
+		response to you.
+		
+		
+		
+		
+		
+		-- ds.heading-medium: Surveys
+		
+		-- ds.copy-regular:
+		
+		We may occasionally ask Website visitors to complete online surveys and opinion
+		polls about their activities, attitudes and interests. These surveys help us
+		improve our products and services. When asking for participation in these surveys,
+		we may ask you to provide us with your name and email address.
+		
+		
+		
+		
+		-- ds.heading-medium: Website Forms
+		
+		-- ds.copy-regular:
+		
+		Our Website may offer visitors contact forms to request additional details and
+		to download collateral. If you fill out one of our web forms, we may ask you for
+		information such as your name and email address so we can respond to your
+		questions and comments. If you choose to correspond with us via web forms,
+		we may retain the form data which can include name, email address and other
+		contact related details.
+		
+		
+		-- ds.heading-medium: Support Community Q&A Posts:
+		
+		-- ds.copy-regular:
+		
+		Our Website offers individuals the opportunity to ask questions and answer
+		questions in our FifthTry Community site that may contain self-reported
+		demographics. If you choose to correspond with us and the community, we may
+		retain the data which could include name, email address and other contact
+		related details.
+		
+		
+		-- ds.heading-large:  Website usage information
+		
+		
+		-- ds.heading-medium: Cookies
+		
+		-- ds.copy-regular:
+		
+		When visiting FifthTry, we may use cookies on or in connection with our Website
+		to maintain information about you. A cookie is a very small text document,
+		which often includes an anonymous unique identifier and additional information
+		necessary to support the site’s intended functionality.
+		
+		
+		Technologies such as: cookies, beacons, tags and scripts are used by FifthTry
+		and our marketing partners, analytics providers, and customer support systems.
+		These technologies are used in analysing trends, administering the site,
+		tracking users’ movements around the site and to gather demographic information
+		about our user base as a whole. We may receive reports based on the
+		use of these technologies by these companies on an individual as well as
+		aggregated basis.
+		
+		We use cookies for marketing and for authentication. Users can control the use
+		of cookies at the individual browser level. If you reject cookies, you may still
+		use our site, but your ability to use some features or areas of our site may be
+		limited.
+		
+		To learn more and for a detailed cookie notice, the User may consult the Cookie
+		Policy at the bottom of this page.
+		
+		Most web browsers can be set to tell you when a cookie has been sent to you and
+		give you the opportunity to refuse that cookie.
+		
+		Refusing a cookie may in some cases prevent you from using or negatively impact
+		the display or function of our Website or certain areas or features of our
+		Website. There are numerous resources on the Internet that can provide more
+		information about how cookies work and how you can managethem.
+		
+		
+		
+		-- ds.heading-medium: Web beacons
+		
+		-- ds.copy-regular:
+		
+		Web Beacons, also known as pixel tags and clear GIFs, (“Web Beacons”), are
+		electronic images that allow a website to access cookies and help track marketing
+		campaigns and general usage patterns of visitors to those websites. Web Beacons
+		can recognize certain types of information, such as cookie numbers, time and
+		date of a page view, and a description of the page where the Web Beacon is placed.
+		No personally identifiable information about you is shared with third parties
+		through the use of Web Beacons on the Site. However, through Web Beacons,
+		we may collect general information that will not personally identify you, such
+		as: Internet browser, operating system, IP address, date of visit, time of visit
+		and path taken through the Website.
+		
+		
+		Internal use of Web Beacons: FifthTry may use Web Beacons internally to count
+		visitors and recognize visitors through cookies. Access to cookies helps FifthTry
+		personalize your experience when you visit the Website.
+		
+		Email: FifthTry may include Web Beacons in HTML-formatted email messages
+		that FifthTry sends to you. Web Beacons in email messages helps FifthTry
+		determine your interest in and the effectiveness of such emails.
+		
+		External use of Web Beacons: FifthTry may also use Web Beacons externally. For
+		example, FifthTry may report aggregate information about visitors, such as
+		demographic and usage information, to its affiliates and
+		other third parties. FifthTry may also include other Web Beacons within the Site.
+		
+		
+		
+		-- ds.heading-medium: Use of Data
+		
+		-- ds.copy-regular:
+		
+		FifthTry uses the collected data for various purposes:
+		
+		•	To provide and maintain our Service;
+		
+		•	To notify you about changes to our Service;
+		
+		•	To allow you to participate in interactive features of our Service when you
+		  choose to do so;
+		
+		•	To provide customer support;
+		
+		•	To gather analysis or valuable information so that we can improve our Service;
+		
+		•	To monitor the usage of our Service;
+		
+		•	To detect, prevent and address technical issues;
+		
+		•	To provide fraud detection and protection;
+		
+		•	To provide you with news, special offers and general information about other
+		  goods,services and events which we offer that are similar to those that you
+		   have already purchased or enquired about unless you have opted not to
+		   receive such information.
+		
+		
+		
+		-- ds.heading-medium: Your opt in/opt out choices
+		
+		-- ds.copy-regular:
+		
+		You may “opt in” and/or “opt out” of certain uses of your Personal Information.
+		For example, you may have the opportunity to choose whether you would like to
+		receive email correspondence from us. Your Personal Information will not be
+		shared with third-party service providers unless you give consent. You will have
+		the opportunity to opt out of FifthTry marketing emails by clicking the “opt out”
+		or “unsubscribe” link in the email you receive. You can also request this
+		by filling out a web form via our Data Subject Access Request (DSAR) Portal.
+		If the FifthTry DSAR portal is unavailable, requests can be sent to
+		{privacy}
+		
+		Please take note that if you opt out of receiving promotional correspondence
+		from us, we may still contact you in connection with your relationship, activities,
+		transactions and communications with us.
+		
+		
+		
+		-- ds.heading-medium: Permitted Use of Personal Information
+		
+		-- ds.copy-regular:
+		
+		FifthTry uses your Personal Information to provide you products and services,
+		such as to fulfil your requests for products or to help us personalize
+		our offerings to you.  We also use your Personal Information to support our
+		business functions, such as fraud prevention, marketing, and legal functions.
+		To do this, we combine personal and non-Personal Information, collected online
+		and offline, including information from third-party sources.
+		
+		•	Fulfil Requests: To fulfil your requests for products and services and
+		 communicate with you about those requests.
+		
+		•	Understand Customer Behavior: To better understand customer behavior so that
+		  we may improve our marketing and advertising efforts and to improve the
+		  distribution of our products and services;
+		
+		•	Personalize Offerings: To help us personalize our service offerings,
+		 websites, mobile services, and advertising;
+		
+		•	Protection: To protect the security and integrity of our websites, mobile
+		 services, and our business;
+		
+		•	Legal: To comply with legal and/or regulatory requirements;
+		
+		•	Responding to Customer: To respond to reviews, comments, or other feedback
+		 you provide us;
+		
+		•	Employment Applications: In connection with a job application or inquiry,
+		 you may provide us with data about yourself, including your educational
+		 background or resume and other information, including your ethnicity where
+		 required or permitted by law. We may use this information throughout FifthTry,
+		 its subsidiaries and affiliates, and its joint ventures for the purpose of
+		 employment consideration.
+		
+		•	Promotional Messaging or Advertising: With your consent, FifthTry uses your
+		 contact information to recommend products and services that might be of
+		 interest to you, to send you marketing and advertising messages such as
+		 newsletters, announcements, or special offers or to notify you about our
+		 upcoming events. If at any time, you would like to discontinue receiving any
+		 such email updates, you may unsubscribe by following the unsubscribe
+		 instructions included in each promotional email
+		
+		
+		
+		
+		-- ds.heading-large: Use, disclosure, and sharing of Personal Information
+		
+		-- ds.heading-medium: Service providers
+		
+		-- ds.copy-regular:
+		
+		We may use third-party partners to help us operate and maintain our Website and
+		deliver our products and services. We may also share your information with our
+		service providers and other third parties (“Affiliated Parties”) that provide
+		products or services for or through this Website or for our business (such as
+		website or Infrastructure hosting companies, communications providers, email
+		providers, analytics companies, credit card processing companies and other
+		similar service providers that use such information on our behalf).
+		
+		Third-party service providers are contractually restricted from using or
+		disclosing the information, except as necessary to perform services on our
+		behalf or to comply with legal requirements.
+		
+		
+		
+		-- ds.heading-medium: Compelled disclosures
+		
+		-- ds.copy-regular:
+		
+		FifthTry may be required to disclose collected information in order to (i)
+		respond to investigations, court orders or legal process, (ii) to investigate,
+		prevent or take action regarding illegal activities, suspected fraud, potential
+		threats to the physical safety of any person, (iii) violations of the Company’s
+		terms of service, or (iv) as otherwise required by law.
+		
+		
+		-- ds.heading-medium: Your ability to access, limit use and disclosure
+		
+		-- ds.copy-regular:
+		
+		You may request access to your personal data to update, correct or delete, or to
+		limit the use or disclosure of, your personal data.
+		
+		Individuals wishing to view, update, delete, or supplement their personal data
+		may do so by contacting the business that provided FifthTry your personal data
+		directly to make your requests, or alternatively you can submit your request
+		through our Data Subject Access Request (DSAR) Portal. If the Company DSAR
+		portal is unavailable, requests may be sent to {privacy} Individuals
+		outside the European Union (“EU”) may also use our Data Subject Access Rights
+		portal to submit complaints about your privacy and our collection or use of your
+		personal information.
+		
+		-- ds.heading-medium: Disclosure of Personal Information
+		
+		-- ds.copy-regular:
+		
+		FifthTry does not sell or otherwise disclose the Personal Information it holds
+		to third parties, except for the following exceptional circumstances:
+		
+		•	Third Parties: FifthTry will not rent or sell your Personal Information to
+		 others but may disclose Personal Information with third-party vendors and
+		 service providers that work with FifthTry. We will only share Personal Information
+		 to these vendors and service providers to help us provide a product or service
+		 to you at your request and in accordance with our respective agreement.  We will
+		 ensure appropriate contractual clauses are in place to ensure compliance with
+		 data protection legislation.
+		
+		•	Business Purposes: In a prospective business transaction, FifthTry may
+		 disclose Personal Information where FifthTry has entered into an agreement that
+		 restricts the use and disclosure of that data solely for purposes related to the
+		 transaction, protects the data by security safeguards appropriate to the
+		 sensitivity of the information, and if the transaction does not proceed, the
+		 data is returned to FifthTry or destroyed within a reasonable time. With respect
+		 to employee data, FifthTry may disclose Personal Information if it is necessary
+		 to establish, manage or terminate an employment relationship, as allowed by law.
+		
+		•	Legal and Safety Reasons: FifthTry may be required to disclose Personal
+		    Information to law enforcement agencies, government agencies, or legal entities.
+		    We may disclose information by law, litigation, or as a matter of national
+		    security to comply with a valid legal process including subpoenas, court orders
+		  or search warrants, and as otherwise authorized by law. We may also need to
+		  disclose Personal Information in the event of an emergency that threatens an
+		  individual’s life, health, or security. If the data requested is held on behalf
+		   of a customer, FifthTry will consult the customer unless it is prohibited to
+		   do so by law. FifthTry may be required to disclose information without your
+		   consent or knowledge if: (i) it is reasonable to expect that disclosure with
+		   your knowledge or consent would compromise an investigation of a breach of
+		   an agreement or a contravention of the law; (ii) it is reasonable for the
+		   purposes of preventing, detecting or suppressing fraud and it is reasonable
+		   to expect that the disclosure with your knowledge or consent would compromise
+		   the ability to prevent, detect or suppress the fraud; (iii) it is necessary
+		   to identify an individual who is injured, ill or deceased to a government
+		   institution or the individual’s next of kin or authorized representative and,
+		   if the individual is alive, with notification to the individual.
+		
+		•	Via Links to Third-Party Websites, Services, and Applications: Using our
+		 website or services may link to third party websites, services, and applications.
+		  FifthTry is not responsible for any Personal Information collected through
+		  these means. Information collected is governed through the third party’s
+		  website’s privacy policy. Any interactions you have with these websites,
+		  services, or applications are beyond the control of FifthTry
+		
+		
+		
+		
+		-- ds.heading-medium: Security
+		
+		-- ds.copy-regular:
+		
+		We take reasonable and appropriate precautions, including administrative,
+		technical, personnel, and physical measures, to safeguard Personal Data against
+		loss, misuse, theft, and unauthorized access, disclosure, alteration, and
+		destruction. We also use Transport Layer Security (TLS) encryption when
+		transmitting sensitive information. Please keep in mind that due to the inherent
+		nature of the Internet, there is no way to make the transmission of electronic
+		data entirely safe from intrusion.
+		
+		-- ds.heading-medium: Data Retention and Storage
+		
+		-- ds.copy-regular:
+		
+		All Personal Information is retained only for as long as it is necessary for
+		the purposes for which it was collected or transferred. FifthTry retains your
+		information for business purposes, for as long as your account is active, and/or
+		as long as is reasonably necessary to provide you with our products and
+		services. FifthTry will also retain your information as reasonably necessary to
+		comply with our legal obligations, resolve disputes and enforce our agreements.
+		We may also retain cached or archived copies of your information for a reasonable
+		period of time. At any point in time, you can withdraw consent and we will
+		immediately stop processing your data.
+		
+		
+		
+		-- ds.heading-medium: International Transfer of Personal Information
+		
+		-- ds.copy-regular:
+		
+		FifthTry may share customer information within our family of companies for a
+		variety of purposes, for example, to provide you with the latest information
+		about our products and services and offer you our latest promotions. To facilitate
+		our global operations, FifthTry may transfer Personal Information from your
+		home country to other FifthTry locations across the world. To protect your
+		Personal Information, we will only transfer data to countries who provide an
+		“adequate” level of Personal Information protection. If the data is transferred
+		to counties without ‘adequate’ protection as determined by the European
+		Parliament, we will use additional safeguards to ensure your data is protected.
+		
+		
+		
+		-- ds.heading-medium: Company Response to a Data Request and/or Security Breach
+		
+		-- ds.copy-regular:
+		
+		In regard to the aforementioned rights to voice questions, make requests
+		regarding your data privacy or withdraw consent, we will respond to your request
+		within 30 (Thirty) days.  In some cases, however, we may limit or deny your
+		request if: the law permits or requires us to do so, if it infringes on the
+		privacy of other individuals or internal procedures, if we find the request
+		to be unfounded or excessive or if we are unable to verify your identity.
+		
+		If the volume or complexity of the request requires internally processing at
+		FifthTry beyond 30 (Thirty) days, FifthTry will inform the requester within 30
+		(Thirty) days of the reasons for an extension and may charge a reasonable fee
+		to cover administrative costs.
+		
+		Security of all information is of the utmost importance for FifthTry.  FifthTry
+		uses technical and physical safeguards to protect the security of your Personal
+		Information from unauthorized disclosure.  We use encryption technology, where
+		feasible, to keep all information secure.  We also make all attempts to ensure
+		that only necessary people and third parties have access to Personal Information.
+		Nevertheless, such security measures cannot prevent all loss, misuse or
+		alteration of Personal Information and, unless otherwise agreed in a written
+		agreement between FifthTry and the applicable party, we are not responsible
+		for any damages or liabilities relating to any such incidents to the fullest
+		extent permitted by law.  In the case of a data breach, we will notify you
+		without undue delay of any loss, misuse or alteration of Personal Information
+		that may affect you.  We will notify relevant regulatory bodies within 72
+		(Seventy-Two) hours of a breach
+		
+		
+		
+		
+		-- ds.heading-medium: Important Notice to European Union Individuals: The General Data Protection Regulation
+		
+		-- ds.copy-regular:
+		
+		To facilitate our business practices, your Personal Data may be collected,
+		transferred to and stored by us in the United States in view of the fact that
+		the servers on which we work are based out of United States.  As a result, your
+		Personal Data may be processed outside the European Economic Area (“EEA”),
+		and in countries which are not subject to an adequacy decision by the European
+		Commission and which may not provide for the same level of data protection
+		in the EEA. In this event, we will ensure an adequate level of protection,
+		for example by entering into standard contractual clauses for the transfer
+		of data as approved by the European Commission (Art. 46 GDPR), or we will
+		ask you for your prior consent to such international data transfers.
+		
+		
+		-- ds.heading-medium: GDPR Complaints
+		
+		-- ds.copy-regular:
+		
+		FifthTry commits to resolve complaints about your privacy and our collection or
+		use of your personal information under GDPR. European Union individuals with
+		inquiries or complaints should use our Data Subject Access Rights portal to
+		submit complaints about your privacy and our collection or use of your personal information.
+		
+		Alternative means of contact:
+		
+		If the FifthTry DSAR portal is unavailable, requests can be sent to {privacy}
+		or to our mailing address:
+		
+		FifthTry Inc.
+		537 Ivy Pointe Circle, San Ramon, CA 94582
+		
+		Link to EU Data Protection Authorities: https://ec.europa.eu/justice/article-29/structure/data-protection-authorities/index_en.htm
+		
+		
+		
+		-- ds.heading-medium: Third Parties who may receive personal data (Onward Transfer)
+		
+		-- ds.copy-regular:
+		
+		FifthTry may employ and contract with third-party service providers and other
+		entities to assist in providing our services to customers by performing certain
+		tasks on our behalf. These third-party providers may offer customer support,
+		data storage services (data centers), or technical operations (“Agents”).
+		FifthTry maintains contracts with these third parties restricting their access,
+		use and disclosure of personal data. These third parties may access, process,
+		or store personal data in the course of providing their services. Unless we
+		tell you differently, our Agents do not have any right to use Personal
+		Information or other information we share with them beyond what is necessary
+		to assist us. You hereby consent to our sharing of Personal Information with
+		our Agents.
+		
+		
+		
+		-- ds.heading-medium: Your Right to Access Your Data
+		
+		-- ds.copy-regular:
+		
+		We acknowledge the right of UK, EU and Swiss individuals to access their
+		personal data. Your ability to access, limit use and disclosure, for specific
+		instructions on how you can access this right.
+		
+		
+		
+		
+		-- ds.heading-medium: Your Ability to Choose How Your Data Is To Be Used
+		
+		-- ds.copy-regular:
+		
+		UK, EU and Swiss individuals may “opt in” and/or “opt out” of certain uses of
+		your Personal Information. For details on how you can exercise your choices
+		please refer to the “Your opt/in opt/out choices” section of this privacy policy.
+		
+		
+		
+		
+		-- ds.heading-medium: Payments
+		
+		-- ds.copy-regular:
+		
+		We may provide paid products and/or services within the Service. In that case,
+		we use third-party services for payment processing (e.g. payment processors).
+		
+		We will not store or collect your payment card details. That information is
+		provided directly to our third-party payment processors whose use of your
+		personal information is governed by their Privacy Policy. These payment processors
+		adhere to the standards set by PCI-DSS as managed by the PCI Security Standards
+		Council, which is a joint effort of brands like Visa, MasterCard, American
+		Express, Rupay, and Discover. PCI-DSS requirements help ensure the secure
+		handling of payment information.
+		
+		
+		
+		
+		
+		-- ds.heading-medium: COPPA (Children Online Privacy Protection Act)
+		
+		-- ds.copy-regular:
+		
+		When it comes to the collection of personal information from children under 13
+		(Thirteen), the Children’s Online Privacy Protection Act (COPPA) puts parents
+		in control. The Federal Trade Commission, the nation’s consumer protection agency,
+		enforces the COPPA Rule, which spells out what operators of websites and online
+		services must do to protect children’s privacy and safety online. We do not
+		specifically market to children under 13 (Thirteen).
+		
+		
+		
+		
+		
+		
+		
+		-- ds.heading-medium: Fair Information Practices
+		
+		-- ds.copy-regular:
+		
+		The Fair Information Practices Principles form the backbone of privacy law in
+		the United States and the concepts they include have played a significant role
+		in the development of data protection laws around the globe. Understanding the
+		Fair Information Practice Principles and how they should be implemented is
+		critical to comply with the various privacy laws that protect personal information.
+		
+		In order to be in line with Fair Information Practices we will take the following
+		 responsive action, should a data breach occur:
+		
+		•	We will notify the users via email Within 7 (Seven) business days
+		
+		•	We also agree to the individual redress principle, which requires that
+		 individuals have a right to pursue legally enforceable rights against data
+		 collectors and processors who fail to adhere to the law. This principle
+		 requires not only that individuals have enforceable rights against data
+		 users, but also that individuals have recourse to courts or a government
+		 agency to investigate and/or prosecute non-compliance by data processors.
+		
+		-- ds.heading-medium: CAN SPAM Act
+		
+		-- ds.copy-regular:
+		
+		The CAN-SPAM Act is a law that sets the rules for commercial email, establishes
+		requirements for commercial messages, gives recipients the right to have emails
+		stopped from being sent to them, and spells out tough penalties for violations.
+		
+		To be in accordance with CANSPAM we agree to the following:
+		
+		If at any time you would like to unsubscribe from receiving future emails, you
+		can email us at {privacy} and we will promptly remove you from ALL
+		correspondence.
+		
+		
+		
+		
+		-- ds.heading-medium: Contact us
+		
+		-- ds.copy-regular:
+		
+		If you have any questions or comments about this Privacy Policy, or if you would
+		like to review, delete or update information we have about you or your preferences,
+		requests should be submitted through our Data Subject Access Request (DSAR) Portal.
+		
+		If the FifthTry DSAR portal is unavailable, requests can be sent to
+		{privacy} or to our mailing address:
+		
+		FifthTry Inc.
+		537 Ivy Pointe Circle, San Ramon, CA 94582
+		
+		
+		
+		-- ds.heading-medium: Terms of use
+		
+		-- ds.copy-regular:
+		
+		This Privacy Policy is governed by the Terms of Use, which includes all
+		disclaimers of warranties and limitation of liabilities. All capitalized
+		terms not defined in this Privacy Policy will have the meaning set forth
+		in the Terms and conditions.
+		
+		To review other applicable terms and conditions that apply to this Privacy Policy,
+		including, without limitation, intellectual property rights, representations
+		and warranties, disclaimer of warranties, limitation of liability and resolving
+		disputes, please review the Terms and conditions accessible from
+		https://www.fifthtry.com/terms/
+		
+		
+		-- ds.heading-medium: Updates to our privacy statement
+		
+		-- ds.copy-regular:
+		
+		We may need to change, modify and/or update this Privacy Policy from time to
+		time and we reserve the right do so without prior notice and at any time.  If
+		we do make changes in the way personal information is used or managed, any
+		updates will be posted here, so you should also revisit this Privacy Policy
+		periodically.  Your continued use of the Website and any Services following the
+		posting of any such changes shall automatically be deemed your acceptance of all
+		changes.
+		
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

@@ -1,0 +1,37 @@
+-- ds.code:
+lang: rs
+
+enum AccountError {
+    Normal(NormalAccountError),
+    Abnormal(AbnormalAccountError),
+    Malicious(MaliciousAccountError),
+}
+
+fn validate_account(account: &str) -> Result<(), NormalAccountError> {}
+
+enum AddDomainNormal {
+    NormalAccount,
+    MalformedRepo,
+    MalformedBranch,
+}
+
+enum AddDomainAbnormal {
+    DomainAlreadyExists,
+}
+
+enum AddDomainMalicious {
+    OrgRateLimitReached,
+}
+
+enum FTActionError<N, A, M> {
+    Normal(N),
+    Abnormal(A),
+    Malicious(M),
+    System(FTSystemError),
+}
+
+enum FTSystemError {
+    DatabaseError,
+    PoolError,
+    OtherError,
+}

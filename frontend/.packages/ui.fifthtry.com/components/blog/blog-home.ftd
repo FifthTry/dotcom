@@ -1,0 +1,55 @@
+-- component blog:
+children wrapper:
+
+-- ds.section-row:
+spacing: $ds.spaces.horizontal-gap.medium
+wrap: true
+inset: $ds.spaces.inset-wide.large
+inner-background.solid: $ds.colors.background.step-1
+content: $blog.wrapper
+
+-- end: ds.section-row
+
+-- end: blog
+
+
+
+
+
+
+-- component blog-card:
+caption title:
+body description:
+string date:
+
+-- ds.container:
+inset: $ds.spaces.inset-square.medium
+background.solid: $ds.colors.background.step-2
+width.fixed.percent: 40
+radius: $ds.radius.medium
+
+-- ds.column:
+spacing: $ds.spaces.vertical-gap.space-between
+align-content: left
+
+-- ds.fine-print:
+
+$blog-card.date
+
+-- ds.copy-large: 
+color: $ds.colors.text-strong
+
+$blog-card.title
+
+-- ds.copy-regular:
+color: $ds.colors.text
+
+$blog-card.description
+
+-- end: ds.column
+
+
+-- end: ds.container
+
+
+-- end: blog-card

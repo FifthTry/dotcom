@@ -1,0 +1,265 @@
+-- import: ui.fifthtry.com/components/slides/page-with-sidebar
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/slides/create-template-presentation
+
+-- record template-data:
+caption template-name:
+string template-slug:
+integer id:
+string team-name:
+string team-slug:
+string team-initials:
+string owner-name:
+string owner-initials:
+string username:
+string preview:
+string thumbnail:
+string team-avatar:
+string list slides:
+
+-- component page:
+ud.user-data user-data:
+module create-template-presentation: create-template-presentation
+template-data data:
+string cta-text:
+boolean $pop-up: false
+private boolean $show-template-fields: false
+private string $current-template-name: *$page.data.template-name
+private string $current-target-team: *$page.data.username
+private string $current-visibility: everyone
+
+-- page-with-sidebar.page:
+$sidebar: true
+
+	-- ftd.row:
+	width: fill-container
+	padding-vertical.px: 24
+	padding-horizontal.px: 40
+	spacing.fixed.px: 24
+	
+		-- ftd.column:
+		width.fixed.px: 1014
+		spacing.fixed.px: 36
+		
+			-- ftd.image:
+			src: $page.data.thumbnail
+			width: fill-container
+			height.fixed.px: 570
+			border-radius.px: 12
+			fit: cover
+			
+		-- end: ftd.column
+
+		-- ftd.column:
+		width.fixed.px: 322
+		spacing.fixed.px: 16
+		
+			-- ds.heading-medium: $page.data.template-name
+			
+			-- ftd.row:
+			spacing.fixed.px: 8
+			align-content: center
+			padding-vertical.px: 8
+			
+				-- ftd.image:
+				src: $page.data.team-avatar
+				width.fixed.px: 32
+				
+				-- ftd.text: $page.data.team-name
+				role: $inherited.types.button-small
+				color: $inherited.colors.text-strong
+				
+			-- end: ftd.row
+
+			-- ftd.text: $page.cta-text
+			if: { !page.show-template-fields }
+			background.solid: $inherited.colors.accent.primary
+			width: fill-container
+			text-align: center
+			padding-vertical.px: 16
+			padding-horizontal.px: 18
+			border-radius.px: 8
+			color: $inherited.colors.text-strong
+			role: $inherited.types.copy-regular
+			/$on-click$: $ftd.set-bool($a = $page.pop-up, v= true)
+			$on-click$: $ftd.set-bool($a = $page.show-template-fields, v= true)
+			
+			;; actions -> MASTER <-> views -> SLAVE
+			-- ftd.column:
+			if: { page.show-template-fields }
+			width: fill-container
+			height: fill-container
+			spacing.fixed.px: 5
+			
+				-- ftd.text: Project name
+				role: $inherited.types.button-small
+				color: $inherited.colors.text-strong
+				
+				-- ftd.text-input:
+				width: fill-container
+				default-value: $page.current-template-name
+				placeholder: your project name here
+				height.fixed.px: 48
+				border-radius.px: 4
+				background.solid: transparent
+				border-width.px: 2
+				border-color: $inherited.colors.border
+				padding.px: 12
+				color: $inherited.colors.text-strong
+				$on-input$: $ftd.set-string($a = $page.current-template-name, v = $VALUE)
+				
+				-- ftd.text: $page.create-template-presentation.title-error
+				if: { page.create-template-presentation.title-error != NULL }
+				color: red
+				role: $inherited.types.copy-small
+				
+				-- ftd.text: Target Team
+				role: $inherited.types.button-small
+				color: $inherited.colors.text-strong
+				
+				-- ftd.text-input:
+				width: fill-container
+				default-value: $page.current-target-team
+				placeholder: your project name here
+				height.fixed.px: 48
+				border-radius.px: 4
+				background.solid: transparent
+				border-width.px: 2
+				border-color: $inherited.colors.border
+				padding.px: 12
+				color: $inherited.colors.text-strong
+				$on-input$: $ftd.set-string($a = $page.current-target-team, v = $VALUE)
+				
+				-- ftd.text: $page.create-template-presentation.target-team-error
+				if: { page.create-template-presentation.target-team-error != NULL }
+				color: red
+				role: $inherited.types.copy-small
+				
+				-- ftd.text: Visibility
+				role: $inherited.types.button-small
+				color: $inherited.colors.text-strong
+				
+				-- ftd.text-input:
+				width: fill-container
+				default-value: $page.current-visibility
+				placeholder: your project name here
+				height.fixed.px: 48
+				border-radius.px: 4
+				background.solid: transparent
+				border-width.px: 2
+				border-color: $inherited.colors.border
+				padding.px: 12
+				color: $inherited.colors.text-strong
+				$on-input$: $ftd.set-string($a = $page.current-visibility, v = $VALUE)
+				
+				-- ftd.text: $page.create-template-presentation.visibility-error
+				if: { page.create-template-presentation.visibility-error != NULL }
+				color: red
+				role: $inherited.types.copy-small
+				
+				-- ftd.text: Create
+				align-self: end
+				margin-top.px: 20
+				background.solid: $inherited.colors.accent.primary
+				width: fill-container
+				text-align: center
+				padding-vertical.px: 16
+				padding-horizontal.px: 18
+				border-radius.px: 8
+				color: $inherited.colors.text-strong
+				role: $inherited.types.copy-regular
+				$on-click$: $page.create-template-presentation.submit(title=$page.current-template-name, template_slug=$page.data.template-slug, team_slug=$page.data.team-slug, target_team=$page.current-target-team, visibility=$page.current-visibility, module=$page.create-template-presentation)
+				
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+		-- ftd.column:
+		if: { page.pop-up }
+		width.fixed.px: 370
+		min-height.fixed.px: 442
+		padding.px: 24
+		border-radius.px: 8
+		background.solid: $inherited.colors.background.step-1
+		spacing.fixed.px: 24
+		z-index: 2
+		anchor: parent
+		align-self: center
+		left.px: 535
+		color: $inherited.colors.text-strong
+		
+			-- ftd.row:
+			width: fill-container
+			spacing: space-between
+			
+				-- ds.heading-small: Create new project
+				
+				-- ftd.image:
+				src: $assets.files.assets.slides.cross.svg
+				width.fixed.px: 24
+				align-self: center
+				$on-click$: $ftd.set-bool($a = $page.pop-up, v= false)
+				
+			-- end: ftd.row
+
+			-- ftd.column:
+			spacing.fixed.px: 8
+			align-self: center
+			
+				-- ftd.image:
+				src: $page.data.thumbnail
+				width.fixed.px: 200
+				border-radius.px: 4
+				fit: cover
+				
+				-- ftd.row:
+				width: fill-container
+				align-content: center
+				
+					-- ds.copy-small:
+					text: $page.data.template-name
+					
+				-- end: ftd.row
+
+			-- end: ftd.column
+
+			-- ftd.column:
+			width: fill-container
+			spacing.fixed.px: 8
+			
+				-- ftd.text: Project name
+				role: $inherited.types.button-small
+				
+				-- ftd.text-input:
+				width: fill-container
+				default-value: $page.current-template-name
+				placeholder: your project name here
+				height.fixed.px: 48
+				border-radius.px: 4
+				background.solid: transparent
+				border-width.px: 2
+				border-color: $inherited.colors.border
+				padding.px: 12
+				color: $inherited.colors.text-strong
+				$on-input$: $ftd.set-string($a = $page.current-template-name, v = $VALUE)
+				
+			-- end: ftd.column
+
+			-- ftd.text: Create
+			background.solid: $inherited.colors.accent.primary
+			role: $inherited.types.copy-regular
+			width: fill-container
+			text-align: center
+			padding-vertical.px: 16
+			padding-horizontal.px: 18
+			border-radius.px: 8
+			$on-click$: $page.create-template-presentation.submit(title=$page.current-template-name, template_slug=$page.data.template-slug, team_slug=$page.data.team-slug, target_team=$page.data.team-slug, visibility=everyone, module=$page.create-template-presentation)
+			
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+-- end: page-with-sidebar.page
+
+-- end: page

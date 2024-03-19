@@ -1,0 +1,87 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/pages/university
+
+
+-- component page:
+caption university.course course:
+module site-data: site-data
+ud.user-data user-data:
+
+-- p.page:
+user-data: $page.user-data
+site-data: $page.site-data
+margin: $ds.spaces.vertical-gap.zero
+
+	-- ds.row:
+	align-content: left
+	
+		-- sidebar: $page.course
+		
+	-- end: ds.row
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+-- component sidebar:
+caption university.course s:
+
+-- ds.column:
+align-content: left
+
+	-- ftd.text: $sidebar.s.title
+	link: $sidebar.s.url
+	style if { sidebar.s.is-current }: bold
+	
+	-- show-chapter: $chapter
+	for: chapter in $sidebar.s.chapters
+	
+-- end: ds.column
+
+-- end: sidebar
+
+
+
+
+-- component show-chapter:
+caption university.chapter c:
+
+-- ds.column:
+align-content: left
+
+	-- ftd.text: $show-chapter.c.title
+	link: $show-chapter.c.url
+	style if { show-chapter.c.is-current }: bold
+	
+	-- show-concept: $c
+	for: c in $show-chapter.c.concepts
+	
+-- end: ds.column
+
+-- end: show-chapter
+
+
+
+
+-- component show-concept:
+caption university.concept c:
+
+-- ds.row:
+align-content: left
+
+	-- ftd.text: $show-concept.c.title
+	link: $show-concept.c.url
+	style if { show-concept.c.is-current }: bold
+	
+	;; show tick-mark for each concept if it done or is current
+	-- ftd.text: Done
+	if: { show-concept.c.is-done }
+	
+-- end: ds.row
+
+-- end: show-concept

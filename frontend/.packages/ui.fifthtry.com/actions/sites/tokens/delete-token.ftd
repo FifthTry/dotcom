@@ -1,0 +1,9 @@
+-- optional string $token-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, token_id):
+string site_slug:
+integer token_id:
+js: $assets.files.assets.functions.js
+
+callAlert("Deleting token: " + token_id + ", for site: " + site_slug)

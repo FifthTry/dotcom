@@ -1,0 +1,13 @@
+-- import: fastn-community.github.io/design-system/components/button
+
+-- component header-link:
+caption or body text:
+string link:
+button.button-kind kind: primary
+
+-- ftd.text: $header-link.text
+color: $ds.colors.text-strong
+role: $ds.types.link
+link: $header-link.link
+
+-- end: header-link

@@ -1,0 +1,29 @@
+-- ds.page:
+
+for amitu.com, we will have following:
+amitu_site = Site(domain="amitu.com", org=amitu)
+Domain(domain="amitu.com", site=amitu_site)
+Domain(domain="www.amitu.com", site=amitu_site)
+For every site we will have a fifthtry-sites.com sub-domain
+Domain(domain="amitucom.fifthtry-sites.com", site=amitu_site)
+amitucom will be called the "site-slug for a site"
+from `hostn server` perspective, if a request comes to any domain other
+than amitu_site.domain, we will redirect to amitu_site.domain.
+The site admin url for amitu.com would be www.fifthtry.com/amitu.com/.
+The editor etc urls would be www.fifthtry.com/amitu.com/editor/
+so for a free site,
+rithik_site = Site(domain="rithik-site", org=amitu)
+without custom domain mapped it would be:
+a. fifthtry.com/rithik-site/ or
+b. fifthtry.com/rithik-site.fifthtry-sites.com/
+
+We will go with b because it is shorter to type.
+
+We will use `.` to decide if a domain is a custom domain or a site-slug.
+
+If a request to fifthtry.com/amitucom/, we will redirect to
+fifthtry.com/amitu.com/
+
+Further we will redirect amitu.com/-/admin/ to fifthtry.com/amitu.com/
+
+-- end: ds.page

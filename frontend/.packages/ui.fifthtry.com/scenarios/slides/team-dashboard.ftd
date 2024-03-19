@@ -1,0 +1,103 @@
+-- import: ui.fifthtry.com/pages/slides/dashboard
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+
+-- dashboard.page:
+folders: $folders
+data: $data
+user-data: $john-doe.jd
+add-presentation-url: slides/scenarios/logged-in-templates/
+
+
+-- dashboard.dashboard-data data:
+templates: $templates
+presentations: $presentations
+team-name: FifthTry
+team-slug: fifthtry
+
+
+-- dashboard.folder list folders:
+
+-- dashboard.folder: Folder name
+item: 12 items
+
+-- dashboard.folder: Folder name
+item: 12 items
+
+-- dashboard.folder: Folder name
+item: 12 items
+
+-- end: folders
+
+
+
+-- dashboard.presentation list presentations:
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- dashboard.presentation: Documentation site
+thumbnail: $assets.files.assets.slides.template-2.png.light
+updated-on: Edited 18 min ago
+url: /
+
+-- end: presentations
+
+
+-- dashboard.template list templates:
+
+-- dashboard.template: Templates 1
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 2
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 3
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 4
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 5
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 6
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 7
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- dashboard.template: Templates 8
+thumbnail: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/logged-in-templates/
+
+-- end: templates

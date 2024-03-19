@@ -1,0 +1,27 @@
+-- import: www.fifthtry.com/university/fastn-for-everyone
+
+
+/-- fastn-for-everyone.sidebar:
+
+-- ftd.column:
+if: { lang.current-language == "en" }
+-- ftd.text: Installing `fastn`
+
+-- ftd.text:
+
+Use your google skills to learn how to install fastn. Or consider ChatGPT. Stop living
+in a cave, and get with the program. Learning is for dinosaurs.
+
+-- end: ftd.column
+
+
+-- ftd.column:
+if: { lang.current-language == "hi" }
+
+-- ftd.text: `fastn` को इनस्टॉल करना
+
+-- ftd.text:
+
+फास्टन को इनस्टॉल करने के लिए अपने गूगल कौशल का उपयोग करें। या चैटजीपीटी का विचार करें।
+
+-- end: ftd.column

@@ -1,0 +1,60 @@
+-- import: ui.fifthtry.com/pages/sites/editor
+-- import: ui.fifthtry.com/records/sites as sr
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+
+-- editor.page:
+site-data: scenario-site
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/user/dashboard/
+data: $data
+
+
+
+-- editor.editor-data data:
+files: $files
+current-file: $current-file
+;; site-homepage-url: https://www.fastn.com/
+site-base-url: $ftd.empty
+site-relative-url: /
+
+
+
+-- sr.file current-file: index.ftd
+url: /scenarios/sites/editor/
+text: $index-text
+updated-at: 2 hours ago
+;; filetype: image
+;; url: $assets.files.assets.slides.background.png.light
+
+
+-- sr.file-text index-text: ftd
+
+\-- ftd.text: hello
+
+
+-- sr.file-info list files:
+
+-- sr.file-info: index.ftd
+is-active: true
+
+-- sr.file-info: FASTN.ftd
+type: FASTN
+
+-- sr.file-info: folder
+is-active: false
+
+-- sr.file-info.children:
+
+	-- sr.file-info: index.ftd
+	full-name: folder/index.ftd
+
+	-- sr.file-info: other.txt
+	full-name: folder/other.txt
+	type: source
+
+-- end: sr.file-info.children
+
+-- end: files

@@ -1,0 +1,13 @@
+-- import: ui.fifthtry.com/pages/slides/present
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+-- present.page:
+user-data: $john-doe.jd
+data: $data
+team-slug: fifthtry
+presentation-slug: fifthtry-presentation
+
+-- present.present-data data:
+current-slide-order: 1
+all-slide-previews: https://picsum.photos/id/237/800/500, https://picsum.photos/id/13/800/500
+editor-url: /slides/scenarios/fastn-presentation-logged-in/

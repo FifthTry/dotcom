@@ -1,0 +1,129 @@
+-- import: fastn
+
+-- fastn.package: www.fifthtry.com
+default-language: en
+translation-en: www.fifthtry.com/i18n/en
+translation-hi: www.fifthtry.com/i18n/hi
+
+-- fastn.dependency: fastn-community.github.io/midnight-storm-typography as typo
+-- fastn.dependency: fastn-community.github.io/dark-flame-cs as cs
+-- fastn.dependency: fastn-community.github.io/dark-mode-switcher
+-- fastn.dependency: fastn-community.github.io/doc-site
+-- fastn.dependency: fifthtry.github.io/admonitions
+-- fastn.dependency: ui.fifthtry.com
+-- fastn.dependency: fastn-community.github.io/design-system
+
+-- fastn.auto-import: typo
+-- fastn.auto-import: cs
+-- fastn.auto-import: www.fifthtry.com/common
+-- fastn.auto-import: fastn-community.github.io/doc-site as ds
+-- fastn.auto-import: www.fifthtry.com/auth
+-- fastn.auto-import: www.fifthtry.com/assets
+
+
+-- fastn.url-mappings:
+
+;; ft endpoint. On prod this will always be 127.0.0.1:8001, we do not use environment
+;; variables on prod most of the time. For dev we rely on DEBUG_FT_API_SERVER, which
+;; is set in scripts/dev/create-local-sites.py
+/ft-ep/* -> http+proxy://${env.DEBUG_FT_API_SERVER or "127.0.0.1:8001"}/ft/*
+/itest/* -> http+proxy://${env.DEBUG_FT_API_SERVER or "127.0.0.1:8001"}/itest/*
+/ft-wasm/* -> wasm+proxy://sample.wasm/*
+/ft2/* -> wasm+proxy://ft2.wasm/*
+
+
+
+
+-- fastn.dynamic-urls:
+
+# Site Editor
+url: /<string:site-slug>/edit/
+document: site/editor.ftd
+
+# Org Dashboard
+url: /o/<string:org-slug>/
+document: org/dashboard.ftd
+
+# Org: Create Site
+url: /o/<string:org-slug>/create/
+document: org/create-site.ftd
+
+# Org: Create Site
+url: /create-site/
+document: myself/create-site.ftd
+
+# Site Domains
+url: /<string:site-slug>/domains/
+document: site/domains.ftd
+
+# Site Tokens
+url: /<string:site-slug>/tokens/
+document: site/tokens.ftd
+
+# Github Configure Form
+url: /<string:site-slug>/configure-github/
+document: site/configure-github.ftd
+
+# Github Configuration (Un-configured + configured)
+url: /<string:site-slug>/github/
+document: site/gh-oidc.ftd
+
+# Site Info
+url: /s/<string:site-slug>/
+document: site/info.ftd
+
+
+-- fastn.sitemap:
+
+# Home: /
+
+# About: /about/
+# Pricing: /pricing/
+# Team: /team/
+
+
+# Handbook: /handbook/
+
+- What Are We Building?: /handbook/roadmap/
+- Regular Meetings: /handbook/meetings/
+- Demo Day: /handbook/dd/
+- One On Ones: /handbook/ooo/
+- Shared Calendar: /handbook/shared-calendar/
+- Joining Formalities: /handbook/joining/
+- We Are Remote: /handbook/remote/
+- Communication Guidelines:
+  - No DMs: /no-dms/
+    document: handbook/no-dms.ftd
+  - Use Tandem: /tandem/
+    document: handbook/tandem.ftd
+  - Use Discord: /discord/
+    document: handbook/discord.ftd
+  - Don't Use Slack: /slack/
+    document: handbook/slack.ftd
+    skip: true
+  - Feedback To Discussion: /f2d/
+    document: handbook/feedback-to-discussion.ftd
+  - How To Answer: /answer/
+    document: handbook/answer.ftd
+  - Newcomer: /newcomer/
+    document: handbook/new-comer.ftd
+- Repository Checks 🚧: /repo-checks/
+  document: /handbook/repo-checks.ftd
+- Guidelines: /guidelines/
+  - Project Guidelines: /project-guidelines/
+    document: /guidelines/project-guidelines.ftd
+  - User Interface Review: /ui-review/
+    document: /guidelines/ui-review.ftd
+
+# University
+skip: true
+url: /university/
+
+- url: /fastn-for-everyone/
+  document: university/fastn-for-everyone/
+  - url: /getting-started-with-fastn/
+    document: university/fastn-for-everyone/01-getting-started/
+    - Installing `fastn`: /installing-fastn/
+      document: university/fastn-for-everyone/01-getting-started/01-installing-fastn.ftd
+    - Setting Up Editor: /editor/
+      document: university/fastn-for-everyone/01-getting-started/02-editor.ftd

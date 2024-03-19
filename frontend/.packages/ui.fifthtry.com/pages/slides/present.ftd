@@ -1,0 +1,125 @@
+-- import: ui.fifthtry.com/components/slides/full-page
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/slides/navigate-previous-slide
+-- import: ui.fifthtry.com/actions/slides/navigate-next-slide
+
+-- string navigate-previous-slide-module-name: ui.fifthtry.com/slides/actions/navigate-previous-slide
+-- string navigate-next-slide-module-name: ui.fifthtry.com/slides/actions/navigate-next-slide
+
+
+-- record present-data:
+integer current-slide-order:
+string list all-slide-previews:
+string editor-url:
+
+
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+present-data data:
+string presentation-slug:
+string team-slug:
+integer $current-slide-order: *$page.data.current-slide-order
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+align-content: center
+
+	-- slide-present-view:
+	for: $p in $page.data.all-slide-previews
+	src: $p
+	current-slide-order: $page.current-slide-order
+	order: $increase-by-one(a = $LOOP.COUNTER)
+	
+	-- present-switcher:
+	$current-slide-order: $page.current-slide-order
+	total-slides: $length(a = $page.data.all-slide-previews)
+	
+-- end: ftd.column
+
+-- end: page
+
+
+
+-- component slide-present-view:
+caption src:
+integer current-slide-order:
+integer order:
+
+-- ftd.column:
+
+	-- ftd.image: $slide-present-view.src
+	if: { slide-present-view.order == slide-present-view.current-slide-order }
+	width.fixed.vw: 100
+	height.fixed.vh: 100
+	fit: contain
+	
+-- end: ftd.column
+
+-- end: slide-present-view
+
+
+
+
+
+-- component present-switcher:
+integer $current-slide-order:
+boolean $is-left-hovered: false
+boolean $is-right-hovered: false
+integer total-slides:
+
+-- ftd.row:
+width.fixed.percent: 20
+sticky: true
+bottom.px: 40
+left.percent: 40
+background.solid: $inherited.colors.background.base
+spacing: space-around
+align-content: center
+border-radius.px: 15
+padding-vertical.px: 10
+classes: switcher
+css: $assets.files.assets.css.opacity.css
+
+	-- ds.phosphor-icon-button:
+	icon: arrow-fat-left
+	$on-click$: $clamp-with-limits($a = $present-switcher.current-slide-order, by=-1, min=1, max=$present-switcher.total-slides)
+	
+	;; CURRENT SLIDE ORDER
+	-- ftd.integer: $present-switcher.current-slide-order
+	background.solid: $inherited.colors.background.step-2
+	color: $inherited.colors.text-strong
+	role: $inherited.types.copy-regular
+	padding-horizontal.px: 10
+	border-radius.px: 15
+	
+	-- ds.phosphor-icon-button:
+	icon: arrow-fat-right
+	$on-click$: $clamp-with-limits($a = $present-switcher.current-slide-order, by=1, max=$present-switcher.total-slides)
+	
+-- end: ftd.row
+
+-- end: present-switcher
+
+
+
+-- integer length(a):
+string list a:
+
+len(a)
+
+-- integer increase-by-one(a):
+integer a:
+
+a + 1
+
+-- void clamp-with-limits(a,by,min,max):
+integer $a:
+integer by: 1
+integer min: 1
+integer max:
+
+a = (((a - min + max) + by) % (max + 1 - min)) + min

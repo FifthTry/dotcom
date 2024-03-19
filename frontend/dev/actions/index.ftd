@@ -1,0 +1,242 @@
+-- import: fastn-community.github.io/design-system as ds
+
+-- ds.page:
+
+-- ds.column:
+inset: $ds.spaces.inset-square.large
+background.solid: $ds.colors.background.base
+height: fill-container
+align-content: top-left
+radius: $ds.radius.zero
+
+	-- ds.heading-large: Actions
+	
+	-- ds.heading-small: Sites
+	
+	-- ds.copy-large:
+	
+	- [create-site](/dev/actions/create-site/)
+	- [add-domain](/dev/actions/add-domain/)
+	- [delete-domain](/dev/actions/delete-domain/)
+	- [make-primary-domain](/dev/actions/make-primary-domain/)
+	- [re-check-domain](/dev/actions/re-check-domain/)
+	- [configure-github](/dev/actions/configure-github/)
+	- [remove-github-access](/dev/actions/remove-github-access/)
+	
+-- end: ds.column
+
+-- end: ds.page
+
+
+
+
+
+
+
+
+
+
+
+
+-- or-type validation-status:
+
+-- constant integer pending: 0
+-- constant integer done: 1
+
+-- end: validation-status
+
+
+
+;; todo: move records to records folder
+-- record validation:
+caption title:
+validation-status status: pending
+optional body description:
+optional string error-message:
+optional boolean implement-in-future:
+
+-- record system-field:
+caption name:
+validation list validations:
+
+-- record user-field:
+caption name:
+validation list validations:
+
+
+
+;; todo: move the below components to components folder
+-- component action:
+caption name:
+optional string description:
+optional string redirect:
+optional boolean reload:
+string url:
+string method: post
+boolean unimplemented: false
+system-field list system-fields:
+user-field list user-fields:
+optional string code-reference:
+validation list other-validations:
+
+-- ds.column:
+inset: $ds.spaces.inset-square.large
+background.solid: $ds.colors.background.base
+height: fill-container
+align-content: top-left
+radius: $ds.radius.zero
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.heading-medium: $action-format(a = $action.name)
+		width: hug-content
+		
+		-- ftd.image: $assets.files.assets.alert.svg
+		if: { action.unimplemented }
+		width.fixed.px: 30
+		
+	-- end: ds.row
+
+	-- ds.copy-large: $action.description
+	if: { action.description != NULL }
+	
+	-- ds.copy-large: $prefix-string(prefix=Endpoint, a = $action.url)
+	
+	-- ds.copy-large: $prefix-string(prefix=Method, a = $action.method)
+	
+	-- ds.copy-large: $prefix-string(prefix=Redirect on success, a = $action.redirect)
+	if: { action.redirect != NULL }
+	
+	-- ds.copy-large: $prefix-boolean(prefix=Reload on success, a = $action.reload)
+	if: { action.reload != NULL }
+	
+	-- ds.copy-large: $prefix-string(prefix=Code Reference, a = $action.code-reference)
+	if: { action.code-reference != NULL }
+	
+	-- ds.heading-small: System Fields
+	if: { ftd.len($action.system-fields) > 0 }
+	
+	-- show-system-field: $field
+	for: field in $action.system-fields
+	
+	-- ds.heading-small: User Fields
+	if: { ftd.len($action.user-fields) > 0 }
+	
+	-- show-user-field: $field
+	for: field in $action.user-fields
+	
+	-- ds.heading-small: Other Validations
+	if: { ftd.len($action.other-validations) > 0 }
+	
+	-- show-validation: $validation
+	for: validation in $action.other-validations
+	
+-- end: ds.column
+
+-- end: action
+
+
+
+
+
+
+
+-- component show-system-field:
+caption system-field field:
+
+-- ds.column:
+align-content: left
+border: $ds.borders.uniform.small
+border-color: $ds.colors.border
+inset: $ds.spaces.inset-square.large
+
+	-- ds.copy-large: $prefix-string(prefix=Field, a = $show-system-field.field.name)
+	
+	-- show-validation: $validation
+	for: validation in $show-system-field.field.validations
+	
+	
+-- end: ds.column
+
+-- end: show-system-field
+
+
+
+
+
+
+
+
+-- component show-user-field:
+caption user-field field:
+
+-- ds.column:
+align-content: left
+border: $ds.borders.uniform.small
+border-color: $ds.colors.border
+inset: $ds.spaces.inset-square.large
+
+	-- ds.copy-large: $prefix-string(prefix=Field, a = $show-user-field.field.name)
+	
+	-- show-validation: $validation
+	for: validation in $show-user-field.field.validations
+	
+	
+-- end: ds.column
+
+-- end: show-user-field
+
+
+
+
+
+
+
+
+-- component show-validation:
+caption validation v:
+
+-- ds.column:
+width: hug-content
+align-content: left
+inset: $ds.spaces.inset-square.large
+border: $ds.borders.uniform.small
+border-color: $ds.colors.border
+
+	-- ds.copy-large: $prefix-string(prefix=Validation, a = $show-validation.v.title)
+	
+	-- ds.copy-large: $prefix-string(prefix=Description, a = $show-validation.v.description)
+	
+	-- ds.copy-large: Status = Pending
+	text if { $show-validation.v.status == done }: Status = Done
+	color if { $show-validation.v.status == done }: $ds.colors.success.text
+	color if { $show-validation.v.status == pending }: $ds.colors.warning.text
+	style: bold
+	
+	-- ds.copy-large: $prefix-boolean(prefix=Implement in Future, a = $show-validation.v.implement-in-future)
+	if: { $show-validation.v.implement-in-future != NULL }
+	
+-- end: ds.column
+
+-- end: show-validation
+
+
+
+-- string prefix-string(prefix, a):
+string prefix:
+string a:
+
+"**" + prefix + "**: " + a
+
+-- string prefix-boolean(prefix, a):
+string prefix:
+boolean a:
+
+"**" + prefix + "**: " + a
+
+
+-- string action-format(a):
+string a:
+
+"**Action:** " + a

@@ -1,0 +1,46 @@
+{
+  "files": {
+    "Changelog.md": {
+      "name": "Changelog.md",
+      "checksum": "3D8E5A54B51EC6632C7FDE92E3F413EB236290753673E8BF66AA4CD7A3B9A06F",
+      "size": 336
+    },
+    "FASTN.ftd": {
+      "name": "FASTN.ftd",
+      "checksum": "CBE7B8E2F6FD6D222810BFFADFABD5BBF210DB9633D58953AD277CB09241DE8B",
+      "size": 429
+    },
+    "LICENSE.md": {
+      "name": "LICENSE.md",
+      "checksum": "A95364C3842F2C439BD629F65E304A2850239B443596467254EE96E71CA213DD",
+      "size": 1498
+    },
+    "README.md": {
+      "name": "README.md",
+      "checksum": "299E606DD6099492661A05E377FADE61824C8EF84CEE8F4BEA796F18A3E08564",
+      "size": 1453
+    },
+    "fastn-typography.ftd": {
+      "name": "fastn-typography.ftd",
+      "checksum": "0625C2DF004CC31091099D228F8BD7C8CD9B0B613E5E183694E4609E9FB33DBD",
+      "size": 8931
+    },
+    "index.ftd": {
+      "name": "index.ftd",
+      "checksum": "083B98169CE1D7546C4626078232FF256EEC520EAE8E5EFEC057D0E5558A701A",
+      "size": 13117
+    },
+    "static/midnight-strom-typography-dark-example.png": {
+      "name": "static/midnight-strom-typography-dark-example.png",
+      "checksum": "7A9C984A6BF29B53CEE2A6D298120CD0001ED789C6964EA2216F55AE75C93213",
+      "size": 90460
+    },
+    "static/midnight-strom-typography-example.png": {
+      "name": "static/midnight-strom-typography-example.png",
+      "checksum": "39EA8EF3A6125A0BEF45AA0E02E1E7AA58528D077F63AE5F5EEBFDB3BC8511A3",
+      "size": 88793
+    }
+  },
+  "zip_url": "https://github.com/fastn-community/midnight-storm-typography/archive/fdbb75d6b6103fb93cbd4dc809c4742afeb96999.zip",
+  "checksum": "F6052A2E5BEE2E23384E043A28C9B85F12897F662D4FE4299F0782752BAD440B"
+}

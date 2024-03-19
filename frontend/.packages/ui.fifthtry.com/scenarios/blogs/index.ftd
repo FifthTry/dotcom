@@ -1,0 +1,5 @@
+-- import: ui.fifthtry.com/pages/blogs/home
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+-- home.page:
+user-data: $john-doe.jd

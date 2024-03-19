@@ -1,0 +1,87 @@
+-- import: www.fifthtry.com/dev/actions
+exposing: action, user-field, system-field, validation
+
+
+
+-- action: make-primary-domain
+reload: true
+url: /ft-ep/action/site/make-primary-domain/
+code-reference: ft/src/action/make_primary_domain.rs
+unimplemented: true
+
+-- action.description:
+
+This action make the provided domain primary for a site.
+
+
+
+
+
+
+-- action.system-fields:
+
+	-- system-field: site-slug
+	
+	-- system-field.validations:
+	
+		-- validation: unknown-site
+		error-message: There is no such site. Maybe the slug of the site has changed, or site has been deleted.
+		status: done
+		
+		Check if the site is present. Maybe the site doesn't exist or has been already removed.
+		
+	-- end: system-field.validations
+
+	-- system-field: domain
+	
+	-- system-field.validations:
+	
+		-- validation: domain-is-present
+		error-message: There is no such domain. Maybe the domain for your site has been deleted.
+		status: done
+		
+		Check if the site domain is present. Maybe the site domain doesn't exist or
+		has been already removed.
+		
+		-- validation: domain-is-verified
+		error-message: Domain is not verified yet can't make it primary. Please try again later.
+		status: done
+		
+		Check if the site domain is verified before making it primary.
+		
+	-- end: system-field.validations
+
+-- end: action.system-fields
+
+
+
+
+
+
+-- action.other-validations:
+
+	-- validation: unauthorized-role
+	status: done
+	
+	Only roles admin or manager can create a site.
+	
+	-- validation: add-domain-org-rate-limit-reached
+	error-message: We allow this operation max 2 times per minute per org. Please try after some time.
+	implement-in-future: true
+	
+	A single org can only perform this operation max 2 times per minute.
+	
+	-- validation: global-rate-limit
+	error-message: We allow max 50 operations per minute. Please try after some time.
+	implement-in-future: true
+	
+	This endpoint will allow max 50 operations per minute.
+	
+-- end: action.other-validations
+
+
+
+
+
+
+-- end: action

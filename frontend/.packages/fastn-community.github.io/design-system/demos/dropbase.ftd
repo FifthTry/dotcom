@@ -1,0 +1,936 @@
+-- ds.page-widths widths:
+regular.px: 1200
+narrow.px: 1000
+wide.px: 1400
+
+
+
+
+
+-- ds.page: Dropbase | Build internal apps with SQL and Python in minutes
+widths: $widths
+
+Dropbase is a developer platform that makes it easy to build internal apps for
+customer success, support, and operations teams. Dashboards, admin panels, and
+custom tools with SQL and Python in minutes.
+
+-- header:
+
+-- hero:
+
+-- any-data-or-api:
+
+-- existing-py:
+
+-- granular-permissions:
+
+-- smart-tables:
+
+-- features:
+
+-- book-demo:
+
+-- footer:
+
+-- end: ds.page
+
+
+
+
+-- component header:
+boolean $open: false
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-row:
+		outer-background.solid: $ds.colors.background.step-1
+		spacing: $ds.spaces.vertical-gap.space-between
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-wide.large
+		
+			-- ds.inline-row: Logo | Docs | Blog | Pricing
+			
+				-- ds.primary-button: LOGO
+				
+				-- ds.header-link: Docs
+				link: /
+				
+				-- ds.header-link: Blog
+				link: /
+				
+				-- ds.header-link: Pricing
+				link: /
+				
+			-- end: ds.inline-row
+
+
+			-- ds.inline-row: Search | Login | Book Demo
+			
+				-- ds.phosphor-icon-button: Search
+				icon: magnifying-glass
+				
+				-- ds.header-link: Login
+				link: /
+				
+				-- ds.primary-button: Book demo
+				
+			-- end: ds.inline-row
+
+		-- end: ds.section-row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column:
+		spacing: $ds.spaces.vertical-gap.space-between
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-wide.large
+		align-content: top-left
+		
+			-- ds.row:
+			spacing: $ds.spaces.vertical-gap.space-between
+			align-content: center
+			
+				-- ftd.image:
+				src: $assets.files.assets.logo.svg
+				width.fixed.px: 150
+				
+				-- ftd.image:
+				src: $assets.files.assets.menu.svg
+				width.fixed.px: 24
+				$on-click$: $ftd.toggle($a = $header.open)
+				
+			-- end: ds.row
+
+			-- menu:
+			if: { header.open }
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: header
+
+
+
+
+
+
+
+
+-- component menu:
+
+-- ds.floater:
+anchor: parent
+top: 72
+bottom: 0
+left: 0
+right: 0
+height: hug-content
+background.solid: $ds.colors.background.step-1
+z-index: 1
+align-content: top-left
+inset: $ds.spaces.inset-square.medium
+
+	-- ds.column:
+	inset: $ds.spaces.inset-wide.medium
+	align-content: top-left
+	
+		-- ds.header-link: Docs
+		link: /
+		
+		-- ds.header-link: Blog
+		link: /
+		
+		-- ds.header-link: Pricing
+		link: /
+		
+		-- ds.header-link: Content
+		link: /
+		
+	-- end: ds.column
+
+-- end: ds.floater
+
+-- end: menu
+
+
+
+
+
+
+
+
+
+-- component hero:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-row: hero section
+		margin: $ds.spaces.vertical-gap.extra-extra-large
+		
+			-- ds.column: left column
+			
+				-- ds.heading-tiny: DROPBASE
+				
+				-- ds.heading-large: Unlock insights from Conversations using GenAI
+				
+				-- ds.copy-large:
+				
+				Leverage AI driven insights & actionables from your customer conversations
+				across all channels - Calls, Chats & Meetings to boost your business efficiency
+				
+				-- ds.button-group:
+				
+					-- ds.primary-button: Book Demo
+					
+					-- ds.phosphor-icon-button: Documentation
+					icon: caret-right
+					icon-position: at-end
+					
+				-- end: ds.button-group
+
+			-- end: ds.column
+
+			-- ds.column: right column
+			
+				-- ftd.image: $assets.files.assets.image-2.svg
+				width: fill-container
+				
+			-- end: ds.column
+
+		-- end: ds.section-row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column: hero section
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-square.medium
+		
+			-- ds.heading-small: DROPBASE
+			align: center
+			
+			-- ds.heading-small: Unlock insights from Conversations using GenAI
+			align: center
+			
+			-- ds.copy-regular:
+			align: center
+			
+			Leverage AI driven insights & actionables from your customer conversations
+			across all channels - Calls, Chats & Meetings to boost your business efficiency
+			
+			-- ds.button-group:
+			
+				-- ds.primary-button: Book Demo
+				
+				-- ds.phosphor-icon-button: Documentation
+				icon: caret-right
+				icon-position: at-end
+				variant: link
+				
+			-- end: ds.button-group
+
+			-- ftd.image: $assets.files.assets.image-2.svg
+			width: fill-container
+			border-top-left-radius.px: $ds.radius.medium.top-left
+			border-top-right-radius.px: $ds.radius.medium.top-right
+			border-bottom-left-radius.px: $ds.radius.medium.bottom-left
+			border-bottom-right-radius.px: $ds.radius.medium.bottom-right
+			margin-top.px: $ds.spaces.vertical-gap.large.gap
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: hero
+
+
+
+
+
+
+
+
+
+
+-- component footer:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-column: asdas
+		inner-background.solid: $ds.colors.background.step-2
+		inset: $ds.spaces.inset-square.extra-large
+		spacing: $ds.spaces.vertical-gap.extra-extra-large
+		
+			-- ds.row:
+			spacing: $ds.spaces.horizontal-gap.extra-large
+			align-content: top-center
+			
+				-- ds.column:
+				
+					-- ftd.image: $assets.files.assets.logo.svg
+					width.fixed.px: 195
+					
+					-- ds.copy-regular:
+					margin: $ds.spaces.vertical-gap.medium
+					
+					The developer platform to build internal customer success apps.
+					
+					-- ds.footer-secondary-heading: Backed by
+					
+					-- ds.column:
+					spacing: $ds.spaces.horizontal-gap.extra-extra-small
+					
+						-- ftd.image: $assets.files.assets.gradient.svg
+						width.fixed.px: 150
+						
+						-- ftd.image: $assets.files.assets.yc.svg
+						width.fixed.px: 114
+						
+					-- end: ds.column
+
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.footer-heading: Apps
+					
+					-- ds.footer-link: Database Editors
+					link: /
+					
+					-- ds.footer-link: Admin Panels
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.footer-heading: Product
+					
+					-- ds.footer-link: Request a demo
+					link: /
+					
+					-- ds.footer-link: Pricing
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.footer-heading: Resources
+					
+					-- ds.footer-link: Docs
+					link: /
+					
+					-- ds.footer-link: Local setup
+					link: /
+					
+					-- ds.footer-link: Blog
+					link: /
+					
+					-- ds.footer-link: Support
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.footer-heading: Company
+					
+					-- ds.footer-link: Contact us
+					link: /
+					
+					-- ds.footer-link: Security Center
+					link: /
+					
+					-- ds.footer-link: Terms
+					link: /
+					
+					-- ds.footer-link: Privacy
+					link: /
+					
+				-- end: ds.column
+
+			-- end: ds.row
+
+			-- ds.row:
+			spacing: $ds.spaces.horizontal-gap.space-between
+			
+				-- ds.copyright-text: © Copyright 2023 - Dropbase • All rights reserved.
+				
+				-- ds.copyright-text: San Francisco
+				
+				-- ds.copyright-text: Twitter, LinkedIn, Posts
+				
+			-- end: ds.row
+
+		-- end: ds.section-column
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column:
+		inner-background.solid: $ds.colors.background.step-2
+		inset: $ds.spaces.inset-square.extra-large
+		spacing: $ds.spaces.vertical-gap.extra-large
+		
+			-- ds.column:
+			spacing: $ds.spaces.horizontal-gap.medium
+			align-content: center
+			
+				-- ftd.image: $assets.files.assets.logo.svg
+				width.fixed.px: 195
+				
+				-- ds.fine-print:
+				margin: $ds.spaces.vertical-gap.medium
+				align: center
+				
+				The developer platform to build internal customer success apps.
+				
+				-- ds.copy-regular: Backed by
+				align: center
+				
+				-- ds.column:
+				spacing: $ds.spaces.horizontal-gap.extra-extra-small
+				
+					-- ftd.image: $assets.files.assets.gradient.svg
+					width.fixed.px: 150
+					
+					-- ftd.image: $assets.files.assets.yc.svg
+					width.fixed.px: 114
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.heading-small: Apps
+					align: center
+					
+					-- ds.footer-link: Database Editors
+					link: /
+					
+					-- ds.footer-link: Admin Panels
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.heading-small: Product
+					align: center
+					
+					-- ds.footer-link: Request a demo
+					link: /
+					
+					-- ds.footer-link: Pricing
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.heading-small: Resources
+					align: center
+					
+					-- ds.footer-link: Docs
+					link: /
+					
+					-- ds.footer-link: Local setup
+					link: /
+					
+					-- ds.footer-link: Blog
+					link: /
+					
+					-- ds.footer-link: Support
+					link: /
+					
+				-- end: ds.column
+
+				-- ds.column:
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.heading-small: Company
+					align: center
+					
+					-- ds.footer-link: Contact us
+					link: /
+					
+					-- ds.footer-link: Security Center
+					link: /
+					
+					-- ds.footer-link: Terms
+					link: /
+					
+					-- ds.footer-link: Privacy
+					link: /
+					
+				-- end: ds.column
+
+			-- end: ds.column
+
+			-- ds.column:
+			spacing: $ds.spaces.horizontal-gap.space-between
+			
+				-- ds.copyright-text: © Copyright 2023 - Dropbase • All rights reserved.
+				
+				-- ds.copyright-text: San Francisco
+				
+				-- ds.copyright-text: Twitter, LinkedIn, Posts
+				
+			-- end: ds.column
+
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: footer
+
+
+
+
+
+
+
+
+
+
+-- component book-demo:
+
+-- ds.section-column:
+margin: $ds.spaces.vertical-gap.extra-large
+inner-background.solid: $ds.colors.background.step-1
+inset: $ds.spaces.inset-square.large
+
+	-- ds.copy-large:
+	align: center
+	
+	Build apps for your customer success and ops teams today
+	
+	-- ds.primary-button: Book demo
+	
+-- end: ds.section-column
+
+-- end: book-demo
+
+
+
+
+
+
+
+
+
+
+-- component features:
+
+-- ds.section-row:
+spacing: $ds.spaces.vertical-gap.space-between
+wrap: true
+flush if { ftd.device == "mobile" }: full
+
+	-- feature: Dropbase Studio.
+	
+	Write, debug, and preview your apps in one place
+	
+	-- feature:  UI Components.
+	
+	Select UI components from a dropdown
+	
+	-- feature:  All Python.
+	
+	Write any function in Python. Get full code flexibility
+	
+	-- feature:  Code completion.
+	
+	Built-in Python LSP to speed up development
+	
+	-- feature:  Smart Tables.
+	
+	Turn any SQL into an inline editable tables
+	
+	-- feature:  Instant deploys.
+	
+	Apps automatically deployed as you build them
+	
+	-- feature:  Synced state.
+	
+	Client-server share state. No need to write React
+	
+	-- feature:  Python libraries.
+	
+	Access libraries such as numpy and pandas
+	
+	-- feature:  Integrations.
+	
+	Connect Postgres or any internal or external REST API
+	
+-- end: ds.section-row
+
+-- end: features
+
+
+
+
+
+
+
+
+
+
+-- component feature:
+caption title:
+body description:
+
+-- ds.container:
+background.solid: $ds.colors.background.step-1
+width if { ftd.device == "mobile" }: fill-container
+width.fixed.percent: 30
+inset: $ds.spaces.inset-square.large
+inset if { ftd.device == "mobile" }: $ds.spaces.inset-square.medium
+radius: $ds.radius.large
+height.fixed.px if { ftd.device != "mobile" }: 244
+
+	-- ds.copy-regular:
+	color: $ds.colors.text-strong
+	
+	$with-space(a = $feature.title)
+	
+	-- ds.copy-regular:
+	
+	$feature.description
+	
+-- end: ds.container
+
+-- end: feature
+
+
+
+
+
+
+
+
+
+
+-- component smart-tables:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-column:
+		margin: $ds.spaces.vertical-gap.extra-large
+		
+			-- ds.heading-hero: Turn any SQL SELECT into an admin panel with Smart Tables.
+			align: center
+			
+			-- ds.copy-large:
+			align: center
+			
+			Convert any SQL select statement into an admin panel that lets you search and
+			edit your data. It even works with JOIN statements without writing any
+			additional queries or functions. Build admin panels in seconds.
+			
+			-- ftd.video:
+			width.fixed.percent: 90
+			src: $assets.files.assets.video.mp4
+			
+		-- end: ds.section-column
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column:
+		margin: $ds.spaces.vertical-gap.extra-large
+		
+			-- ds.heading-small: Turn any SQL SELECT into an admin panel with Smart Tables.
+			align: center
+			
+			-- ds.copy-small:
+			align: center
+			
+			Convert any SQL select statement into an admin panel that lets you search and
+			edit your data. It even works with JOIN statements without writing any
+			additional queries or functions. Build admin panels in seconds.
+			
+			-- ftd.video:
+			src: $assets.files.assets.video.mp4
+			width: fill-container
+			border-top-left-radius.px: $ds.radius.medium.top-left
+			border-top-right-radius.px: $ds.radius.medium.top-right
+			border-bottom-left-radius.px: $ds.radius.medium.bottom-left
+			border-bottom-right-radius.px: $ds.radius.medium.bottom-right
+			margin-top.px: $ds.spaces.vertical-gap.extra-large.gap
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: smart-tables
+
+
+
+
+
+
+
+
+
+
+-- component existing-py:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-row: hero section
+		margin: $ds.spaces.vertical-gap.extra-large
+		
+			-- ds.column: left column
+			
+				-- ds.heading-hero: Works with your existing .py scripts
+				
+				-- ds.copy-large:
+				
+				Instead of re-writing your scripts to fit yet another framework, Dropbase just
+				works with them. Layer a beautifully designed UI atop all your .py scripts or
+				runbooks.
+				
+			-- end: ds.column
+
+			-- ds.column: right column
+			
+				-- ftd.image: $assets.files.assets.image.svg
+				width: fill-container
+				
+			-- end: ds.column
+
+		-- end: ds.section-row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column:
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-square.medium
+		
+			-- ds.heading-tiny: Works with your existing .py scripts
+			align: center
+			
+			-- ds.copy-small:
+			align: center
+			
+			Instead of re-writing your scripts to fit yet another framework, Dropbase just
+			works with them. Layer a beautifully designed UI atop all your .py scripts or
+			runbooks.
+			
+			-- ftd.image: $assets.files.assets.image.svg
+			width: fill-container
+			border-top-left-radius.px: $ds.radius.medium.top-left
+			border-top-right-radius.px: $ds.radius.medium.top-right
+			border-bottom-left-radius.px: $ds.radius.medium.bottom-left
+			border-bottom-right-radius.px: $ds.radius.medium.bottom-right
+			margin-top.px: $ds.spaces.vertical-gap.extra-large.gap
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: existing-py
+
+
+
+
+
+
+
+
+
+
+-- component granular-permissions:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-row: hero section
+		margin: $ds.spaces.vertical-gap.extra-large
+		
+			-- ds.column: left column
+			
+				-- ftd.image: $assets.files.assets.image-2.svg
+				width: fill-container
+				
+			-- end: ds.column
+
+			-- ds.column: right column
+			
+				-- ds.heading-hero: Granular permissions for surgical app control.
+				
+				-- ds.copy-large:
+				
+				Surgically control end-user access on an app-by-app basis. Assign app
+				permissions to users or groups. Control who can view, edit or own any app.
+				
+			-- end: ds.column
+
+		-- end: ds.section-row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column: hero section
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-square.medium
+		
+			-- ds.heading-small: Granular permissions for surgical app control.
+			align: center
+			
+			-- ds.copy-small:
+			align: center
+			
+			Surgically control end-user access on an app-by-app basis. Assign app
+			permissions to users or groups. Control who can view, edit or own any app.
+			
+			-- ftd.image: $assets.files.assets.image-2.svg
+			width: fill-container
+			border-top-left-radius.px: $ds.radius.medium.top-left
+			border-top-right-radius.px: $ds.radius.medium.top-right
+			border-bottom-left-radius.px: $ds.radius.medium.bottom-left
+			border-bottom-right-radius.px: $ds.radius.medium.bottom-right
+			margin-top.px: $ds.spaces.vertical-gap.large.gap
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: granular-permissions
+
+
+
+
+
+
+
+
+
+
+-- component any-data-or-api:
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.section-column:
+		margin: $ds.spaces.vertical-gap.extra-large
+		spacing: $ds.spaces.vertical-gap.medium
+		
+			-- ds.inline-row:
+			spacing: $ds.spaces.horizontal-gap.extra-large
+			
+				-- ftd.image:
+				src: $assets.files.assets.postgres.svg
+				
+				-- ftd.image:
+				src: $assets.files.assets.stripe.svg
+				
+				-- ftd.image:
+				src: $assets.files.assets.hubspot.svg
+				
+			-- end: ds.inline-row
+
+			-- ds.heading-small: and any REST API.
+			width: hug-content
+			
+		-- end: ds.section-column
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.section-column:
+		margin: $ds.spaces.vertical-gap.extra-large
+		inset: $ds.spaces.inset-square.medium
+		
+			-- ds.inline-row:
+			wrap: true
+			spacing: $ds.spaces.horizontal-gap.large
+			
+				-- ftd.image:
+				src: $assets.files.assets.postgres.svg
+				
+				-- ftd.image:
+				src: $assets.files.assets.stripe.svg
+				
+				-- ftd.image:
+				src: $assets.files.assets.hubspot.svg
+				
+			-- end: ds.inline-row
+
+			-- ds.heading-tiny: and any REST API.
+			color: $ds.colors.text
+			width: hug-content
+			
+		-- end: ds.section-column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: any-data-or-api
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- string with-space(a):
+string a:
+
+a + " "

@@ -1,0 +1,119 @@
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/site-data
+
+-- component avatar:
+ud.user-data user-data:
+module site-data: site-data
+boolean $open: false
+
+
+-- ftd.row:
+spacing.fixed.px: 4
+$on-click$: $ftd.toggle($a = $avatar.open)
+$on-click-outside$: $ftd.set-boolean($a = $avatar.open, v = false)
+
+	-- ds.circle-text-button: $get-initials(name=$avatar.user-data.username)
+	
+	-- popup:
+	user-data: $avatar.user-data
+	site-data: $avatar.site-data
+	$open: $avatar.open
+	
+-- end: ftd.row
+
+
+
+
+-- end: avatar
+
+
+
+-- component popup:
+ud.user-data user-data:
+module site-data: site-data
+boolean $open:
+
+-- ftd.column:
+$on-global-key[esc]$: $ftd.set-boolean($a = $popup.open, v = false)
+if: { popup.open }
+width.fixed.px: 260
+background.solid: $inherited.colors.background.base
+border-color: $inherited.colors.border
+border-radius.px: 8
+border-width.px: 1
+anchor: parent
+right.px: 0
+top.px: 67
+padding.px: 8
+
+	-- ftd.column:
+	width: fill-container
+	spacing.fixed.px: 8
+	padding-vertical.px: 24
+	align-content: center
+	border-bottom-width.px: 1
+	border-color: $inherited.colors.border
+	
+		-- ds.circle-text-button: $get-initials(name=$popup.user-data.username)
+		
+		-- ds.copy-regular: $popup.user-data.name
+		
+		-- ds.copy-regular: $popup.user-data.username
+		
+	-- end: ftd.column
+
+	/-- ftd.row:
+	width: fill-container
+	padding-vertical.px: 12
+	padding-horizontal.px: 8
+	border-bottom-width.px: 1
+	border-color: $inherited.colors.border
+	spacing.fixed.px: 8
+	
+	/-- ftd.image:
+	src: $assets.files.assets.slides.setting.svg
+	width.fixed.px: 24
+	height.fixed.px: 24
+	align-self: center
+	
+	/-- ftd.text: Account settings
+	role: $inherited.types.copy-regular
+	color: $inherited.colors.text
+	
+	/-- end: ftd.row
+	
+	-- ftd.row:
+	width: fill-container
+	padding-vertical.px: 12
+	padding-horizontal.px: 8
+	spacing.fixed.px: 8
+	
+		-- ftd.image:
+		src: $assets.files.assets.slides.logout.svg
+		width.fixed.px: 24
+		height.fixed.px: 24
+		align-self: center
+		
+		-- ftd.text: $lang.sign-out
+		role: $inherited.types.copy-regular
+		color: $inherited.colors.text
+		link: $popup.site-data.logout-url
+		
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: popup
+
+
+
+
+
+
+
+
+-- string get-initials(name):
+string name:
+js: $assets.files.assets.functions.js
+
+get_initials(name)

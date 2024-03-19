@@ -1,0 +1,22 @@
+-- ds.page: CLI Auth
+
+Some of the fastn packages would be hosted by fifthtry, and some would be self-hosted. In case
+of self hosted, each site is unique, and we need to authenticate with each site. In case of FifthTry
+hosted sites, we can use the same authentication for all sites.
+
+How do we know if any given package is hosted by FifthTry or not? In `.fastn/config.json` we have:
+
+-- ds.code:
+lang: ftd
+body: <BODY
+
+-- record config:
+string api-end-point: https://fifthtry.com/api
+;; self hosted sites, or sites using custom oath providers will store credentials in this file
+;; fifthtry hosted sites will use the credentials stored in ~/.fastn/config.json
+optional credentials:
+
+BODY>
+
+
+-- end: ds.page

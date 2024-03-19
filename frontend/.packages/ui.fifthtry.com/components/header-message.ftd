@@ -1,0 +1,16 @@
+-- import: ui.fifthtry.com/ds
+
+-- component header-message:
+ftd.color background-color: $inherited.colors.custom.eight
+caption message:
+
+-- ds.row:
+radius: $ds.radius.zero
+background.solid: $header-message.background-color
+
+-- ds.copy-regular: $header-message.message
+color: white
+
+-- end: ds.row
+
+-- end: header-message

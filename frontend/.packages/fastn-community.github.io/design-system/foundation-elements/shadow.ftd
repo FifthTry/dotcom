@@ -1,0 +1,94 @@
+-- record shadow-data:
+ftd.shadow extra-extra-small:
+ftd.shadow extra-small:
+ftd.shadow small:
+ftd.shadow medium:
+ftd.shadow large:
+ftd.shadow extra-large:
+ftd.shadow extra-extra-large:
+
+-- shadow-data shadow:
+extra-extra-small: $extra-extra-small
+extra-small: $extra-small
+small: $small
+medium: $medium
+large: $large
+extra-large: $extra-large
+extra-extra-large: $extra-extra-large
+
+
+
+
+
+-- ftd.shadow extra-extra-small:
+color: #000000
+blur.px: 0
+spread.px: 1
+x-offset.px: 0
+y-offset.px: 0
+
+
+
+
+
+-- ftd.shadow extra-small:
+color: #000000
+blur.px: 2
+spread.px: 0
+x-offset.px: 0
+y-offset.px: 1
+
+
+
+
+
+-- ftd.shadow small:
+color: #000000
+blur.px: 3
+spread.px: 0
+x-offset.px: 0
+y-offset.px: 1
+
+
+
+
+
+-- ftd.shadow medium:
+color: #000000
+blur.px: 6
+spread.px: -1
+x-offset.px: 0
+y-offset.px: 4
+
+
+
+
+
+-- ftd.shadow large:
+color: #000000
+blur.px: 15
+spread.px: -3
+x-offset.px: 0
+y-offset.px: 10
+
+
+
+
+
+-- ftd.shadow extra-large:
+color: #000000
+blur.px: 25
+spread.px: -5
+x-offset.px: 0
+y-offset.px: 20
+
+
+
+
+
+-- ftd.shadow extra-extra-large:
+color: #000000
+blur.px: 50
+spread.px: -12
+x-offset.px: 0
+y-offset.px: 25

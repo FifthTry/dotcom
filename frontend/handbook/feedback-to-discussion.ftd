@@ -1,0 +1,94 @@
+
+
+
+-- ds.page: Feedback To Discussion
+
+tldr: if you get a feedback from someone, create or update a thread in [our
+Ideas and RFCs](https://github.com/fastn-stack/fastn/discussions/categories/ideas-rfc).
+
+-- ds.h1: Who It Applies To
+
+This guideline is for every member of FifthTry who talks to outsiders about
+what we do (doesn't everyone who works at FifthTry does that?).
+
+This is especially important if you play a role in support, marketing,
+training, development etc roles in FifthTry.
+
+-- ds.h1: Guideline - create threads
+
+When you talk to people about stuff we do, especially about fastn stack, they
+will give pushbacks, objections, feedbacks. You are requested to create
+discussion thread in [fastn discussion forum](https://github.com/fastn-stack/fastn/discussions/categories/ideas-rfc).
+
+Before creating a new thread see if any existing thread captures the same
+feedback. If thread exists, add a new comment about the new source of feedback.
+
+Upvote the feedback thread for everytime the feedback is recieved to help us
+guage which feedbacks are more frequent.
+
+-- ds.h2: Each idea should be independent
+
+Each feedback should be independent thread.
+
+
+-- ds.h2: Encourage others to create discussion thread
+
+If at all possible try to get them to create thread.
+
+-- ds.h1: Guideline - nurture threads
+
+Once threads are created do share the thread with the person who gave the
+feedback so they can subscribe to the thread and be notified if we have an
+update.
+
+Also share the link to feedback with the right team so they can take action.
+
+Try to become champion of feedbacks. Adopt a feedback. See if work is happening
+on the feedback. With a flurry of feedback things will start to fall through
+the cracks, so keep the stuff that is important to you somewhere, and keep
+coming back to it till it is resolved.
+
+Update and curate the threads to end users can get clear understanding of
+feedback.
+
+-- ds.h1: Rationale
+
+We at FifthTry are trying to create an open source company. More and more of our
+thought process should be public. We want our decision making to happen in
+public.
+
+The most important factor that affects our decision making is feedback we get
+from people who are using our products and services or are considering using
+it.
+
+As employees we will hear these feedback in all sorts of places, meetings,
+random conversations etc. Based on these feedback we are updating our mental
+models.
+
+But if these feedbacks are not made publicly available, outsiders, users of our
+product, potential contributors to our open source projects etc will not be
+replicate those mental models, and will have a hard time understanding our
+decision making process.
+
+
+-- ds.h1: Ajit's story
+
+Few days back we spoke with new FTD learners Saurabh and Suryansh, and they were
+not too happy.
+
+Then Ajit and Ganesh spoke with them and discussed their feedback in detail. We
+asked them to post their feedback. Based on that when Ajit spoke next day they were
+more enthusiastic.
+
+Taking people's feedback and giving them a place where the feedback is visible, gives
+people confidence as they are part of our team.
+
+
+Moral of the story is people will come and they will find things lacking. We are a
+new technology, it will take us time to atain maturity. What matters is what we do
+in the interim. How do we make them part of the process and the solution.
+Collaboratively gathering public feedback is the first step towards this.
+
+
+
+-- end: ds.page

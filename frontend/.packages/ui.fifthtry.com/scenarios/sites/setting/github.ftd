@@ -1,0 +1,23 @@
+-- import: ui.fifthtry.com/pages/sites/setting/github
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+-- github.page:
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/user/dashboard/
+data: $data
+site-data: scenario-site
+
+-- sites-records.gh-oidc-data data:
+account: FifthTry
+repo: ft
+branch: main
+is-configured: true
+configure-url: /scenarios/sites/setting/configure-github/
+
+-- sites-records.navigation-info nav:
+dashboard-url: /scenarios/sites/dashboard/
+current-page: github

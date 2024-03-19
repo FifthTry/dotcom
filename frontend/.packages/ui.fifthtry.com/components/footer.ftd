@@ -1,0 +1,183 @@
+-- import: ui.fifthtry.com/site-data
+
+-- component footer:
+module site-data: site-data
+
+-- ds.section-column:
+inset: $ds.spaces.inset-wide.medium
+
+-- ds.column:
+border: $ds.borders.top.medium
+border-color: $ds.colors.cta-primary.border
+radius: $ds.radius.zero
+inset: $ds.spaces.inset-tall.zero-small
+spacing: $ds.spaces.vertical-gap.large
+
+-- ftd.desktop:
+
+-- ds.row:
+spacing: $ds.spaces.horizontal-gap.space-between
+
+-- footer-toc-content:
+-- footer-logo-content:
+
+-- end: ds.row
+
+-- ds.row:
+spacing: $ds.spaces.horizontal-gap.space-between
+border: $ds.borders.top.small
+inset: $ds.spaces.inset-tall.zero-medium
+radius: $ds.radius.zero
+
+-- ds.copy-small: © 2024 FifthTry. All rights reserved
+-- footer-social-content:
+
+-- end: ds.row
+
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
+-- ds.column:
+spacing: $ds.spaces.vertical-gap.large
+align-content: top-left
+
+-- footer-toc-content:
+-- footer-logo-content:
+-- ds.copy-small: © 2024 FifthTry. All rights reserved
+-- footer-social-content:
+
+-- end: ds.column
+
+-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: ds.section-column
+
+-- end: footer
+
+
+
+
+
+
+
+
+-- component footer-toc-content:
+module site-data: site-data
+
+-- ds.column:
+spacing: $ds.spaces.vertical-gap.large
+align-content: left
+
+	-- ftd.image:
+	src: $assets.files.assets.logo.svg
+	width.fixed.px: 90
+
+	-- ds.row:
+	align-content: left
+	spacing: $ds.spaces.horizontal-gap.medium
+
+	-- ds.link: **Pricing**
+	color: $ds.colors.text-strong
+	link: $footer-toc-content.site-data.pricing-url
+	align: center
+
+	-- ds.link: **Team**
+	color: $ds.colors.text-strong
+	link: $footer-toc-content.site-data.team-url
+	align: center
+
+	-- ds.link: **About Us**
+	color: $ds.colors.text-strong
+	link: $footer-toc-content.site-data.about-url
+	align: center
+
+	-- ds.link: **Terms**
+	color: $ds.colors.text-strong
+	link: $footer-toc-content.site-data.terms-url
+	align: center
+	
+	-- ds.link: **Privacy**
+	color: $ds.colors.text-strong
+	link: $footer-toc-content.site-data.privacy-url
+	align: center
+
+	-- end: ds.row
+
+-- end: ds.column
+
+-- end: footer-toc-content
+
+
+
+
+
+-- component footer-logo-content:
+
+-- ds.column:
+spacing: $ds.spaces.vertical-gap.large
+align-content if { ftd.device != "mobile" }: right
+align-content if { ftd.device == "mobile" }: left
+
+-- ftd.image:
+src: $assets.files.assets.yc.svg
+height: fill-container
+width.fixed.px: 243
+link: https://www.ycombinator.com/companies/fifthtry
+
+-- ftd.image:
+src: $assets.files.assets.hostn.svg
+width.fixed.px: 187
+
+-- end: ds.column
+
+-- end: footer-logo-content
+
+
+
+
+
+-- component footer-social-content:
+boolean $icon-1: false
+boolean $icon-2: false
+boolean $icon-3: false
+boolean $icon-4: false
+
+	-- ds.row:
+	align-content: right
+	width: hug-content
+	spacing: $ds.spaces.horizontal-gap.medium
+
+	-- ftd.image:
+	src if { !footer-social-content.icon-1 }: $assets.files.assets.homepage.tweet.svg
+	src: $assets.files.assets.homepage.tweet-h.svg
+	$on-mouse-enter$: $ftd.set-bool($a = $footer-social-content.icon-1, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $footer-social-content.icon-1, v = false)
+	link: https://twitter.com/FifthTryHQ
+
+	-- ftd.image:
+	src if { !footer-social-content.icon-2 }: $assets.files.assets.homepage.linkedin.svg
+	src: $assets.files.assets.homepage.linkedin-h.svg
+	$on-mouse-enter$: $ftd.set-bool($a = $footer-social-content.icon-2, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $footer-social-content.icon-2, v = false)
+	link: https://in.linkedin.com/company/fifthtry
+
+	-- ftd.image:
+	src if { !footer-social-content.icon-3 }: $assets.files.assets.homepage.fb.svg
+	src: $assets.files.assets.homepage.fb-h.svg
+	$on-mouse-enter$: $ftd.set-bool($a = $footer-social-content.icon-3, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $footer-social-content.icon-3, v = false)
+	link: https://github.com/FifthTry
+	
+	-- ftd.image:
+	src if { !footer-social-content.icon-4 }: $assets.files.assets.homepage.gh.svg
+	src: $assets.files.assets.homepage.gh-h.svg
+	$on-mouse-enter$: $ftd.set-bool($a = $footer-social-content.icon-4, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $footer-social-content.icon-4, v = false)
+	link: https://github.com/FifthTry
+
+	-- end: ds.row
+
+-- end: footer-social-content

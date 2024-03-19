@@ -1,0 +1,7 @@
+-- import: fastn
+
+-- fastn.test: Recreate database
+
+-- fastn.post: Recreating database
+url: /itest/action/recreate-db/
+body: {} ;; remove this later

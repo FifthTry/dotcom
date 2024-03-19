@@ -1,0 +1,11 @@
+-- import: ui.fifthtry.com/pages/slides/templates
+-- import: fastn/processors as pr
+
+
+-- templates.template-data data:
+$processor$: pr.http
+url: http://127.0.0.1:7999/view/get-public-templates/
+
+-- templates.page:
+user-data: user-data
+data: $data

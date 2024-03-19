@@ -1,0 +1,98 @@
+-- ds.page: Repo Checks 🚧
+
+`Fifthtry` guidelines which are followed for every repository (historical or
+current) in the following official `GitHub` organizations:
+
+- fifthtry
+- fastn-stack
+- fastn-community
+
+Overall goal is to create a standard for all repos that are part of `FifthTry`
+as an company.
+
+-- ds.h1: Repo Classifications
+
+Based on the components the repo's can be classified as followings:
+
+- [ft-code-repo](/handbook/repo-checks/#ft-code-repo)
+- [ft-font-repo](/handbook/repo-checks/#ft-font-repo)
+- [ft-typography-repo](/handbook/repo-checks/#ft-typography-repo)
+- [typography repo](/handbook/repo-checks/#typography-repo)
+
+-- ds.h1: Common Repo Checks
+
+There are some common settings that each repo from all classifications and
+organizations must have.
+
+Following are the labels we add once a repo is verified.
+
+-- ds.h2: `ft-repo-type-*`
+
+Based on the classification of repo (repo classifications are mentioned in this
+file) this `label` must be present.
+
+-- ds.h2: `ft-verified-mar-2023`
+
+This label will be applied to a repo if it was verified in March 2023.
+
+-- ds.h2: `ft-main-branch-protected`
+
+If main branch is protected.
+
+- Require a pull request before merging
+- Require status checks to pass before merging
+- Require conversation resolution before merging
+- Require signed commits
+- Do not allow bypassing the above settings
+
+-- ds.h2: `ft-repo-config`
+
+**`General` Settings**:
+
+- *Require contributors to sign off on web-based commits* should be **on**
+- *Wikis* should be **off**
+- *Issues* should be **on**
+- *Sponsorship* should be **off**
+- *Preserve this repo* should be **on**
+- *Discussions* should be **on**
+- *Projects* should be **off**
+- *Pull request*: all this should be **on**
+- *Always suggest updating pull request branches* should be **on**
+- *Allow auto-merge* should be **on**
+- *Automatically delete head branches* should be **on**
+- *Include Git LFS objects in archives* should be **on**
+- *Limit how many branches and tags can be updated in a single push* should be **on** with 5 as value
+
+**Collaboration Settings**:
+
+Each organisation will have two teams: `admins` and `everyone`.
+
+- Collaborators and teams -> Manage Access: Team: admins -> Role: Admin, Team:
+  everyone -> Role: Write
+
+Moderation Options -> Reported Content:
+
+- *Accept content reports from collaborators and prior contributors* should be **on**.
+
+Code security and analysis:
+
+- *Private vulnerability reporting* should be enabled
+- Dependabots -> Dependabot alerts should be enabled
+- Dependabot security updates
+
+-- ds.h1: `ft-code-repo`
+
+These checks are for code repos, like `fastn-stack/fastn`.
+
+-- ds.h1: `ft-font-repo`
+
+- Repo name must end with `-font`
+- Repo name must have same name as the font-name
+- Repo license must be same as the font license
+
+-- ds.h1: `ft-typography-repo`
+
+-- ds.h1: `typography repo`
+
+
+-- end: ds.page

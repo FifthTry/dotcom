@@ -1,0 +1,71 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/site-header
+-- import: ui.fifthtry.com/components/sites/site-domain-info
+-- import: ui.fifthtry.com/components/label
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/sites/domains/add-domain
+-- import: ui.fifthtry.com/actions/sites/domains/delete-domain
+-- import: ui.fifthtry.com/actions/sites/domains/make-primary-domain
+-- import: ui.fifthtry.com/actions/sites/domains/re-check-domain
+-- import: ui.fifthtry.com/utils as u
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+sites-records.domain list domains:
+module add-domain: add-domain
+module delete-domain: delete-domain
+module make-primary-domain: make-primary-domain
+module re-check-domain: re-check-domain
+integer $active: -1
+optional string top-message:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+dashboard-url: $page.dashboard-url
+current-page: domains
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-square.large
+	spacing: $ds.spaces.vertical-gap.large
+	margin: $ds.spaces.vertical-gap.zero
+	
+		-- ds.column:
+		spacing: $ds.spaces.vertical-gap.small
+		
+			-- ds.column:
+			align-content: left
+			background.solid: $ds.colors.background.step-1
+			inset: $ds.spaces.inset-square.medium
+			border: $ds.borders.uniform.small
+			
+				-- site-domain-info.domain-input:
+				add-domain: $page.add-domain
+				site-slug: $page.site.site-slug
+				
+			-- end: ds.column
+
+		-- end: ds.column
+
+		-- site-domain-info.show-site-domain: $d
+		for: d in $page.domains
+		index: $LOOP.COUNTER
+		site: $page.site
+		delete-domain: $page.delete-domain
+		make-primary-domain: $page.make-primary-domain
+		re-check-domain: $page.re-check-domain
+		$active: $page.active
+		
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

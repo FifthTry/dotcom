@@ -1,0 +1,85 @@
+-- ds.page: Architecture Decision Records At FifthTry
+
+[What is ADR?](https://adr.github.io)
+
+[ADR Template](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/locales/en/templates/decision-record-template-by-michael-nygard/index.md)
+
+- [anycast routing](/dev/adr/001-anycast/)
+
+
+-- end: ds.page
+
+
+-- or-type adr-status:
+
+-- constant integer proposed: 0
+-- constant integer accepted: 1
+-- constant integer rejected: 2
+-- constant integer deprecated: 3
+-- constant integer superseded: 4
+
+-- end: adr-status
+
+
+-- record c:
+optional body b:
+children children:
+
+-- component adr:
+caption title:
+adr-status status:
+c context:
+c decision:
+c consequences:
+
+-- ds.page: $adr.title
+
+	-- display-status: $adr.status
+	
+	-- display-c: Context
+	c: $adr.context
+	
+	/-- display-c: Decision
+	c: $adr.decision
+	
+	-- display-c: Consequences
+	c: $adr.consequences
+	
+-- end: ds.page
+
+-- end: adr
+
+
+-- component display-status:
+caption adr-status status:
+
+-- ds.h2: Status
+body if { display-status.status == proposed }: Proposed
+body if { display-status.status == accepted }: Accepted
+body if { display-status.status == rejected }: Rejected
+body if { display-status.status == deprecated }: Deprecated
+body if { display-status.status == superseded }: Superseded
+
+-- end: display-status
+
+
+
+-- component display-c:
+caption title:
+c c:
+
+-- ftd.column:
+
+	-- ds.h2: $display-c.title
+	
+	-- ds.markdown:
+	if: { display-c.c.b != NULL }
+	
+	$display-c.c.b
+	
+	-- c:
+	for: c in $display-c.c.children
+	
+-- end: ftd.column
+
+-- end: display-c

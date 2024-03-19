@@ -1,0 +1,27 @@
+-- import: ui.fifthtry.com/pages/university
+-- import: ui.fifthtry.com/pages/university/course
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+-- course.page: $f4e
+user-data: $john-doe.jd
+
+
+-- university.course f4e: `fastn` for Everyone
+url: /fastn-for-everyone/
+
+-- f4e.chapters:
+
+-- university.chapter: Getting Started
+url: /getting-started-with-fastn/
+
+-- university.chapter.concepts:
+
+	-- university.concept: Installing `fastn`
+	url: /installing-fastn/
+	
+	-- university.concept: Configuring Your Editor
+	url: /editor/
+	
+-- end: university.chapter.concepts
+
+-- end: f4e.chapters

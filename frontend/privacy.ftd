@@ -1,0 +1,6 @@
+-- import: ui.fifthtry.com/pages/about/privacy
+-- import: www.fifthtry.com/just-user-data
+
+
+-- privacy.page:
+user-data: $just-user-data.ud

@@ -1,0 +1,71 @@
+-- ds.page: Rendering A Slide
+
+During render we will have to create a new fastn package.
+
+The user generated part of content is stored in database, but dependency ones
+would be fetched.
+
+-- ds.h1: `Render Folder`
+
+Render life cycle is very small, it only lasts as long as the two phase save is
+happening.
+
+When the render api is called, we create a unique folder for that specific
+render. The unique folder will be named `<render-base>/<render-specific-guid>`.
+
+In that folder we store the `FASTN.ftd`, `settings.ftd` and `index.ftd` (the
+`content` argument of the render API).
+
+We will call `fastn build` from the `render-specific-guid` folder, and use
+`render-specific-guid` as the `base` URL.
+
+Render API returns the `render-specific-guid`.
+
+-- ds.h2: Dependency Caching
+
+Since dependencies would be downloaded again and again during render as each render will get it's own unique folder,
+we will use the proxy feature, and run a disc based caching proxy server, so all downloads are local.
+
+Search for FASTN_PACKAGE_PROXY in `fastn` codebase to see proxy support. We have proxy also available:
+https://github.com/fastn-stack/package-proxy/blob/main/src/main.rs, we will modify it to do a disc based caching,
+check if the file is present on the disc before serving.
+
+When would we purge the cache? After every few minutes. We will implement stale while revalidate technique and
+re-validate every min.
+
+-- ds.h3: Skip Cache
+
+We can also create a skip cache UI flag, and if that is set we will disable caching altogether.
+
+-- ds.h1: Serving Render Folder
+
+The iframe will point to `/iframe/<render-specific-guid>/`, and we will put a
+static serving feature in fastn to serve everything from `/iframe/` to
+`<render-base>/`.
+
+-- ds.h1: Save Phase
+
+We will load the render url in two iframes, one with presentation-preset
+dimension, and other with thumbnail dimension, and once `iframe` is loaded, the
+iframe will tell parent to take snapshot, and collect all data (content, either
+error message or the two snapshots, and send them to save api).
+
+On successful save we will delete the render folder.
+
+-- ds.h1: Renderer Service
+
+The render API can deployed on a standalone instance. Since we are running
+untrusted ftd code from end users, it can potentially bring down our service, so
+it is a good idea to isolate this service from the main service.
+
+The render API will have to be forwarded to the render service, and the
+`/iframe/` URL has to be proxied to them.
+
+Render service only needs readonly db connection. We will use readonly
+connection there to mitigate the possibility of getting hacked by the untrusted
+code (although it is very unlikely, but still). And since the render service
+only need the content of the three ftd files (FASTN.ftd, settings.ftd, index
+.ftd), we can pass these directly so the render service does not need any DB
+access at all. This way we can run a bunch of render services, and scale them.
+
+-- end: ds.page

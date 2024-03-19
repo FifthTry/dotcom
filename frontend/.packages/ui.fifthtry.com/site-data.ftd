@@ -1,0 +1,20 @@
+;; this file contains the default values for the site, this should reflect
+;; the values we want to use in production. For scenarios there is a different
+;; file: scenarios/scenario-site.ftd.
+
+
+-- string homepage: /
+
+-- ftd.image-src logo: $assets.files.assets.logo.svg
+
+-- string sign-in-url: /-/auth/login/
+-- string sign-up-url: /-/auth/create-account/
+-- string github-url: /-/auth/github/
+-- string logout-url: /-/auth/logout/
+-- string forgot-url: /-/auth/forgot/
+
+-- string pricing-url: /pricing/
+-- string about-url: /about/
+-- string team-url: /team/
+-- string terms-url: /terms/
+-- string privacy-url: /privacy/

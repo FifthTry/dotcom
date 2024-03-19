@@ -1,0 +1,11 @@
+-- optional string save-presentation-settings-error:
+
+-- void submit(team, presentation, fastn, settings, module):
+string team:
+string presentation:
+string fastn:
+string settings:
+string module:
+js: $assets.files.assets.functions.js
+
+callAlert("Save Presentation Settings called")

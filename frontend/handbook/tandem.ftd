@@ -1,0 +1,68 @@
+
+
+
+-- ds.page: Tandem
+
+
+We are using [Tandem](https://tandem.chat) since Oct 2022.
+
+-- ds.h1: Motivation
+
+We are trying to be a [remote company](/h/remote/). While we prefer written
+communication, some things still is done best over calls. Discussing ideas for
+example. Getting feedback on design, code etc. Asking for help in some cases.
+
+Of course all ideas should be in writing. Of course all feedback should be in
+writing. Of course all questions about help should be in writing. And we will
+work towards that, if we are doing chat/calls to avoid these writings, then we
+are failing. If you had an idea, do write up the idea, and then get on a call
+to hear the feedback. You must also then update your written idea based on the
+feedback, or note down the feedback during the call. If you are giving design
+feedback, there should be written summary of what was discussed on call. If
+you call someone some for help, unless it is early days in using the technology
+or there should be again written record.
+
+Written records help company massively. Also they are easy to trace, so as a
+company we are trying to do these things, meaning you should personally look at
+yourself and ask yourself how many written communications, discussions you are
+having. If none, you should take this up in one on one meeting and try to get it
+addressed.
+
+
+-- ds.h1: Why Not Slack Huddle?
+
+We used to use Slack's Huddle feature. But moved to Tandem becasue we feel
+Tandem is better than Huddle. if I initiate a call with someone, they can start
+hearing me as soon as I press the button, this way it is a bit more like a
+walkie talkie, and reflects better how we do things in offline offices, where I
+can just walk up to someone start talking.
+
+Further, Huddles are private, but in Tandem, anyone can join any ongoing
+meeting, without existing people inviting you, this is also much closer to how
+offline offices function. One can always lock the meeting if they want to
+discuss sensitive/private stuff.
+
+
+-- ds.h1: History
+
+
+-- ds.h2: Disabled Chat
+
+Date: 5th Apr 2023
+
+Disabled the chat feature in Tandem.
+
+-- ds.h2: Officially Started Using Tandem
+
+Date: 15th Nov 2022
+
+Entire team was invited on Tandem.
+
+-- ds.h2: Started Tandem POC
+
+Date: Around 20th Oct 2022
+
+Initially we did an experiment with just AmitU, Arpita and AbrarK. We used be
+logged at the start of the day.
+
+-- end: ds.page

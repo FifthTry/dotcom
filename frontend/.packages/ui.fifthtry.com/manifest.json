@@ -1,0 +1,1711 @@
+{
+  "files": {
+    "FASTN.ftd": {
+      "name": "FASTN.ftd",
+      "checksum": "99223A77B43DAFD08925868D27451B18E723310589C5E8A5E48F8EA180BD4E06",
+      "size": 952
+    },
+    "README.md": {
+      "name": "README.md",
+      "checksum": "E82BB2B1880C901DEA7FD7B714AE4E7BF815BB2315F3F8A72527B6977F603E13",
+      "size": 186
+    },
+    "_config.yml": {
+      "name": "_config.yml",
+      "checksum": "A42D91290C93B5F17412C3B346737EA1C796E5D287306758AFE8B20470119D80",
+      "size": 21
+    },
+    "actions/sites/domains/add-domain.ftd": {
+      "name": "actions/sites/domains/add-domain.ftd",
+      "checksum": "2479B03D3A072C1C17D9B61BE77C85F5CD16A6D27FB9929DEFB5B64C37B1B3A2",
+      "size": 248
+    },
+    "actions/sites/domains/delete-domain.ftd": {
+      "name": "actions/sites/domains/delete-domain.ftd",
+      "checksum": "5120971AAA0D7B0A261095913452889A02C5801D5D39C772A8F2661983A71287",
+      "size": 250
+    },
+    "actions/sites/domains/make-primary-domain.ftd": {
+      "name": "actions/sites/domains/make-primary-domain.ftd",
+      "checksum": "3BDC19EE4973C7E266DE65CFAEE326897B22B9C0453F7BE516799B6D86572362",
+      "size": 256
+    },
+    "actions/sites/domains/re-check-domain.ftd": {
+      "name": "actions/sites/domains/re-check-domain.ftd",
+      "checksum": "BBB9344BC904AA24615410E6A51AE9422F13895572FE316AC5D9A7771E925E75",
+      "size": 175
+    },
+    "actions/sites/editor/open-file.ftd": {
+      "name": "actions/sites/editor/open-file.ftd",
+      "checksum": "BF28FB0923B72914E6D5976A2903C923D91C6E3BCF9775554C39BD50FB52E6EA",
+      "size": 330
+    },
+    "actions/sites/editor/save-file.ftd": {
+      "name": "actions/sites/editor/save-file.ftd",
+      "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
+      "size": 340
+    },
+    "actions/sites/github/configure.ftd": {
+      "name": "actions/sites/github/configure.ftd",
+      "checksum": "9F0C9D8A7A254B86446EE47C9FE56ED0FFCFA714874BB161172EAC365DC53BF2",
+      "size": 410
+    },
+    "actions/sites/github/reconfigure.ftd": {
+      "name": "actions/sites/github/reconfigure.ftd",
+      "checksum": "881C2E0A503C7201502C07B1E498A8F6DD449783733B5CAD63F81ACB83CB0BCF",
+      "size": 413
+    },
+    "actions/sites/github/remove-github-access.ftd": {
+      "name": "actions/sites/github/remove-github-access.ftd",
+      "checksum": "097A5C401B45167C4B7267EEE59AFDB9DBA574EAD304DC50F5A2A3BF228CEA2F",
+      "size": 158
+    },
+    "actions/sites/tokens/create-token.ftd": {
+      "name": "actions/sites/tokens/create-token.ftd",
+      "checksum": "EC4D117BDBEA3FCBCE578C0F2D7FF4879E6AC31E04B3DABE82C3C6361ECF741B",
+      "size": 261
+    },
+    "actions/sites/tokens/delete-token.ftd": {
+      "name": "actions/sites/tokens/delete-token.ftd",
+      "checksum": "F20B8C979A2A4224DCE138447219BE5E328E893F976DA1576EDF16B8577B9024",
+      "size": 255
+    },
+    "actions/slides/authenticate-user.ftd": {
+      "name": "actions/slides/authenticate-user.ftd",
+      "checksum": "3E1F31A645D3B686D558C2CC282AD37FBE39B2DA628EB83250BF59290218AC3B",
+      "size": 250
+    },
+    "actions/slides/change-presentation-title.ftd": {
+      "name": "actions/slides/change-presentation-title.ftd",
+      "checksum": "5A08B713A8ABBC3DF16B455339202049134E5FB639E665D3345257BE8BEE544B",
+      "size": 236
+    },
+    "actions/slides/create-slide.ftd": {
+      "name": "actions/slides/create-slide.ftd",
+      "checksum": "5473E99EC519FD6D2C533FE9CADDAF4191C6C9720F0285B0B6DFEFE62B991A36",
+      "size": 297
+    },
+    "actions/slides/create-template-presentation.ftd": {
+      "name": "actions/slides/create-template-presentation.ftd",
+      "checksum": "603517FBE1D99C23FB2CC466BA97180383BCA28A5DBABEC460CB19360E481A9A",
+      "size": 432
+    },
+    "actions/slides/create-user.ftd": {
+      "name": "actions/slides/create-user.ftd",
+      "checksum": "6CD9127E352B9293D51CB773A9CC585C84E045A600F93D8EE3380C995ABF1955",
+      "size": 498
+    },
+    "actions/slides/delete-slide.ftd": {
+      "name": "actions/slides/delete-slide.ftd",
+      "checksum": "F71F69495A24D79E4771D45D960ACC0B4CC8E2C8A5B4FA454EFD080ECADDDF36",
+      "size": 187
+    },
+    "actions/slides/move-slide.ftd": {
+      "name": "actions/slides/move-slide.ftd",
+      "checksum": "D871B7D98AC242286605FA32632783157DC56907022470D3812EFFB619EBB237",
+      "size": 252
+    },
+    "actions/slides/save-presentation-settings.ftd": {
+      "name": "actions/slides/save-presentation-settings.ftd",
+      "checksum": "59E9DB33BCF891346D357E79F4EB7C9860D8DE8E7A992F725B84008955CCA41D",
+      "size": 281
+    },
+    "actions/slides/save-slide.ftd": {
+      "name": "actions/slides/save-slide.ftd",
+      "checksum": "3837457B04207D565317D6EFEE7ACF6C4C5E0FADF995C993E79E2779258F41D7",
+      "size": 314
+    },
+    "actions/slides/toggle-template.ftd": {
+      "name": "actions/slides/toggle-template.ftd",
+      "checksum": "622FFB4DABA43F5DB3DBBD21F022205B294BD5FD27C634E263E23B8C4057FBBB",
+      "size": 211
+    },
+    "actions/user/create-site-action.ftd": {
+      "name": "actions/user/create-site-action.ftd",
+      "checksum": "FC66D41D0A19B4DF1ECA6CA81B0B6B61541B7C932B6DFC34DCBAA11733B1B497",
+      "size": 253
+    },
+    "actions/user/recover-password.ftd": {
+      "name": "actions/user/recover-password.ftd",
+      "checksum": "48FE84031B5DCDAF4FCBDEB4053DF3132BB560C11BA4EFB8D5F3417CC7944138",
+      "size": 208
+    },
+    "actions/user/set-password.ftd": {
+      "name": "actions/user/set-password.ftd",
+      "checksum": "9B1ADFB8A008BF8F6BCF81EF38F817F9CDED82BDAC9A67AB875AEF49E2952E04",
+      "size": 320
+    },
+    "assets/auto-mode-dark.svg": {
+      "name": "assets/auto-mode-dark.svg",
+      "checksum": "193CFF022A280B248955A1FA28A2DB44F10C48BA5C46A19A8DFFF8CCCE429EDF",
+      "size": 1158
+    },
+    "assets/auto-mode.svg": {
+      "name": "assets/auto-mode.svg",
+      "checksum": "8324D104F81FDA811A7F9CB762536F9AFDD576E0749EE15A540D586AB1334549",
+      "size": 1158
+    },
+    "assets/background-dark.svg": {
+      "name": "assets/background-dark.svg",
+      "checksum": "B81441369D4E26666137660388D08E7E212648ED73C64A7E060B7E58309F89B5",
+      "size": 923467
+    },
+    "assets/background.svg": {
+      "name": "assets/background.svg",
+      "checksum": "505D06A8069F13C1529D4E87F3F568BFD8B9B578D041CC7C9F7594D1043AEE14",
+      "size": 923637
+    },
+    "assets/css/code-editor.css": {
+      "name": "assets/css/code-editor.css",
+      "checksum": "47DC151DF9CD5953CD211B3C834CB75BBE8B572DD9CFED336D8F1E70178A7760",
+      "size": 68
+    },
+    "assets/css/code-preview.css": {
+      "name": "assets/css/code-preview.css",
+      "checksum": "E6208B91D56C1E91A5849A181F977C52A7088F84D49A31C942BDF4FC93759D71",
+      "size": 217
+    },
+    "assets/css/desktop.svg": {
+      "name": "assets/css/desktop.svg",
+      "checksum": "B5E95231258CD2910B1F86A75C19ACD30202584F868A06F9183C4717A510931F",
+      "size": 56570
+    },
+    "assets/css/grayscale.css": {
+      "name": "assets/css/grayscale.css",
+      "checksum": "E965F579131D775D27461C57D00547DF054E954C9D1E6603A338AF84AD66A435",
+      "size": 179
+    },
+    "assets/css/mobile.svg": {
+      "name": "assets/css/mobile.svg",
+      "checksum": "04C8FA51654722067381B84952C4B48C2176727CD0D530B0DEB9A3DCC0042778",
+      "size": 45525
+    },
+    "assets/css/opacity.css": {
+      "name": "assets/css/opacity.css",
+      "checksum": "BA78C19F7AA885D09840C9812314F0148B9907929B173A9CECFB1924A7097257",
+      "size": 331
+    },
+    "assets/css/slide.css": {
+      "name": "assets/css/slide.css",
+      "checksum": "538542A09E21C9448E5844A7EF66A429A2D309C4C4C1D0C03069CD51D5A209F3",
+      "size": 297
+    },
+    "assets/css/tablet.svg": {
+      "name": "assets/css/tablet.svg",
+      "checksum": "E08C4BF20FFAAEF66A15A50877AC28825D43259EE40434A4431242633EB1CB9E",
+      "size": 45082
+    },
+    "assets/dark-mode-dark.svg": {
+      "name": "assets/dark-mode-dark.svg",
+      "checksum": "B6EAE3AF083A239DC364944E21DA97814116902A2AF306D900D24B222B8DB0EF",
+      "size": 1202
+    },
+    "assets/dark-mode.svg": {
+      "name": "assets/dark-mode.svg",
+      "checksum": "292ABD029B137B338BEB8DA5C92354BF24CDE3E14CDA13A6EDC1442806ED7285",
+      "size": 1202
+    },
+    "assets/dots-three-dark.svg": {
+      "name": "assets/dots-three-dark.svg",
+      "checksum": "5C48F0F478998D55899576E1397602379A6C0C70237F0A39C6E42926802EEB7C",
+      "size": 270
+    },
+    "assets/dots-three.svg": {
+      "name": "assets/dots-three.svg",
+      "checksum": "427D680B440ED4D84F691117203DA7205801F0B5326B0101761F817657548963",
+      "size": 261
+    },
+    "assets/down-arrow-dark.svg": {
+      "name": "assets/down-arrow-dark.svg",
+      "checksum": "2F72CF6B66BC28F7142385F8DA67BA32D3145EF515EC1331FA0C61C0C7A21BB0",
+      "size": 412
+    },
+    "assets/down-arrow.svg": {
+      "name": "assets/down-arrow.svg",
+      "checksum": "512C2033CEF8BC594CE4D56600996A98A9F8A346D3BD1DC39502AB37924D12C4",
+      "size": 419
+    },
+    "assets/fastn-logo-dark.svg": {
+      "name": "assets/fastn-logo-dark.svg",
+      "checksum": "B82980A0566A43453849F1E293D6E724280ED7976B0EDFC30D343CD5D10D2227",
+      "size": 5205
+    },
+    "assets/fastn-logo.svg": {
+      "name": "assets/fastn-logo.svg",
+      "checksum": "A2EE52458DAB43F3A6D8A279654F307E71505AA985CAD3991EDC4D4ED8CCBF49",
+      "size": 5205
+    },
+    "assets/file-dark.svg": {
+      "name": "assets/file-dark.svg",
+      "checksum": "447A4CC155DD4C77CE3B4AB3BEFDEB396F946C205649E4C236EC2048355D0AB6",
+      "size": 399
+    },
+    "assets/file.svg": {
+      "name": "assets/file.svg",
+      "checksum": "54B4AA4D4C0C1960420785954D4A1345D9A4551E750676D1CD57FBA81707C49F",
+      "size": 399
+    },
+    "assets/ftd-logo-2-dark.svg": {
+      "name": "assets/ftd-logo-2-dark.svg",
+      "checksum": "FDFCAAE7083DE4DA4546617DD07173EE255E9A87E266EEC18BE420C9D34E2352",
+      "size": 9236
+    },
+    "assets/ftd-logo-2.svg": {
+      "name": "assets/ftd-logo-2.svg",
+      "checksum": "462D3832FE8BC808AD5BE13C46F06F5A2FF36E5FDE910D581CEB0A9E7F79D5B1",
+      "size": 9215
+    },
+    "assets/ftd-logo-dark.svg": {
+      "name": "assets/ftd-logo-dark.svg",
+      "checksum": "0E0E929D4D8045018D9CC8E8CF3A2A959FFAB80BD35228469DE75FB9CA3E4655",
+      "size": 3771
+    },
+    "assets/ftd-logo.svg": {
+      "name": "assets/ftd-logo.svg",
+      "checksum": "31BEEA3010E27F5A21A4A0EDAAF3D89D3677FEA73424064EE532D0A42B6251A4",
+      "size": 3771
+    },
+    "assets/functions.js": {
+      "name": "assets/functions.js",
+      "checksum": "273D6304965E2B5863E0C849B89ABDB0CFC18443857E0388C9A37EBFEA656FFF",
+      "size": 744
+    },
+    "assets/github-mark-white-dark.svg": {
+      "name": "assets/github-mark-white-dark.svg",
+      "checksum": "FAB00C2D598C56CB4838603981B66E3490EBE27EA56FB188120A7E6D4CA46970",
+      "size": 960
+    },
+    "assets/github-mark-white.svg": {
+      "name": "assets/github-mark-white.svg",
+      "checksum": "4359FE09DCE17E7379CED95D50F4F5C565AE236D287E1BA92E4DE48B420EA408",
+      "size": 960
+    },
+    "assets/homepage/arrow.svg": {
+      "name": "assets/homepage/arrow.svg",
+      "checksum": "8D304A02D18C49011060B4F40B0636581987B66A3ABFE18D026CC9B033D486CC",
+      "size": 267
+    },
+    "assets/homepage/avatar.svg": {
+      "name": "assets/homepage/avatar.svg",
+      "checksum": "F9F2A48DC6F51CBEAC349BC80599049641BB2DC8137BBB15A50E967FCD96EAE9",
+      "size": 43924
+    },
+    "assets/homepage/circle-1.svg": {
+      "name": "assets/homepage/circle-1.svg",
+      "checksum": "693CD23476782BBD65627B20D13AFA54A30C034DEFAD8BDD8AC2C0401BC49EBD",
+      "size": 1564
+    },
+    "assets/homepage/circle-2.svg": {
+      "name": "assets/homepage/circle-2.svg",
+      "checksum": "CDF382B4C47BB11BC956773A4547F5C6A20BF5F29F55EE32FE5E59DAB73FEA55",
+      "size": 1023
+    },
+    "assets/homepage/circle-3.svg": {
+      "name": "assets/homepage/circle-3.svg",
+      "checksum": "4F207DC3F72749F82106F6FC0E9FAA44D1FF7BA5A1AC05C4A118F57303681EAE",
+      "size": 1097
+    },
+    "assets/homepage/circle.svg": {
+      "name": "assets/homepage/circle.svg",
+      "checksum": "74F487F17E265612F922AE05FA5928310460781BFED7122D7E797BA1212F71C6",
+      "size": 1383
+    },
+    "assets/homepage/fb-h.svg": {
+      "name": "assets/homepage/fb-h.svg",
+      "checksum": "7D8F71598651A021AED8C65496C10236DFDD02FF63F21EB931C1619CC1BD8143",
+      "size": 629
+    },
+    "assets/homepage/fb.svg": {
+      "name": "assets/homepage/fb.svg",
+      "checksum": "234CAE6A3B76C6FA159E266E2A77FB27003C35E2D9B0D2ECCD618DFFC0F0AD87",
+      "size": 713
+    },
+    "assets/homepage/gh-h.svg": {
+      "name": "assets/homepage/gh-h.svg",
+      "checksum": "1E164943432C03B261278588F4B281B05283159F214D8FBDEB145A37C3A6CA5D",
+      "size": 1416
+    },
+    "assets/homepage/gh.svg": {
+      "name": "assets/homepage/gh.svg",
+      "checksum": "09E862EE92E1D94CA8275C37BBBDE6EE55E7BD0356F6E531CFE10021A1EA7351",
+      "size": 1507
+    },
+    "assets/homepage/git-dark.svg": {
+      "name": "assets/homepage/git-dark.svg",
+      "checksum": "AFC70573076C7ABB18C432AA5C5228513ED02DD149A660243A2F1D592234DEF9",
+      "size": 1339
+    },
+    "assets/homepage/git.svg": {
+      "name": "assets/homepage/git.svg",
+      "checksum": "48EF7F36398BF7EFA0F6E310D94F1714848660ADD27B4DAC9E2BBEBBFB38D3C9",
+      "size": 1341
+    },
+    "assets/homepage/govind.png": {
+      "name": "assets/homepage/govind.png",
+      "checksum": "79FAEA17A589EE2172614E56569B59744AF656C3E4E7EBD375BEFFFC75B1271D",
+      "size": 14123
+    },
+    "assets/homepage/hero-dark.png": {
+      "name": "assets/homepage/hero-dark.png",
+      "checksum": "F439E921620CCEA07D1DCAD6067987867BDD5183A0BD904A40156BA54AEA7A18",
+      "size": 29648
+    },
+    "assets/homepage/hero-dark.svg": {
+      "name": "assets/homepage/hero-dark.svg",
+      "checksum": "6BEB71D8BF67FE5BCDFE5F45B6963642607D589D9F2B9A3EB8CA1C90AA4D81EB",
+      "size": 925780
+    },
+    "assets/homepage/hero.png": {
+      "name": "assets/homepage/hero.png",
+      "checksum": "F16CA9F989589834854A5EAC6712F7FE28198104A4946B81BE4920397FF19638",
+      "size": 31268
+    },
+    "assets/homepage/hero.svg": {
+      "name": "assets/homepage/hero.svg",
+      "checksum": "610C667119D1D06B5D6F28E7615E4D5624E13146F99E9F2A213380B24EF533A1",
+      "size": 925811
+    },
+    "assets/homepage/jahanvi.png": {
+      "name": "assets/homepage/jahanvi.png",
+      "checksum": "A9A948E088E8B28A4436F82721571CCEE450B976A93ABEF4126E43882F581CAC",
+      "size": 13317
+    },
+    "assets/homepage/linkedin-h.svg": {
+      "name": "assets/homepage/linkedin-h.svg",
+      "checksum": "86ACCDC3B32312618107E1739D0E474525EB5C139E662B506FABDA31FA2FD99A",
+      "size": 991
+    },
+    "assets/homepage/linkedin.svg": {
+      "name": "assets/homepage/linkedin.svg",
+      "checksum": "CF773E6E875BA688E21CD5F0F5A335109E77284737731812FAB7DAD372A1887E",
+      "size": 1054
+    },
+    "assets/homepage/powered-by.png": {
+      "name": "assets/homepage/powered-by.png",
+      "checksum": "20404E6AAED557CF4EFC7A8EDB70D6E5C751DFB756024675AAB50DAF4EADB31B",
+      "size": 2999
+    },
+    "assets/homepage/powered-by.svg": {
+      "name": "assets/homepage/powered-by.svg",
+      "checksum": "AF53213A694EA60A37905CCF0B62C29DF6D452182407CE64B730B852CF057FFD",
+      "size": 14034
+    },
+    "assets/homepage/rutuja.png": {
+      "name": "assets/homepage/rutuja.png",
+      "checksum": "23C30CCDF8A15EBBB067D807B51A893B96192F111AADE52A1AD081CB6DEB83D5",
+      "size": 12784
+    },
+    "assets/homepage/swapnendu.png": {
+      "name": "assets/homepage/swapnendu.png",
+      "checksum": "428CF33048048213CE890109BEC5481756554B0C5189D604B86575949225493E",
+      "size": 14623
+    },
+    "assets/homepage/triangle-1.svg": {
+      "name": "assets/homepage/triangle-1.svg",
+      "checksum": "389969AAC4EB407A973340250411166A4B2837AB4866B05D3B8E2DF85CE3F639",
+      "size": 289
+    },
+    "assets/homepage/triangle-2.svg": {
+      "name": "assets/homepage/triangle-2.svg",
+      "checksum": "5F55C2C226C662C9D16E8FF93A76D8847092CD3DA54B6EA6B427C4F5CE1C7C1F",
+      "size": 289
+    },
+    "assets/homepage/triangle-3.svg": {
+      "name": "assets/homepage/triangle-3.svg",
+      "checksum": "5215A8895A4AA02ECA882724816F2FBAC50CD943FE62157835CC6769A24716DF",
+      "size": 289
+    },
+    "assets/homepage/tweet-h.svg": {
+      "name": "assets/homepage/tweet-h.svg",
+      "checksum": "A980EE45C22205C67961F593360F487C2724118E6237F093A1FB87525591ECCD",
+      "size": 589
+    },
+    "assets/homepage/tweet.svg": {
+      "name": "assets/homepage/tweet.svg",
+      "checksum": "28DB7D3665794390B5B573F27EC227EED9D88BB2AE574631C4C894262C528200",
+      "size": 757
+    },
+    "assets/hostn-dark.svg": {
+      "name": "assets/hostn-dark.svg",
+      "checksum": "F6DEF4F867E9E475E6B3E0CD3D0696CF6731C933C14D0EA11E922B9E008B5DFF",
+      "size": 10310
+    },
+    "assets/hostn-logo-dark.svg": {
+      "name": "assets/hostn-logo-dark.svg",
+      "checksum": "E13746A1F70B9EC17384C4FD9FE29D5D060E757177EAEB0AA2B5BB13974117A7",
+      "size": 6247
+    },
+    "assets/hostn-logo.svg": {
+      "name": "assets/hostn-logo.svg",
+      "checksum": "06C2FBD1DC517AFD72487E5FD70AB51DB51D0AD6FC8C8D0DAF0E22A890BE2041",
+      "size": 6254
+    },
+    "assets/hostn.svg": {
+      "name": "assets/hostn.svg",
+      "checksum": "A500EE10C3D0C553D49B9A43AA2C2CB2FD2402DC12158AA26059326FD0751D44",
+      "size": 10314
+    },
+    "assets/js/code-preview.js": {
+      "name": "assets/js/code-preview.js",
+      "checksum": "87FA11DF047D3B2FB6022E05FEB12E2DE86002D1F2B9A5521B83EA51823A1CFD",
+      "size": 5374
+    },
+    "assets/light-mode-dark.svg": {
+      "name": "assets/light-mode-dark.svg",
+      "checksum": "AE39956007F9AC6A04BC2C8A7E7BD71E0B367762693501848173219470D49FD0",
+      "size": 2332
+    },
+    "assets/light-mode.svg": {
+      "name": "assets/light-mode.svg",
+      "checksum": "E802C4E97CF5887A9689B70BA19D8075A11DBD66C42AB24E1B3CA7B936E2F889",
+      "size": 2332
+    },
+    "assets/logo-dark.svg": {
+      "name": "assets/logo-dark.svg",
+      "checksum": "7B0FF249B0F43103E6B1FAA9013681FC39BAAD861C3317493C6BC56D2EA758C4",
+      "size": 3459
+    },
+    "assets/logo.svg": {
+      "name": "assets/logo.svg",
+      "checksum": "CAF19572E767AD071C66611AC55E17A7DC184AC3C6E9164B54FC757BA4514216",
+      "size": 3461
+    },
+    "assets/mail.svg": {
+      "name": "assets/mail.svg",
+      "checksum": "3553717E5A2E01C8CDE45E9DC1ACBA0962C5F02FF0EEA7C4CCE5E846AC9AC624",
+      "size": 2562
+    },
+    "assets/menu-dark.svg": {
+      "name": "assets/menu-dark.svg",
+      "checksum": "95D9C947B2A2AB92D3D94360A5490AB8C572251CD7AA8FA4EA34058332D55B5F",
+      "size": 177
+    },
+    "assets/menu.svg": {
+      "name": "assets/menu.svg",
+      "checksum": "2217AE779A96985142082F98480A910B22B898BD0D852CA6BBE028D064F09B14",
+      "size": 177
+    },
+    "assets/mobile.svg": {
+      "name": "assets/mobile.svg",
+      "checksum": "9B83ED26A5EFF5BE89DDBDC1F250480C9D503E5F584812E7C752896E40C2D491",
+      "size": 2625
+    },
+    "assets/move-icon-dark.svg": {
+      "name": "assets/move-icon-dark.svg",
+      "checksum": "7EF26210C23FAD7662E530869053A52A439E0E293DF7AD7EBB295059B25B8A3F",
+      "size": 1935
+    },
+    "assets/move-icon.svg": {
+      "name": "assets/move-icon.svg",
+      "checksum": "E2E2F371E9B581A39C31C69FF5F35ACC2F3B2498549436E768119D8752273D15",
+      "size": 1941
+    },
+    "assets/onboarding/avatar/ishaan.png": {
+      "name": "assets/onboarding/avatar/ishaan.png",
+      "checksum": "971211E57EA6490BDBB24A843489B745F49880C90846107AA9AB0B2DEC4DEABF",
+      "size": 742886
+    },
+    "assets/onboarding/avatar/sample-avatar.svg": {
+      "name": "assets/onboarding/avatar/sample-avatar.svg",
+      "checksum": "CC83ED6B18197A3A8C153452123BBBF16CA3F2E64FA8B619B17237423421595B",
+      "size": 83160
+    },
+    "assets/onboarding/card-background-dark.svg": {
+      "name": "assets/onboarding/card-background-dark.svg",
+      "checksum": "F516E8943B1FA12716D53AF7182DE6141EDAC8766DF0A6B1779F4FE37D508445",
+      "size": 36637
+    },
+    "assets/onboarding/card-background.svg": {
+      "name": "assets/onboarding/card-background.svg",
+      "checksum": "FE31DB572ED86F557F845E73098850B56330416EC5439FD694453EE31B2A958F",
+      "size": 36782
+    },
+    "assets/onboarding/color-bar-broad.svg": {
+      "name": "assets/onboarding/color-bar-broad.svg",
+      "checksum": "66962138713796DDC53F361A4B7533B8ECEF4BAE75EECC2C81A6FCEAE57887F4",
+      "size": 328
+    },
+    "assets/onboarding/download-dark.svg": {
+      "name": "assets/onboarding/download-dark.svg",
+      "checksum": "D6F756207B780B679E1FF4957597FBBC843EBDE678761A9181F6E61DEB011769",
+      "size": 344
+    },
+    "assets/onboarding/download-hover.svg": {
+      "name": "assets/onboarding/download-hover.svg",
+      "checksum": "000AC59E001FF0BC322D4908F84C1E5E1C438AFBE3A1DA119C583E1B972D8444",
+      "size": 348
+    },
+    "assets/onboarding/download.svg": {
+      "name": "assets/onboarding/download.svg",
+      "checksum": "911B6368A3506C9939E16AD3CE06BD36FDD82B6F3D3D0D05504D90C91FEB5425",
+      "size": 344
+    },
+    "assets/refresh-dark.svg": {
+      "name": "assets/refresh-dark.svg",
+      "checksum": "3CB30E4316CABC63040B091D713DA8FE7AFA16FDE5583572DCB602937F5B003D",
+      "size": 1286
+    },
+    "assets/refresh.svg": {
+      "name": "assets/refresh.svg",
+      "checksum": "6DD3A12F1330EBFF93EA665883FCCCCB8CCC422C4A3C8E9187F5BF8B5A0E5EFF",
+      "size": 1262
+    },
+    "assets/right-arrow-dark.svg": {
+      "name": "assets/right-arrow-dark.svg",
+      "checksum": "266D73B7F3CFAC9A428514DD74EC3B27692841264C5D2AD33535353133C74225",
+      "size": 371
+    },
+    "assets/right-arrow.svg": {
+      "name": "assets/right-arrow.svg",
+      "checksum": "E67B61574E4CBF2593BB90145873C5F8095B0C4ED87D72303D33BD010A9735F2",
+      "size": 378
+    },
+    "assets/sites/about-card.svg": {
+      "name": "assets/sites/about-card.svg",
+      "checksum": "924DBA764C4242610868D3E83428AB3D7F923D7836E46709E50691A0DB056F91",
+      "size": 3052
+    },
+    "assets/sites/add.svg": {
+      "name": "assets/sites/add.svg",
+      "checksum": "C960EAE351E093BAEA6ACF8C2B170A09D1EDE7858FFD56D0523DD65CAB1B8A4A",
+      "size": 520
+    },
+    "assets/sites/arrow.svg": {
+      "name": "assets/sites/arrow.svg",
+      "checksum": "36B2254541DB56625E964F76FAD5DDE68047ED65DBD8FBE2FEED55E04DA6865F",
+      "size": 556
+    },
+    "assets/sites/background-dark.png": {
+      "name": "assets/sites/background-dark.png",
+      "checksum": "7D99951FD167487679D89553CA5C276E9570B6D0006B2A9A116FFD20AB822056",
+      "size": 118289
+    },
+    "assets/sites/background.png": {
+      "name": "assets/sites/background.png",
+      "checksum": "7D7AE472CE5143221807C31E59FC1784A42367C8197C465D17A9447734ED74AD",
+      "size": 20756
+    },
+    "assets/sites/check-circle.svg": {
+      "name": "assets/sites/check-circle.svg",
+      "checksum": "59AA727385DACD488C87F1357E4B26BCC87BFB6F108AB6B8934215EFDDAB128F",
+      "size": 448
+    },
+    "assets/sites/circle-tick.svg": {
+      "name": "assets/sites/circle-tick.svg",
+      "checksum": "F9B336A509F5DC3C9DF906D7C4B47DA767290B825733F4444C4DC82D3332A3E4",
+      "size": 456
+    },
+    "assets/sites/fastn-dark.svg": {
+      "name": "assets/sites/fastn-dark.svg",
+      "checksum": "EAB004E0DA84FA081AB8ECA3F21D2DC43141779020012F2D779182F7F36B4964",
+      "size": 12425
+    },
+    "assets/sites/fastn.svg": {
+      "name": "assets/sites/fastn.svg",
+      "checksum": "8F05E8A5A5A695A6F3B89CC5121AE18A94C775B4076B932F870F889696CFF6BE",
+      "size": 12424
+    },
+    "assets/sites/hostn-dark.svg": {
+      "name": "assets/sites/hostn-dark.svg",
+      "checksum": "8868D51C8901FB095014CBDBECD3AFC16F4BD59481E9A2F42316A168465ED40C",
+      "size": 10346
+    },
+    "assets/sites/hostn.svg": {
+      "name": "assets/sites/hostn.svg",
+      "checksum": "78B8089A4AE29B8BFA73ED2C54CE1798CF919E72F5CE32E7B438BFAFEC5146A9",
+      "size": 10345
+    },
+    "assets/sites/info.svg": {
+      "name": "assets/sites/info.svg",
+      "checksum": "697B342F8397897428E452478814CC96DA66EE417A1B1638EBE13D715CC5AB1F",
+      "size": 640
+    },
+    "assets/sites/link-dark.svg": {
+      "name": "assets/sites/link-dark.svg",
+      "checksum": "70BFCA0A2C7110B83F2F340C3EDE896FB0AD684A0CD38A54852A0C37A67969DA",
+      "size": 973
+    },
+    "assets/sites/link.svg": {
+      "name": "assets/sites/link.svg",
+      "checksum": "BE010F0C14A3009CD2AB69D0C83725DF8B9746CA2434A2D5523CE77DFFCAB4FE",
+      "size": 824
+    },
+    "assets/sites/logo.svg": {
+      "name": "assets/sites/logo.svg",
+      "checksum": "772D8433F87B479195B6EDE25A1826B4251647BDE708819BBC2428E9AF98DF48",
+      "size": 8420
+    },
+    "assets/sites/logout-dark.svg": {
+      "name": "assets/sites/logout-dark.svg",
+      "checksum": "ADF6391D284D9732E4A0EC489286BB4491C16B4D6284A97B64F351D036E510C5",
+      "size": 674
+    },
+    "assets/sites/logout.svg": {
+      "name": "assets/sites/logout.svg",
+      "checksum": "7A20158EE8C04DF0A9F034C93BBECA0EA7DF506FC4B3A7ABF3A9DC68F7F199CE",
+      "size": 674
+    },
+    "assets/sites/menu-dark.svg": {
+      "name": "assets/sites/menu-dark.svg",
+      "checksum": "CD5760C0B3FE52A00DBBF42C511253F9CC396FF0C8FD3309D69BAA5524B59F24",
+      "size": 2166
+    },
+    "assets/sites/menu.svg": {
+      "name": "assets/sites/menu.svg",
+      "checksum": "93938E35CB3C0B4F00F6B05D530F67F05ABF9B20DB6A0734EA34436E9BB949C7",
+      "size": 2166
+    },
+    "assets/sites/open.svg": {
+      "name": "assets/sites/open.svg",
+      "checksum": "C581B7BE8A1983ED7B9A38BF57865080FF646D3203A82D266A6C65FBE7AC6FEA",
+      "size": 986
+    },
+    "assets/sites/placeholder-preview.svg": {
+      "name": "assets/sites/placeholder-preview.svg",
+      "checksum": "924DBA764C4242610868D3E83428AB3D7F923D7836E46709E50691A0DB056F91",
+      "size": 3052
+    },
+    "assets/sites/placeholder.svg": {
+      "name": "assets/sites/placeholder.svg",
+      "checksum": "2C9533B212B5B4FA37AD2A8C99735BA46CDA5B63C21102C073CB747B924E3752",
+      "size": 3150
+    },
+    "assets/sites/right-arrow-dark.svg": {
+      "name": "assets/sites/right-arrow-dark.svg",
+      "checksum": "266D73B7F3CFAC9A428514DD74EC3B27692841264C5D2AD33535353133C74225",
+      "size": 371
+    },
+    "assets/sites/right-arrow.svg": {
+      "name": "assets/sites/right-arrow.svg",
+      "checksum": "E67B61574E4CBF2593BB90145873C5F8095B0C4ED87D72303D33BD010A9735F2",
+      "size": 378
+    },
+    "assets/sites/yc-dark.svg": {
+      "name": "assets/sites/yc-dark.svg",
+      "checksum": "D67DE749D3C7B71743D7172D45E5D8C1EF3522C54CA25C1419471084E0FF33F8",
+      "size": 9802
+    },
+    "assets/sites/yc.svg": {
+      "name": "assets/sites/yc.svg",
+      "checksum": "9986FE0818CB8AE6EE52DA6720DD7EEEB9078172063AB4973EEACA052098579B",
+      "size": 9802
+    },
+    "assets/slides/avatar.svg": {
+      "name": "assets/slides/avatar.svg",
+      "checksum": "DD5E6F32838B8157E83325105EF1BF145B572EE8D637A3CD9D89D29ADF0F6F76",
+      "size": 1761
+    },
+    "assets/slides/background-dark.png": {
+      "name": "assets/slides/background-dark.png",
+      "checksum": "BA8135917CD9F19EDA0563B8402F60A08CC96B37E1A4BCC15CD075121180216D",
+      "size": 572907
+    },
+    "assets/slides/background.png": {
+      "name": "assets/slides/background.png",
+      "checksum": "701BEDC00E348EF0A8C900D6229F6AE22D9BD38F46AED28B6BAF3D5BBEC083CA",
+      "size": 582406
+    },
+    "assets/slides/collapse-dark.svg": {
+      "name": "assets/slides/collapse-dark.svg",
+      "checksum": "113071609087E67641D6130B6EC67C5930F5A91A93E0C3EEC5D034C2D2A2B1DB",
+      "size": 436
+    },
+    "assets/slides/collapse.svg": {
+      "name": "assets/slides/collapse.svg",
+      "checksum": "76CDD55D9E77AE53E42CC939887DA58E492B4D66DECA009F80915B01D73ECC87",
+      "size": 444
+    },
+    "assets/slides/comment-dark.svg": {
+      "name": "assets/slides/comment-dark.svg",
+      "checksum": "F77288A543DA2AF1F4DC771AAF65E85906ECA509166BC1092620CBC061033D3F",
+      "size": 527
+    },
+    "assets/slides/comment.svg": {
+      "name": "assets/slides/comment.svg",
+      "checksum": "F1F865BD07AAE3CA5A4BD1EA50F55BDAD920DCAC594CF7E68AE2552507A3C44F",
+      "size": 521
+    },
+    "assets/slides/create-dark.svg": {
+      "name": "assets/slides/create-dark.svg",
+      "checksum": "450935FE20FBAC61AE937C3E103D91C6743B6B132E987B70C2ED5C168C0BD1B0",
+      "size": 455
+    },
+    "assets/slides/create.svg": {
+      "name": "assets/slides/create.svg",
+      "checksum": "D51A85086411491FD7A48645020E1D98F0AB85F3B57D8F118608D088A475E403",
+      "size": 424
+    },
+    "assets/slides/cross-dark.svg": {
+      "name": "assets/slides/cross-dark.svg",
+      "checksum": "6205EDE0EC3407E3B9B491652C7701CA250976D25692818545100D3F70DD13C0",
+      "size": 678
+    },
+    "assets/slides/cross.svg": {
+      "name": "assets/slides/cross.svg",
+      "checksum": "0B81302D0CB75A245D528E096FC08B9FC09FDD46208D9426D24B927D968D7EC3",
+      "size": 680
+    },
+    "assets/slides/delete-dark.svg": {
+      "name": "assets/slides/delete-dark.svg",
+      "checksum": "8F8710CA166FAF2940B5391C95F089395AD6ABD0B6D40C0A1ADCAE11C580C2D2",
+      "size": 691
+    },
+    "assets/slides/delete-hover-dark.svg": {
+      "name": "assets/slides/delete-hover-dark.svg",
+      "checksum": "4F59A70B7C38EE7C4C38AFF9815D9E39FE843D1DAE01B9DB9926EA8065C2402C",
+      "size": 1149
+    },
+    "assets/slides/delete-hover.svg": {
+      "name": "assets/slides/delete-hover.svg",
+      "checksum": "88FB389F3A2108DEF4B01D0C2591B462B3D02648EA85B9C64DCE729D815DC175",
+      "size": 1117
+    },
+    "assets/slides/delete.svg": {
+      "name": "assets/slides/delete.svg",
+      "checksum": "C26B4ABC76F2F7563E7AFB59E86E5B3063B5FA27B2061AFC3A389743AFB84044",
+      "size": 691
+    },
+    "assets/slides/error-dark.svg": {
+      "name": "assets/slides/error-dark.svg",
+      "checksum": "0238B28DBF38288609F9778F57A6D88CB7DEC2B2C1363D9F18566883DC801907",
+      "size": 1990
+    },
+    "assets/slides/error.svg": {
+      "name": "assets/slides/error.svg",
+      "checksum": "AA6260D07686F877804713A65DDAEEE213C9D1D9FBDB235B562103C4011475BC",
+      "size": 1979
+    },
+    "assets/slides/expand-dark.svg": {
+      "name": "assets/slides/expand-dark.svg",
+      "checksum": "D8126519B74B389877C37DE0D468E65568BCDC380D17CE2EFDE1F793D8BFFC62",
+      "size": 995
+    },
+    "assets/slides/expand.svg": {
+      "name": "assets/slides/expand.svg",
+      "checksum": "0B94BD33AB43292615BC83EADC1A24D3711E41B6490A827AE626B23214034837",
+      "size": 983
+    },
+    "assets/slides/github-mark-white-dark.svg": {
+      "name": "assets/slides/github-mark-white-dark.svg",
+      "checksum": "FAB00C2D598C56CB4838603981B66E3490EBE27EA56FB188120A7E6D4CA46970",
+      "size": 960
+    },
+    "assets/slides/github-mark-white.svg": {
+      "name": "assets/slides/github-mark-white.svg",
+      "checksum": "4359FE09DCE17E7379CED95D50F4F5C565AE236D287E1BA92E4DE48B420EA408",
+      "size": 960
+    },
+    "assets/slides/globe.svg": {
+      "name": "assets/slides/globe.svg",
+      "checksum": "FEEB577ABAB6F0CEE6BC317EF2F7DA35667B1E702503C5054CB996F38E392506",
+      "size": 763
+    },
+    "assets/slides/left-dark.svg": {
+      "name": "assets/slides/left-dark.svg",
+      "checksum": "ACB1C6FC9735FFB6E51FB1D95F25EAA45D5B6E2A5F9802AC988392CB44D52EF6",
+      "size": 377
+    },
+    "assets/slides/left-hover-dark.svg": {
+      "name": "assets/slides/left-hover-dark.svg",
+      "checksum": "5CBB5D30CCBA4B33B06BB6D0004340DE3DA9A2414BAAB497856B2D4F4C10F104",
+      "size": 368
+    },
+    "assets/slides/left-hover.svg": {
+      "name": "assets/slides/left-hover.svg",
+      "checksum": "5CBB5D30CCBA4B33B06BB6D0004340DE3DA9A2414BAAB497856B2D4F4C10F104",
+      "size": 368
+    },
+    "assets/slides/left.svg": {
+      "name": "assets/slides/left.svg",
+      "checksum": "13A2C459EBE1E442A9D244A29A391A86CB236BBEBF115A46295D745FD32A211E",
+      "size": 366
+    },
+    "assets/slides/logo-dark.svg": {
+      "name": "assets/slides/logo-dark.svg",
+      "checksum": "4AB8EA1A91D80BB5BB879F1AB7D6458547C5FAAC73BE2198BD715019403B6AA3",
+      "size": 9166
+    },
+    "assets/slides/logo.svg": {
+      "name": "assets/slides/logo.svg",
+      "checksum": "8BC2D450DB5E5932F4ECFF65A15DF4EBD6AC02A96BCFE3D93B3B498F3B55B6A9",
+      "size": 9184
+    },
+    "assets/slides/logout-dark.svg": {
+      "name": "assets/slides/logout-dark.svg",
+      "checksum": "ADF6391D284D9732E4A0EC489286BB4491C16B4D6284A97B64F351D036E510C5",
+      "size": 674
+    },
+    "assets/slides/logout.svg": {
+      "name": "assets/slides/logout.svg",
+      "checksum": "7A20158EE8C04DF0A9F034C93BBECA0EA7DF506FC4B3A7ABF3A9DC68F7F199CE",
+      "size": 674
+    },
+    "assets/slides/menu-dark.svg": {
+      "name": "assets/slides/menu-dark.svg",
+      "checksum": "E4B6E510C43D9AECA2099236461DF20837B0BA9A95495FF78C4E136C6B382E6C",
+      "size": 421
+    },
+    "assets/slides/menu.svg": {
+      "name": "assets/slides/menu.svg",
+      "checksum": "E4B6E510C43D9AECA2099236461DF20837B0BA9A95495FF78C4E136C6B382E6C",
+      "size": 421
+    },
+    "assets/slides/notification-dark.svg": {
+      "name": "assets/slides/notification-dark.svg",
+      "checksum": "C26B9DE66EE5F61AAC4F2DB1047783E46E1E123A799DFD0541CA70C28BEC6C69",
+      "size": 686
+    },
+    "assets/slides/notification.svg": {
+      "name": "assets/slides/notification.svg",
+      "checksum": "58FA3B226DE820E12ED92EC56AC2D7D63E927C98B02DAA38F32E79BEF1053A1F",
+      "size": 686
+    },
+    "assets/slides/play-dark.svg": {
+      "name": "assets/slides/play-dark.svg",
+      "checksum": "EB510C063AC58B46ADF14A38267B89753E8A6529A7D63AA5F68A9B97BA3C1C90",
+      "size": 807
+    },
+    "assets/slides/play.svg": {
+      "name": "assets/slides/play.svg",
+      "checksum": "6C2F32F298011925C5C3A2D640BAC4CB6E8F1A9A3436B4A859EEEAF1580DD3EC",
+      "size": 800
+    },
+    "assets/slides/plus-2-dark.svg": {
+      "name": "assets/slides/plus-2-dark.svg",
+      "checksum": "CD5B9E32A024AD256EAB3CBA1FE550917A79E496C995FB618A4C08041169CD2D",
+      "size": 1369
+    },
+    "assets/slides/plus-2.svg": {
+      "name": "assets/slides/plus-2.svg",
+      "checksum": "C0F31E579046D4AEA76A6009384F787A1C91E67CE728FB83CE77012A72B6A978",
+      "size": 1369
+    },
+    "assets/slides/plus-dark.png": {
+      "name": "assets/slides/plus-dark.png",
+      "checksum": "CC99ED399A577528FD7465872D5E8C0070C73684BD7C12EE41D42A5C96DF41D8",
+      "size": 435
+    },
+    "assets/slides/plus-dark.svg": {
+      "name": "assets/slides/plus-dark.svg",
+      "checksum": "A99BB67C71D8ADA88256C05BDB1372AA690646F8E17661B1C82F24A821023511",
+      "size": 308
+    },
+    "assets/slides/plus.png": {
+      "name": "assets/slides/plus.png",
+      "checksum": "CC99ED399A577528FD7465872D5E8C0070C73684BD7C12EE41D42A5C96DF41D8",
+      "size": 435
+    },
+    "assets/slides/plus.svg": {
+      "name": "assets/slides/plus.svg",
+      "checksum": "1840120D5288CA90B6A7806619731A59B4B07097920B8A91BC693A71DADF6AD6",
+      "size": 311
+    },
+    "assets/slides/responsive-dark.svg": {
+      "name": "assets/slides/responsive-dark.svg",
+      "checksum": "795451BEC509E0DE9CCD1B9E9DF4225EF0E5EA56923BE9EFB3C429D2BEAD1914",
+      "size": 1113
+    },
+    "assets/slides/responsive.svg": {
+      "name": "assets/slides/responsive.svg",
+      "checksum": "F1535C00640B4DC9DDE1AC6A85CCFAF084E539F12B109D208C49A27ACA6689EA",
+      "size": 1097
+    },
+    "assets/slides/right-dark.svg": {
+      "name": "assets/slides/right-dark.svg",
+      "checksum": "4513193E099369A84FE404B3943E7A8D60E000703AA11448E6B6344BD7013350",
+      "size": 380
+    },
+    "assets/slides/right-hover-dark.svg": {
+      "name": "assets/slides/right-hover-dark.svg",
+      "checksum": "A8E2546CDCA74B2BBB994D59439ECA857353B91B3EE5EB292052EE1F9E506D52",
+      "size": 371
+    },
+    "assets/slides/right-hover.svg": {
+      "name": "assets/slides/right-hover.svg",
+      "checksum": "A8E2546CDCA74B2BBB994D59439ECA857353B91B3EE5EB292052EE1F9E506D52",
+      "size": 371
+    },
+    "assets/slides/right.svg": {
+      "name": "assets/slides/right.svg",
+      "checksum": "43DDBB54592043279644F6C5A75DADDD03BE55E7A6D649F9931CDF182051CA96",
+      "size": 369
+    },
+    "assets/slides/save-floppy-dark.svg": {
+      "name": "assets/slides/save-floppy-dark.svg",
+      "checksum": "19EFCBCCEBFE843902EBF65095DDFFC459E69DA4F3361EAD68843E649ECC25F3",
+      "size": 1549
+    },
+    "assets/slides/save-floppy.svg": {
+      "name": "assets/slides/save-floppy.svg",
+      "checksum": "487D4DBF2112C4FECD8C848964575A76FF8F057AE25CED0848A74627AA0A7B38",
+      "size": 1547
+    },
+    "assets/slides/setting-dark.svg": {
+      "name": "assets/slides/setting-dark.svg",
+      "checksum": "1752D7BA59D4270B6093FB5EF3937E088C7C0AAAB50E758A96A9F4786356BA4D",
+      "size": 3567
+    },
+    "assets/slides/setting.svg": {
+      "name": "assets/slides/setting.svg",
+      "checksum": "0C2E8DB7B6C99D35795AB4C3FC6C90AC358D0040CE09F177EB1B6E8D308453AD",
+      "size": 3555
+    },
+    "assets/slides/share-dark.svg": {
+      "name": "assets/slides/share-dark.svg",
+      "checksum": "5BFF959DBBAE2B6626299D82FB5CCCB400D2D8894E944EA192186C9058F438D4",
+      "size": 1136
+    },
+    "assets/slides/share.svg": {
+      "name": "assets/slides/share.svg",
+      "checksum": "0ABAE12A852FD6E79721334458FF80D908FAE8A0718BA5F3FE0B62623B51332B",
+      "size": 1136
+    },
+    "assets/slides/template-1.png": {
+      "name": "assets/slides/template-1.png",
+      "checksum": "4455530800BA46FFD8E85AC8F372F07656E805D5EF83ED2E485EC64A782D0643",
+      "size": 683167
+    },
+    "assets/slides/template-2.png": {
+      "name": "assets/slides/template-2.png",
+      "checksum": "0B9CE2B55E15FED1AF3811B2EAE25F2F01E7B423C4DA02FE48F36CBF8BC90295",
+      "size": 639635
+    },
+    "assets/slides/toggle-down-dark.svg": {
+      "name": "assets/slides/toggle-down-dark.svg",
+      "checksum": "5D2852CC6A76AEA2A43A14C3F80BC032BA5EA37E0809DAFC681BE271DC6930F7",
+      "size": 428
+    },
+    "assets/slides/toggle-down.svg": {
+      "name": "assets/slides/toggle-down.svg",
+      "checksum": "792E0B5A29C0E5433CEEA98AAEF3E8C56A2D2F4FC5126E0E31D48675C5B918A5",
+      "size": 428
+    },
+    "assets/slides/toggle-up-dark.svg": {
+      "name": "assets/slides/toggle-up-dark.svg",
+      "checksum": "C4DD982C8ADFDDF94681F1043A3E1D5F7FDD5405CE1074235ACDA35207B3D1BC",
+      "size": 440
+    },
+    "assets/slides/toggle-up.svg": {
+      "name": "assets/slides/toggle-up.svg",
+      "checksum": "FB2AD5EB09184F1F10887A14449C1E7DC4265DE0A7085038197DC21586B2286B",
+      "size": 440
+    },
+    "assets/team/aditya-dark.jpg": {
+      "name": "assets/team/aditya-dark.jpg",
+      "checksum": "3507A48675C1C59681F84DDE6D09FC4410C963708E65006CD778EA589E553EA8",
+      "size": 1484996
+    },
+    "assets/team/aditya.jpg": {
+      "name": "assets/team/aditya.jpg",
+      "checksum": "3507A48675C1C59681F84DDE6D09FC4410C963708E65006CD778EA589E553EA8",
+      "size": 1484996
+    },
+    "assets/team/amitu-dark.jpg": {
+      "name": "assets/team/amitu-dark.jpg",
+      "checksum": "2FE563A535DE19B334AADACF15A7C840730645C7E0B93823121C8711273E9AE8",
+      "size": 96638
+    },
+    "assets/team/amitu.jpg": {
+      "name": "assets/team/amitu.jpg",
+      "checksum": "2FE563A535DE19B334AADACF15A7C840730645C7E0B93823121C8711273E9AE8",
+      "size": 96638
+    },
+    "assets/team/arpita-dark.jpg": {
+      "name": "assets/team/arpita-dark.jpg",
+      "checksum": "949A14237DA8B13BE5A1A0C487F750FD125D64C2A592EE23A6C2C95007F24DD5",
+      "size": 101433
+    },
+    "assets/team/arpita.jpg": {
+      "name": "assets/team/arpita.jpg",
+      "checksum": "949A14237DA8B13BE5A1A0C487F750FD125D64C2A592EE23A6C2C95007F24DD5",
+      "size": 101433
+    },
+    "assets/team/avatar.jpg": {
+      "name": "assets/team/avatar.jpg",
+      "checksum": "102223C134FE5085D4B1922A5B70F3FA24BB08BEE33282B23E7E814DC0C20A55",
+      "size": 12729
+    },
+    "assets/team/harsh-dark.jpeg": {
+      "name": "assets/team/harsh-dark.jpeg",
+      "checksum": "38184F58B7E1F8A2DB4791E8E94EE60E0E80238ED49D8E902FFBDD5A6242005D",
+      "size": 152074
+    },
+    "assets/team/harsh.jpeg": {
+      "name": "assets/team/harsh.jpeg",
+      "checksum": "38184F58B7E1F8A2DB4791E8E94EE60E0E80238ED49D8E902FFBDD5A6242005D",
+      "size": 152074
+    },
+    "assets/team/meenu-dark.jpeg": {
+      "name": "assets/team/meenu-dark.jpeg",
+      "checksum": "CB60DE002426793CB6F0A137076FF83D4EC1F9A22CF658680EE575C620CC2D99",
+      "size": 143730
+    },
+    "assets/team/meenu.jpeg": {
+      "name": "assets/team/meenu.jpeg",
+      "checksum": "CB60DE002426793CB6F0A137076FF83D4EC1F9A22CF658680EE575C620CC2D99",
+      "size": 143730
+    },
+    "assets/team/nandhini-devi-dark.jpg": {
+      "name": "assets/team/nandhini-devi-dark.jpg",
+      "checksum": "8CE51F099FCDE20B4F810E3D4B6DE2EDDF08A47F051B935F694C90AC1FD24E91",
+      "size": 32573
+    },
+    "assets/team/nandhini-devi.jpg": {
+      "name": "assets/team/nandhini-devi.jpg",
+      "checksum": "8CE51F099FCDE20B4F810E3D4B6DE2EDDF08A47F051B935F694C90AC1FD24E91",
+      "size": 32573
+    },
+    "assets/team/rithik-dark.jpg": {
+      "name": "assets/team/rithik-dark.jpg",
+      "checksum": "D018D7C3FA19DA407C3FDB60E4CF0B363FBDCC945D872ED01FA6A10B89A2EE64",
+      "size": 1392349
+    },
+    "assets/team/rithik.jpg": {
+      "name": "assets/team/rithik.jpg",
+      "checksum": "D018D7C3FA19DA407C3FDB60E4CF0B363FBDCC945D872ED01FA6A10B89A2EE64",
+      "size": 1392349
+    },
+    "assets/team/siddhant-dark.jpeg": {
+      "name": "assets/team/siddhant-dark.jpeg",
+      "checksum": "5101861BAF8BCFCDF9D6CE2C66623B97ACBAD02632DB6276B8E7928B1148827A",
+      "size": 43399
+    },
+    "assets/team/siddhant.jpeg": {
+      "name": "assets/team/siddhant.jpeg",
+      "checksum": "5101861BAF8BCFCDF9D6CE2C66623B97ACBAD02632DB6276B8E7928B1148827A",
+      "size": 43399
+    },
+    "assets/team/yashveer-mehra-dark.jpg": {
+      "name": "assets/team/yashveer-mehra-dark.jpg",
+      "checksum": "8BCFEAAAACE00972BEB50ECDE4A850A4999102735BC5730F3DA36E25F3E49262",
+      "size": 9473
+    },
+    "assets/team/yashveer-mehra.jpg": {
+      "name": "assets/team/yashveer-mehra.jpg",
+      "checksum": "8BCFEAAAACE00972BEB50ECDE4A850A4999102735BC5730F3DA36E25F3E49262",
+      "size": 9473
+    },
+    "assets/yc-dark.svg": {
+      "name": "assets/yc-dark.svg",
+      "checksum": "C3A317E023FB0BFFF68EC5DCEDF035F986BEDB6A91F623E6B7A79C821D94BC6A",
+      "size": 13751
+    },
+    "assets/yc.svg": {
+      "name": "assets/yc.svg",
+      "checksum": "CA56D06EEDB8029835BDC4FAE48E68308E8D2DC01B79643943804D982842052D",
+      "size": 13772
+    },
+    "cards/onboarding-employee.ftd": {
+      "name": "cards/onboarding-employee.ftd",
+      "checksum": "AB8B52A32EBB284C7A9DC4666C32815215C9EF6EE02E4F21862DBA41CE3625AC",
+      "size": 1469
+    },
+    "components/about/product.ftd": {
+      "name": "components/about/product.ftd",
+      "checksum": "AB3FFCD1399ABEC77FBCEE878AF2C8741501AB43CB477EC150D7D1E11CB36374",
+      "size": 534
+    },
+    "components/about/team-member.ftd": {
+      "name": "components/about/team-member.ftd",
+      "checksum": "422E21F10B87B233C1204AF98E6E097B905CF0AD2F2144883412FD8C2D43A9CA",
+      "size": 3591
+    },
+    "components/avatar.ftd": {
+      "name": "components/avatar.ftd",
+      "checksum": "A29D04CED26AC97D1B5DD452A57B2F8AA3C5ED1EA1E1AD8B2A9C98D263C709AD",
+      "size": 2266
+    },
+    "components/blog/blog-authors.ftd": {
+      "name": "components/blog/blog-authors.ftd",
+      "checksum": "9B937A6AC17F64798736AE55079254A975E7D4FB9085A8CB596E2ED74CADF23D",
+      "size": 904
+    },
+    "components/blog/blog-home.ftd": {
+      "name": "components/blog/blog-home.ftd",
+      "checksum": "7AA0C6CF4669F9E9D5357EACC8D3F5F86E5DDB864FBFF9A1F5D96BB36DB61745",
+      "size": 803
+    },
+    "components/blog/blog-post.ftd": {
+      "name": "components/blog/blog-post.ftd",
+      "checksum": "6A47FD5B844D660DF970D7D4961DC8C4374301D97AC0BEA95ACB80E0737E7E22",
+      "size": 448
+    },
+    "components/dark-mode-toggle.ftd": {
+      "name": "components/dark-mode-toggle.ftd",
+      "checksum": "B7E85313BACB3730FB0E30B6E2510F10DC4579AECA0B95DBD33F0D000BBA174E",
+      "size": 708
+    },
+    "components/download-button.ftd": {
+      "name": "components/download-button.ftd",
+      "checksum": "191F4DB127809F3D73DB55C9061FD7FBEAFEFD69C4D172D19A17BCF669FC59E4",
+      "size": 1482
+    },
+    "components/footer.ftd": {
+      "name": "components/footer.ftd",
+      "checksum": "420BF69A16C964410166D0656B4C6FE30913D2A569427A3E237830BECE8A206A",
+      "size": 4143
+    },
+    "components/header-message.ftd": {
+      "name": "components/header-message.ftd",
+      "checksum": "B0A639D3F1338E09B018A6B0BBFDD39D46BD751E91159136F769E0F5D72515A8",
+      "size": 321
+    },
+    "components/header.ftd": {
+      "name": "components/header.ftd",
+      "checksum": "3067212E1B9BBC2F63389FF176F12C157FD80472041407ADA73964A412DD1C41",
+      "size": 4048
+    },
+    "components/label.ftd": {
+      "name": "components/label.ftd",
+      "checksum": "FBAB34E7CAE4AD87A7D1C8F271607B7DFA33DA851080D72B27DC252B3AC6C844",
+      "size": 1257
+    },
+    "components/language-switcher.ftd": {
+      "name": "components/language-switcher.ftd",
+      "checksum": "A9F31CC3DAE96C5D30C9B31BD0ABA36FD6298157C037A84B908FED8285710492",
+      "size": 878
+    },
+    "components/page.ftd": {
+      "name": "components/page.ftd",
+      "checksum": "DA3412812FCEAC32BD725F64AEBA3DF8E451FF7B61CA9D1FA2B0953268226DAE",
+      "size": 1103
+    },
+    "components/sites/code-preview.ftd": {
+      "name": "components/sites/code-preview.ftd",
+      "checksum": "6E81CD7986F57CEB6650F6F8B8E2DBA7D4F5E0BE48B84E894B47BDCCF074ED60",
+      "size": 7743
+    },
+    "components/sites/file-browser.ftd": {
+      "name": "components/sites/file-browser.ftd",
+      "checksum": "422F290C44DBF80026FAAAAEFFAABAFC4EB221F18F134917230834B24E3810D1",
+      "size": 1275
+    },
+    "components/sites/file-tree.ftd": {
+      "name": "components/sites/file-tree.ftd",
+      "checksum": "84B1152988BD1C285704C1C3F136C73A3B0FC00780FEDE984D83EF8DC5C958D6",
+      "size": 3410
+    },
+    "components/sites/header.ftd": {
+      "name": "components/sites/header.ftd",
+      "checksum": "6C4F1F98F6E1955DA6695C9E3C2BCA8E15B516654928790208F33429BE5176C3",
+      "size": 2418
+    },
+    "components/sites/page.ftd": {
+      "name": "components/sites/page.ftd",
+      "checksum": "D9F703C2216CD378036F1C186D645D6B9AA8890EB2C3322E28517DCB23D98B97",
+      "size": 1066
+    },
+    "components/sites/setting/page.ftd": {
+      "name": "components/sites/setting/page.ftd",
+      "checksum": "833CF1F27C332AC088366746D3A341109FE666B52C6D646EB08885D47407A64D",
+      "size": 1782
+    },
+    "components/sites/show-site-info.ftd": {
+      "name": "components/sites/show-site-info.ftd",
+      "checksum": "8E0B94A80A74785ACCADEFF48F1C60D185FAB6362808A437813173CC4BDACA06",
+      "size": 2928
+    },
+    "components/sites/site-domain-info.ftd": {
+      "name": "components/sites/site-domain-info.ftd",
+      "checksum": "E5C4E941B945741496271543F5DB9B82498BEB739B0406FDB5C5F3583D179F92",
+      "size": 15036
+    },
+    "components/sites/token-info.ftd": {
+      "name": "components/sites/token-info.ftd",
+      "checksum": "CE3CB835463A091465B5D07292F38AE170FB22019650F4FD7BDEF7C162CF1240",
+      "size": 3639
+    },
+    "components/slides/action-header.ftd": {
+      "name": "components/slides/action-header.ftd",
+      "checksum": "B30C46D390998A18B53FF3E73D4E5DB39EDBF1B6254FCCE8455587BD981BB5A9",
+      "size": 516
+    },
+    "components/slides/action-page.ftd": {
+      "name": "components/slides/action-page.ftd",
+      "checksum": "D5982CCDA2650D758BE71F5F57DA3AB24680D3A30AF0F433E186793416787A1F",
+      "size": 474
+    },
+    "components/slides/auth-page.ftd": {
+      "name": "components/slides/auth-page.ftd",
+      "checksum": "1E8073FAAAECA05FD7FAFD51F9ADB84979C86A802F1F946AB815AEBAC2AF114D",
+      "size": 4103
+    },
+    "components/slides/full-page.ftd": {
+      "name": "components/slides/full-page.ftd",
+      "checksum": "E940A97B5F2609CB41B7CEBB5EB783C9F55386E474931AEF9AC2767E5F88B52F",
+      "size": 589
+    },
+    "components/slides/notification.ftd": {
+      "name": "components/slides/notification.ftd",
+      "checksum": "C5AB43D1A64FAFFD5BDD16F0AB155E4B90D9091B6E71656A5AA568F35F61F77F",
+      "size": 1288
+    },
+    "components/slides/page-with-sidebar.ftd": {
+      "name": "components/slides/page-with-sidebar.ftd",
+      "checksum": "F27559E36ADF312DEB4416110B75D6CBC666053363EA6711160AE1C1FCC67C81",
+      "size": 4986
+    },
+    "components/university/show-course-info.ftd": {
+      "name": "components/university/show-course-info.ftd",
+      "checksum": "DE1708790F0794C69B657251F0EB0E1CE2366AF01B41DCC704AEF8BD66AD8899",
+      "size": 879
+    },
+    "components/user/header.ftd": {
+      "name": "components/user/header.ftd",
+      "checksum": "079F72CCCCE453D7073BD2CBE9972AF6BB7C8DF17334EEF142AF80E6D51AB7AC",
+      "size": 1400
+    },
+    "components/user/page.ftd": {
+      "name": "components/user/page.ftd",
+      "checksum": "838E3722E799E7AA661B76E62652EA0540757789FCDA36A93585A15FD203A259",
+      "size": 1069
+    },
+    "ds.ftd": {
+      "name": "ds.ftd",
+      "checksum": "4BF7569103F38BF8012142F6F1BD08DDC180A0BDDE2C1144783D23B4D1F7AB92",
+      "size": 951
+    },
+    "favicon.svg": {
+      "name": "favicon.svg",
+      "checksum": "124B84471BB3095217123822FABD5D52BC96134A4692728D812D21E83F04C0CB",
+      "size": 472
+    },
+    "i18n/en.ftd": {
+      "name": "i18n/en.ftd",
+      "checksum": "9BE083AA05C187AD1BD9A9CAC55DC2BE3AA983F09FD7124A420FA27F6E56704C",
+      "size": 768
+    },
+    "i18n/hi.ftd": {
+      "name": "i18n/hi.ftd",
+      "checksum": "4DFB1C337C6B8A479760693E69AFB48B79D38E706FDF4EF7751AFBE2069C0C74",
+      "size": 1194
+    },
+    "index.ftd": {
+      "name": "index.ftd",
+      "checksum": "E32F9188F53A12691FC1D01078424FA44620BD3572C9B1F38516D96B13562DBB",
+      "size": 2540
+    },
+    "pages/about/index.ftd": {
+      "name": "pages/about/index.ftd",
+      "checksum": "1832D88FE938868ADF75553F1864B70626D2E80B6DDED1DF6103600CA432F176",
+      "size": 721
+    },
+    "pages/about/pricing.ftd": {
+      "name": "pages/about/pricing.ftd",
+      "checksum": "FCCAF5629CE64B65C885B45448EB479E7F42B4850F592E37BB1C58389E2A03CF",
+      "size": 3460
+    },
+    "pages/about/privacy.ftd": {
+      "name": "pages/about/privacy.ftd",
+      "checksum": "5500430D4BDFC75BBB87820AB703EFF0B63B5767765DB82D5E30CBB9D0C4CBC8",
+      "size": 33596
+    },
+    "pages/about/team.ftd": {
+      "name": "pages/about/team.ftd",
+      "checksum": "096D9149E696E81551C5294532B089FC74DBB7E07D1EA808FF4FC14BC6FE5420",
+      "size": 2993
+    },
+    "pages/about/terms.ftd": {
+      "name": "pages/about/terms.ftd",
+      "checksum": "7C679E15DFDB47FE08C9B537A0210D9B79F01DC57AC7B72E5D5F39495F021C0F",
+      "size": 17586
+    },
+    "pages/blogs/authors.ftd": {
+      "name": "pages/blogs/authors.ftd",
+      "checksum": "651CACEA0FB98180E34E4A6EED36EF345DEE96773480C498011E3EE869334EE8",
+      "size": 878
+    },
+    "pages/blogs/home.ftd": {
+      "name": "pages/blogs/home.ftd",
+      "checksum": "89534BA398EE25729D3784225956273061721F47392CF91EAF855B2BE5186349",
+      "size": 912
+    },
+    "pages/blogs/launch.ftd": {
+      "name": "pages/blogs/launch.ftd",
+      "checksum": "79362033593E4D50431C3297DF25869BED0C05DA06A0ECDF76D256106A44BD8C",
+      "size": 7612
+    },
+    "pages/card.ftd": {
+      "name": "pages/card.ftd",
+      "checksum": "B6D39A8957BBB4D55F0A33C31F18E998C2B9683ADB813F58733E1809B42193B3",
+      "size": 889
+    },
+    "pages/change-password.ftd": {
+      "name": "pages/change-password.ftd",
+      "checksum": "F127506DF6E4C7A13CEE896B7A1F93CFA99B10241EC97124BAB70654BE5F965B",
+      "size": 5249
+    },
+    "pages/forgot-password.ftd": {
+      "name": "pages/forgot-password.ftd",
+      "checksum": "82479EEF97AA27A5AF2E8F077D971341BD74A679B2F276EE15FE134EF37F9423",
+      "size": 5228
+    },
+    "pages/home.ftd": {
+      "name": "pages/home.ftd",
+      "checksum": "8516D081EA96E673B21254541DF101E7C06EED2638284F29AC4A1DDF26AF231D",
+      "size": 17161
+    },
+    "pages/org/dashboard.ftd": {
+      "name": "pages/org/dashboard.ftd",
+      "checksum": "626F6A77C0020E9AA56C38CE0374B5A344C7EFF1EE90277CF30D91DDBBF672AB",
+      "size": 876
+    },
+    "pages/password-recovery.ftd": {
+      "name": "pages/password-recovery.ftd",
+      "checksum": "F38144797A9C8B3ABC55BBD3DC5C67141162DB8F33AB7C62EE7423F40B7144EE",
+      "size": 2038
+    },
+    "pages/signin.ftd": {
+      "name": "pages/signin.ftd",
+      "checksum": "9AD0B6843EFA44726DF9A0C603214FF3AEAB0C863DADC339BA41A1EDC331BF1A",
+      "size": 7639
+    },
+    "pages/signup.ftd": {
+      "name": "pages/signup.ftd",
+      "checksum": "83B7C02182CC8B4736D3DBA13BD61B2BAFE2F42769294A3232F52AB81B948579",
+      "size": 14239
+    },
+    "pages/sites/editor.ftd": {
+      "name": "pages/sites/editor.ftd",
+      "checksum": "B2407DA32BABC37AB9CF20594645E2ED7C4CC4985BEC2822BCEA171490A19798",
+      "size": 3956
+    },
+    "pages/sites/setting/configure-github.ftd": {
+      "name": "pages/sites/setting/configure-github.ftd",
+      "checksum": "F0A5FFDB7DD9B16C101776C754499ABE7C2E4C99EA66F191346504D2561997AE",
+      "size": 6427
+    },
+    "pages/sites/setting/domains.ftd": {
+      "name": "pages/sites/setting/domains.ftd",
+      "checksum": "71A7D396A10338205E492FA849CB312BB53C47FB86B1F4BFEEA1ABBD37026716",
+      "size": 2056
+    },
+    "pages/sites/setting/github-configured.ftd": {
+      "name": "pages/sites/setting/github-configured.ftd",
+      "checksum": "A116F51160A983A80D2DBB6F8A919D0EC10FD402372FCE746377919165AC4FA8",
+      "size": 2721
+    },
+    "pages/sites/setting/github.ftd": {
+      "name": "pages/sites/setting/github.ftd",
+      "checksum": "2D9CAD8F36C6CCB5246A88F3144CFB158612B432C7FD45BA1E3C1DE156C3DB0E",
+      "size": 2486
+    },
+    "pages/sites/setting/tokens.ftd": {
+      "name": "pages/sites/setting/tokens.ftd",
+      "checksum": "81323A7F3637064E30E94E4BD0FD207C9A300E0ED77A2712A39FED2AE5725B60",
+      "size": 1718
+    },
+    "pages/sites/site-info.ftd": {
+      "name": "pages/sites/site-info.ftd",
+      "checksum": "81D18F85491002F96A2B4D26E89DC1DE9428E9A307B7668E27A788E80FD5B954",
+      "size": 4166
+    },
+    "pages/slides/dashboard.ftd": {
+      "name": "pages/slides/dashboard.ftd",
+      "checksum": "C5E6B2BE5FD3173C90F5FCCB6E435FB7F7E8D32C81D4216CA7ABA44DBC58C313",
+      "size": 6691
+    },
+    "pages/slides/present.ftd": {
+      "name": "pages/slides/present.ftd",
+      "checksum": "05AF4B8F5FBE1953AB665578C52B6DF2DC7E612DF62FB723D90AD8B68E7ED513",
+      "size": 2858
+    },
+    "pages/slides/presentation-settings.ftd": {
+      "name": "pages/slides/presentation-settings.ftd",
+      "checksum": "4E9ADAFFB3642ED7851DBFF75C25D063BAD5953AEFE056A1B140F92755ABA591",
+      "size": 5386
+    },
+    "pages/slides/presentation.ftd": {
+      "name": "pages/slides/presentation.ftd",
+      "checksum": "DA09641FC0B58E7124A6D976F2180510744D7EFD143BB671C0355E0CB205DE68",
+      "size": 20939
+    },
+    "pages/slides/signin.ftd": {
+      "name": "pages/slides/signin.ftd",
+      "checksum": "B1CBC93A1DBC4141AB35174BD8CDDA19B737F15F5957F2D9A8CB45C6B0498D9A",
+      "size": 2783
+    },
+    "pages/slides/signup.ftd": {
+      "name": "pages/slides/signup.ftd",
+      "checksum": "84DD21B3005C332F2116EFF6FE6E1F679313D6C28363E774AE8970D97535B6EC",
+      "size": 363
+    },
+    "pages/slides/team-templates.ftd": {
+      "name": "pages/slides/team-templates.ftd",
+      "checksum": "F76C8FE44736502150D2C2224F7B45C4DD820637FB377C5FFB4627EBBEE5C558",
+      "size": 2778
+    },
+    "pages/slides/template.ftd": {
+      "name": "pages/slides/template.ftd",
+      "checksum": "5E38BE78BFDC1A0AC637620EF2A3DD6DF6AAC51E7FC24718191B55055DB5F4EC",
+      "size": 7349
+    },
+    "pages/slides/templates.ftd": {
+      "name": "pages/slides/templates.ftd",
+      "checksum": "3ECB06B220E4F09EB1DB6F8F9EA0FAB6B967AECCF5B31606805ED8F9401AB817",
+      "size": 2812
+    },
+    "pages/university/course.ftd": {
+      "name": "pages/university/course.ftd",
+      "checksum": "5D8B562F332FBFFF5ED27943D8EA8BA2DFF39CAE531B7111C6CCA46CAD5946B7",
+      "size": 1453
+    },
+    "pages/university/home.ftd": {
+      "name": "pages/university/home.ftd",
+      "checksum": "8ED42CB895B0E655007B352B947292F0989CD4E39228DDCD3D1633E38FE1895E",
+      "size": 779
+    },
+    "pages/university/index.ftd": {
+      "name": "pages/university/index.ftd",
+      "checksum": "C399967E5C6450FB05F999DB478633811B99D296D97D1107B8130233B45C59A0",
+      "size": 591
+    },
+    "pages/user/create-site.ftd": {
+      "name": "pages/user/create-site.ftd",
+      "checksum": "29B14A45628838212988F6322A01D072629DE7F80947FBFE9388513B2A5056C6",
+      "size": 4727
+    },
+    "pages/user/dashboard.ftd": {
+      "name": "pages/user/dashboard.ftd",
+      "checksum": "626F6A77C0020E9AA56C38CE0374B5A344C7EFF1EE90277CF30D91DDBBF672AB",
+      "size": 876
+    },
+    "records/link.ftd": {
+      "name": "records/link.ftd",
+      "checksum": "CA537C8353DDC4B704C4A6ED20A7938B97E103FF719EAB0B47EB96A89F64A454",
+      "size": 61
+    },
+    "records/sites.ftd": {
+      "name": "records/sites.ftd",
+      "checksum": "CC094B55B8F1A459F7329B6C81E6C41C2271CAE9ED58FED6CA9B9D73624561A2",
+      "size": 1463
+    },
+    "records/user-data.ftd": {
+      "name": "records/user-data.ftd",
+      "checksum": "6CE2C7EC31329A9623CBEEC961D100B60607B167C45A6839767D75863B556868",
+      "size": 250
+    },
+    "scenarios/about/index.ftd": {
+      "name": "scenarios/about/index.ftd",
+      "checksum": "78B939FB6846CA20CDEFE06F42B7C792D866F8FD6787AD2267E331631487A791",
+      "size": 201
+    },
+    "scenarios/about/logged-in-about.ftd": {
+      "name": "scenarios/about/logged-in-about.ftd",
+      "checksum": "2A06B33ACE2F1854FFCB1FC03F6F8BE5FD065B124815FC9270BC098447A40625",
+      "size": 125
+    },
+    "scenarios/about/logged-in-team.ftd": {
+      "name": "scenarios/about/logged-in-team.ftd",
+      "checksum": "1AE145A29593B7ACEE0E16C4C4EB4C99085F45582E7907704134B1253A56F732",
+      "size": 129
+    },
+    "scenarios/about/pricing.ftd": {
+      "name": "scenarios/about/pricing.ftd",
+      "checksum": "2F8C41BA40C4429C4C17EFE58A8110AE9354018556D7C3ACEDB1BF07547D3E3E",
+      "size": 211
+    },
+    "scenarios/about/privacy-page.ftd": {
+      "name": "scenarios/about/privacy-page.ftd",
+      "checksum": "EB9D62D3B0BF9FEB84B477D4B267A961518AB4775562A5F2926921B346A83E09",
+      "size": 212
+    },
+    "scenarios/about/team-page.ftd": {
+      "name": "scenarios/about/team-page.ftd",
+      "checksum": "4D6BF81A8709B629EF806210AD506340354EF705886771EDCA141907D5746DF2",
+      "size": 206
+    },
+    "scenarios/about/terms-page.ftd": {
+      "name": "scenarios/about/terms-page.ftd",
+      "checksum": "10731805FA22FC26BE1C8CC322D90D8FC4B8CFFE05D94885D1C0CA5E659D4E50",
+      "size": 132
+    },
+    "scenarios/blogs/blog-post.ftd": {
+      "name": "scenarios/blogs/blog-post.ftd",
+      "checksum": "21E656D98B8962BDA25BB9B050C0D7E0BFE091B7096F9D27A122AD57F37274A0",
+      "size": 133
+    },
+    "scenarios/blogs/index.ftd": {
+      "name": "scenarios/blogs/index.ftd",
+      "checksum": "BAE672EEF99AF303385052D6DADD9DFFEFF4268A8EA29B9414D83E0D44296D6F",
+      "size": 128
+    },
+    "scenarios/cards/onboarding-ishaan.ftd": {
+      "name": "scenarios/cards/onboarding-ishaan.ftd",
+      "checksum": "F23A8DFB60D81ECA9D57D70A0D92B444C655F58F6A2DB623CA180D9F43DD12C2",
+      "size": 271
+    },
+    "scenarios/change-password.ftd": {
+      "name": "scenarios/change-password.ftd",
+      "checksum": "E40F0832E1FD72C39B7B07E4A1DCA16A71E618847BD4D5596E74EA27CAFB6782",
+      "size": 152
+    },
+    "scenarios/forgot-password.ftd": {
+      "name": "scenarios/forgot-password.ftd",
+      "checksum": "825A8E33EB3138414EAA2F01A4552DB35105661C0FD2CE4AAE97CEDA53BBFAC1",
+      "size": 152
+    },
+    "scenarios/john-doe.ftd": {
+      "name": "scenarios/john-doe.ftd",
+      "checksum": "D9AB4EC809DB5D52439D5C410A3B0597C6334DA3445B55D731E806FF3D6022F1",
+      "size": 238
+    },
+    "scenarios/logged-in-home.ftd": {
+      "name": "scenarios/logged-in-home.ftd",
+      "checksum": "2BB901664C3D1209F26E7A18D1F7898067EB25BD1BF8D2693327722257F22509",
+      "size": 199
+    },
+    "scenarios/logged-out-home.ftd": {
+      "name": "scenarios/logged-out-home.ftd",
+      "checksum": "76ADF0D20BA46100FDDF41ADC8CAA2FF032C013B6A11C6759B1F127BED33900F",
+      "size": 201
+    },
+    "scenarios/org/dashboard.ftd": {
+      "name": "scenarios/org/dashboard.ftd",
+      "checksum": "318210376EE0640DC40A8C8C572E74808A3606F62458273634C8B7400EFFE0A5",
+      "size": 420
+    },
+    "scenarios/password-recovery.ftd": {
+      "name": "scenarios/password-recovery.ftd",
+      "checksum": "45025D18F64AC8619E9224F7EBA6EEFD050F8277E96C9C1439C27411836C376A",
+      "size": 225
+    },
+    "scenarios/scenario-site.ftd": {
+      "name": "scenarios/scenario-site.ftd",
+      "checksum": "4A8A50E315EEE13286A97B98BE1C3CB752111780E28EC90B3651FCEA0DA64661",
+      "size": 651
+    },
+    "scenarios/signin-page.ftd": {
+      "name": "scenarios/signin-page.ftd",
+      "checksum": "5E5C97DA6D7AB60CE30EC999B7A1C70AF7799C0CB6737934AAA9A524C3C90AE4",
+      "size": 170
+    },
+    "scenarios/signup-page.ftd": {
+      "name": "scenarios/signup-page.ftd",
+      "checksum": "2056039FE8187DDDE0F6B06901D59FCFCA5A82BD7508EACCCCC6A65C7932FD28",
+      "size": 203
+    },
+    "scenarios/sites/editor/image-preview.ftd": {
+      "name": "scenarios/sites/editor/image-preview.ftd",
+      "checksum": "E9EB9D26A5409D426A5DD365F05A9422547168171DF3B8E1E8C7746ADBA4CF89",
+      "size": 1105
+    },
+    "scenarios/sites/editor/index.ftd": {
+      "name": "scenarios/sites/editor/index.ftd",
+      "checksum": "570E1FEC7C4B75FB5D49D7D04A278FFE12D0324B7F4A3C6F49C99D0226CD334A",
+      "size": 1155
+    },
+    "scenarios/sites/setting/configure-github.ftd": {
+      "name": "scenarios/sites/setting/configure-github.ftd",
+      "checksum": "1D75AF65B59938EBAF9F411E4316ED6BE6E18647399B7448D9B19FE4F236044B",
+      "size": 586
+    },
+    "scenarios/sites/setting/domains.ftd": {
+      "name": "scenarios/sites/setting/domains.ftd",
+      "checksum": "059D7EC33E3E3AA197F8380D3EE5E3761DB15FA1F1C7686AA89FE9C8DC9A662A",
+      "size": 763
+    },
+    "scenarios/sites/setting/github-configured.ftd": {
+      "name": "scenarios/sites/setting/github-configured.ftd",
+      "checksum": "0792D7CC2441A4F5F90DD640A95B9B6798184F57FAE476F6B78FE875845A28A6",
+      "size": 458
+    },
+    "scenarios/sites/setting/github.ftd": {
+      "name": "scenarios/sites/setting/github.ftd",
+      "checksum": "EF3D1EA2B74966C25E60948FC0A2C09F93B6CE1B2A4BF421F1399D8F3D03E167",
+      "size": 667
+    },
+    "scenarios/sites/setting/tokens.ftd": {
+      "name": "scenarios/sites/setting/tokens.ftd",
+      "checksum": "81390EF15064A0CE5B5BB12A0E386F35DB51C0AAA7224C1A9C5F75810FA8DA54",
+      "size": 650
+    },
+    "scenarios/sites/site-info.ftd": {
+      "name": "scenarios/sites/site-info.ftd",
+      "checksum": "66CC40FCE091CD3ED64B127D2F08CF4849FB6671E5EA5B87ABA1EBDC28E51F89",
+      "size": 860
+    },
+    "scenarios/sites/top-message.ftd": {
+      "name": "scenarios/sites/top-message.ftd",
+      "checksum": "98FC66F2A0853CE9DA82AC3DC4B1956E16B297F2EBF200D3AE8F2F4E25A00C69",
+      "size": 537
+    },
+    "scenarios/slides/fastn-presentation-logged-in.ftd": {
+      "name": "scenarios/slides/fastn-presentation-logged-in.ftd",
+      "checksum": "CEAF60E7A58BFAE0DBCB45E6A4816ED51DF0ACC49D1AB61EBC6133071E34F4B6",
+      "size": 1530
+    },
+    "scenarios/slides/logged-in-templates.ftd": {
+      "name": "scenarios/slides/logged-in-templates.ftd",
+      "checksum": "B7511DC22534140B7C9822809A251B790F118EF7F68A9A5469C7740887E89227",
+      "size": 750
+    },
+    "scenarios/slides/present.ftd": {
+      "name": "scenarios/slides/present.ftd",
+      "checksum": "839EC29C8DC48F6B372A6C3BCC8AED5EA1B6B42F0094AE9355C49B62467A1333",
+      "size": 417
+    },
+    "scenarios/slides/presentation-settings.ftd": {
+      "name": "scenarios/slides/presentation-settings.ftd",
+      "checksum": "EEA1AAFDF26AF4708C0773DFF5D3B80D5E95EDA349BDB96D407D2BE5780BD48E",
+      "size": 1383
+    },
+    "scenarios/slides/team-dashboard.ftd": {
+      "name": "scenarios/slides/team-dashboard.ftd",
+      "checksum": "F17C0593A03232ED11D611EF357D56CF38661D977464B78A6D42ADC4F268BF24",
+      "size": 2674
+    },
+    "scenarios/university/f4e-course.ftd": {
+      "name": "scenarios/university/f4e-course.ftd",
+      "checksum": "8EB944D9480ABE7F92E7AFFA0D8E15DE4688456089A700759925D7D10B165FD2",
+      "size": 581
+    },
+    "scenarios/university/home-page.ftd": {
+      "name": "scenarios/university/home-page.ftd",
+      "checksum": "E7017B6E9B8EAF7E27CC00CD9277D5BCE836331CF0D4337DC42BDFADC3352ACF",
+      "size": 699
+    },
+    "scenarios/user/create-site.ftd": {
+      "name": "scenarios/user/create-site.ftd",
+      "checksum": "9FCA5F0DC319DD3EB4D391F33DF73AAD3ECF23A9B1032490008A25FF1FD719C2",
+      "size": 306
+    },
+    "scenarios/user/dashboard.ftd": {
+      "name": "scenarios/user/dashboard.ftd",
+      "checksum": "93EE97CBD0F44A27F181F43CE03732AA3FA3844E7690AACDF538103CBCAB4AA5",
+      "size": 979
+    },
+    "site-data.ftd": {
+      "name": "site-data.ftd",
+      "checksum": "11D5245CC005E49D2059E0443C46A0C8ECEE3D844668B642E0E3B9E84C63ABE3",
+      "size": 622
+    },
+    "utils.ftd": {
+      "name": "utils.ftd",
+      "checksum": "5819C77E93D44BCE0038371A118AAEB4A902353F85EABE45C3FA4723C1CE9B7E",
+      "size": 341
+    },
+    "vercel.json": {
+      "name": "vercel.json",
+      "checksum": "CA3D163BAB055381827226140568F3BEF7EAAC187CEBD76878E0B63E9E442356",
+      "size": 3
+    },
+    "web-components/code-editor.js": {
+      "name": "web-components/code-editor.js",
+      "checksum": "D3DFAF039CA46A1F942C14264F59BD1A190EB441B43EAC51E6B01F9CF4C998BC",
+      "size": 2930
+    },
+    "web-components/code-preview.js": {
+      "name": "web-components/code-preview.js",
+      "checksum": "EEC81DAA5D70455071F8613A2767DF68A5299FA8A3C34BDDD98D1BF8426468F6",
+      "size": 10812
+    },
+    "web-components/index.ftd": {
+      "name": "web-components/index.ftd",
+      "checksum": "AC9C8005A8F376392FD5A70C69340C083565BB2B8AE72D6C5C72C2A7DDDF17E2",
+      "size": 361
+    }
+  },
+  "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
+  "checksum": "78D50BC9F78BD73EBC98B29672074EF092F14CF174A82614B9DD3C82FD332C59"
+}

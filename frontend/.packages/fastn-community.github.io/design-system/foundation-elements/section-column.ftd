@@ -1,0 +1,133 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+
+
+
+-- component section-column:
+optional caption title:
+ds.flush flush: to-header
+children content:
+;; todo: is the follow reference to `design-system` correct?
+ds.gap spacing: $ds.spaces.vertical-gap.medium
+optional ftd.background outer-background:
+optional ftd.background inner-background:
+;; todo: is the follow reference to `design-system` correct?
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap margin: $ds.spaces.vertical-gap.extra-extra-large
+ftd.align align-content: center
+ds.element-radius radius: $ds.radius.medium
+ftd.color border-color: $ds.colors.border
+optional string link:
+ds.border-data border: $ds.borders.uniform.zero
+
+-- ftd.column:
+width: fill-container
+align-content: center
+background: $section-column.outer-background
+margin-bottom.px: $section-column.margin.gap
+
+	-- ftd.column:
+	width if { section-column.flush == full }: fill-container
+	max-width.fixed if { section-column.flush == narrow }: $ds.widths.narrow
+	max-width.fixed if { section-column.flush == wide }: $ds.widths.wide
+	max-width.fixed: $ds.widths.regular
+	width: fill-container
+	children: $section-column.content
+	spacing if { section-column.spacing.gap == spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+	spacing.fixed.px: $section-column.spacing.gap
+	link: $section-column.link
+	align-content: $section-column.align-content
+	background: $section-column.inner-background
+	padding-vertical.px: $section-column.inset.vertical
+	padding-horizontal.px: $section-column.inset.horizontal
+	border-top-width.px: $section-column.border.top
+	border-bottom-width.px: $section-column.border.bottom
+	border-left-width.px: $section-column.border.left
+	border-right-width.px: $section-column.border.right
+	border-color: $section-column.border-color
+	border-top-left-radius.px if { section-column.radius.top-left != $radius.HACK-RADIUS-ROUND }: $section-column.radius.top-left
+	border-top-right-radius.px if { section-column.radius.top-right != $radius.HACK-RADIUS-ROUND }: $section-column.radius.top-right
+	border-bottom-left-radius.px if { section-column.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $section-column.radius.bottom-left
+	border-bottom-right-radius.px if { section-column.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $section-column.radius.bottom-right
+	border-top-left-radius.percent if { section-column.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+	border-top-right-radius.percent if { section-column.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+	border-bottom-left-radius.percent if { section-column.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+	border-bottom-right-radius.percent if { section-column.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+	
+	-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: section-column
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Section Column
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Section Column
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- ds.section-column:
+	inset: $ds.spaces.inset-wide.large
+	outer-background.solid: $ds.colors.background.step-1
+	spacing: $ds.spaces.vertical-gap.space-between
+	flush: full
+	
+	\-- ds.row:
+	width: hug-content
+	align-content: center
+	inset: $ds.spaces.inset-wide.large
+	
+	\-- ds.column:
+	width.fixed.px: 80
+	height.fixed.px: 80
+	background.solid: $ds.colors.custom.one
+	
+	\-- end: ds.row
+	
+	\-- end: ds.section-column
+	
+		-- ds.section-column:
+		inset: $ds.spaces.inset-wide.large
+		outer-background.solid: $ds.colors.background.step-1
+		spacing: $ds.spaces.vertical-gap.small
+		flush: full
+		
+			-- ds.copy-regular:
+			text: This is section-column
+			
+			-- ds.column:
+			width.fixed.px: 80
+			height.fixed.px: 80
+			background.solid: $ds.colors.custom.one
+			
+			-- end: ds.column
+
+		-- end: ds.section-column
+
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

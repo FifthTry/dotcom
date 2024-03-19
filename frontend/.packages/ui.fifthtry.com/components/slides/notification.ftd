@@ -1,0 +1,62 @@
+-- component notification:
+boolean $open: false
+
+-- ftd.column:
+width: fill-container
+$on-click$: $ftd.toggle($a = $notification.open)
+$on-click-outside$: $ftd.set-boolean($a = $notification.open, v = false)
+
+	-- ftd.image:
+	src: $assets.files.assets.slides.notification.svg
+	width.fixed.px: 40
+	height.fixed.px: 40
+	border-radius.px: 8
+	border-width.px: 1
+	border-color: $inherited.colors.border
+	background.solid: $inherited.colors.background.step-1
+	padding.px: 8
+	fit: cover
+	
+	-- popup:
+	$open: $notification.open
+	
+-- end: ftd.column
+
+-- end: notification
+
+
+-- component popup:
+boolean $open:
+
+-- ftd.column:
+if: { popup.open }
+$on-global-key[esc]$: $ftd.set-boolean($a = $popup.open, v = false)
+width.fixed.px: 366
+min-height.fixed.px: 511
+background.solid: $inherited.colors.background.base
+border-color: $inherited.colors.border
+border-radius.px: 8
+border-width.px: 1
+anchor: parent
+right.px: -86
+top.px: 62
+
+	-- ftd.row:
+	width: fill-container
+	spacing: space-between
+	padding.px: 16
+	border-bottom-width.px: 1
+	border-color: $inherited.colors.border
+	role: $inherited.types.button-small
+	
+		-- ftd.text: Notifications
+		color: $inherited.colors.text
+		
+		-- ftd.text: Mark all as read
+		color: $inherited.colors.info.text
+		
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: popup

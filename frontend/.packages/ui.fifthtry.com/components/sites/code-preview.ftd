@@ -1,0 +1,417 @@
+-- component code-preview:
+string site-base-url:
+string $site-relative-url:
+integer $device-selected: 1
+
+-- ftd.column:
+
+-- code-preview-helper:
+site-base-url: $code-preview.site-base-url
+$site-relative-url: $code-preview.site-relative-url
+$device-selected: $code-preview.device-selected
+
+-- expander:
+device-selected: $code-preview.device-selected
+
+-- end: ftd.column
+
+-- end: code-preview
+
+
+
+
+
+
+
+-- component expander:
+integer device-selected:
+boolean expand: $add-expandable(selected = $expander.device-selected)
+
+-- ftd.column:
+
+-- end: expander
+
+
+
+
+
+
+
+
+
+
+-- component code-preview-helper:
+string site-base-url:
+string $site-relative-url:
+string url: $full-url(a = $code-preview-helper.site-base-url, b = $code-preview-helper.site-relative-url)
+boolean $expand: true
+integer $device-selected:
+
+
+-- ftd.column:
+anchor: window
+top.px: 100
+right.px: 100
+z-index: 1000
+width.fixed.px: $get-device-width(devices = $devices, idx = $code-preview-helper.device-selected)
+height.fixed.px: $get-device-height(devices = $devices, idx = $code-preview-helper.device-selected)
+background.solid: white
+border-width.px: 1
+border-color: $ds.colors.cta-primary.base
+id: preview-container
+css: $assets.files.assets.css.code-preview.css
+classes if { code-preview-helper.device-selected == 0 }: desktop
+classes if { code-preview-helper.device-selected == 1 }: mobile
+classes if { code-preview-helper.device-selected == 2 }: tablet
+
+    -- ftd.column:
+    width: fill-container
+    height: fill-container
+
+        -- control-panel:
+        $selected: $code-preview-helper.device-selected
+        devices: $devices
+
+        -- navigation-bar:
+        $site-relative-url: $code-preview-helper.site-relative-url
+        $selected: $code-preview-helper.device-selected
+        if: { code-preview-helper.expand }
+
+        -- ftd.iframe:
+        src: $code-preview-helper.url
+        width: fill-container
+        height: fill-container
+        height.fixed.percent if {code-preview-helper.device-selected == 1}: 85
+        if: { code-preview-helper.expand }
+
+        -- ftd.container:
+        id: corner-rb
+        anchor: parent
+        bottom.px: 0
+        right.px: 0
+        cursor: nwse-resize
+        width.fixed.px: 6
+        height.fixed.px: 6
+        if: { code-preview-helper.device-selected != 1 }
+
+        -- ftd.container:
+        id: corner-lb
+        anchor: parent
+        bottom.px: 0
+        left.px: 0
+        cursor: nesw-resize
+        width.fixed.px: 6
+        height.fixed.px: 6
+        if: { code-preview-helper.device-selected != 1 }
+
+        -- ftd.container:
+        id: corner-l
+        anchor: parent
+        left.px: 0
+        top.px: 0
+        cursor: ew-resize
+        width.fixed.px: 6
+        height.fixed.calc: 100% - 6px
+        if: { code-preview-helper.device-selected != 1 }
+
+        -- ftd.container:
+        id: corner-r
+        anchor: parent
+        right.px: 0
+        top.px: 0
+        cursor: ew-resize
+        width.fixed.px: 6
+        height.fixed.calc: 100% - 6px
+        if: { code-preview-helper.device-selected != 1 }
+
+        -- ftd.container:
+        id: corner-b
+        anchor: parent
+        left.px: 6
+        bottom.px: 0
+        cursor: ns-resize
+        height.fixed.px: 6
+        width.fixed.calc: 100% - 12px
+        if: { code-preview-helper.device-selected != 1 }
+
+    -- end: ftd.column
+
+-- end: ftd.column
+
+-- end: code-preview-helper
+
+
+
+
+
+
+
+
+
+
+
+-- component header:
+boolean $expand: true
+boolean $hover: false
+integer device-selected:
+
+-- ftd.row:
+width: fill-container
+background.solid if { header.device-selected != 1 }: $ds.colors.cta-primary.base
+background.solid if { header.device-selected != 1 && header.hover }: $ds.colors.cta-primary.hover
+spacing: space-between
+cursor: move
+padding-horizontal.px: 5
+id: header
+color if { header.device-selected != 1 }: $ds.colors.cta-primary.text
+$on-mouse-enter$: $ftd.set-bool($a = $header.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $header.hover, v = false)
+
+    -- ftd.text: Preview
+    if: { header.device-selected != 1 }
+
+    -- ftd.text: --
+    if: { header.device-selected != 1 }
+    $on-click$: $ftd.toggle($a = $header.expand)
+
+    -- ftd.text: .
+    if: { header.device-selected == 1 }
+
+-- end: ftd.row
+
+-- end: header
+
+
+
+
+
+
+
+
+
+
+-- component navigation-bar:
+string $site-relative-url:
+integer $selected:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.container:
+height.fixed.px: 24
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+padding.px: 5
+background.solid: $ds.colors.background.step-2
+spacing.fixed.px: 10
+
+-- ftd.text-input:
+default-value: $navigation-bar.site-relative-url
+padding-horizontal.px: 10
+padding-vertical.px: 4
+border-width.px: 1
+border-color: $ds.colors.border
+border-radius.px: 16
+align-self: center
+$on-change$: $ftd.set-string($a = $navigation-bar.site-relative-url, v = $VALUE)
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: navigation-bar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- record device-info:
+caption name:
+integer width:
+integer height:
+
+
+
+
+-- device-info list devices:
+
+-- device-info: Desktop
+width: 800
+height: 350
+
+-- device-info: Mobile
+width: 270
+height: 560
+
+-- device-info: Tablet
+width: 400
+height: 500
+
+-- end: devices
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component control-panel:
+device-info list devices:
+integer $selected:
+
+-- ftd.row:
+anchor: parent
+top.px: -41
+top.px if {control-panel.selected == 2}: -53
+left.px: -12
+spacing.fixed.px: 5
+
+    -- ftd.image:
+    src: $assets.files.assets.move-icon.svg
+    width.fixed.px: 20
+    cursor: move
+    id: header
+    align-self: center
+
+    -- device-dropdown:
+    $selected: $control-panel.selected
+    devices: $devices
+
+-- end: ftd.row
+
+-- end: control-panel
+
+
+
+
+
+-- component device-dropdown:
+device-info list devices:
+integer $selected:
+boolean $open: false
+
+-- ftd.column:
+align-self: center
+$on-click-outside$: $ftd.set-bool($a = $device-dropdown.open, v = false)
+
+-- current-device-dropdown:
+devices: $device-dropdown.devices
+$selected: $device-dropdown.selected
+$open: $device-dropdown.open
+
+-- ftd.column:
+anchor: parent
+left.px: 0
+top.px: 25
+border-width.px: 1
+border-color: $ds.colors.border
+background.solid: $ds.colors.background.base
+padding-horizontal.px: 5
+border-radius.px: 5
+width: fill-container
+if: { device-dropdown.open }
+
+-- ftd.text: $item.name
+color: $ds.colors.text
+role: $ds.types.copy-small
+for: $item in $device-dropdown.devices
+$on-click$: $ftd.set-integer($a = $device-dropdown.selected, v = $LOOP.COUNTER)
+$on-click$: $ftd.set-bool($a = $device-dropdown.open, v = false)
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+-- end: device-dropdown
+
+
+
+
+
+-- component current-device-dropdown:
+device-info list devices:
+integer $selected:
+boolean $open: false
+
+-- ftd.row:
+border-width.px: 1
+border-color: $ds.colors.border
+spacing: space-between
+padding-horizontal.px: 5
+border-radius.px: 5
+width.fixed.px: 85
+background.solid: $ds.colors.background.base
+$on-click$: $ftd.toggle($a = $current-device-dropdown.open)
+
+-- ftd.text: $item.name
+color: $ds.colors.text-strong
+role: $ds.types.copy-small
+align-self: center
+for: $item in $current-device-dropdown.devices
+if: { current-device-dropdown.selected == LOOP.COUNTER }
+
+-- ftd.image:
+align-self: center
+src: $assets.files.assets.down-arrow.svg
+width.fixed.px: 10
+
+-- end: ftd.row
+
+-- end: current-device-dropdown
+
+
+
+
+
+-- string full-url(a,b):
+string a:
+string b:
+
+a + b
+
+
+
+-- integer get-device-width():
+device-info list devices:
+integer idx:
+js: $assets.files.assets.js.code-preview.js
+
+getDeviceWidth(devices, idx)
+
+
+
+-- integer get-device-height(devices,idx):
+device-info list devices:
+integer idx:
+js: $assets.files.assets.js.code-preview.js
+
+getDeviceHeight(devices, idx)
+
+
+
+-- boolean add-expandable(selected):
+integer selected:
+js: $assets.files.assets.js.code-preview.js
+
+
+addExpandable(selected)

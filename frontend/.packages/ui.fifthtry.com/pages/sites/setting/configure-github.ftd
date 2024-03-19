@@ -1,0 +1,177 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/actions/sites/github/configure
+-- import: ui.fifthtry.com/actions/sites/github/reconfigure
+-- import: ui.fifthtry.com/components/sites/utils as u
+-- import: ui.fifthtry.com/utils
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+sites-records.gh-oidc-data data:
+string $github-org: *$page.data.account
+string $github-repo-name: *$page.data.repo
+string $github-repo-branch: *$page.data.branch
+module configure: configure
+module reconfigure: reconfigure
+optional string top-message:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+current-page: github
+dashboard-url: $page.dashboard-url
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-tall.large
+	
+        -- ds.column:
+        width.fixed.px if { ftd.device != "mobile" }: 508
+        align-content: top-left
+        spacing: $ds.spaces.vertical-gap.large
+        radius: $ds.radius.medium
+        inset: $ds.spaces.inset-square.large
+        border: $ds.borders.uniform.small
+        background.solid: $ds.colors.background.step-1
+
+            -- ds.column:
+            spacing: $ds.spaces.vertical-gap.extra-extra-small
+            align-content: left
+
+                -- ds.copy-small: Github Organization
+
+                -- ftd.text-input:
+                default-value if { page.data.is-configured }: $page.data.account
+                placeholder: Github organization name
+                type: text
+                width: fill-container
+                height.fixed.px: 40
+                border-radius.px: 8
+                background.solid: transparent
+                border-width.px: 1
+                border-color: $inherited.colors.border
+                padding.px: 8
+                color: $inherited.colors.text-strong
+                $on-input$: $ftd.set-string($a = $page.github-org, v = $VALUE)
+                $on-input$: $utils.set-null($var = $page.configure.github-org-name-error)
+
+                -- ds.copy-small: $page.configure.github-org-name-error
+                color: $ds.colors.error.text
+                if: { page.configure.github-org-name-error != NULL }
+
+            -- end: ds.column
+
+            -- ds.column:
+            spacing: $ds.spaces.vertical-gap.extra-extra-small
+            align-content: left
+
+                -- ds.copy-small: Github Repo name
+
+                -- ftd.text-input:
+                default-value if { page.data.is-configured }: $page.data.repo
+                placeholder: Github Repo name
+                type: text
+                width: fill-container
+                height.fixed.px: 40
+                border-radius.px: 8
+                background.solid: transparent
+                border-width.px: 1
+                border-color: $inherited.colors.border
+                padding.px: 8
+                color: $inherited.colors.text-strong
+                $on-input$: $ftd.set-string($a = $page.github-repo-name, v = $VALUE)
+                $on-input$: $utils.set-null($var = $page.configure.github-repo-name-error)
+
+                -- ds.copy-small: $page.configure.github-repo-name-error
+                color: $ds.colors.error.text
+                if: { page.configure.github-repo-name-error != NULL }
+
+            -- end: ds.column
+
+            -- ds.column:
+            spacing: $ds.spaces.vertical-gap.extra-extra-small
+            align-content: left
+
+                -- ds.copy-small: Branch
+
+                -- ftd.text-input:
+                default-value: $page.data.branch
+                placeholder: Github Repo Branch
+                type: text
+                width: fill-container
+                height.fixed.px: 40
+                border-radius.px: 8
+                background.solid: transparent
+                border-width.px: 1
+                border-color: $inherited.colors.border
+                padding.px: 8
+                color: $inherited.colors.text-strong
+                $on-input$: $ftd.set-string($a = $page.github-repo-branch, v = $VALUE)
+                $on-input$: $utils.set-null($var = $page.configure.github-repo-branch-error)
+
+                -- ds.copy-small: $page.configure.github-repo-branch-error
+                color: $ds.colors.error.text
+                if: { page.configure.github-repo-branch-error != NULL }
+
+            -- end: ds.column
+
+            -- ds.row:
+            align-content: left
+            spacing: $ds.spaces.horizontal-gap.small
+
+                -- ftd.image:
+                src: $assets.files.assets.sites.info.svg
+
+                -- ds.copy-small: Any change in this can update your website
+
+            -- end: ds.row
+
+            -- ds.row:
+            spacing: $ds.spaces.horizontal-gap.small
+
+                -- ds.secondary-button: Cancel
+                width: wide
+                radius: curved
+                link: $page.site.github-url
+
+                -- ds.primary-button: Save
+                if: { page.data.is-configured }
+                width: wide
+                radius: curved
+                $on-click$: $page.reconfigure.submit(site_slug=$page.site.site-slug, github_org=$page.github-org, github_repo_name=$page.github-repo-name, github_repo_branch=$page.github-repo-branch)
+
+                -- ds.primary-button: Save
+                if: { !page.data.is-configured }
+                width: wide
+                radius: curved
+                $on-click$: $page.configure.submit(site_slug=$page.site.site-slug, github_org=$page.github-org, github_repo_name=$page.github-repo-name, github_repo_branch=$page.github-repo-branch)
+
+            -- end: ds.row
+
+            -- ds.column:
+            align-content: left
+
+            -- ds.copy-small: $page.reconfigure.manage-site-error
+            if: { page.data.is-configured && page.reconfigure.manage-site-error != NULL }
+            color: $ds.colors.error.text
+
+            -- ds.copy-small: $page.configure.manage-site-error
+            if: { !page.data.is-configured && page.configure.manage-site-error != NULL }
+            color: $ds.colors.error.text
+
+            -- end: ds.column
+
+        -- end: ds.column
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

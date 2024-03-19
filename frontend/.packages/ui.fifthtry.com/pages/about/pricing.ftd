@@ -1,0 +1,214 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/about/product
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+optional string top-message:
+
+-- p.page: FifthTry | Better way To Build Websites
+user-data: $page.user-data
+site-data: $page.site-data
+top-message: $page.top-message
+
+	-- ds.section-column:
+	spacing: $ds.spaces.vertical-gap.large
+	inset: $ds.spaces.inset-tall.zero-medium
+	
+		-- ds.heading-large: Pricing
+		width: hug-content
+		
+		-- ds.copy-regular: Free for Beta version
+		width: hug-content
+		
+		-- ftd.desktop:
+		
+			-- ds.row:
+			inset: $ds.spaces.inset-tall.large
+			spacing: $ds.spaces.horizontal-gap.medium
+			
+				-- pricing: Personal
+				items: $free-pricing-items
+				description: Perfect for passion projects & simple websites.
+				cta-text: Get Started
+				cta-link: /
+				price-value: FREE
+				
+				-- pricing: Team
+				items: $basic-pricing-items
+				description: Collaborate with different permissions and access patterns.
+				cta-text: Coming Soon
+				price-value: \$10/member
+				
+			-- end: ds.row
+
+		-- end: ftd.desktop
+
+		-- ftd.mobile:
+		
+			-- ds.column:
+			inset: $ds.spaces.inset-wide.medium
+			
+				-- pricing: Personal
+				items: $free-pricing-items
+				description: Perfect for passion projects & simple websites.
+				cta-text: Get Started
+				cta-link: /
+				price-value: FREE
+				
+				-- pricing: Team
+				items: $basic-pricing-items
+				description: Collaborate with different permissions and access patterns.
+				cta-text: Coming Soon
+				price-value: \$10/member
+				
+			-- end: ds.column
+
+		-- end: ftd.mobile
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- kv-data list free-pricing-items:
+
+-- kv-data: Personal
+value: Free
+
+-- kv-data: Team
+value: \$10/member
+
+-- end: free-pricing-items
+
+
+
+
+
+
+-- kv-data list basic-pricing-items:
+
+-- kv-data: Personal
+value: \$2
+
+-- kv-data: Team
+value: \$10/member
+
+-- end: basic-pricing-items
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component pricing:
+caption name:
+string description:
+string cta-text:
+optional string cta-link:
+kv-data list items:
+string price-value:
+
+-- ds.column:
+width.fixed.px if { ftd.device != "mobile" }: 360
+border: $ds.borders.uniform.small
+align-content: top-center
+spacing: $ds.spaces.vertical-gap.large
+background.solid: $ds.colors.background.step-1
+inset: $ds.spaces.inset-square.medium
+
+	-- ds.heading-medium: $pricing.name
+	width: hug-content
+	
+	-- ds.heading-medium: $pricing.price-value
+	width: hug-content
+	
+	/-- kv-view: $k
+	for: k in $pricing.items
+	
+	-- ds.copy-regular: $pricing.description
+	width: hug-content
+	align: center
+	
+	-- ds.column:
+	height: fill-container
+	align-content: bottom-center
+	
+		-- ds.primary-button: $pricing.cta-text
+		if: { pricing.cta-link != NULL }
+		link: $pricing.cta-link
+		radius: curved
+		width: full
+		
+		-- ds.secondary-button: $pricing.cta-text
+		if: { pricing.cta-link == NULL }
+		radius: curved
+		width: full
+		variant: disabled
+		
+	-- end: ds.column
+
+-- end: ds.column
+
+-- end: pricing
+
+
+
+
+
+
+
+
+
+
+-- component kv-view:
+caption kv-data kv:
+
+-- ds.row:
+width: fill-container
+align-content: center
+
+	-- ds.copy-regular: $kv-format(a = $kv-view.kv.key, b = $kv-view.kv.value)
+	width: hug-content
+	
+-- end: ds.row
+
+-- end: kv-view
+
+
+-- string kv-format(a,b):
+string a:
+string b:
+
+"**" + a + "** :"+ b
+
+-- record kv-data:
+caption key:
+string value:

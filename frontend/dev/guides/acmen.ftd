@@ -1,0 +1,297 @@
+-- ds.page: Acmen: SSL Certificate for Domains Hosted By FifthTry
+
+-- ds.h1: How is a domain added by user
+
+We have a "Domain Settings" page under "package settings" for every package
+created by a user. This page allows the user to add/update a domain to the
+package.
+
+User can add one or more domains to their package. At anytime one of those
+domains would be the primary domain for the package. All other domains will
+redirect to the primary domain.
+
+-- ds.h2: Adding A Domain
+
+When the user adds a domain, we add an entry in the `sites.Domain` table:
+
+-- ds.code:
+lang: py
+
+class Domain(models.Model):
+    org = models.ForeignKey(Org, on_delete=models.PROTECT)
+    domain = models.TextField()
+    site = models.ForeignKey(Site, on_delete=models.PROTECT, related_name='+')
+    wildcard = models.BooleanField(default=False)  # if we want wildcard cert
+    dns_status = models.TextField(null=True)  # null means not checked yet
+    ssl_status = models.TextField(null=True)  # null means not checked yet
+
+-- ds.markdown:
+
+The value of `dns_status` and `ssl_status` columns is `unverified` when the domain is added.
+
+To add the domain we have an API on `ft`: `/api/add-domain/`.
+
+`add_domain` api will also add an entry in `sites.DomainVerificationAttempt` table, with
+`why: first-attempt`, and `scheduled_at` set to `now`.
+
+-- ds.code:
+lang: py
+
+class DomainVerificationAttempt(models.Model):
+    domain = models.ForeignKey(Domain, on_delete=models.PROTECT)
+    site = models.ForeignKey(Site, on_delete=models.PROTECT)
+    why = models.TextField()  # periodic or user_triggered
+    status = models.TextField()
+    message = models.TextField()
+    scheduled_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+-- ds.markdown:
+
+When the user adds a domain, they will see instruction to add the following details
+to their DNS server:
+
+-- ds.code:
+lang: txt
+
+A: 75.2.103.169
+A: 76.223.113.71
+
+-- ds.h1: Domain Verification
+
+We can not do SSL verification before we have done DNS verification. We have a service,
+`acmen`, running on the standalone machine, which will have our Rust process `acmen`,
+the source of which is in `FifthTry/ft/acmen`.
+
+`acmen` will periodically check the `sites.DomainVerificationAttempt` table to see any
+entries with `scheduled_at` in the past and `status=null`. For each such entry, it will
+fetch the DNS server records for the given domain and check if they match the expected
+values. If even one of our IP address is added `acmen` will change the status of the
+domain to `dns_status: verified`.
+
+The value of `status` column are:
+
+- domain_not_found (if the current domain is not registered)
+- domain_doesnt_have_ns (if the domain is registered but does not have any NS records)
+- domain_ns_down (if domain is registered but the DNS server is down/unreachable)
+- domain_a_record_missing (if the domain is registered and DNS server is up but
+  the A record is missing)
+- domain_points_to_wrong_ip (if the domain is registered and DNS server is up but
+  the IP address does not match our IP address)
+- domain_verified_partially (only one out of two IP found)
+- domain_verified
+
+At each stage, `acmen` will update the `status` column or `sites.Domain` table also.
+After a failure, `acmen` will schedule a new verification attempt after 5 mins. Total
+number of verifications we will do for `domain_not_found` and `domain_ns_down` is 10.
+After that we will report the error to user by changing `sites.Domain` table's
+`dns_status` column to `failed`. The UI can show the last few
+`DomainVerificationAttempt` records to the domain.
+
+User can also trigger a verify now action from the UI (using `/api/re-varify-domain/` api),
+this will create a new entry in `sites.DomainVerificationAttempt` table with
+`why: user_triggered` and `scheduled_at` as `now`.
+
+After successful validation, `acmen` will keep checking the domain every 24 hours.
+If the status changes from `verified` to `failure`, `acmen` will create an event
+`domain_verification_status_changed`. The event handler service will send notification
+or email to user.
+
+-- ds.h1: SSL Verification
+
+Once the domain status changes to verified the first time we create an entry
+`sites.SSLVerificationAttempt` table with `why: first-attempt` and `scheduled_at`
+as `now`.
+
+-- ds.code:
+lang: py
+
+class SSLVerificationAttempt(models.Model):
+    domain = models.ForeignKey(Domain, on_delete=models.PROTECT)
+    why = models.TextField()  # periodic or user_triggered
+    token = models.TextField(null=True)  # null means not generated yet
+    status = models.TextField()
+    message = models.TextField()
+    scheduled_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+-- ds.markdown:
+
+`acmen` will periodically check the `sites.SSLVerificationAttempt` table to see any
+entries with `scheduled_at` in the past. For each such entry, it will call the
+letsencrypt API to generate TOKEN, and store the token in the `SSLVerificationAttempt`
+table.
+
+Once the entry is added to the table, `acmen` will call the letsencrypt API to verify
+the domain. Letsencrypt checks `http://<domain>/.well-known/acme-challenge/` to see if the domain
+token is there to verify if we really own the domain. The request will be handled by `ft`
+as described in next section.
+
+If `letsencrypt` API returns success, `acmen` will change the `ssl_status` of the
+`sites.Domain` to `verified`, and store the downloaded certificate to
+`sites.SSLCertificate` table:
+
+-- ds.code:
+lang: py
+
+class SSLCertificate(models.Model):
+    domain = models.ForeignKey(Domain, on_delete=models.PROTECT)
+    cert = models.TextField()
+    encrypted_private_key = models.TextField()
+
+    status = models.TextField()  # valid or expired
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+-- ds.markdown:
+
+The `encrypted_private_key` is encrypted using the
+`fifthtry-secrets/ssl-private-key-encryption-key` using `AES-256-CBC` algorithm.
+
+-- ds.h2: Domain Verification Request
+
+In our `hostn:nginx` we have the following location block:
+
+-- ds.code:
+lang: nginx
+
+location /.well-known/acme-challenge/ {
+    proxy_pass https://ft.fifthtry.com;
+}
+
+-- ds.markdown:
+
+Which means all requests to `/.well-known/acme-challenge/` will be proxied to `ft`,
+and `ft` will handle the request by looking at the `sites.SSLVerificationAttempt`
+table, matching the `Host` header with domain name, and returning the token.
+
+-- ds.h1: Using The Certificates
+
+The request arrives from `GA` to `hostn:nginx`, and this service will be responsible
+for SSL certificate verification.
+
+-- ds.h2: `hostn` Startup
+
+Whenever any `hostn` service starts, it downloads all the valid certificates from
+`sites.SSLCertificate`, decrypt the `encrypted_private_key` and create a file:
+`/etc/nginx/sites-available/<domain>.conf` with the following content:
+
+-- ds.code:
+lang: nginx
+
+server {
+    listen 443 ssl;
+    server_name <domain>;
+    ssl_certificate /etc/ssl/certs/<domain>.crt;
+    ssl_certificate_key /etc/ssl/private/<domain>.key;
+    location / {
+        proxy_pass http://127.0.0.1:8000;  # hostn listens here
+    }
+}
+
+-- ds.markdown:
+
+The template for the above file is in `/home/Ubuntu/hostn/nginx/site.template`.
+
+-- ds.h2: Adding New Certificates
+
+While hostn is running, new certificate can be added to `sites.SSLCertificate` table,
+so `hostn` will monitor the `sites.SSLCertificate` table for new entries, with
+`updated_at` > `last_checked_at`. For each such entry, it will download the certificate
+and update nginx config file, and call `nginx -s reload`. This will happen once
+every 30 seconds, and `last_checked_at` will be updated after each check. We will
+call `nginx -s reload` only if there is a change in any config file.
+
+
+-- ds.h1: Certificate Renewal
+
+`acmen` will periodically check the `sites.SSLCertificate` table for certificates
+that are < 30 days from expiry (only for domains that do not already have an entry in the
+attempt table). For each such certificate, it will create an entry in
+`sites.SSLVerificationAttempt` table with `why: renewal` and `scheduled_at` as `now`.
+
+-- ds.h1: Wildcard Certificates
+
+Some domains will have wildcard certificates. For example, `*.fifthtry.site` will also be
+managed by this. Currently in fastn we do not have a processor to get use subdomain in
+dynamic url configuration, sitemap etc, but we can easily add it. So people can easily
+create wild-card domain sites in fastn.
+
+
+-- ds.h1: A Note On Statuses
+
+We have to status columns: `dns_status` and `ssl_status`.
+
+-- ds.h2: `dns_status`
+
+-- ds.h3: `pending_new`
+
+When the domain is added by user, but not verified yet.
+
+-- ds.h3: `aggressive_retrying`
+
+We have checked the domain at least once, but the verification failed. We will retry
+again. The total number of retries is 10. We retry with this backoff: 5 mins, 10 mins,
+20 mins, 40 mins, and then every hour. After 10th failure, we will change the status
+to `failed`.
+
+-- ds.h3: `failed`
+
+We have tried 10 times, but the domain is not verified. We will not try again. User
+can manually trigger a verification attempt. We will do the same backoff as
+`pending_aggressive_retrying` when user triggers a verification attempt.
+
+-- ds.h3: `verified`
+
+Once the domain is verified, we will keep checking the domain every 24 hours. If the
+status changes from `verified` to `pending_daily_retrying`. Most likely scenario is
+either the domain is expired, or transferred to someone else, or user has explicitly
+changed the DNS setting.
+
+
+-- ds.h3: `daily_retrying`
+
+In this state we will do retry every 24 hours, up to 10 times. After that the status
+changes to `failed`.
+
+If the user triggers a verification attempt in this state, we will switch to
+`aggressive_retrying`.
+
+
+-- ds.h2: `ssl_status`
+
+-- ds.h3: `not-ready`
+
+We have not yet done DNS validation. When a domain is added this is the initial `ssl_status`.
+
+-- ds.h3: `pending_new`
+
+When the `dns_status` changes to `verified`, and `ssl_status != verified`, we will change the
+status to `pending_new`.
+
+-- ds.h3: `aggressive_retrying`
+
+We will follow the same aggressive retry schedule as `dns_status`.
+
+-- ds.h3: `verified`
+
+When the SSL certificate is verified, we will change the status to `verified`.
+
+In verified state, we will add a ssl_scheduled_at to now + 60 days, when we will try
+to renew the certificate.
+
+-- ds.h3: `pending_renewal`
+
+When the certificate is about to expire (30 days before expiry), we will change the status to
+`pending_renewal`, and do the same aggressive retry schedule as `dns_status`.
+
+-- ds.h3: `failed`
+
+If the ssl verification fails, we will change the status to `failed`.  The only hope is that
+the failure happened because DNS issue, and when the dns is re-verified, the ssl verification
+will pass.
+
+
+
+
+-- end: ds.page

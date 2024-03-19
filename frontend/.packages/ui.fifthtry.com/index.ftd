@@ -1,0 +1,91 @@
+-- ds.page: FifthTry UIs
+
+-- ds.section-column:
+align-content: top-left
+inset: $ds.spaces.inset-square.medium
+spacing: $ds.spaces.vertical-gap.medium.gap
+
+	-- ds.copy-regular:
+	
+	These are list of products/websites hosted by FifthTry.
+	
+	-- page-block: Website Pages
+	
+	- [Logged in Home page](/scenarios/logged-in-home/)
+	- [Logged out Home page](/scenarios/logged-out-home/)
+	- [Logged In About page](/scenarios/about/logged-in-about/)
+	- [Logged In Team page](/scenarios/about/logged-in-team/)
+	- [Pricing page](/scenarios/about/pricing/)
+	- [Terms page](/scenarios/about/terms-page/)
+	- [Privacy page](/scenarios/about/privacy-page/)
+	- [Team page](/scenarios/about/team-page/)
+	- [About Us page](/scenarios/about/)
+	- [Blog Homepage](/scenarios/blogs/)
+	- [Blog Post](/scenarios/blogs/blog-post/)
+	
+	-- page-block: Auth Pages
+	
+	- [Login page](/scenarios/signin-page/)
+	- [Signup page](/scenarios/signup-page/)
+	- [Forgot Password page](/scenarios/forgot-password/)
+	- [Change Password page](/scenarios/change-password/?code=auth) ;; ?code is required
+	- [Password Recovery page](/scenarios/password-recovery/)
+	
+	-- page-block: Org Pages
+	
+	- [Org dashboard](/scenarios/org/dashboard/)
+	
+	-- page-block: User Pages
+	
+	- [User dashboard](/scenarios/user/dashboard/)
+	- [Create Site](/scenarios/user/create-site/)
+	
+	-- page-block: Site Pages
+	
+	- [Site Info](/scenarios/sites/site-info/)
+	- [Page with top message](/scenarios/sites/top-message/)
+
+	-- page-block: Site Settings
+
+    - [Site Domains](/scenarios/sites/setting/domains/)
+    - [Github (Configure form)](/scenarios/sites/setting/configure-github/)
+    - [Github (Un-configured)](/scenarios/sites/setting/github/)
+    - [Github (Configured)](/scenarios/sites/setting/github-configured/)
+    - [Site Tokens](/scenarios/sites/setting/tokens/)
+
+	-- page-block: Site Editor Pages
+	
+	- [Site Editor With Code Preview](/scenarios/sites/editor/)
+	- [Site Editor With Image Preview](/scenarios/sites/editor/image-preview/)
+	
+	
+	-- page-block: University Scenarios
+	
+	- [University Homepage](/scenarios/university/home-page/)
+	- [f4e course](/scenarios/university/f4e-course/)
+	
+	-- page-block: Onboarding Scenarios
+	
+	- [Onboarding Ishaan](/scenarios/cards/onboarding-ishaan/)
+	
+-- end: ds.section-column
+
+-- end: ds.page
+
+
+-- component page-block:
+caption title:
+body body:
+
+-- ds.column:
+align-content: top-left
+spacing: $ds.spaces.vertical-gap.medium.gap
+
+	-- ds.heading-medium: $page-block.title
+	
+	-- ds.copy-regular:
+	
+	$page-block.body
+	
+-- end: ds.column
+-- end: page-block

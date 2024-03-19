@@ -1,0 +1,32 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/home-page/product
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+optional string top-message:
+
+-- p.page: About FifthTry | Better way To Build Websites
+user-data: $page.user-data
+site-data: $page.site-data
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-tall.zero-medium
+	align-content: left
+	
+		-- ds.heading-large: About FifthTry
+		
+		-- ds.copy-regular:
+		align: left
+		
+		FifthTry is building a better way to build websites.
+		
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

@@ -1,0 +1,21 @@
+-- import: fifthtry.github.io/admonitions as cbox
+
+-- ds.page: FifthTry Employee Handbook
+
+
+The FifthTry team handbook is the central repository for how we run the company.
+We want to be an open source company, so this handbook is open to the world.
+Please create a [pull request](https://github.com/FifthTry/dotcom/pulls) to
+suggest improvements or add clarifications. Please use
+[discord](https://discord.gg/79x7Z7BNWp) to ask questions.
+
+For a very specific set of internal information we also maintain an [internal
+handbook](https://github.com/FifthTry/fti).
+
+-- cbox.info: We Are Inspired From Gitlab
+
+FifthTry team wants to run FifthTry quite like how Gitlab people do. If you find
+similarities, it's very intentional.
+
+
+-- end: ds.page

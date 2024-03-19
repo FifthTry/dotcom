@@ -1,0 +1,218 @@
+-- ds.page: Team Settings
+sidebar: true
+
+-- org-name: Team Name
+name: Fastn brand decks
+cta-text: Edit
+cta-link: /
+
+-- team-members: Team Members
+cta-text: Add Member
+cta-link: /
+member-list: $common.member-list
+
+
+-- end: ds.page
+
+
+
+
+
+
+
+
+
+
+-- component org-name:
+caption title:
+string name:
+string cta-text:
+string cta-link:
+
+-- ftd.row:
+width: fill-container
+spacing: space-between
+padding-top.px: 24
+padding-bottom.px: 16
+align-content: center
+
+	-- ftd.column:
+	spacing.fixed.px: 4
+	
+		-- ftd.text: $org-name.title
+		role: $inherited.types.heading-tiny
+		color: $inherited.colors.text-strong
+		
+		-- ftd.text: $org-name.name
+		role: $inherited.types.copy-regular
+		color: $inherited.colors.text-strong
+		
+	-- end: ftd.column
+
+	-- ftd.text: $org-name.cta-text
+	link: org-name.cta-link
+	color: $inherited.colors.text-strong
+	role: $inherited.types.button-small
+	padding-horizontal.px: 16
+	padding-vertical.px: 8
+	border-radius.px: 8
+	background.solid: $inherited.colors.background.step-2
+	
+-- end: ftd.row
+
+-- end: org-name
+
+
+
+
+
+
+
+
+
+
+-- component team-members:
+caption title:
+string cta-text:
+string cta-link:
+common.team-member list member-list:
+
+-- ftd.column:
+width: fill-container
+padding-vertical.px: 24
+spacing.fixed.px: 24
+
+	-- ftd.row:
+	width: fill-container
+	spacing: space-between
+	align-content: center
+	
+		-- ftd.text: $team-members.title
+		role: $inherited.types.heading-tiny
+		color: $inherited.colors.text-strong
+		
+		-- ftd.row:
+		padding-horizontal.px: 16
+		padding-vertical.px: 8
+		border-radius.px: 8
+		background.solid: $inherited.colors.background.step-2
+		link: team-members.cta-link
+		align-content: center
+		spacing.fixed.px: 8
+		
+			-- ftd.image:
+			src: $assets.files.assets.add-user.svg
+			width.fixed.px: 24
+			height.fixed.px: 24
+			
+			-- ftd.text: $team-members.cta-text
+			color: $inherited.colors.text-strong
+			role: $inherited.types.button-small
+			
+		-- end: ftd.row
+
+	-- end: ftd.row
+
+	-- ftd.row:
+	width: fill-container
+	spacing: space-between
+	border-bottom-width.px: 1
+	border-color: $inherited.colors.border
+	padding-bottom.px: 16
+	role: $inherited.types.copy-small
+	color: $inherited.colors.text
+	spacing.fixed.px: 358
+	
+		-- ftd.text: User
+		
+		-- ftd.text: Role
+		
+		-- ftd.text: Action
+		
+	-- end: ftd.row
+
+	-- team-member-lists:
+	$loop$: $team-members.member-list as $obj
+	email: $obj.email
+	avatar: $obj.avatar
+	role: $obj.role
+	action: $obj.action
+	
+-- end: ftd.column
+
+-- end: team-members
+
+
+
+
+
+
+
+
+
+-- component team-member-lists:
+string email:
+ftd.image-src avatar:
+string role:
+optional string action:
+
+-- ftd.row:
+width: fill-container
+
+	-- ftd.row:
+	spacing.fixed.px: 8
+	width.fixed.px: 358
+	
+		-- ftd.image:
+		src: $team-member-lists.avatar
+		width.fixed.px: 24
+		height.fixed.px: 24
+		align-self: center
+		
+		-- ftd.text: $team-member-lists.email
+		role: $inherited.types.copy-regular
+		color: $inherited.colors.text
+		style: light
+		
+	-- end: ftd.row
+
+	-- ftd.text: $team-member-lists.role
+	role: $inherited.types.copy-regular
+	color: $inherited.colors.text
+	style: light
+	width.fixed.px: 430
+	text-align: center
+	
+	-- ftd.row:
+	if: { team-member-lists.action != NULL }
+	width.fixed.px: 358
+	align-content: center
+	
+		-- ftd.row:
+		width.fixed.px: 111
+		border-radius.px: 8
+		padding-vertical.px: 8
+		padding-horizontal.px: 12
+		spacing.fixed.px: 8
+		border-color: $inherited.colors.error.border
+		border-width.px: 1
+		align-content: center
+		cursor: pointer
+		
+			-- ftd.image:
+			src: $assets.files.assets.delete.svg
+			width.fixed.px: 14
+			height.fixed.px: 14
+			
+			-- ftd.text: $team-member-lists.action
+			role: $inherited.types.button-small
+			color: $inherited.colors.error.text
+			text-align: center
+			
+		-- end: ftd.row
+
+	-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: team-member-lists

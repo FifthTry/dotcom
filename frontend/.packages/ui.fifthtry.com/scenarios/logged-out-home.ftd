@@ -1,0 +1,7 @@
+-- import: ui.fifthtry.com/pages/home
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+-- home.page:
+user-data: $john-doe.anon
+site-data: scenario-site

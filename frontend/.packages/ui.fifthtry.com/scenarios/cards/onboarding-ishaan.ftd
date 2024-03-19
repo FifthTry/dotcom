@@ -1,0 +1,11 @@
+-- import: ui.fifthtry.com/pages/card
+-- import: ui.fifthtry.com/cards/onboarding-employee as oe
+
+-- card.page:
+card-id: $oe.card-id
+
+-- oe.card: Ishaan Kaustav
+title: Software Developer Intern
+avatar: $assets.files.assets.onboarding.avatar.ishaan.png
+
+-- end: card.page

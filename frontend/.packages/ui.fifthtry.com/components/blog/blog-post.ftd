@@ -1,0 +1,30 @@
+-- component blog-info:
+caption title:
+string name:
+string date:
+
+-- ds.section-column:
+inset: $ds.spaces.inset-tall.zero-medium
+margin: $ds.spaces.vertical-gap.small
+
+-- ds.heading-large: $blog-info.title
+color: $ds.colors.text-strong
+
+-- ds.row:
+width: hug-content
+
+-- ds.copy-large: 
+color: $ds.colors.text
+
+$blog-info.name
+
+-- ds.copy-large: 
+color: $ds.colors.text
+
+$blog-info.date
+
+-- end: ds.row
+
+-- end: ds.section-column
+
+-- end: blog-info

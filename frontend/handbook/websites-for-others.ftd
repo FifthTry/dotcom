@@ -1,0 +1,89 @@
+-- ds.page: Website For Others
+
+We have created a new language and a framework and want people to adopt it.
+While talking to people and companies we come across situation where they are
+interested in trying out ftd/fastn, but do not have internal bandwidth to move
+their content from their existing solution to ftd.
+
+To help them out we sometimes help them out by moving their sites to fastn/ftd.
+Depending on load and complexity etc sometimes we do it internally using the
+ftd developer bandwidth we have in-house, and other times we outsource it to
+one of our trusted vendors (with the consent of the client).
+
+This document describes some of the best practices to follow to ensure things
+happen as smoothly as possible.
+
+-- ds.h1: FifthTry Management Team
+
+For each client we will consider the following people as part of the management
+team:
+
+- AmitU (to handle escalations)
+- Ganesh (to manage the project on a day to day basis)
+- Aprita (to overlook the project)
+
+-- ds.h1: Conversion Project Team For Client
+
+For each client one such team is created. This includes everyone in management
+team, and the people, in house or sub-contractors.
+
+-- ds.h1: Client On-boarding
+
+One of the first steps is to on-board each client. During onboarding we will do
+the following:
+
+- create slack/discord channel, or whatsapp group
+
+
+-- ds.h2: Slack
+
+If the client has their own Slack, we will ask the client to create a slack
+channel for us and add our management team.
+
+**Prefer Slack**: If client is a company and they have Slack we prefer this over
+Discord as this is more sticky for client, if client is using Slack for their
+companies communication they are much more likely to be active on Slack than on
+Discord. They may not even have Discord installed on all their devices for
+example, or the notifications may be disabled.
+
+
+-- ds.h2: Discord Setup
+
+Our preferred way to communicate with client is via our Discord server. We will
+create a channel dedicated to that client. We will also create a role for the
+based on the company name of the client. We will ask each member of the client
+to create a discord account and their usernames would be added to the role.
+
+If it is individual then we do not create the role.
+
+The channel will have accessible by `ft-zen` and by a role we created or by the
+individual.
+
+
+-- ds.h2: WhatsApp Group
+
+In some cases the client may not be interested in Discord Setup and may prefer
+WhatsApp. We reluctantly accept WhatsApp also as a means of communication. For
+the client we will create a whatsapp group and invite the client and their team
+to the WhatsApp group. We will add management group, and whoever else is
+working on our side in that WhatsApp group.
+
+
+-- ds.h1: Their Site, Their Account
+
+One of the first things is we have to help our clients create a Github account.
+First chapter of the fastn book covers it, and we should share that with the
+client.
+
+Since we and our sub-contractors would be working on those sites, we have to ask
+the client to add conversion team.
+
+-- ds.h1: Open Source Nudge
+
+We will encourage the client to license their color schemes, font pairings, UI
+component libraries etc as open source so it can be used by others. The client
+will have full control of the license they decide.
+
+
+
+-- end: ds.page

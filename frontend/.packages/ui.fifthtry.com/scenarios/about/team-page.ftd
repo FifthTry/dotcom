@@ -1,0 +1,8 @@
+-- import: ui.fifthtry.com/pages/about/team
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+
+-- team.page:
+user-data: $john-doe.jd
+site-data: scenario-site

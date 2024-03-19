@@ -1,0 +1,121 @@
+-- import: fastn-community.github.io/svg-icons/fa
+-- import: fastn-community.github.io/svg-icons/phosphor
+-- import: fastn-community.github.io/design-system as ds
+
+
+-- ds.page: SVG Icons
+
+Github: [fastn-community/svg-icons](https://github.com/fastn-community/svg-icons)
+
+Add dependency to your `FASTN.ftd` file:
+
+-- ds.code: Add `svg-icons` to your `FASTN.ftd`
+lang: ftd
+
+\-- fastn.dependency: fastn-community.github.io/svg-icons
+
+
+
+
+-- ds.heading-medium: Font Awesome
+
+-- ds.copy-regular:
+
+And then use helpers from this module to show icons:
+
+-- ds.code: Using `font-awesome` icons
+lang: ftd
+
+\-- import: fastn-community.github.io/svg-icons/fa
+
+\-- fa.brand: font-awesome
+\-- fa.regular: bell
+size: 64
+
+-- fa.brand: font-awesome
+-- fa.regular: bell
+size: 64
+
+-- ds.copy-regular:
+
+[Font-Awesome](https://fontawesome.com) icon names you can get by browsing
+[this folder](https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs),
+it contains three folders, `brands`, which are accessed via e.g.
+`-- fa.brand: apple`, files in `regular` can be accessed using `fa.regular`, and
+`solid` via, you guessed it, `fa.solid`.
+
+
+
+
+-- ds.heading-medium: Phosphor Icons
+
+-- ds.code: Using `Phosphor Icons`
+lang: ftd
+
+\-- import: fastn-community.github.io/svg-icons/phosphor
+
+\-- phosphor.bold: app-store-logo
+size: 200
+
+\-- phosphor.duotone: alarm
+size: 100
+\-- phosphor.fill: airplay
+\-- phosphor.light: align-left
+
+-- ds.copy-regular:
+
+Similarly to use [Phosphor Icons](https://phosphoricons.com), visit [this
+folder](https://github.com/phosphor-icons/core/tree/main/raw) to get the name
+of icons. For each folder we have `phosphor.<folder-name>` components, eg
+`phosphor.bold` and so on.
+
+
+
+-- ds.heading-medium: `size`
+
+-- ds.copy-regular:
+
+You can specify `size` property to any of these components to control their
+size. The default value of the size is `24px`.
+
+-- ds.heading-medium: `color`
+
+-- ds.copy-regular:
+
+You can add `color` property to the parent element where you are placing the
+icon.
+
+
+
+
+-- ds.heading-medium: Demos
+
+-- ftd.column:
+color: $inherited.colors.cta-primary.base
+spacing.fixed.px: 20
+
+
+-- fa.brand: apple
+-- fa.regular: bell
+size: 64
+
+
+
+-- phosphor.bold: app-store-logo
+size: 200
+
+-- phosphor.duotone: alarm
+size: 100
+-- phosphor.fill: airplay
+-- phosphor.light: align-left
+-- phosphor.thin: app-store-logo
+size: 64
+
+;; TODO: for some reason address-book icon is broken when using this technique
+-- phosphor.regular: address-book
+
+-- end: ftd.column
+
+-- end: ds.page
+
+

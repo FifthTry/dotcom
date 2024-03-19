@@ -1,0 +1,201 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+-- import: fastn-community.github.io/design-system/foundation-elements/shadow
+
+
+-- or-type toggle-size:
+
+-- constant integer large: 0
+-- constant integer medium: 1
+-- constant integer small: 2
+
+-- end: toggle-size
+
+
+
+
+
+-- component toggle-button:
+caption title:
+boolean $active: false
+boolean disabled: false
+toggle-size size: medium
+
+-- ds.section-row:
+flush: full
+spacing: $ds.spaces.horizontal-gap.extra-extra-small
+align-content: left
+inset: $ds.spaces.inset-wide.small
+
+	-- ds.container:
+	radius: $ds.radius.large
+	width.fixed.px if { toggle-button.size == small }: 30
+	width.fixed.px if { toggle-button.size == medium }: 38
+	width.fixed.px if { toggle-button.size == large }: 46
+	inset: $ds.spaces.inset-square.extra-small
+	$on-click$: $ftd.toggle($a = $toggle-button.active)
+	background.solid if { !toggle-button.active && !toggle-button.disabled}: $ds.colors.background.step-2
+	background.solid if { toggle-button.active && !toggle-button.disabled}: $ds.colors.cta-primary.base
+	background.solid if { toggle-button.disabled}: $ds.colors.background.step-1
+	
+		-- ds.row:
+		if: { !toggle-button.active && !toggle-button.disabled}
+		align-content: left
+		
+			-- ds.row:
+			radius: $ds.radius.round
+			height.fixed.px if { toggle-button.size == small }: 12
+			width.fixed.px if { toggle-button.size == small }: 12
+			height.fixed.px if { toggle-button.size == medium }: 16
+			width.fixed.px if { toggle-button.size == medium }: 16
+			height.fixed.px if { toggle-button.size == large }: 20
+			width.fixed.px if { toggle-button.size == large }: 20
+			background.solid: $ds.colors.cta-primary.text
+			
+			-- end: ds.row
+
+		-- end: ds.row
+
+		-- ds.row:
+		if: { toggle-button.active && !toggle-button.disabled}
+		align-content: right
+		
+			-- ds.row:
+			radius: $ds.radius.round
+			height.fixed.px if { toggle-button.size == small }: 12
+			width.fixed.px if { toggle-button.size == small }: 12
+			height.fixed.px if { toggle-button.size == medium }: 16
+			width.fixed.px if { toggle-button.size == medium }: 16
+			height.fixed.px if { toggle-button.size == large }: 20
+			width.fixed.px if { toggle-button.size == large }: 20
+			background.solid: $ds.colors.cta-primary.text
+			
+			-- end: ds.row
+
+		-- end: ds.row
+
+		-- ds.row:
+		if: { toggle-button.disabled}
+		align-content: right
+		
+			-- ds.row:
+			radius: $ds.radius.round
+			height.fixed.px if { toggle-button.size == small }: 12
+			width.fixed.px if { toggle-button.size == small }: 12
+			height.fixed.px if { toggle-button.size == medium }: 16
+			width.fixed.px if { toggle-button.size == medium }: 16
+			height.fixed.px if { toggle-button.size == large }: 20
+			width.fixed.px if { toggle-button.size == large }: 20
+			background.solid: $ds.colors.background.step-2
+			
+			-- end: ds.row
+
+		-- end: ds.row
+
+	-- end: ds.container
+
+	-- ds.copy-regular: $toggle-button.title
+	width: hug-content
+	
+-- end: ds.section-row
+
+-- end: toggle-button
+
+
+
+
+-- ds.page: Toggle Button
+
+-- ds.section-column:
+ flush: full
+ align-content: center
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Toggle Button
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.row:
+	
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: small
+		
+			-- toggle-button: Label
+			size: small
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: medium
+		
+			-- toggle-button: Label
+			size: medium
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: large
+		
+			-- toggle-button: Label
+			size: large
+			
+		-- end: ds.rendered
+
+	-- end: ds.row
+
+	-- ds.row:
+	
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: small
+		disabled: true
+		
+			-- toggle-button: Label
+			size: small
+			disabled: true
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: medium
+		disabled: true
+		
+			-- toggle-button: Label
+			size: medium
+			disabled: true
+			
+		-- end: ds.rendered
+
+		-- ds.rendered:
+		
+		\-- toggle-button: Label
+		size: large
+		disabled: true
+		
+			-- toggle-button: Label
+			size: large
+			disabled: true
+			
+		-- end: ds.rendered
+
+	-- end: ds.row
+
+-- end: ds.section-column
+
+-- end: ds.page

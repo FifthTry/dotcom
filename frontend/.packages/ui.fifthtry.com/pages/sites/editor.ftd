@@ -1,0 +1,159 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/file-tree
+-- import: ui.fifthtry.com/components/sites/code-preview
+-- import: ui.fifthtry.com/components/sites/file-browser
+-- import: ui.fifthtry.com/web-components
+-- import: ui.fifthtry.com/actions/sites/editor/open-file
+-- import: ui.fifthtry.com/actions/sites/editor/save-file
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/sites/page as p
+-- import: ui.fifthtry.com/site-data
+
+-- record editor-data:
+sites-records.file-info list files:
+sites-records.file current-file:
+string site-base-url:
+string site-relative-url:
+
+
+
+
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+editor-data data:
+module open-file: open-file
+module save-file: save-file
+string $header-title: *$page.data.current-file.full-name
+optional string top-message:
+boolean $edit: false
+optional string $content:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+current-page: editor
+dashboard-url: $page.dashboard-url
+top-message: $page.top-message
+
+	-- ds.section-row:
+	radius: $ds.radius.zero
+	inner-background.solid: $ds.colors.background.base
+	;; css: [ $assets.files.assets.css.code-editor.css, $assets.files.assets.css.code-preview.css ]
+
+		/-- code-preview.code-preview:
+		site-base-url: $page.data.site-base-url
+        $site-relative-url: *$page.data.site-relative-url
+		if: { page.data.current-file.filetype != "image" && !page.edit }
+
+
+		-- file-tree.file-tree:
+		files: $page.data.files
+		open-file: $page.open-file
+		$header-title: $page.header-title
+		site-slug: $page.site.site-slug
+
+		-- ds.column:
+		height: fill-container
+		align-content: top-center
+		width: fill-container
+
+		    -- file-header:
+		    data: $page.data
+		    $edit: $page.edit
+		    $content: $page.content
+		    file-name: $page.header-title
+		    save-file: $page.save-file
+		    openfile: $page.open-file.content
+		    site-slug: $page.site.site-slug
+
+            -- browser:
+            data: $page.data
+            open-file: $page.open-file
+            $header-title: $page.header-title
+            if: { !page.edit }
+
+			-- web-components.code-editor: $page.header-title
+			file: $page.data.current-file.text
+			openfile: $page.open-file.content
+			$content: $page.content
+			if: { page.edit && page.data.current-file.text != NULL }
+
+		-- end: ds.column
+
+	-- end: ds.section-row
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+
+-- component file-header:
+editor-data data:
+boolean $edit: false
+optional string $content:
+string file-name:
+string site-slug:
+module save-file: save-file
+optional sites-records.file openfile:
+
+-- ds.row:
+width: fill-container
+align-content: right
+;; spacing: $ds.spaces.horizontal-gap.space-between
+background.solid: $ds.colors.background.base
+
+	-- ds.row:
+    width: hug-content
+
+        -- ds.primary-button: EDIT
+        if: { file-header.data.current-file.text != NULL && !file-header.edit && file-header.openfile == NULL }
+        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
+
+        -- ds.primary-button: EDIT
+        if: { file-header.openfile != NULL && file-header.openfile.text != NULL }
+        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
+
+        -- ds.primary-button: SAVE
+        if: { file-header.content != NULL }
+        $on-click$: $file-header.save-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, content = $file-header.content, updated_at = $file-header.data.current-file.updated-at)
+
+    -- end: ds.row
+
+-- end: ds.row
+
+-- end: file-header
+
+
+
+
+
+
+-- component browser:
+editor-data data:
+module open-file: open-file
+string $header-title:
+
+-- ds.column:
+
+    -- file-browser.file-browser:
+    file: $browser.open-file.content
+    title: $browser.header-title
+    if: { browser.open-file.content != NULL }
+
+    -- file-browser.file-browser:
+    file: $browser.data.current-file
+    title: $browser.header-title
+    if: { browser.open-file.content == NULL }
+
+-- end: ds.column
+
+-- end: browser

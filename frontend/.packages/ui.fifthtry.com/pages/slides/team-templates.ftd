@@ -1,0 +1,153 @@
+-- import: ui.fifthtry.com/slides/components/page-with-sidebar
+-- import: ui.fifthtry.com/slides/site-data
+-- import: ui.fifthtry.com/slides/user-data
+-- import: fastn-community.github.io/svg-icons/phosphor
+
+
+-- boolean unimplemented: true
+
+-- record template-data:
+template list templates:
+string team-name:
+
+-- component page:
+ud.user-data user-data: $user-data.user
+template-data data:
+
+-- page-with-sidebar.page:
+site-data: site-data
+user-data: $page.user-data
+$sidebar: true
+team-name: $page.data.team-name
+
+	-- show-template-list:
+	templates: $page.data.templates
+	
+-- end: page-with-sidebar.page
+
+-- end: page
+
+
+
+-- record template:
+integer id:
+caption title:
+string url:
+string team:
+string owner_name:
+string thumbnail:
+string owner_avatar:
+
+
+
+-- component show-template-list:
+caption title: Templates
+template list templates:
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+
+	-- ftd.row:
+	width: fill-container
+	border-bottom-width.px: 1
+	border-color: $inherited.colors.border
+	padding-bottom.px: 8
+	margin-bottom.px: 8
+	padding-top.px: 24
+	spacing.fixed.px: 4
+	color: $inherited.colors.text
+	align-content: left
+	
+		-- phosphor.bold: house
+		size: 24
+		
+		-- ftd.text: My Templates
+		role: $inherited.types.label-large
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	width: fill-container
+	spacing: space-between
+	padding-bottom.px: 24
+	
+		-- ftd.text: $show-template-list.title
+		role: $inherited.types.heading-medium
+		color: $inherited.colors.text-strong
+		
+		-- ds.icon-button: Explore templates
+		if: { !unimplemented }
+		icon: $assets.files.assets.slides.globe.svg
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	width: fill-container
+	padding-vertical.px: 24
+	spacing.fixed.px: 24
+	align-content: top-left
+	wrap: true
+	
+		-- template-short: $template
+		for: $template in $show-template-list.templates
+		
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: show-template-list
+
+
+
+
+
+
+
+
+
+-- component template-short:
+caption template template:
+
+-- ftd.column:
+width.fixed.px: 243
+spacing.fixed.px: 4
+border-radius.px: 8
+link: $template-short.template.url
+
+	-- ftd.image:
+	src: $template-short.template.thumbnail
+	width: fill-container
+	border-radius.px: 8
+	
+	-- ftd.row:
+	width: fill-container
+	spacing.fixed.px: 8
+	padding-vertical.px: 8
+	
+		-- ftd.image:
+		src: $template-short.template.owner_avatar
+		width.fixed.px: 32
+		height.fixed.px: 32
+		fit: cover
+		align-self: center
+		
+		-- ftd.column:
+		spacing.fixed.px: 4
+		
+			-- ftd.text: $template-short.template.title
+			role: $inherited.types.button-small
+			color: $inherited.colors.text-strong
+			
+			-- ftd.text: $template-short.template.owner_name
+			role: $inherited.types.copy-small
+			color: $inherited.colors.text
+			style: light
+			
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: template-short

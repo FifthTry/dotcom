@@ -1,0 +1,244 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/header
+-- import: fastn/processors as pr
+-- import: fastn-community.github.io/svg-icons/phosphor
+
+-- boolean unimplemented: true
+
+-- record toc-item:
+caption title:
+string link:
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+toc-item list list-of-toc: $stable-toc-links
+boolean $sidebar: false
+string team-name:
+children uis:
+boolean hide-team: false
+ftd.color-scheme colors: $ds.colors
+ftd.type-data types: $ds.types
+
+-- ds.column:
+width: fill-container
+height: fill-container
+background.solid: $inherited.colors.background.base
+spacing: $ds.spaces.horizontal-gap.zero
+align-content: top-left
+radius: $ds.radius.zero
+
+	-- header.header:
+	site-data: $page.site-data
+	user-data: $page.user-data
+	$sidebar: $page.sidebar
+	
+	-- ds.row:
+	width: fill-container
+	background.solid: $inherited.colors.background.base
+	align-content: top-left
+	spacing: $ds.spaces.horizontal-gap.zero
+	
+		-- ds.column:
+		if: { page.sidebar }
+		radius: $ds.radius.zero
+		border-color: $inherited.colors.border
+		;;sticky: true
+		;;top.px: 84
+		;;left.px: 0
+		height.fixed.calc: 100vh - 76px
+		;;overflow-y: auto
+		width.fixed.percent: 20
+		align-content: top-left
+		spacing: $ds.spaces.horizontal-gap.zero
+		
+			-- ds.row:
+			if: { !page.hide-team }
+			width: fill-container
+			inset: $ds.spaces.inset-wide.medium
+			border: $ds.borders.bottom.small
+			border-color: $ds.colors.border
+			radius: $ds.radius.zero
+			spacing: $ds.spaces.horizontal-gap.small
+			
+				-- ds.copy-regular: Team:
+				width: hug-content
+				
+				-- ds.row:
+				width: fill-container
+				spacing: $ds.spaces.horizontal-gap.extra-small
+				align-content: left
+				
+					-- ds.copy-regular: $page.team-name
+					width: hug-content
+					
+					-- ftd.image:
+					;;if: { !unimplemented }
+					src: $assets.files.assets.slides.toggle-down.svg
+					width.fixed.px: 24
+					align-self: center
+					
+				-- end: ds.row
+
+				-- ds.column:
+				;;if: { !unimplemented }
+				background.solid: $ds.colors.background.step-1
+				inset: $ds.spaces.inset-square.extra-small
+				width.fixed.px: 48
+				;;border: $ds.borders.uniform.thin
+				;;color: $ds.colors.text
+				
+					-- phosphor.light: gear
+					size: 32
+					
+				-- end: ds.column
+
+			-- end: ds.row
+
+			-- ds.column:
+			width: fill-container
+			height.fixed.calc: 100vh - 136px
+			spacing: $ds.spaces.vertical-gap.space-between
+			inset: $ds.spaces.inset-square.medium
+			
+				-- ds.column:
+				width: fill-container
+				
+					-- render-files:
+					for: $obj in $page.list-of-toc
+					title: $obj.title
+					link: $obj.link
+					
+				-- end: ds.column
+
+				-- ds.column:
+				
+					-- ds.row:
+					width: fill-container
+					spacing: $ds.spaces.vertical-gap.small
+					;;border-radius.px: 8
+					align-content: center
+					inset: $ds.spaces.inset-square.small
+					background.solid: $ds.colors.background.step-1
+					;;color: $inherited.colors.text
+					
+						-- phosphor.regular: globe
+						size: 24
+						
+						-- ds.copy-regular:
+						text: Explore Templates
+						width: fill-container
+						
+						-- phosphor.regular: caret-right
+						size: 24
+						
+					-- end: ds.row
+
+					-- ds.row:
+					width: fill-container
+					spacing: $ds.spaces.vertical-gap.small
+					;;border-radius.px: 8
+					align-content: center
+					inset: $ds.spaces.inset-square.small
+					background.solid: $ds.colors.background.step-1
+					;;color: $inherited.colors.text
+					
+						-- phosphor.regular: trash
+						size: 24
+						
+						-- ds.copy-regular:
+						text: Trash
+						width: fill-container
+						
+						-- phosphor.regular: caret-right
+						size: 24
+						
+					-- end: ds.row
+
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ds.column
+
+		-- ds.column:
+		width.fixed.px if { page.sidebar }: 1140
+		content: $page.uis
+		
+		-- end: ds.column
+
+	-- end: ds.row
+
+-- end: ds.column
+
+-- end: page
+
+
+
+
+
+
+
+
+
+
+
+-- component render-files:
+caption title:
+string link:
+
+-- ds.row:
+width: fill-container
+spacing: $ds.spaces.vertical-gap.small
+align-content: center
+inset: $ds.spaces.inset-square.small
+background.solid: $inherited.colors.background.step-1
+link: $render-files.link
+
+	-- ds.copy-regular: $render-files.title
+	width: fill-container
+	
+	-- ftd.image:
+	src: $assets.files.assets.slides.right.svg
+	width.fixed.px: 24
+	
+-- end: ds.row
+
+-- end: render-files
+
+
+
+-- toc-item list stable-toc-links:
+
+/-- toc-item: Dashboard
+link: /t/admin/
+
+/-- toc-item: Templates
+link: /community-templates/
+
+-- toc-item: Drive
+link: /pages/slides/dashboard/
+
+-- toc-item: My Templates
+link: /slides/scenarios/logged-in-templates/
+
+-- end: stable-toc-links
+
+
+-- pr.toc-item list stable-toc:
+$processor$: pr.toc
+
+- Dashboard: /pages/slides/dashboard/
+
+- Templates: /slides/scenarios/logged-in-templates/
+
+
+-- pr.toc-item list toc:
+$processor$: pr.toc
+
+- Drive: /pages/slides/dashboard/
+
+- Templates: /slides/scenarios/logged-in-templates/
+
+- Pipeline: index.html

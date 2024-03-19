@@ -1,0 +1,15 @@
+-- optional string $create-template-error:
+-- optional string $title-error:
+-- optional string $target-team-error:
+-- optional string $visibility-error:
+
+-- void submit(title, template_slug, team_slug, target_team, visibility, module):
+string title:
+string template_slug:
+string team_slug:
+string target_team:
+string visibility:
+module module:
+js: $assets.files.assets.functions.js
+
+callAlert("Create Template Presentation called")

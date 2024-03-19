@@ -1,0 +1,120 @@
+-- ds.page: Discord @ FifthTry
+
+At FifthTry we use Discord, both as our company internal chatroom, and for a
+community for people using products created by FifthTry, which is primarily
+["fastn-stack"](https://fastn.io). Our Discord server is called `fastn-stack`,
+it is a public server, so anyone can join it:
+[discord.gg/a7eBUeutWD](https://discord.gg/a7eBUeutWD).
+
+
+-- ds.h1: Why Not Slack?
+
+We wanted to be active on Discord as we wanted to be able to answer outsiders
+questions. Using both Slack and Discord was not letting us do that because out
+internal communication was happening on Slack, so we would always be online on
+Slack, but Discord we would be often offline, and if outsiders came asking some
+question, they saw an empty Discord server.
+
+-- ds.h1: Discord Internal Roles
+
+Since we have a server with people from outside as well as FifthTry people, we
+have created some internal roles, so we do not accidently mention outsiders.
+
+All our internal roles start with `ft-`. Every other role should be assumed
+external.
+
+-- ds.h2: `ft-zens` Role
+
+When you join Discord as an employee, or contractor, freelancer etc, you will
+be assigned a role "ft-zens". Feel free to mention this role everytime you have
+anything interesting to say, there is no filter against using this role.
+
+-- ds.h2: `ft-dd-com` Role
+
+This role used to be called `dd-com`, we changed this role. This is related to
+people who joins the Monday's demo day planning meeting.
+
+-- ds.h2: Discord Channels and their purpose
+
+We have a lot of channels that are used internally that serves various purposes.
+
+Here is the list of them:
+
+- [water-cooler](https://discord.gg/sjzpwd3a3e): Updates on the work-related
+stuff which does not lie in any of the dedicated channels on Discord.
+
+ - Communication to individuals: Under the `water-cooler` channel we use
+   individuals' threads. To ensure that they are notified of any messages,
+   use the "@" symbol followed by their name to tag them in the thread.
+   This increases the likelihood that the individual will see and respond
+   to the message in a timely manner.
+
+- Voice-channels: We understand that at times it is required to discuss things
+  over calls as it is not easy to discuss everything on text. For the same,
+  we have `voice-channels` that comes handy to have one-to-one or group
+  discussions.
+
+- [marketing-and-sales](https://discord.gg/kKvMQcxn9Q): Anything and everything
+related to marketing.
+
+- [demo-days](https://discord.gg/fR2zPVWz): To share the URLs of video
+prepared by individual to showcase the work done throughout the week, based on
+the demo-day planning meeting.
+To know more, you can checkout [Demo day](https://www.fifthtry.com/handbook/dd/).
+
+- [day-to-day](https://discord.gg/xwkMjNeK): to update if one is on leave or
+any such discussion.
+
+- [random](https://discord.gg/Fvnk7nsyDk): It is meant to be a lighter and more
+informal space for sharing content. For example, you might say that it's a
+place to share non-work-related posts, thoughts, jokes, and memes with your
+colleagues.
+
+
+-- ds.h1: Guidelines
+
+-- ds.h2: Avoid mentioning @here, @everyone or public roles
+
+If we send a message to these, a lot of outsiders will get a notification, and
+if the notification they get is not relevant to them, they will likely curse us,
+leave the channel, or even block us or report us as SPAM.
+
+Any role not explicitly listed in the previous section is a public role, and
+should not be used.
+
+Exception: Only people who are in public relations team, can avoid this. Even
+when we avoid, an explicit permission from CEO has to be taken before mentioning
+outsiders.
+
+-- ds.h2: Use Only These Invite Links
+
+Invite links can be used for tracking purpose, like if we control what invite
+link we share at what "marketing channel", we can see how many people joined
+us from that channel.
+
+We can disable invite link creation, but I feel that will deter out end users
+from inviting their friends, so we are going to rely on self control. Please
+use the following invite links only when sharing.
+
+- [general link](https://discord.gg/a7eBUeutWD)
+
+Currently we have not curated the invite links and we have a mess, we will
+update this page when we have gotten rid of other invite links from our various
+pages.
+
+-- ds.h1: History
+
+-- ds.h2: Moved From Slack ~ 8th Jan 2022
+
+Till this point we were using [Slack](/slack/) for internal communication, and
+Discord was only for external communication. Around this time we decided to move
+full time here.
+
+
+-- ds.h2: Server Created - 31st Dec 2020
+
+I create the server when we decided we are focussing on `ftd` as a product, and
+we have to create a community.
+
+
+-- end: ds.page

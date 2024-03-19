@@ -1,0 +1,115 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/avatar
+-- import: ui.fifthtry.com/components/dark-mode-toggle
+
+
+
+
+
+
+
+-- component header:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+string current-page:
+boolean $open: false
+
+-- ds.section-column:
+margin: $ds.spaces.vertical-gap.zero
+border: $ds.borders.bottom.small
+radius: $ds.radius.zero
+
+	-- ftd.desktop:
+	
+		-- ds.row:
+		spacing: $ds.spaces.horizontal-gap.space-between
+		background.solid: $ds.colors.background.base
+		inset: $ds.spaces.inset-square.medium
+		
+			-- ds.row:
+			align-content: left
+			width: hug-content
+			spacing: $ds.spaces.horizontal-gap.medium
+			
+				-- ftd.image: $header.site-data.logo
+				link: $header.site-data.homepage
+				
+				-- ds.copy-regular: →
+				white-space: nowrap
+				
+				-- ds.copy-regular: $header.site.account-name
+				link: $header.dashboard-url
+				white-space: nowrap
+				
+				-- ds.copy-regular: →
+				white-space: nowrap
+				
+				-- ds.copy-regular: $header.site.site-name
+                white-space: nowrap
+				
+			-- end: ds.row
+
+			-- ds.row:
+			spacing: $ds.spaces.horizontal-gap.large
+			align-content: right
+			;;width.fixed.px: 420
+			
+				-- tab-link: About
+				is-active if { header.current-page == "info" }: true
+				link: $header.site.info-url
+				
+				-- tab-link: Editor
+				is-active if { header.current-page == "editor" }: true
+				link: $header.site.editor-url
+				
+				/-- tab-link: Change Requests
+				is-active if { header.current-page == "cr" }: true
+				link: $header.site.cr-url
+
+				-- tab-link: Settings
+				is-active if { header.current-page == "setting" }: true
+				link: $header.site.setting-url
+
+
+				-- avatar.avatar:
+				user-data: $header.user-data
+				
+				-- dark-mode-toggle.dark-mode-toggle:
+				
+			-- end: ds.row
+
+		-- end: ds.row
+
+	-- end: ftd.desktop
+
+-- end: ds.section-column
+
+-- end: header
+
+
+
+
+
+
+-- component tab-link:
+caption text:
+string link:
+boolean is-active: false
+
+-- ds.row:
+border if { tab-link.is-active }: $ds.borders.bottom.medium
+border-color if { tab-link.is-active }: $ds.colors.accent.primary
+link: $tab-link.link
+width: hug-content
+radius: $ds.radius.zero
+
+	-- ds.copy-regular: $tab-link.text
+	white-space: nowrap
+	
+-- end: ds.row
+
+-- end: tab-link

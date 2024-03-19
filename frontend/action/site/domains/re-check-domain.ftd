@@ -1,0 +1,14 @@
+-- optional string $recheck-error:
+
+-- void submit(site_slug, domain):
+string site_slug:
+string domain:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/site/re-check-domain/",
+    "www.fifthtry.com/action/site/domains/re-check-domain",
+    "POST",
+    ("site-slug", site_slug),
+    ("domain", domain)
+)

@@ -1,0 +1,445 @@
+-- import: fastn/processors as pr
+
+-- pr.sitemap-data sitemap:
+$processor$: pr.sitemap
+
+-- string site-name: Fastn
+
+-- boolean show-footer: true
+
+-- ftd.image-src site-logo: $assets.files.assets.logo.svg
+
+-- pr.toc-item list empty-toc:
+$processor$: pr.toc
+
+-- integer logo-width: 162
+
+-- integer logo-height: 32
+
+-- string site-url: index.html
+
+-- boolean login-button: false
+
+-- integer max-width: 1320
+
+
+
+
+
+-- record slide-image:
+ftd.image-src src:
+integer index: 1
+boolean active: false
+
+-- slide-image list slide-lists:
+
+-- slide-image:
+src: $assets.files.assets.1.svg
+active: true
+index: 1
+
+-- slide-image:
+src: $assets.files.assets.2.svg
+index: 2
+
+-- slide-image:
+src: $assets.files.assets.3.svg
+index: 3
+
+-- slide-image:
+src: $assets.files.assets.4.svg
+index: 4
+
+-- end: slide-lists
+
+
+
+
+
+
+
+-- record folder-list:
+caption title:
+optional ftd.image-src icon-1:
+optional ftd.image-src icon-2:
+integer index: 1
+boolean active: false
+
+-- folder-list list folder-lists:
+
+-- folder-list: Drive
+icon-1: $assets.files.assets.home.svg
+icon-2: $assets.files.assets.right-arrow.svg
+active: true
+index: 1
+
+-- folder-list: Trash
+index: 2
+
+-- end: folder-lists
+
+
+
+
+
+
+-- record new-folder-list:
+caption title:
+ftd.image-src icon:
+string item:
+
+-- new-folder-list list new-folder-lists:
+
+-- new-folder-list: Folder name
+icon: $assets.files.assets.folder.svg
+item: 12 items
+
+-- new-folder-list: Folder name
+icon: $assets.files.assets.folder.svg
+item: 12 items
+
+-- new-folder-list: Folder name
+icon: $assets.files.assets.folder.svg
+item: 12 items
+
+-- end: new-folder-lists
+
+
+
+
+
+
+
+
+-- record all-projects-list:
+caption title:
+ftd.image-src image:
+string time:
+
+-- all-projects-list list all-projects-lists:
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- all-projects-list: Documentation site
+image: $assets.files.assets.image.png
+time: Edited 18 min ago
+
+-- end: all-projects-lists
+
+
+
+
+
+
+
+
+-- record all-template-list:
+caption title:
+ftd.image-src image:
+
+-- all-template-list list all-template-lists:
+
+-- all-template-list: Templates 1
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 2
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 3
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 4
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 5
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 6
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 7
+image: $assets.files.assets.image.png
+
+-- all-template-list: Templates 8
+image: $assets.files.assets.image.png
+
+-- end: all-template-lists
+
+
+
+
+
+
+
+
+
+
+-- record template-list:
+caption title:
+ftd.image-src image:
+ftd.image-src avatar:
+string owner-name:
+
+-- template-list list template-lists:
+
+-- template-list: Templates 1
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 2
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 3
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 4
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 5
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 6
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 7
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- template-list: Templates 8
+image: $assets.files.assets.image.png
+avatar: $assets.files.assets.avatar.svg
+owner-name: Owner Name
+
+-- end: template-lists
+
+
+
+
+
+
+
+
+
+
+-- record team-member:
+string email:
+ftd.image-src avatar:
+string role:
+optional string action:
+
+-- team-member list member-list:
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Admin
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Member
+action: Remove
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Member
+action: Remove
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Member
+action: Remove
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Member
+action: Remove
+
+-- team-member:
+avatar: $assets.files.assets.avatar.svg
+email: yashveermehra@fastn.com
+role: Member
+action: Remove
+
+-- end: member-list
+
+
+
+
+
+
+
+
+-- record all-comment:
+string name:
+string timestamp:
+ftd.image-src avatar:
+body body:
+
+-- all-comment list all-comments:
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- all-comment:
+name: YashveerMehra
+avatar: $assets.files.assets.avatar.svg
+timestamp: 28 min ago
+
+Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi
+eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus
+aliquam enim urna, etiam.
+
+-- end: all-comments
+
+
+
+
+
+
+
+-- record all-slide:
+caption title:
+ftd.image-src src:
+
+-- all-slide list all-slides:
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- all-slide: Title of the slides
+src: $assets.files.assets.image.png
+
+-- end: all-slides
+
+
+
+
+
+
+
+
+
+-- record all-style:
+ftd.image-src src:
+
+-- all-style list all-styles:
+
+-- all-style:
+src: $assets.files.assets.image.png
+
+-- all-style:
+src: $assets.files.assets.image.png
+
+-- all-style:
+src: $assets.files.assets.image.png
+
+-- all-style:
+src: $assets.files.assets.image.png
+
+-- end: all-styles

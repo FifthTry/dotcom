@@ -1,0 +1,17 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+
+-- optional string $open-error:
+-- optional sites-records.file $content:
+
+-- void submit(name, site_slug):
+string name:
+string site_slug:
+js: $assets.files.js.http.js
+
+http(
+    "/ft2/site/get-content/",
+    "www.fifthtry.com/action/site/editor/open-file",
+    "POST",
+    ("file-name", name),
+    ("site-slug", site_slug)
+)

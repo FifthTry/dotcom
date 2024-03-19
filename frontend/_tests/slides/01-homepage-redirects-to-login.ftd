@@ -1,0 +1,10 @@
+-- import: fastn
+
+-- fastn.test: Homepage Test
+fixtures: recreate-db
+
+-- fastn.get: opening index page
+url: /old-index/
+http-redirect: /signin/
+
+

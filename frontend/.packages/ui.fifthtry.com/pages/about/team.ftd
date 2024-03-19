@@ -1,0 +1,126 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/about/team-member as _
+exposing: team-member
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+ud.user-data user-data:
+module site-data: site-data
+optional string top-message:
+
+-- p.page: Team FifthTry | Better way To Build Websites
+user-data: $page.user-data
+site-data: $page.site-data
+top-message: $page.top-message
+
+	-- ds.section-column:
+	margin: $ds.spaces.vertical-gap.zero
+	
+		-- team: Meet the team
+		
+		We are high on collaboration, low on ego, and take our happy hours seriously.
+
+			-- team-member: Aditya Vikram Singh
+			photo: $assets.files.assets.team.aditya.jpg
+			link: https://www.linkedin.com/in/xypnox/
+			designation: Software Developer
+		
+			-- team-member: Amit Upadhyay
+			photo: $assets.files.assets.team.amitu.jpg
+			link: https://www.linkedin.com/in/amitu/
+			designation: Founder, CEO
+			
+			-- team-member: Arpita Jaiswal
+			photo: $assets.files.assets.team.arpita.jpg
+			link: https://github.com/Arpita-Jaiswal
+			designation: Senior Software Developer
+			
+			-- team-member: Harsh Singh
+			photo: $assets.files.assets.team.harsh.jpeg
+			link: https://www.linkedin.com/in/harshsingh-in/
+			designation: Software Developer
+			
+			-- team-member: Meenu Kumari
+			photo: $assets.files.assets.team.meenu.jpeg
+			link: https://github.com/MeenuKumari28
+			designation: Fastn Builder - FTD Dev
+
+			-- team-member: Nandhini Devi
+			photo: $assets.files.assets.team.nandhini-devi.jpg
+			link: https://github.com/nandhinidevie
+			designation: Marketing Consultant
+
+			-- team-member: Rithik Seth
+			photo: $assets.files.assets.team.rithik.jpg
+			link: https://github.com/Heulitig
+			designation: Software Developer
+
+			-- team-member: Siddhant Kumar 
+			photo: $assets.files.assets.team.siddhant.jpeg
+			link: https://www.linkedin.com/in/siddhantcodes/
+			designation: Software Developer Intern
+			
+			-- team-member: Yashveer Mehra
+			photo: $assets.files.assets.team.yashveer-mehra.jpg
+			link: https://www.linkedin.com/in/yashveer-mehra-4b2a171a9
+			designation: Design Consultant
+			
+		-- end: team
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+-- component team:
+caption title:
+body body:
+children team-wrap:
+
+-- ds.section-column:
+inset: $ds.spaces.inset-tall.zero-medium
+spacing: $ds.spaces.vertical-gap.large
+margin: $ds.spaces.vertical-gap.zero
+
+	-- ds.column:
+	align-content: center
+	spacing: $ds.spaces.vertical-gap.small
+	inset: $$ds.spaces.inset-tall.large
+	
+		-- ds.heading-large: $team.title
+		align: center
+		
+		-- ds.copy-regular:
+		align: center
+		
+		$team.body
+		
+	-- end: ds.column
+
+	-- ftd.desktop:
+	
+		-- ds.row:
+		wrap: true
+		content: $team.team-wrap
+		spacing: $ds.spaces.horizontal-gap.space-between
+		
+		-- end: ds.row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.column:
+		content: $team.team-wrap
+		
+		-- end: ds.column
+
+	-- end: ftd.mobile
+
+-- end: ds.section-column
+
+-- end: team

@@ -1,0 +1,131 @@
+{
+    "files": {
+        "README.md": {
+            "name": "README.md",
+            "checksum": "8B9BC86C105C8D55818242B3778D352E83974FF017534C655069A0FAFA0B50AA",
+            "size": 978
+        },
+        "static/Lato-300-normal-latin.woff2": {
+            "name": "static/Lato-300-normal-latin.woff2",
+            "checksum": "115F6A626CA115D4AD5581B59275327E0E860B30330A52B0F785561332DD2429",
+            "size": 23236
+        },
+        "static/Lato-100-normal-latin-ext.woff2": {
+            "name": "static/Lato-100-normal-latin-ext.woff2",
+            "checksum": "63AEE53D26311C1C3752A02A118D2B7C0B058A22BF550A3CD93F6370CA07932A",
+            "size": 5364
+        },
+        "static/Lato-400-normal-latin-ext.woff2": {
+            "name": "static/Lato-400-normal-latin-ext.woff2",
+            "checksum": "1C2FC265BAAEBA4F3F5B8C7285B93343AEAD25590F08BE73D3056718B376C5D7",
+            "size": 5472
+        },
+        "FASTN.ftd": {
+            "name": "FASTN.ftd",
+            "checksum": "6DE14CA88FE0E566FA6A1A408B0E750C7EE93A5B115AB6A3BBB13191FB71BA17",
+            "size": 5766
+        },
+        "static/Lato-300-italic-latin-ext.woff2": {
+            "name": "static/Lato-300-italic-latin-ext.woff2",
+            "checksum": "930C525F792CC92F84C19945F3423DABA6294FB688E1D8D34F198CAB2E25C9AC",
+            "size": 4340
+        },
+        "static/Lato-300-italic-latin.woff2": {
+            "name": "static/Lato-300-italic-latin.woff2",
+            "checksum": "A961366B4346F6078CC2F164D2C019F63B37E2693F6FC93A995048A98B25C083",
+            "size": 17728
+        },
+        "static/Lato-700-normal-latin-ext.woff2": {
+            "name": "static/Lato-700-normal-latin-ext.woff2",
+            "checksum": "4EF7CD3D4ED7DE91E7EB3C05A31C6FA1DA0B08D07CBFAB8AE108C34D5E39CDB9",
+            "size": 5368
+        },
+        "static/Lato-700-normal-latin.woff2": {
+            "name": "static/Lato-700-normal-latin.woff2",
+            "checksum": "C447DD7677B419DB7B21DBDFC6277C7816A913FFDA76FD2E52702DF538DE0E49",
+            "size": 23040
+        },
+        "static/Lato-900-normal-latin-ext.woff2": {
+            "name": "static/Lato-900-normal-latin-ext.woff2",
+            "checksum": "F89E4B21BCCFED71BA5AD8BAD21DFE6DE6E152959C227731FF27B046CDA16ADE",
+            "size": 5412
+        },
+        "index.ftd": {
+            "name": "index.ftd",
+            "checksum": "320C3BA3F5EA9259E73C5EF8DC64BF0F6966E3D35CC88B34D0EBF4EDEB4C1BF9",
+            "size": 2197
+        },
+        "static/Lato-400-italic-latin.woff2": {
+            "name": "static/Lato-400-italic-latin.woff2",
+            "checksum": "BCA1D88ADA544D9C80872D4DA27133FAB6D347361FA26E932B47EC9559088FD0",
+            "size": 24408
+        },
+        "static/Lato-400-normal-latin.woff2": {
+            "name": "static/Lato-400-normal-latin.woff2",
+            "checksum": "918B7DC3E2E2D015C16CE08B57BCB64D2253BAFC1707658F361E72865498E537",
+            "size": 23580
+        },
+        "custom.ftd": {
+            "name": "custom.ftd",
+            "checksum": "FFEACFA31F6C0BDF3441D0EAA33F515787176F84731083CF142749FB291E7D64",
+            "size": 5097
+        },
+        "static/Lato-100-italic-latin.woff2": {
+            "name": "static/Lato-100-italic-latin.woff2",
+            "checksum": "B19EFE906C9B0345DB45525ED83C76031644E39329A36D39BADF5275BCE363C2",
+            "size": 17072
+        },
+        "static/Lato-100-normal-latin.woff2": {
+            "name": "static/Lato-100-normal-latin.woff2",
+            "checksum": "A79B4C65B454A795FF3868156F54BE09AC8360B9FD3BA21431B5C48FD9B66AFA",
+            "size": 21508
+        },
+        "static/Lato-700-italic-latin-ext.woff2": {
+            "name": "static/Lato-700-italic-latin-ext.woff2",
+            "checksum": "C6C11BBE6B80203775A1C3814E57E232748AD057A4BA74DC798F363AD48DAE3A",
+            "size": 5616
+        },
+        "static/Lato-900-italic-latin.woff2": {
+            "name": "static/Lato-900-italic-latin.woff2",
+            "checksum": "D32335C2C5FD5DE9EE5F3D3B1FE4D9DDE14AAD16EDA570A35018B0FF1DC093D2",
+            "size": 23736
+        },
+        "static/Lato-900-normal-latin.woff2": {
+            "name": "static/Lato-900-normal-latin.woff2",
+            "checksum": "08664859BAAB5ED98F0BF818ED77E38464FF1826DC6406D5ECBD651409AFBD92",
+            "size": 22504
+        },
+        "static/Lato-900-italic-latin-ext.woff2": {
+            "name": "static/Lato-900-italic-latin-ext.woff2",
+            "checksum": "847049DE9339386EAEEF8DDF30B19B16A291506736A2A2AB77943E4EF2B0A6DB",
+            "size": 5560
+        },
+        "static/Lato-100-italic-latin-ext.woff2": {
+            "name": "static/Lato-100-italic-latin-ext.woff2",
+            "checksum": "A4C91AA229C7CF945EF1371D3549EAB956420F5200A3B420A6D820EA1468A7A8",
+            "size": 4208
+        },
+        "static/Lato-400-italic-latin-ext.woff2": {
+            "name": "static/Lato-400-italic-latin-ext.woff2",
+            "checksum": "FF0C0340150F8D44BA71B2BA2B97FAD1D868B2F8E4812FECC15D28AA83564060",
+            "size": 5600
+        },
+        "static/Lato-700-italic-latin.woff2": {
+            "name": "static/Lato-700-italic-latin.woff2",
+            "checksum": "6C84348296EBE2E2A0830C3962EB02156419D9BC76371C2EADAF7329D827D550",
+            "size": 24448
+        },
+        "LICENSE": {
+            "name": "LICENSE",
+            "checksum": "13B67C23643C8E2026352DC9C74BC81393936C508C023A75962B7A1EB69BCDE1",
+            "size": 4400
+        },
+        "static/Lato-300-normal-latin-ext.woff2": {
+            "name": "static/Lato-300-normal-latin-ext.woff2",
+            "checksum": "C9455DEF209BBD015200DB4ECF838EE149944D0E229B519B8E237738946C8724",
+            "size": 5624
+        }
+    },
+    "zip_url": "https://github.com/fastn-community/lato-font/archive/dbdcbc61dbc94bf1b3b9536a95b96aebfd65e966.zip",
+    "checksum": "5E3E0FBA0B741BBD643D9DCB7BDADA162636869ED445E496468525575BC55092"
+}

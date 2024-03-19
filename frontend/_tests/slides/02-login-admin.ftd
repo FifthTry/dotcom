@@ -1,0 +1,38 @@
+-- import: fastn
+
+-- fastn.test: Login Test
+fixtures: recreate-db, create-test-admin
+
+-- fastn.get: opening signin page
+url: /signin/
+
+-- fastn.post: trying invalid password
+url: /slides/authenticate/
+
+;; csrfmiddlewaretoken will be handled by fastn automatically
+-- fastn.post.body:
+
+{
+    "username": "admin",
+    "password": "wrong-password"
+}
+
+-- fastn.post.test:
+
+fastn.assert.eq(fastn.http_response["status"], "failure");
+fastn.assert.eq(fastn.http_response["message"], "Invalid credentials");
+
+-- fastn.post: trying valid password
+url: /slides/authenticate/
+
+;; Update the correct password below if its different
+-- fastn.post.body:
+
+{
+    "username": "admin",
+    "password": "fifthtry-admin"
+}
+
+-- fastn.post.test:
+
+fastn.assert.eq(fastn.http_response["status"], "success");

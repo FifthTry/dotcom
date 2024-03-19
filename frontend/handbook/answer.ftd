@@ -1,0 +1,156 @@
+
+
+
+-- ds.page: How To Answer Question?
+
+tldr: answer questions in [our Q&A Forum](https://github.com/fastn-stack/fastn/discussions/categories/q-a).
+
+-- ds.h1: Who It Applies To
+
+This guideline is for every member of FifthTry who talks to outsiders about
+what we do (doesn't everyone who works at FifthTry does that?).
+
+This is especially important if you play a role in support, marketing,
+training, development etc roles in FifthTry.
+
+-- ds.h1: Create An Entry In Q&A Forum
+
+When you talk to people about stuff we do, especially about fastn stack, they
+will have questions. If you are giving verbal answer to a new question, note
+down the question and the answer and create an entry [our Q&A Forum](https://github.com/fastn-stack/fastn/discussions/categories/q-a).
+
+If you get a question in Discord, WhatsApp etc, encourage them to post the
+question on the Q&A forum. If they do not post the question promptly, create
+the question yourself.
+
+-- ds.h2: An example of a good answer
+
+-- ds.image:
+width: fill-container
+src: $assets.files.images.good-answer.png
+
+
+Notice how he actually answer the question, not just linked to any
+documentation. Notice Ganesh also included link to markdown documentation.
+Notice also he included the code snippet. Further notice that he gave link to
+working example.
+
+-- ds.h2: How to Answer - Source Of Truth
+
+The answer we give in Q&A Forum can not be the "source of truth" about the
+information you are giving. The answer should like to official documentation
+about the property or feature you are using.
+
+Eg if someone asks how to add padding to text, and say padding property is not
+yet documented in our official documentation, then first add the padding to
+the official docs, and then add a link to padding in the answer.
+
+If answer refers to more than one concept, link to each concept from the
+official documentation.
+
+The answer has to be complete proper answer with links to concepts. Eg
+
+> To add padding to any text node you can use the _padding_ property.
+
+Here the _padding_ should be a link to the padding property.
+
+Do not just paste the link as answer. Use proper sentence. Goal is not repeat
+things, the answer on itself must be informative and complete answer to the
+question. But it should link to right places if the person wants to learn more
+or wants to verify the facts.
+
+-- ds.h2: How To Show Examples
+
+For every example create a document in some repo. We have ftd-examples repo with
+quite a few examples, so it can be added there. Or if need be create a new repo
+with just that use case.
+
+Do not just paste the snippet.
+
+
+
+-- ds.h2: Get Your Answer Accepted
+
+An unswered question looks like this:
+
+-- ds.image:
+width: fill-container
+src: $assets.files.images.unanswered.png
+
+Where as an answered question looks like this:
+
+
+-- ds.image:
+width: fill-container
+src: $assets.files.images.answered.png
+
+
+-- ds.h2: Ensure An Answer is An Answer
+
+Sometimes the person who has asked the question will use the wrong text box
+to ask for clarification or comment on answer.
+
+-- ds.image:
+width: fill-container
+src: $assets.files.images.answer-comments.png
+
+Remind people to only suggest an answer if it is an independent answer to the
+original quesiton, and not some comment on question or existing answer.
+
+Github does not have a way to ask for comment on question without answering
+the question.
+
+-- ds.h2: Answer Is Work - Prompt First, Detail Later
+
+Give a prompt answer quickly, so the question asker can continue, but do create
+official docs, links, examples etc, as the answer is work we are doing, we are
+creating a repository of high quality answers for most questions. We are not in
+a hurry, this is not a side project. This is the offical job.
+
+If you do not get time to answer some question properly, if you are busy, it is
+still on you to post a link in the water-cooler channel on Discord to say, "hey
+I answered this question because I was in hurry and wanted to ensure the user
+was not left hanging, but this answer does not meet the FifthTry Standard, so
+can someone else please take over".
+
+-- ds.h2: Share Answer link with asker
+
+Even if someone asked the question in person, verbally, do remember to share
+the question link with them and ask them to subscribe to question, so if there
+is any update, say in our example if we changed from `padding: 10` to
+`padding.px: 10` we should update the answer, and the person to whom we told
+hey use `padding: 10`, they should learn that now they have to write
+`padding.px: 10`.
+
+Further ask them to upvote your answer if it works, so if the answer does not
+work for them the loop closes, we will know, we can keep looking for their
+upvote. Either they upvote it, or they comment saying this does not work.
+This ensures we know for sure the person who asked the question is satisfied.
+
+If the person is not upvoting, but has answered in discord etc, please ping
+AmitU to accept the answer.
+
+-- ds.h1: Rationale
+
+We want to be the best community. We want people to think that we have the
+highest quality documentation, that we are the nicest people who always spend a
+lot of effort in helping me. These things are not optional part of our job, but
+the main job. We can not not have time for it because we are busy with "work".
+
+If people do not get prompt and high quality answers, we will not be able to
+make a new language work.
+
+We are not just aiming for programmers, who are used to googling and going
+through frustrating experience of trying one thing and then next, we are aiming
+for non programmers, who are not so patient, or who do not yet know that
+programming is a very frustrating exercise.
+
+People will get frustrated because they are new to coding, and they will not
+blame coding but us. There will always be fear of "oh why did I chose FTD and
+not something mature like JavaScript". Till we are considered at par with other
+mature languages, people will always blame us instead of programming challenges,
+so we have to go out of our way to ensure the person asking is getting their
+original problem fixed.
+
+
+-- end: ds.page

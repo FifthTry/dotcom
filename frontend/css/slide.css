@@ -1,0 +1,15 @@
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  /* Adjust the padding-bottom to set the aspect ratio (height/width) */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-ratio-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+}
+

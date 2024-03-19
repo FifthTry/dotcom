@@ -1,0 +1,18 @@
+-- ds.page: update-presentation-settings API
+
+This will allow you to update settings of a presentation. The settings that can
+be updated are listed below. Any of these fields can be updated individually, or
+ all at once.
+
+-- ds.h1: `fastn_ftd`
+-- ds.h1: `settings_ftd`
+
+-- ds.h1: `is-template`
+
+-- ds.h1: `is-public`
+
+-- ds.h1: `title`
+-- ds.h1: `description`
+
+
+-- end: ds.page

@@ -1,0 +1,23 @@
+-- import: fastn-community.github.io/dark-mode-switcher as dms
+
+-- component header:
+module site-data: site-data
+
+-- ds.column:
+width: fill-container
+background.solid: $ds.colors.background.base
+border: $ds.borders.bottom.small
+border-color: $ds.colors.border-strong
+radius: $ds.radius.zero
+inset: $ds.spaces.inset-square.medium
+
+	-- ftd.image: $header.site-data.logo
+	link: $header.site-data.homepage
+	width.fixed.px: 162
+	height.fixed.px: 32
+	
+	-- dms.dark-mode-switcher-float:
+	
+-- end: ds.column
+
+-- end: header

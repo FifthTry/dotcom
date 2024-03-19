@@ -1,0 +1,34 @@
+-- import: ui.fifthtry.com/pages/sites/setting/domains
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+
+
+-- domains.page:
+site-data: scenario-site
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/sites/dashboard/
+domains: $domains
+
+
+-- sites-records.domain list domains:
+
+-- sites-records.domain: fastn.com
+is-primary: true
+status: verified
+
+-- sites-records.domain: fastn.fifthtry.sites
+is-primary: false
+status: verified
+
+-- sites-records.domain: fpm.dev
+is-primary: false
+status: pending
+
+-- sites-records.domain: ftd.dev
+is-primary: false
+status: failed
+
+-- end: domains

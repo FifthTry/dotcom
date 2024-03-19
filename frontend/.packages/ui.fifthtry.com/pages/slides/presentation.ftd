@@ -1,0 +1,779 @@
+-- import: ui.fifthtry.com/components/slides/full-page
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/slides/create-slide
+-- import: ui.fifthtry.com/actions/slides/delete-slide
+-- import: ui.fifthtry.com/actions/slides/save-slide
+-- import: ui.fifthtry.com/actions/slides/move-slide
+
+-- string create-slide-module-name: ui.fifthtry.com/actions/slides/create-slide
+-- string delete-slide-module-name: ui.fifthtry.com/actions/slides/delete-slide
+/-- string save-slide-module-name: slides.fifthtry.com/actions/save-slide
+-- string save-slide-module-name: ui.fifthtry.com/actions/slides/save-slide
+-- string move-slide-module-name: ui.fifthtry.com/actions/slides/move-slide
+
+-- boolean unimplemented: true
+
+-- optional string $selected-slide-template:
+-- optional string $selected-slide-template-presentation:
+
+-- record presentation-data:
+string title:
+string url:
+boolean is-valid:
+string settings-url:
+string present-url:
+slide slide:
+slide-thumbnail list thumbnails:
+slide-template list slide-templates:
+comment list comments:
+
+
+-- record slide:
+string content:
+string preview-url:
+boolean is-valid:
+
+
+-- record slide-thumbnail:
+string thumbnail-url:
+string url:
+boolean is-valid:
+
+
+-- record slide-template:
+caption title:
+string slug:
+string presentation-slug:
+string thumbnail:
+
+
+-- record comment:
+string name:
+string timestamp:
+optional string avatar:
+body text:
+
+
+
+-- component page:
+ud.user-data user-data:
+module create-slide: create-slide
+module delete-slide: delete-slide
+module save-slide: save-slide
+module move-slide: move-slide
+presentation-data data:
+string presentation-slug:
+string team-slug:
+integer order:
+
+-- full-page.page:
+site-data: site-data
+user-data: $page.user-data
+team-name: $page.team-slug
+
+	-- presentation-slide: $page.data.title
+	create-slide: $page.create-slide
+	delete-slide: $page.delete-slide
+	save-slide: $page.save-slide
+	move-slide: $page.move-slide
+	data: $page.data
+	presentation-slug: $page.presentation-slug
+	team-slug: $page.team-slug
+	order: $page.order
+	
+-- end: full-page.page
+
+-- end: page
+
+
+
+
+
+
+
+
+-- component presentation-slide:
+caption title:
+presentation-data data:
+string presentation-slug:
+string team-slug:
+integer order:
+module create-slide: create-slide
+module delete-slide: delete-slide
+module save-slide: save-slide
+module move-slide: move-slide
+boolean $toggle: true
+boolean $responsive: false
+boolean $mobile: false
+boolean $comment: false
+boolean $new-slides-popup: false
+boolean $show-error-window: true
+private boolean $is-add-slide-icon-hovered: false
+string $current-slide-content: *$presentation-slide.data.slide.content
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+background.solid: $inherited.colors.background.base
+
+	-- ftd.row:
+	width: fill-container
+	padding-horizontal.px: 24
+	spacing: space-between
+	padding-vertical.px: 12
+	align-content: center
+	
+		-- ftd.text: $presentation-slide.title
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-tiny
+		
+		-- ftd.row:
+		if: { presentation-slide.order >= 1 && presentation-slide.data.is-valid }
+		align-content: center
+		spacing.fixed.px: 16
+		
+			-- ds.icon-button: Present
+			icon: $assets.files.assets.slides.play.svg
+			link: $presentation-slide.data.present-url
+			
+			-- ftd.image:
+			src: $assets.files.assets.slides.toggle-down.svg
+			src if { presentation-slide.toggle }: $assets.files.assets.slides.toggle-up.svg
+			width.fixed.px: 38
+			height.fixed.px: 38
+			padding.px: 7
+			background.solid: $inherited.colors.background.step-2
+			border-radius.px: 8
+			$on-click$: $ftd.toggle($a = $presentation-slide.toggle)
+			
+		-- end: ftd.row
+
+	-- end: ftd.row
+
+
+	-- ftd.row:
+	if: { presentation-slide.toggle }
+	width: fill-container
+	background.solid: $inherited.colors.background.base
+	spacing: space-between
+	padding-vertical.px: 16
+	align-content: center
+	
+		-- ftd.row:
+		if: { presentation-slide.data.slide.is-valid && presentation-slide.data.is-valid }
+		width: fill-container
+		spacing.fixed.px: 16
+		padding-left.px: 24
+		
+			-- show-slide: $obj
+			for: $obj in $presentation-slide.data.thumbnails
+			order: $increment-by-one(a = $LOOP.COUNTER) ;; todo: FIX THIS
+			presentation-slug: $presentation-slide.presentation-slug
+			team-slug: $presentation-slide.team-slug
+			active-slide-order: $presentation-slide.order
+			delete-slide: $presentation-slide.delete-slide
+			move-slide: $presentation-slide.move-slide
+			total-slides: $thumbnails-length(a = $presentation-slide.data.thumbnails)
+			
+			-- ftd.row:
+			width: fill-container
+			$on-click$: $ftd.set-bool($a = $presentation-slide.new-slides-popup, v = true)
+			$on-mouse-enter$: $ftd.set-bool($a = $presentation-slide.is-add-slide-icon-hovered, v = true)
+			$on-mouse-leave$: $ftd.set-bool($a = $presentation-slide.is-add-slide-icon-hovered, v = false)
+			
+				-- ftd.image:
+				src: $assets.files.assets.slides.plus-2.svg
+				opacity: 0.2
+				opacity if { presentation-slide.is-add-slide-icon-hovered }: 0.6
+				cursor: pointer
+				fit: cover
+				height.fixed.px: 64
+				
+			-- end: ftd.row
+
+		-- end: ftd.row
+
+		-- ftd.column:
+		if: { presentation-slide.order >= 1 && presentation-slide.data.is-valid }
+		align-content: right
+		spacing.fixed.px: 8
+		padding-right.px: 24
+		
+			-- ftd.image:
+			src: $assets.files.assets.slides.setting.svg
+			width.fixed.px: 38
+			height.fixed.px: 38
+			padding.px: 7
+			background.solid: $inherited.colors.background.step-1
+			border-radius.px: 8
+			link: $presentation-slide.data.settings-url
+			
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { !presentation-slide.data.is-valid }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: Invalid presentation (Not found)
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { !presentation-slide.data.slide.is-valid }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: Invalid slide (Not found)
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { presentation-slide.order == 0 && presentation-slide.data.is-valid }
+	width: fill-container
+	height: fill-container
+	align-content: center
+	
+		-- ftd.text: This is a blank presentation. Click `+` to add slide
+		color: $inherited.colors.text-strong
+		role: $inherited.types.heading-large
+		text-align: center
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { presentation-slide.order >= 1 && presentation-slide.data.is-valid }
+	width: fill-container
+	height: fill-container
+	
+		-- ftd.column:
+		if: { !presentation-slide.responsive }
+		margin-left.px: 20
+		width.fixed.percent: 50
+		width.fixed.px if { presentation-slide.comment }: 341
+		height: fill-container
+		spacing.fixed.px: 10
+		
+			-- ftd.text-input:
+			placeholder: Enter ftd code here
+			default-value: $presentation-slide.current-slide-content
+			width: fill-container
+			height.fixed.px: 300
+			multiline: true
+			resize: vertical
+			padding-horizontal.px: 10
+			padding-top.px: 10
+			$on-input$: $ftd.set-string($a = $presentation-slide.current-slide-content, v = $VALUE)
+			
+			-- ftd.column:
+			if: { presentation-slide.save-slide.content-error != NULL && presentation-slide.show-error-window }
+			width: fill-container
+			height.fixed.px: 300
+			background.solid: $inherited.colors.background.base
+			padding.px: 20
+			
+				-- ftd.text: Invalid fastn code (Save failed)
+				role: $inherited.types.heading-small
+				color: #EF8435
+				
+				-- ftd.text: $presentation-slide.save-slide.content-error
+				color: $inherited.colors.error.text
+				role: $inherited.types.copy-regular
+				
+			-- end: ftd.column
+
+			-- ds.icon-button: Save
+			icon: $assets.files.assets.slides.save-floppy.svg
+			$on-click$: $presentation-slide.save-slide.submit(presentation=$presentation-slide.presentation-slug,team=$presentation-slide.team-slug, order = $presentation-slide.order, content = $presentation-slide.current-slide-content, module = $presentation-slide.save-slide)
+			
+		-- end: ftd.column
+
+		-- ftd.column:
+		width.fixed.percent: 100
+		width if { presentation-slide.responsive }: fill-container
+		width.fixed.px if { presentation-slide.comment }: 833
+		height: fill-container
+		border-left-width.px: 1
+		border-color: $inherited.colors.border
+		border-radius.px: 10
+		background.solid: $inherited.colors.background.step-2
+		margin-left.px: 20
+		margin-right.px: 20
+		/margin-bottom.px: 20
+		
+			-- ftd.column:
+			if: { presentation-slide.new-slides-popup }
+			width.fixed.px: 680
+			height.fixed.px: 587
+			anchor: parent
+			top.px: 0
+			left.px: 0
+			z-index: 6
+			background.solid: $inherited.colors.background.step-1
+			padding.px: 24
+			border-radius.px: 8
+			shadow: $s
+			
+				-- ftd.row:
+				width: fill-container
+				spacing: space-between
+				border-bottom-width.px: 1
+				border-color: $inherited.colors.border
+				
+					-- ftd.text: Add new slides
+					role: $inherited.types.copy-regular
+					color: $inherited.colors.text
+					
+					-- ftd.image:
+					src: $assets.files.assets.slides.cross.svg
+					width.fixed.px: 16
+					height.fixed.px: 16
+					$on-click$: $ftd.set-bool($a = $presentation-slide.new-slides-popup, v = false)
+					
+				-- end: ftd.row
+
+				-- show-slide-templates:
+				slide-templates: $presentation-slide.data.slide-templates
+				presentation-slug: $presentation-slide.presentation-slug
+				team-slug: $presentation-slide.team-slug
+				create-slide: $presentation-slide.create-slide
+				
+			-- end: ftd.column
+
+			-- ftd.row:
+			width: fill-container
+			border-bottom-width.px: 1
+			border-color: $inherited.colors.border-strong
+			padding-vertical.px: 8
+			padding-horizontal.px: 24
+			spacing: space-between
+			
+				-- ftd.text: Preview
+				role: $inherited.types.copy-regular
+				color: $inherited.colors.text-strong
+				
+				-- ftd.row:
+				height: fill-container
+				spacing.fixed.px: 24
+				align-content: right
+				
+					;; Weird issue doing this (x_x)
+					/-- ds.icon-button:
+					if: { presentation-slide.save-slide.content-error != NULL }
+					icon: $assets.files.assets.slides.error.svg
+					$on-click$: $ftd.set-bool($a = $presentation-slide.show-error-window, v = true)
+					
+					-- ftd.image:
+					if: { presentation-slide.save-slide.content-error != NULL }
+					src: $assets.files.assets.slides.error.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					background.solid if { presentation-slide.comment }: $inherited.colors.accent.primary
+					border-radius.px: 8
+					$on-click$: $ftd.set-bool($a = $presentation-slide.show-error-window, v = true)
+					
+					-- ftd.image:
+					if: { !unimplemented }
+					src: $assets.files.assets.slides.comment.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					background.solid if { presentation-slide.comment }: $inherited.colors.accent.primary
+					border-radius.px: 8
+					$on-click$: $ftd.set-bool($a = $presentation-slide.comment, v = true)
+					if: { len(presentation-slide.data.comments) != 0 }
+					
+					-- ftd.image:
+					if: { !unimplemented }
+					src: $assets.files.assets.slides.responsive.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					border-radius.px: 8
+					$on-click$: $ftd.toggle($a = $presentation-slide.mobile)
+					
+					-- ftd.image:
+					if: { !unimplemented }
+					src: $assets.files.assets.slides.expand.svg
+					src if { presentation-slide.responsive }: $assets.files.assets.slides.collapse.svg
+					width.fixed.px: 30
+					height.fixed.px: 30
+					padding.px: 4
+					background.solid: $inherited.colors.background.step-1
+					border-radius.px: 8
+					$on-click$: $ftd.toggle($a = $presentation-slide.responsive)
+					
+				-- end: ftd.row
+
+			-- end: ftd.row
+
+			-- ftd.column:
+			width: fill-container
+			height: fill-container
+			
+				-- ftd.image:
+				src: $presentation-slide.data.slide.preview-url
+				height.fixed.percent: 80
+				width.fixed.percent: 80
+				width.fixed.px if { presentation-slide.comment }: 600
+				width if { presentation-slide.responsive }: fill-container
+				height if { presentation-slide.responsive }: fill-container
+				border-radius.px: 2
+				border-color: white
+				background.solid: white
+				align-self: center
+				margin-vertical.percent if { !presentation-slide.responsive }: 5
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+		-- ftd.column:
+		if: { presentation-slide.comment }
+		width.fixed.px: 364
+		height: fill-container
+		
+			-- ftd.row:
+			width: fill-container
+			padding-vertical.px: 8
+			padding-horizontal.px: 24
+			border-top-width.px: 1
+			border-bottom-width.px: 1
+			border-color: $inherited.colors.border-strong
+			spacing: space-between
+			align-content: center
+			
+				-- ftd.text: Comment
+				role: $inherited.types.copy-regular
+				color: $inherited.colors.text-strong
+				
+				-- ftd.image:
+				src: $assets.files.assets.slides.cross.svg
+				width.fixed.px: 16
+				height.fixed.px: 16
+				$on-click$: $ftd.set-bool($a = $presentation-slide.comment, v = false)
+				
+			-- end: ftd.row
+
+			-- ftd.column:
+			width: fill-container
+			spacing.fixed.px: 32
+			height.fixed.px: 600
+			overflow-y: scroll
+			
+				-- show-comment: $obj
+				for: $obj in $presentation-slide.data.comments
+				
+			-- end: ftd.column
+
+		-- end: ftd.column
+
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: presentation-slide
+
+
+
+
+
+
+
+
+
+
+
+-- component show-slide:
+caption slide-thumbnail data:
+integer order:
+string presentation-slug:
+string team-slug:
+integer active-slide-order:
+module delete-slide: delete-slide
+module move-slide: move-slide
+module show-slide: show-slide
+private boolean $is-hovered: false
+private boolean $is-left-icon-hovered: false
+private boolean $is-right-icon-hovered: false
+private boolean $is-delete-icon-hovered: false
+integer total-slides:
+
+-- ftd.column:
+height.fixed.px: 90
+
+	-- ftd.image:
+	src: $show-slide.data.thumbnail-url
+	cursor: pointer
+	width.fixed.px: 96
+	height.fixed.px: 64
+	fit: cover
+	border-color if { show-slide.active-slide-order == show-slide.order }: $inherited.colors.cta-primary.base
+	border-width.px if { show-slide.active-slide-order == show-slide.order }: 4
+	link: $show-slide.data.url
+	
+	-- ftd.row:
+	if: { !show-slide.is-hovered }
+	width: fill-container
+	align-content: center
+	spacing: space-around
+	$on-mouse-enter$: $ftd.set-bool($a = $show-slide.is-hovered, v = true)
+	
+		-- ftd.integer: $show-slide.order
+		color: $inherited.colors.text-strong
+		role: $inherited.types.copy-small
+		
+	-- end: ftd.row
+
+	-- ftd.row:
+	if: { show-slide.is-hovered }
+	width: fill-container
+	align-content: center
+	spacing: space-between
+	$on-mouse-leave$: $ftd.set-bool($a = $show-slide.is-hovered, v = false)
+	
+		-- ftd.image:
+		if: { show-slide.order == 1 }
+		src: $assets.files.assets.slides.left.svg
+		width.fixed.px: 30
+		height.fixed.px: 30
+		align-self: end
+		padding.px: 7
+		background.solid: $inherited.colors.background.step-1
+		border-radius.px: 8
+		opacity: 0.3
+		
+		-- ftd.image:
+		if: { show-slide.order != 1 }
+		src: $assets.files.assets.slides.left.svg
+		src if { show-slide.is-left-icon-hovered }: $assets.files.assets.slides.left-hover.svg
+		width.fixed.px: 30
+		height.fixed.px: 30
+		align-self: end
+		padding.px: 7
+		background.solid: $inherited.colors.background.step-1
+		border-radius.px: 8
+		$on-click$: $show-slide.move-slide.submit(team=$show-slide.team-slug, presentation=$show-slide.presentation-slug, order=$show-slide.order, direction=left, module = $move-slide-module-name)
+		$on-mouse-enter$: $ftd.set-bool($a = $show-slide.is-left-icon-hovered, v = true)
+		$on-mouse-leave$: $ftd.set-bool($a = $show-slide.is-left-icon-hovered, v = false)
+		
+		-- ftd.image:
+		src: $assets.files.assets.slides.delete.svg
+		src if { show-slide.is-delete-icon-hovered }: $assets.files.assets.slides.delete-hover.svg
+		width.fixed.px: 30
+		height.fixed.px: 30
+		align-self: end
+		padding.px: 7
+		background.solid: $inherited.colors.background.step-1
+		border-radius.px: 8
+		$on-click$: $show-slide.delete-slide.submit(team=$show-slide.team-slug, presentation=$show-slide.presentation-slug, order=$show-slide.order, module = $delete-slide-module-name)
+		$on-mouse-enter$: $ftd.set-bool($a = $show-slide.is-delete-icon-hovered, v = true)
+		$on-mouse-leave$: $ftd.set-bool($a = $show-slide.is-delete-icon-hovered, v = false)
+		
+		
+		-- ftd.image:
+		if: { show-slide.order == show-slide.total-slides }
+		src: $assets.files.assets.slides.right.svg
+		width.fixed.px: 30
+		height.fixed.px: 30
+		align-self: end
+		padding.px: 7
+		background.solid: $inherited.colors.background.step-1
+		border-radius.px: 8
+		opacity: 0.3
+		
+		-- ftd.image:
+		if: { show-slide.order != show-slide.total-slides }
+		src: $assets.files.assets.slides.right.svg
+		src if { show-slide.is-right-icon-hovered }: $assets.files.assets.slides.right-hover.svg
+		width.fixed.px: 30
+		height.fixed.px: 30
+		align-self: end
+		padding.px: 7
+		background.solid: $inherited.colors.background.step-1
+		border-radius.px: 8
+		$on-click$: $show-slide.move-slide.submit(team=$show-slide.team-slug, presentation=$show-slide.presentation-slug, order=$show-slide.order, direction=right, module = $delete-slide-module-name)
+		$on-mouse-enter$: $ftd.set-bool($a = $show-slide.is-right-icon-hovered, v = true)
+		$on-mouse-leave$: $ftd.set-bool($a = $show-slide.is-right-icon-hovered, v = false)
+		
+	-- end: ftd.row
+
+-- end: ftd.column
+
+
+-- end: show-slide
+
+
+
+
+
+-- component show-slide-templates:
+slide-template list slide-templates:
+string presentation-slug:
+string team-slug:
+module create-slide: create-slide
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 16
+wrap: true
+padding-top.px: 16
+
+	-- show-slide-template: $obj
+	for: $obj in $show-slide-templates.slide-templates
+	presentation-slug: $show-slide-templates.presentation-slug
+	team-slug: $show-slide-templates.team-slug
+	create-slide: $show-slide-templates.create-slide
+	
+-- end: ftd.row
+
+-- end: show-slide-templates
+
+
+
+
+
+
+-- component show-slide-template:
+caption slide-template data:
+string presentation-slug:
+string team-slug:
+module create-slide: create-slide
+boolean $is-slide-template-selected: false
+
+-- ftd.column:
+width.fixed.px: 200
+height: hug-content
+spacing.fixed.px: 8
+border-radius.px: 4
+align-content: center
+$on-click$: $show-slide-template.create-slide.submit(team=$show-slide-template.team-slug, presentation=$show-slide-template.presentation-slug, template_slide=$show-slide-template.data.slug, template_presentation=$show-slide-template.data.presentation-slug, module = $show-slide-template.create-slide)
+
+	-- ftd.image:
+	src: $show-slide-template.data.thumbnail
+	width: fill-container
+	height.fixed.px: 150
+	border-width.px if { show-slide-template.is-slide-template-selected }: 3
+	border-color if { show-slide-template.is-slide-template-selected }: #EF8435
+	$on-click$: $ftd.set-bool($a = $show-slide-template.is-slide-template-selected, v = true)
+	$on-click$: $ftd.set-string($a = $selected-slide-template, v = $show-slide-template.data.slug)
+	$on-click$: $ftd.set-string($a = $selected-slide-template-presentation, v = $show-slide-template.data.presentation-slug)
+	
+	-- ftd.text: $show-slide-template.data.title
+	role: $inherited.types.copy-small
+	color: $inherited.colors.text
+	
+-- end: ftd.column
+
+-- end: show-slide-template
+
+
+
+
+;; creating a new type
+;; -- module design-system: design-system
+
+
+
+-- component show-comment:
+;; module design-system ds:
+;; module design-system: design-system
+caption comment data:
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 16
+padding-vertical.px: 16
+padding-horizontal.px: 16
+
+	-- ftd.row:
+	align-content: center
+	spacing.fixed.px: 8
+	
+		-- ftd.image:
+		src: $show-comment.data.avatar
+		width.fixed.px: 24
+		height.fixed.px: 24
+		align-self: center
+		if: { show-comment.data.avatar != NULL }
+		
+		-- ftd.column:
+		spacing.fixed.px: 4
+		width.fixed.px: 260
+		
+			-- ftd.text: $show-comment.data.name
+			role: $inherited.types.button-medium
+			color: $inherited.colors.text
+			style: bold
+			
+			-- ftd.text: $show-comment.data.timestamp
+			role: $inherited.types.copy-small
+			color: $inherited.colors.text
+			
+		-- end: ftd.column
+
+		-- ftd.checkbox:
+		width.fixed.px: 24
+		height.fixed.px: 24
+		
+	-- end: ftd.row
+
+	-- ftd.text:
+	role: $inherited.types.label-large
+	color: $inherited.colors.text
+	
+	$show-comment.data.text
+	
+-- end: ftd.column
+
+-- end: show-comment
+
+
+
+
+
+
+
+
+-- integer increment-by-one(a):
+integer a:
+
+a + 1
+
+
+-- integer thumbnails-length(a):
+slide-thumbnail list a:
+
+len(a)
+
+
+-- void create-slide-http(id,url,method):
+string presentation:
+string url:
+string method:
+
+ftd.http(url, method, "ui.fifthtry.com/slides/pages/slide", ("presentation-slug", presentation))
+
+
+
+-- ftd.shadow s:
+color: #000000
+x-offset.px: 2
+y-offset.px: 4
+blur.px: 12
+spread.px: 0

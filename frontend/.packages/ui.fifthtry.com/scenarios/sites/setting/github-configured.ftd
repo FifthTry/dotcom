@@ -1,0 +1,12 @@
+-- import: ui.fifthtry.com/pages/sites/setting/github-configured
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/sites/setting/configure-github
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+
+-- github-configured.page:
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/user/dashboard/
+data: $configure-github.data
+site-data: scenario-site

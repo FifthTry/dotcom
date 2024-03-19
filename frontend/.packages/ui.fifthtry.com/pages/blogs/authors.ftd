@@ -1,0 +1,30 @@
+-- import: ui.fifthtry.com/components/blog/blog-authors as author
+
+-- component author-nandhini:
+
+-- author.author: Nandhini Devi
+photo: $assets.files.assets.team.nandhini-devi.jpg
+profile: Freelance Copywriter
+bio-url: https://github.com/nandhinidevie
+
+I'm currently working at FifthTry, handling all things content – blogs, 
+docs, homepages, and socials. If you come across "if you can type, 
+you can code" – that's my signature move and a nod to my love for fastn 
+for making coding simple and fun! 
+
+I've got a soft spot for startups in the business of saving the planet, 
+and if you're one of them, count me in.
+
+-- end: author-nandhini
+
+
+-- component author-arpita:
+
+-- author.author: Arpita Jaiswal
+photo: $assets.files.assets.team.arpita.jpg
+profile: Senior Software Developer
+bio-url: https://github.com/Arpita-Jaiswal
+
+I am building `fastn`.
+
+-- end: author-arpita

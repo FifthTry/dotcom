@@ -1,0 +1,22 @@
+-- import: fastn
+
+-- fastn.test: Dashboard Contents Test
+fixtures: recreate-db, create-blank-template
+
+-- fastn.get: Fetching Dashboard contents
+url: /slides/view/dashboard/
+
+-- fastn.get.query-params:
+
+-- fastn.query: org-slug
+value: fifthtry
+
+-- end: fastn.get.query-params
+
+-- fastn.get.test:
+
+fastn.assert.eq(fastn.http_response["org-slug"], "fifthtry");
+fastn.assert.exists(fastn.http_response["toc-links"]);
+fastn.assert.not_empty(fastn.http_response["toc-links"]);
+fastn.assert.exists(fastn.http_response["presentations"]);
+fastn.assert.not_empty(fastn.http_response["presentations"]);

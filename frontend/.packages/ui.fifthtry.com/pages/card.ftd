@@ -1,0 +1,44 @@
+-- import: fastn-community.github.io/doc-site
+-- import: ui.fifthtry.com/components/download-button
+-- import: fastn-community.github.io/code-block as cb
+
+
+-- component page:
+optional string title:
+optional body body:
+string card-id:
+children wrapper:
+
+-- doc-site.page: $page.title
+body: $page.body
+site-name: Fifthtry UI
+
+	-- ftd.row:
+	width: fill-container
+	spacing: space-between
+	align-content: top-left
+	
+		-- ui:
+		for: ui in $page.wrapper
+		
+		;; commenting out button as it is not working
+		/-- download-button.button:
+		card-id: $page.card-id
+		anchor: parent
+		top.px: 0
+		right.px: 20
+		
+	-- end: ftd.row
+
+	-- cb.code: Sample card usage
+	lang: ftd
+	
+	\-- import: ui.fifthtry.com/onboarding/components/card as onboarding
+	
+	\-- onboarding.card: John Doe
+	title: Software Developer
+	avatar: $assets.files.assets.onboarding.sample-avatar.svg
+	
+-- end: doc-site.page
+
+-- end: page

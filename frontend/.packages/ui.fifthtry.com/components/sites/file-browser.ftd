@@ -1,0 +1,81 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: fastn-community.github.io/doc-site
+
+
+
+-- component file-browser:
+caption title:
+sites-records.file file:
+
+-- ds.column:
+
+-- code: $file-browser.title
+if: { file-browser.file.text != NULL && file-browser.file.error == NULL }
+file: $file-browser.file.text
+
+-- non-code: $file-browser.title
+if: { file-browser.file.text == NULL }
+file: $file-browser.file
+
+-- end: ds.column
+
+-- end: file-browser
+
+
+
+
+-- component non-code:
+caption title:
+sites-records.file file:
+
+-- ds.column:
+
+-- ftd.text: $non-code.title
+color: $ds.colors.text-strong
+role: $ds.types.source-code
+align-self: start
+
+-- doc-site.image:
+if: { non-code.file.filetype == "image" }
+src: $non-code.file.url
+
+-- ds.heading-large: Can't read file
+if: { non-code.file.error == NULL && non-code.file.filetype != "image" }
+color: $ds.colors.error.text
+
+-- ds.heading-large: $non-code.file.error
+if: { non-code.file.error != NULL }
+color: $ds.colors.error.text
+
+
+-- end: ds.column
+
+
+-- end: non-code
+
+
+
+
+
+
+
+
+-- component code:
+caption title:
+sites-records.file-text file:
+
+-- doc-site.code: $code.title
+lang: $code.file.lang
+line-numbers: true
+
+$code.file.content
+
+-- end: code
+
+
+-- component video:
+
+-- doc-site.youtube:
+v: tsHB2Vrhb2c
+
+-- end: video

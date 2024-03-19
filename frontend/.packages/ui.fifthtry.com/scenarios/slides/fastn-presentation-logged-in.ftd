@@ -1,0 +1,63 @@
+-- import: ui.fifthtry.com/pages/slides/presentation
+-- import: ui.fifthtry.com/scenarios/john-doe
+
+
+-- presentation.page:
+user-data: $john-doe.jd
+data: $data
+team-slug: fifthtry
+order: 1
+presentation-slug: fifthtry-presentation
+
+
+
+
+-- presentation.presentation-data data:
+title: Fastn Presentation
+url: /slides/scenarios/fastn-presentation-logged-in/
+is-valid: true
+settings-url: /slides/scenarios/presentation-settings/
+present-url: /slides/scenarios/present/
+slide: $slide
+thumbnails: $slide-thumbnails
+slide-templates: $slide-templates
+
+
+-- presentation.slide slide:
+content: \-- ftd.image: $assets.files.assets.slides.template-1.png
+preview-url: $assets.files.assets.slides.template-1.png.light
+is-valid: true
+
+
+-- presentation.slide-template list slide-templates:
+
+-- presentation.slide-template: Template 1
+thumbnail: $assets.files.assets.slides.template-1.png.light
+slug: temp-1
+presentation-slug: fifthtry-presentation
+
+-- presentation.slide-template: Template 2
+thumbnail: $assets.files.assets.slides.template-2.png.light
+slug: temp-2
+presentation-slug: fifthtry-presentation
+
+-- end: slide-templates
+
+
+
+
+
+
+-- presentation.slide-thumbnail list slide-thumbnails:
+
+-- presentation.slide-thumbnail:
+thumbnail-url: $assets.files.assets.slides.template-1.png.light
+url: /slides/scenarios/fastn-presentation-logged-in/
+is-valid: true
+
+-- presentation.slide-thumbnail:
+thumbnail-url: $assets.files.assets.slides.template-2.png.light
+url: /slides/scenarios/fastn-presentation-logged-in/
+is-valid: true
+
+-- end: slide-thumbnails

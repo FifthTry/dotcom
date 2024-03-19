@@ -1,0 +1,10 @@
+-- optional string $username-error:
+-- optional string $password-error:
+
+-- void submit-values(username, password):
+string username:
+string password:
+js: $assets.files.assets.functions.js
+
+callAlert("signin attempt")
+;; call submit with http options

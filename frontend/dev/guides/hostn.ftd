@@ -1,0 +1,128 @@
+-- ds.page: `hostn` Service
+
+[Excalidraw Architecture Diagram](https://link.excalidraw.com/l/2xFnk4q86Ix/1gQnoETPoeh)
+
+-- ds.h1: Tasks
+
+- [ ] `FifthTry/hostn` (exposing serve from fastn)
+- [ ] `DocumentReader` trait (PR in fastn)
+- [ ] fastn: sync working (CR etc)
+- [ ] hostn version will read from disc too for now
+
+- [ ] hostn: HOST based multiple package serving (still from file system)
+- [ ] hostn: LRU / S3 cached (content hash, read etc)
+- [ ] hostn: sync API (powered by our DB/S3)
+- [ ] static sites (local HTML caching support)
+- [ ] forward to updater
+- [ ] make auth work
+- [ ] make amitu.com work
+- [ ] make fifthtry.com work - JAN 2024
+
+
+-- ds.h1: What Is `hostn-server`?
+
+`hostn-server` is a version of `fastn` that can serve multiple sites in the current directory.
+Every website hosted by us is powered by `hostn-server`. For any site, say `site.com`, we will
+map to `hostn-server` app.
+
+`hostn-server` is hosted on as anycast ip. We have a `hostn-server` service in each region. Each
+service will handle read requests for any website. Any domain of any site would be mapped to the
+`hostn-server` AWS GA. Fly will  make sure any request to the domain is routed to the closest
+region.
+
+The `hostn-server` will forward all write requests to the `hostn-updater`. `hostn-server` will also
+forward all the `<cr>.<site>` requests to `hostn-updater`.
+
+-- ds.h2: `hostn-server` DB Access
+
+`hostn-server` will have the following database access:
+
+-- ds.h3: S3-(read-only)
+
+All content is stored in S3, so `hostn-server` will need read-only access to S3.
+
+-- ds.h3: `ft-db-replica`
+
+This will be used to include advance features like `site-update-processor` and `site-syncer`.
+
+We will use listen notify to keep track of file updates. Find the table definition in
+`backend/code/models.py`.
+
+
+-- ds.h3: `site-db`
+
+-- ds.h1: What Is `hostn-updater`?
+
+`hostn-updater` is used to update a site hosted by us.
+
+So for any site we have two database, the `site-db` and the FifthTry database (`ft-db`). The `ft-db`
+is needed for `create-site`, `login`, `clone` and `sync` APIs, and will only be accessible
+by the `hostn-updaters`. The `site-db` will be accessible from all `hostn-servers` and `hostn-updaters`.
+
+For `CR`, `*.site.com` will be mapped to `hostn-updater`.
+
+-- ds.h2: `ft-db`
+
+What all data is needed by `hostn-updater`? We have two kinds of data, the content of ftd and static files,
+and the meta data about the site, the changes, the readers/writers of the site etc.
+
+-- ds.h2: Authentication
+
+For updating a site you will have to authenticate via FifthTry OAuth, and access to a site is decided by
+the team data stored in `ft-db`. Earlier we stored this in `FASTN.ftd` file itself, and we may allow that
+as well, but for now we will store it in `ft-db`.
+
+-- ds.h1: All Settings In Package?
+
+One big advantage of settings in package is we can use CR feature, history feature for meta data.
+
+For settings we will have to be extra sure that no content can be merged if it renders settings
+unreadable.
+
+We also have sensitive setting issue, what if we do not want to show all changes to everyone. We can
+address that by storing settings in a separate file that only admins etc have access to.
+
+
+-- ds.h1: Site Login Vs Updater Login
+
+On any site, the maintainers of the site can use updater login feature to login using their FifthTry
+account to make edits to the site by staying on the site itself. The login request will be handled
+by the `hostn-updater`. The `ft-sid` cookie would be used to store the session id.
+
+Some sites will also allow users to login to the site itself. This will be done using site login.
+These sites will have to activate one of the OAuth providers that `fastn` supports, and will have
+to configure the OAuth provider settings, eg client-id, client-secret etc. For convenience, we
+will allow support FifthTry as a OAuth provider for all sites, they will have default access to
+client-site/secret etc needed, and end user will not have to configure anything.
+
+For site login, `site-db` will be used. And `sid` cookie will be used to store session id.
+
+
+
+
+-- ds.h1: Follower Syncer Service
+
+This service is part of `hostn-server` service, it will read a queue of updates, and
+if they are present on local file system, will delete those files.
+
+If we implement caching (so that we do not have to keep converting .ftd to .html), the syncer
+will also delete the cached files.
+
+For syncer we will use a table in `ft-db`, which will be read via the `ft-db-replica`.
+
+
+
+-- ds.h1: Where Are We Storing The Site Database?
+
+What data is needed by follower `hostn`? We have two kinds of data, the content of ftd and static files,
+lets call it package content. This includes the change request files, which are basically branches. In
+most read requests we are serving those files.
+
+The followers only need the package content, and not the FifthTry database. So we can store the package
+content in S3, and rely on S3's consistency guarantees, along with syncer-service to keep the package
+content in sync with followers. There would be some lag between write and read, but we have decided
+that that is fine.
+
+So hostn-follower will not need FifthTry database access.
+
+-- end: ds.page

@@ -1,0 +1,11 @@
+-- optional string move-slide-error:
+
+-- void submit(team, presentation, order, direction, module):
+string team:
+string presentation:
+integer order:
+string direction:
+string module:
+js: $assets.files.assets.functions.js
+
+callAlert("Move Slide called")

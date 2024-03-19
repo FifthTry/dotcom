@@ -1,0 +1,11 @@
+
+/* For opacity transition upon hover */
+.switcher {
+  opacity: 0; /* Set your initial opacity */
+  transition: opacity 1s ease; /* Apply transition to the opacity property with a duration of 1 second and easing
+  function 'ease' */
+}
+
+.switcher:hover {
+  opacity: 1; /* Set the final opacity when hovering over the container */
+}

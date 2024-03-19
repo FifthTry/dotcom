@@ -1,0 +1,70 @@
+-- import: www.fifthtry.com/university
+-- import: fastn/processors as pr
+
+
+
+
+-- university.subject subject-without-data: $lang.f4e-title
+url: /fastn-for-everyone/
+
+-- subject-without-data.chapters:
+
+-- university.chapter: $lang.f4e-getting-started
+url: /getting-started-with-fastn/
+
+-- university.chapter.concepts:
+
+	-- university.concept: $lang.f4e-installing-fastn
+	url: /installing-fastn/
+	
+	-- university.concept: $lang.f4e-editor
+	url: /editor/
+	
+-- end: university.chapter.concepts
+
+-- end: subject-without-data.chapters
+
+
+
+
+
+
+
+
+-- string current-url:
+$processor$: pr.current-url
+
+-- string current-language:
+$processor$: pr.current-language
+
+-- university.subject subject:
+$processor$: pr.http
+url: http://127.0.0.1:7999/view/augment-subject/
+method: POST
+subject: $subject-without-data
+current-concept: $current-url
+current-language: $current-language
+current-environment: ignore
+current-level: ignore
+
+
+
+
+/-- page:
+
+-- ftd.text: $lang.f4e-title:
+
+-- end: page
+
+
+
+
+
+
+-- component page:
+children children:
+
+-- university.page: $subject
+children: $page.children
+
+-- end: page

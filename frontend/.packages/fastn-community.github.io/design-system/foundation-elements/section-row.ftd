@@ -1,0 +1,157 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+
+
+-- component section-row:
+optional caption title:
+ds.flush flush: to-header
+children content:
+ds.gap spacing: $ds.spaces.horizontal-gap.medium
+optional ftd.background outer-background:
+optional ftd.background inner-background:
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap margin: $ds.spaces.vertical-gap.extra-extra-large
+boolean wrap: false
+ftd.align align-content: center
+ds.border-data border: $ds.borders.uniform.zero
+ds.element-radius radius: $ds.radius.medium
+ftd.color border-color: $ds.colors.border
+optional string link:
+
+-- ftd.column:
+width: fill-container
+align-content: center
+background: $section-row.outer-background
+margin-bottom.px: $section-row.margin.gap
+
+	-- ftd.row:
+	width if { section-row.flush == full }: fill-container
+	max-width.fixed if { section-row.flush == narrow }: $ds.widths.narrow
+	max-width.fixed if { section-row.flush == wide }: $ds.widths.wide
+	max-width.fixed: $ds.widths.regular
+	width: fill-container
+	children: $section-row.content
+	align-content: $section-row.align-content
+	link: $section-row.link
+	spacing if { section-row.spacing.gap == $spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+	spacing.fixed.px: $section-row.spacing.gap
+	wrap: $section-row.wrap
+	padding-vertical.px: $section-row.inset.vertical
+	padding-horizontal.px: $section-row.inset.horizontal
+	background: $section-row.inner-background
+	border-top-width.px: $section-row.border.top
+	border-bottom-width.px: $section-row.border.bottom
+	border-left-width.px: $section-row.border.left
+	border-right-width.px: $section-row.border.right
+	border-color: $section-row.border-color
+	border-top-left-radius.px if { section-row.radius.top-left != $radius.HACK-RADIUS-ROUND }: $section-row.radius.top-left
+	border-top-right-radius.px if { section-row.radius.top-right != $radius.HACK-RADIUS-ROUND }: $section-row.radius.top-right
+	border-bottom-left-radius.px if { section-row.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $section-row.radius.bottom-left
+	border-bottom-right-radius.px if { section-row.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $section-row.radius.bottom-right
+	border-top-left-radius.percent if { section-row.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+	border-top-right-radius.percent if { section-row.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+	border-bottom-left-radius.percent if { section-row.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+	border-bottom-right-radius.percent if { section-row.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+	
+	-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: section-row
+
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Section Row
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Section Row
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- ds.section-row:
+	inset: $ds.spaces.inset-wide.large
+	outer-background.solid: $ds.colors.background.step-1
+	spacing: $ds.spaces.vertical-gap.space-between
+	flush: full
+	
+	\-- ds.row:
+	width.fixed.px: 80
+	height.fixed.px: 80
+	background.solid: $ds.colors.custom.one
+	
+	\-- end: ds.row
+	
+	\-- ds.row:
+	width.fixed.px: 80
+	height.fixed.px: 80
+	background.solid: $ds.colors.custom.one
+	
+	\-- end: ds.row
+	
+	\-- ds.row:
+	width.fixed.px: 80
+	height.fixed.px: 80
+	background.solid: $ds.colors.custom.one
+	
+	\-- end: ds.row
+	
+	\-- end: ds.section-row
+	
+		-- ds.section-row:
+		inset: $ds.spaces.inset-wide.large
+		outer-background.solid: $ds.colors.background.step-1
+		spacing: $ds.spaces.vertical-gap.small
+		flush: full
+		
+			-- ds.copy-regular:
+			text: This is section-row
+			width: hug-content
+			
+			-- ds.row:
+			width.fixed.px: 80
+			height.fixed.px: 80
+			background.solid: $ds.colors.custom.one
+			
+			-- end: ds.row
+
+			-- ds.row:
+			width.fixed.px: 80
+			height.fixed.px: 80
+			background.solid: $ds.colors.custom.one
+			
+			-- end: ds.row
+
+			-- ds.row:
+			width.fixed.px: 80
+			height.fixed.px: 80
+			background.solid: $ds.colors.custom.one
+			
+			-- end: ds.row
+
+		-- end: ds.section-row
+
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

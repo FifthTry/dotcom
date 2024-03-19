@@ -1,0 +1,166 @@
+-- import: ui.fifthtry.com/slides/site-data
+-- import: ui.fifthtry.com/actions/slides/create-user
+
+
+
+
+
+
+-- component page:
+caption title:
+module site-data: site-data
+module user-data: user-data
+module signup-action: create-user
+string github-url:
+optional string signup-url:
+optional string signin-url:
+private string $current-name: *$ftd.empty
+private string $current-email: *$ftd.empty
+private string $current-username: *$ftd.empty
+private string $current-password: *$ftd.empty
+
+-- ds.row:
+width: fill-container
+background.solid: $ds.colors.background.base
+radius: $ds.radius.zero
+
+	-- ftd.image:
+	src: $assets.files.assets.slides.background.png
+	width.fixed.percent: 65
+	height.fixed.vh: 100
+	fit: cover
+	
+	-- ds.column:
+	align-content: center
+	inset: $ds.spaces.inset-tall.medium
+	width.fixed.percent: 35
+	spacing: $ds.spaces.vertical-gap.large
+	
+		-- ftd.image:
+		src: $page.site-data.logo
+		width.fixed.px: 170
+		height.fixed.px: 38
+		fit: cover
+		
+		-- ds.copy-large: $page.title
+		
+		-- ds.column:
+		width.fixed.px: 284
+		
+			-- ftd.text-input:
+			width: fill-container
+			height.fixed.px: 48
+			border-radius.px: 4
+			placeholder: name
+			background.solid: transparent
+			border-width.px: 2
+			border-color: $inherited.colors.border
+			padding.px: 12
+			color: $inherited.colors.text-strong
+			type: text
+			$on-input$: $ftd.set-string($a = $page.current-name, v = $VALUE)
+			
+			-- ftd.text-input:
+			placeholder: email
+			type: email
+			$on-input$: $ftd.set-string($a = $page.current-email, v = $VALUE)
+			width: fill-container
+			height.fixed.px: 48
+			border-radius.px: 4
+			background.solid: transparent
+			border-width.px: 2
+			border-color: $inherited.colors.border
+			padding.px: 12
+			color: $inherited.colors.text-strong
+			
+			-- ftd.text: $page.signup-action.email-error
+			if: { page.signup-action.email-error != NULL }
+			color: red
+			role: $inherited.types.copy-small
+			
+			-- ftd.text-input:
+			placeholder: username
+			type: text
+			$on-input$: $ftd.set-string($a = $page.current-username, v = $VALUE)
+			width: fill-container
+			height.fixed.px: 48
+			border-radius.px: 4
+			background.solid: transparent
+			border-width.px: 2
+			border-color: $inherited.colors.border
+			padding.px: 12
+			color: $inherited.colors.text-strong
+			
+			-- ftd.text: $page.signup-action.username-error
+			if: { page.signup-action.username-error != NULL }
+			color: red
+			role: $inherited.types.copy-small
+			
+			-- ftd.text-input:
+			placeholder: password
+			type: password
+			$on-input$: $ftd.set-string($a = $page.current-password, v = $VALUE)
+			width: fill-container
+			height.fixed.px: 48
+			border-radius.px: 4
+			background.solid: transparent
+			border-width.px: 2
+			border-color: $inherited.colors.border
+			padding.px: 12
+			color: $inherited.colors.text-strong
+			
+			-- ds.primary-button: Sign up
+			$on-click$: $page.signup-action.submit-values(name = $page.current-name, email = $page.current-email, username = $page.current-username, password = $page.current-password)
+			width: full
+			
+		-- end: ds.column
+
+		-- ds.column:
+		;;margin-top.px: 38
+		spacing: $ds.spaces.vertical-gap.medium
+		width.fixed.px: 284
+		
+			-- ds.icon-button: Continue with Github
+			icon: $assets.files.assets.slides.github-mark-white.svg
+			link: $page.github-url
+			kind: primary
+			width: full
+			
+			/-- ftd.row:
+			if: { page.signin-url }
+			spacing.fixed.px: 12
+			align-content: center
+			
+				-- ftd.checkbox:
+				
+				-- ds.copy-small:
+				
+				$lang.checkbox-info
+				
+			-- end: ftd.row
+
+			-- ds.row:
+			spacing: $ds.spaces.horizontal-gap.extra-small
+			align-content: center
+			inset: $ds.spaces.inset-square.medium
+			
+				-- ds.copy-regular: $lang.create-account
+				text if { page.signin-url }: $lang.existing-account
+				width.fixed.px: 200
+				
+				-- ds.link: $lang.sign-in
+				color: $ds.colors.info.text
+				text if { page.signin-url }: $lang.sign-up
+				link if { page.signup-url }: $page.signup-url
+				link if { page.signin-url }: $page.signin-url
+				link: $page.site-data.homepage
+				
+			-- end: ds.row
+
+		-- end: ds.column
+
+	-- end: ds.column
+
+-- end: ds.row
+
+-- end: page

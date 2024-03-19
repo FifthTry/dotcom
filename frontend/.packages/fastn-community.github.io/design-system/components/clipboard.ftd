@@ -1,0 +1,127 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+
+
+
+
+-- component copy-to-clipboard-icon:
+caption or body text:
+boolean copy: true
+string lang: ftd
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $mouse-in: false
+string clean-code: $ftd.clean-code(a = $copy-to-clipboard-icon.text, lang = $copy-to-clipboard-icon.lang)
+
+-- ds.row:
+if: { copy-to-clipboard-icon.copy }
+$on-mouse-enter$: $ftd.set-bool($a = $copy-to-clipboard-icon.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $copy-to-clipboard-icon.mouse-in, v = false)
+$on-mouse-leave$: $ftd.set-string($a = $copy-to-clipboard-icon.copy-text, v = null)
+width: hug-content
+spacing: $ds.spaces.horizontal-gap.small
+
+-- ftd.image:
+if: { copy-to-clipboard-icon.copy-text == "null" }
+src: $assets.files.assets.copy.svg
+src if { copy-to-clipboard-icon.copy-mouse-in }: $assets.files.assets.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $copy-to-clipboard-icon.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $copy-to-clipboard-icon.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $copy-to-clipboard-icon.clean-code)
+$on-click$: $ftd.set-string($a = $copy-to-clipboard-icon.copy-text, v = Copied!)
+width.fixed.px: 18
+
+-- ftd.image:
+if: { copy-to-clipboard-icon.copy-text != "null" }
+src: $assets.files.assets.tick.svg
+width.fixed.px: 18
+
+-- ds.copy-regular: $copy-to-clipboard-icon.copy-text
+if: { copy-to-clipboard-icon.copy-text != "null" }
+
+-- end: ds.row
+
+-- end: copy-to-clipboard-icon
+
+
+
+
+
+
+
+
+
+
+-- component copy-to-clipboard-text:
+caption or body text:
+string lang: ftd
+string $copy-text: null
+string clean-code: $ftd.clean-code(a = $copy-to-clipboard-text.text, lang = $copy-to-clipboard-text.lang)
+
+-- ds.row:
+spacing: $ds.spaces.horizontal-gap.space-between
+$on-click$: $ftd.copy-to-clipboard(a = $copy-to-clipboard-text.clean-code)
+$on-click$: $ftd.set-string($a = $copy-to-clipboard-text.copy-text, v = Copied!)
+$on-mouse-leave$: $ftd.set-string($a = $copy-to-clipboard-text.copy-text, v = null)
+
+-- ds.copy-regular: $copy-to-clipboard-text.text
+color: $ds.colors.text-strong
+
+-- copy-to-clipboard-icon:
+if: { copy-to-clipboard-text.copy-text == "null" }
+text: $copy-to-clipboard-text.text
+
+-- ds.copy-regular: $copy-to-clipboard-text.copy-text
+if: { copy-to-clipboard-text.copy-text != "null" }
+
+-- end: ds.row
+
+-- end: copy-to-clipboard-text
+
+
+
+
+
+-- ds.page: Copy to clipboard
+
+-- ds.section-column: 
+ flush: full
+ align-content: center
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: /
+		
+		-- ds.heading-hero: Copy to clipboard
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+		
+		\-- copy-to-clipboard-icon:
+		
+			-- copy-to-clipboard-icon:
+
+			Hello
+			
+		-- end: ds.rendered
+
+	-- ds.rendered:
+		
+		\-- copy-to-clipboard-text:
+
+		This is clipboard text
+		
+			-- copy-to-clipboard-text:
+
+			This is clipboard text
+			
+		-- end: ds.rendered
+		
+
+-- end: ds.section-column
+
+-- end: ds.page

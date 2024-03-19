@@ -1,0 +1,18 @@
+-- optional string $site-error:
+-- optional string $manage-site-error:
+
+
+
+-- void submit(username, site_slug):
+string username:
+string site_slug:
+js: $assets.files.js.http.js
+
+http(
+    "/ft2/myself/create-site/",
+;;  "/ft-ep/action/myself/create-site/",
+    "www.fifthtry.com/action/myself/create-site-action",
+    "POST",
+    ("username", username),
+    ("site-slug", site_slug)
+)

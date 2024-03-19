@@ -1,0 +1,57 @@
+-- ds.page: `/api/all-files/`
+
+This API is needed to fetch all files present for a site.
+
+**Method**: GET
+**Params**: site (the site whose files and its content are needed)
+
+**Response**: `Vec<File>`
+
+
+-- ds.code:
+lang: rs
+
+#[derive(serde::Serialize)]
+struct File {
+    file_name: String,
+    sha256_hash: String,
+}
+
+-- ds.markdown:
+
+We are sending content's sha256 hash to compare the uploaded content with the
+local content and send the diff to upload.
+
+-- ds.h2: Example
+
+Note: This example currently calls the local API `http://127.0.0.1:8001` as
+this has not been deployed in `api.fifthtry.com` yet.
+
+-- ds.h3: Request:
+
+-- ds.code:
+lang: sh
+
+curl --location --request GET 'http://127.0.0.1:8001/api/all-files/?site=t'
+
+
+-- ds.h3: Response:
+
+-- ds.code:
+lang: sh
+
+{
+    "data": [
+        {
+            "file_name": "FASTN.ftd",
+            "sha256_hash": "b2b1f7fc188ae77eba3a7b2113e887916c940fc046b1dbc68f4c7f43612487a6"
+        },
+        {
+            "file_name": "index.ftd",
+            "sha256_hash": "5f354755d602cbfc672245e8cc063cfb85d3a9343fd692719d5a5d6972ade369"
+        }
+    ],
+    "success": true
+}
+
+-- end: ds.page

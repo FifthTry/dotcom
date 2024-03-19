@@ -1,0 +1,23 @@
+-- optional string $username-error:
+-- optional string $password-error:
+
+-- ftd.http-options opts:
+redirect: follow
+method: POST
+fastn-module: www.fifthtry.com/action/login
+
+-- void submit-values(username, password, opts):
+string username:
+string password:
+ftd.http-options opts: $opts
+optional string username_err: $username-error
+optional string password_err: $password-error
+js: $assets.files.functions.js
+
+send_form_request(
+    (username_err, password_err),
+    "/-/auth/login/",
+    opts,
+    ("username", username),
+    ("password", password),
+)

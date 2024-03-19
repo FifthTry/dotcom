@@ -1,0 +1,244 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+
+
+
+
+-- or-type alert-kind:
+
+-- constant integer info: 1
+-- constant integer warning: 2
+-- constant integer success: 3
+-- constant integer danger: 4
+
+-- end: alert-kind
+
+
+
+
+-- component alert:
+caption title:
+body body:
+optional string cta-text:
+optional string cta-link:
+alert-kind kind: info
+boolean $toggle: false
+
+-- ds.container:
+background.solid if { alert.kind == info }: $ds.colors.info.base
+background.solid if { alert.kind == warning }: $ds.colors.warning.base
+background.solid if { alert.kind == success }: $ds.colors.success.base
+background.solid if { alert.kind == danger }: $ds.colors.cta-danger.base
+border: $ds.borders.uniform.small
+border-color if { alert.kind == info }: $ds.colors.info.border
+border-color if { alert.kind == warning }: $ds.colors.warning.border
+border-color if { alert.kind == success }: $ds.colors.success.border
+border-color if { alert.kind == danger }: $ds.colors.cta-danger.border
+inset: $ds.spaces.inset-square.large
+
+	-- ds.row:
+	spacing: $ds.spaces.horizontal-gap.medium
+	align-content: top-left
+	
+		-- ftd.image:
+		if: { alert.kind == info }
+		src: $assets.files.assets.alert-info.svg
+		width.fixed.px: 24
+		
+		-- ftd.image:
+		if: { alert.kind == warning }
+		src: $assets.files.assets.alert-warning.svg
+		width.fixed.px: 24
+		
+		-- ftd.image:
+		if: { alert.kind == success }
+		src: $assets.files.assets.alert-success.svg
+		width.fixed.px: 24
+		
+		-- ftd.image:
+		if: { alert.kind == danger }
+		src: $assets.files.assets.alert-danger.svg
+		width.fixed.px: 24
+		
+		-- ds.column:
+		spacing: $ds.spaces.vertical-gap.medium
+		align-content: left
+		
+			-- ds.heading-tiny: $alert.title
+			color if { alert.kind == info }: $ds.colors.info.text
+			color if { alert.kind == warning }: $ds.colors.warning.text
+			color if { alert.kind == success }: $ds.colors.success.text
+			color if { alert.kind == danger }: $ds.colors.cta-danger.text
+			
+			-- ds.copy-regular:
+			color if { alert.kind == info }: $ds.colors.info.text
+			color if { alert.kind == warning }: $ds.colors.warning.text
+			color if { alert.kind == success }: $ds.colors.success.text
+			color if { alert.kind == danger }: $ds.colors.cta-danger.text
+			
+			$alert.body
+			
+			-- ds.row:
+			spacing: $ds.spaces.horizontal-gap.small
+			align-content: left
+			link: $alert.cta-link
+			
+				-- ds.copy-regular: $alert.cta-text
+				if: { alert.cta-text != NULL }
+				width: hug-content
+				color if { alert.kind == info }: $ds.colors.info.text
+				color if { alert.kind == warning }: $ds.colors.warning.text
+				color if { alert.kind == success }: $ds.colors.success.text
+				color if { alert.kind == danger }: $ds.colors.cta-danger.text
+				
+				-- ftd.image:
+				if: { alert.kind == info }
+				src: $assets.files.assets.arrow-info.svg
+				width.fixed.px: 16
+				
+				-- ftd.image:
+				if: { alert.kind == warning }
+				src: $assets.files.assets.arrow-warning.svg
+				width.fixed.px: 16
+				
+				-- ftd.image:
+				if: { alert.kind == success }
+				src: $assets.files.assets.arrow-success.svg
+				width.fixed.px: 16
+				
+				-- ftd.image:
+				if: { alert.kind == danger }
+				src: $assets.files.assets.arrow-danger.svg
+				width.fixed.px: 16
+				
+			-- end: ds.row
+
+		-- end: ds.column
+
+		-- ftd.image:
+		if: { alert.kind == info }
+		src: $assets.files.assets.cross-info.svg
+		$on-click$: $ftd.toggle($a = $alert.toggle)
+		
+		-- ftd.image:
+		if: { alert.kind == warning }
+		src: $assets.files.assets.cross-warning.svg
+		$on-click$: $ftd.toggle($a = $alert.toggle)
+		
+		-- ftd.image:
+		if: { alert.kind == success }
+		src: $assets.files.assets.cross-success.svg
+		$on-click$: $ftd.toggle($a = $alert.toggle)
+		
+		-- ftd.image:
+		if: { alert.kind == danger }
+		src: $assets.files.assets.cross-danger.svg
+		$on-click$: $ftd.toggle($a = $alert.toggle)
+		
+	-- end: ds.row
+
+-- end: ds.container
+
+-- end: alert
+
+
+
+
+
+-- ds.page: Alert
+
+-- ds.section-column:
+flush: full
+align-content: center
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Alert Component
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- alert: Some kind of alert!
+	cta-text: Show More
+	cta-link: /
+	kind: info
+	
+	This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any
+	kind of messages, from informational to warning to success ones.
+	
+		-- alert: Some kind of alert!
+		cta-text: Show More
+		cta-link: /
+		kind: info
+		
+		This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any kind of messages, from informational to warning to success ones.
+		
+	-- end: ds.rendered
+
+	-- ds.rendered:
+	
+	\-- alert: Some kind of alert!
+	cta-text: Show More
+	cta-link: /
+	kind: warning
+	
+	This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any
+	kind of messages, from informational to warning to success ones.
+	
+		-- alert: Some kind of alert!
+		cta-text: Show More
+		cta-link: /
+		kind: warning
+		
+		This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any kind of messages, from informational to warning to success ones.
+		
+	-- end: ds.rendered
+
+	-- ds.rendered:
+	
+	\-- alert: Some kind of alert!
+	cta-text: Show More
+	cta-link: /
+	kind: success
+	
+	This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any
+	kind of messages, from informational to warning to success ones.
+	
+		-- alert: Some kind of alert!
+		cta-text: Show More
+		cta-link: /
+		kind: success
+		
+		This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any kind of messages, from informational to warning to success ones.
+		
+	-- end: ds.rendered
+
+	-- ds.rendered:
+	
+	\-- alert: Some kind of alert!
+	cta-text: Show More
+	cta-link: /
+	kind: danger
+	
+	This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any
+	kind of messages, from informational to warning to success ones.
+	
+		-- alert: Some kind of alert!
+		cta-text: Show More
+		cta-link: /
+		kind: danger
+		
+		This is an alert message that will be placed inside the body of this alert box. It is important to note that these alert boxes can contain any kind of messages, from informational to warning to success ones.
+		
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

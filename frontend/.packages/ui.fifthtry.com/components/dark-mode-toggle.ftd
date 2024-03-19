@@ -1,0 +1,38 @@
+-- component dark-mode-toggle:
+
+-- ds.row:
+border: $ds.borders.uniform.small
+inset: $ds.spaces.inset-square.medium
+height.fixed.px: 24
+width.fixed.px: 24
+
+-- ds.row:
+if: { ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-light-mode()
+
+-- ftd.image:
+src: $assets.files.assets.auto-mode.svg
+
+-- end: ds.row
+
+-- ds.row:
+if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-dark-mode()
+
+-- ftd.image:
+src: $assets.files.assets.light-mode.svg
+
+-- end: ds.row
+
+-- ds.row:
+if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-system-mode()
+
+-- ftd.image:
+src: $assets.files.assets.dark-mode-dark.svg
+
+-- end: ds.row
+	
+-- end: ds.row
+
+-- end: dark-mode-toggle

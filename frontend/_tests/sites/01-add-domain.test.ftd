@@ -1,0 +1,16 @@
+-- import: fastn
+
+-- fastn.test: Add Domain Test
+fixtures: recreate-db
+
+-- fastn.post: Adding domain (Invalid)
+url: /ft-ep/action/site/add-domain/
+http-status: 404
+body: {"domain": "hello.com"}
+
+-- fastn.post.test:
+
+fastn.assert.eq(fastn.http_response, "user has to be logged in to AddDomain");
+
+
+

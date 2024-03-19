@@ -1,0 +1,275 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/utils
+-- import: ui.fifthtry.com/actions/slides/authenticate-user
+
+
+-- component page:
+module site-data: site-data
+module authenticate-user: authenticate-user
+private string $current-username: *$ftd.empty
+private string $current-password: *$ftd.empty
+
+-- ds.column:
+
+	-- ftd.desktop:
+	
+		-- ds.row:
+		background.solid: $ds.colors.background.step-1
+		radius: $ds.radius.zero
+		align-content: top-center
+		height.fixed.vh: 100
+		
+			-- ftd.image:
+			src: $assets.files.assets.background.svg
+			width.fixed.percent: 70
+			height: fill-container
+			fit: cover
+			
+			-- ds.column:
+			align-content: top-center
+			inset: $ds.spaces.inset-tall.large
+			width.fixed.percent: 30
+			spacing: $ds.spaces.vertical-gap.extra-large
+			
+				-- ftd.image:
+				src: $page.site-data.logo
+				width.fixed.px: 89
+				height.fixed.px: 33
+				fit: cover
+				
+				-- ds.heading-small: $lang.sign-in
+				width: hug-content
+				
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.large
+
+				
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Username
+						
+						-- ftd.text-input:
+						placeholder: Enter username
+						type: text
+						$on-input$: $ftd.set-string($a = $page.current-username, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.authenticate-user.username-error)
+						width: fill-container
+						height.fixed.px: 40
+						border-radius.px: 8
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.authenticate-user.username-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.authenticate-user.username-error
+						if: { page.authenticate-user.username-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-extra-small
+					align-content: left
+					
+						-- ds.copy-small: Password
+						
+						-- ftd.text-input:
+						placeholder: Enter password
+						type: password
+						$on-input$: $ftd.set-string($a = $page.current-password, v = $VALUE)
+						$on-input$: $utils.set-null($var = $page.authenticate-user.password-error)
+						width: fill-container
+						height.fixed.px: 40
+						border-radius.px: 8
+						background.solid: transparent
+						border-width.px: 1
+						border-color: $inherited.colors.border
+						border-color if { page.authenticate-user.password-error != NULL }: $inherited.colors.error.border
+						padding.px: 8
+						color: $inherited.colors.text-strong
+						
+						-- ds.copy-small: $page.authenticate-user.password-error
+						if: { page.authenticate-user.password-error != NULL }
+						color: $ds.colors.error.text
+						
+					-- end: ds.column
+
+					-- ds.primary-button: Login
+					$on-click$: $page.authenticate-user.submit-values(username = $page.current-username, password = $page.current-password)
+					width: full
+					radius: curved
+					
+					-- ds.row:
+					spacing: $ds.spaces.vertical-gap.small
+					inset: $ds.spaces.inset-square.small
+					wrap: true
+					
+						-- ds.copy-regular:
+						text: $lang.create-account
+						width: hug-content
+						
+						-- ds.link: $lang.sign-up
+						color: $ds.colors.accent.primary
+						link if { page.site-data.sign-up-url }: $page.site-data.sign-up-url
+						link: /
+						
+					-- end: ds.row
+
+					/-- ds.column:
+					border: $ds.borders.top.small
+					radius: $ds.radius.zero
+					spacing: $ds.spaces.vertical-gap.medium
+					inset: $ds.spaces.inset-tall.zero-small
+					
+						-- ds.copy-small: Or log in using
+						
+						-- ds.icon-button: Continue with Github
+						icon: $assets.files.assets.github-mark-white.svg
+						link: $page.site-data.github-url
+						kind: secondary
+						width: full
+						
+						-- ds.link: I forgot my password
+						link: $page.site-data.forgot-url
+						
+					-- end: ds.column
+
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ds.row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.column:
+		align-content: center
+		inset: $ds.spaces.inset-wide.large
+		background.solid: $ds.colors.background.step-1
+		spacing: $ds.spaces.vertical-gap.large
+		height.fixed.vh: 100
+		radius: $ds.radius.zero
+		
+			-- ftd.image:
+			src: $page.site-data.logo
+			width.fixed.px: 89
+			height.fixed.px: 33
+			fit: cover
+			
+			-- ds.heading-small: $lang.sign-in
+			width: hug-content
+			
+			-- ds.column:
+			width: hug-content
+			
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Username
+					
+					-- ftd.text-input:
+					placeholder: Enter username
+					type: text
+					$on-input$: $ftd.set-string($a = $page.current-username, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.authenticate-user.username-error)
+					width: fill-container
+					height.fixed.px: 40
+					border-radius.px: 8
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.authenticate-user.username-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.authenticate-user.username-error
+					if: { page.authenticate-user.username-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.extra-extra-small
+				align-content: left
+				
+					-- ds.copy-small: Password
+					
+					-- ftd.text-input:
+					placeholder: Enter password
+					type: password
+					$on-input$: $ftd.set-string($a = $page.current-password, v = $VALUE)
+					               $on-input$: $utils.set-null($var = $page.authenticate-user.password-error)
+					width: fill-container
+					height.fixed.px: 40
+					border-radius.px: 8
+					background.solid: transparent
+					border-width.px: 1
+					border-color: $inherited.colors.border
+					border-color if { page.authenticate-user.password-error != NULL }: $inherited.colors.error.border
+					padding.px: 8
+					color: $inherited.colors.text-strong
+					
+					-- ds.copy-small: $page.authenticate-user.password-error
+					if: { page.authenticate-user.password-error != NULL }
+					color: $ds.colors.error.text
+					
+				-- end: ds.column
+
+				-- ds.checkbox: I accept Terms and Conditions
+				size: small
+				
+				-- ds.primary-button: Login
+				$on-click$: $page.authenticate-user.submit-values(username = $page.current-username, password = $page.current-password)
+				width: full
+				radius: curved
+				
+				-- ds.row:
+				spacing: $ds.spaces.vertical-gap.extra-small
+				inset: $ds.spaces.inset-square.small
+				
+					-- ds.copy-regular:
+					text: $lang.create-account
+					width: hug-content
+					
+					-- ds.link: $lang.sign-in
+					color: $ds.colors.accent.primary
+					link if { page.site-data.sign-up-url }: $page.site-data.sign-up-url
+					link: /
+					
+				-- end: ds.row
+
+				-- ds.column:
+				border: $ds.borders.top.small
+				radius: $ds.radius.zero
+				spacing: $ds.spaces.vertical-gap.medium
+				inset: $ds.spaces.inset-tall.zero-small
+				
+					-- ds.copy-small: Or log in using
+					
+					-- ds.icon-button: Continue with Github
+					icon: $assets.files.assets.github-mark-white.svg
+					link: $page.site-data.github-url
+					kind: secondary
+					width: full
+					
+					-- ds.link: I forgot my password
+					link: $page.site-data.forgot-url
+					
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ds.column
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: page

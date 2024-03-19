@@ -1,0 +1,128 @@
+-- import: ui.fifthtry.com/pages/signup
+-- import: ui.fifthtry.com/pages/signin
+-- import: www.fifthtry.com/action/create-account
+-- import: www.fifthtry.com/action/login
+
+
+
+
+
+-- component create-account-page:
+
+-- signup.page:
+signup-action: create-account
+
+-- end: create-account-page
+
+
+
+
+
+-- component login-page:
+
+-- signin.page:
+authenticate-user: login
+
+-- end: login-page
+
+
+
+
+-- string logout-url: /-/auth/logout/
+
+-- string test: fsdkjflk
+
+
+
+
+
+-- string confirmation-mail-html:
+$always-include$: true
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body
+  style="width: 100%; height: 100%; padding: 0; margin: 0; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+  <table border="0" cellpadding="0" cellspacing="0" width="600px" style="border-collapse: collapse; max-width: 600px;">
+    <tr>
+      <td align="center">
+        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;">
+          <tr>
+            <td align="center" valign="top" style="padding: 16px 0;">
+              <a href="https://www.fifthtry.com/" target="_blank" style="display: inline-block;">FifthTry</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="600px" style="max-width: 600px;">
+          <tr>
+            <td align="left"
+              style="padding-left: 48px;padding-right: 48px;padding-top: 48px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
+              <h1
+                style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px; color: #333;">
+                Hello There 👋</h1>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr width="600px" style="max-width: 600px; height: 320px; vertical-align: top;">
+      <td align="left"
+        style="padding-left: 48px;padding-right: 48px; padding-top: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 18px; line-height: 28px;">
+        <p style="margin: 0; color: #7c7c7c;">Click on this link to verify your email:</p>
+            <p style="margin: 0; max-width: 550px; word-wrap: break-word;"><a href="{{link}}" target="_blank"
+            style="color: #EF8435;">{{link}}</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"
+        style="background-color: #EF8435; padding-top: 22px; padding-bottom: 22px; border-spacing: 16px; margin-top: 264px;">
+        <a href="https://twitter.com/FifthTryHQ">Twitter</a>
+        <a href="https://github.com/fastn-stack/fastn">Github</a>
+        <a href="https://www.linkedin.com/company/fifthtry/">Linkedin</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+
+
+
+
+-- component email-confirmation-request-sent-page:
+
+-- ftd.column:
+
+	-- ftd.text: We have sent you an email. Please verify.
+	
+-- end: ftd.column
+
+-- end: email-confirmation-request-sent-page
+
+
+
+
+
+-- component onboarding:
+
+-- ftd.column:
+	-- ftd.text: welcome aboard, meine freundin
+	color: green
+	
+	-- ftd.text: glad you're here, the next time you refresh this page you won't be here
+	
+	-- ftd.text:
+	
+	This is useful for doing onboarding stuff. collecting extra information about the user. Use sql processor or endpoint for now to do this stuff
+	
+-- end: ftd.column
+
+-- end: onboarding

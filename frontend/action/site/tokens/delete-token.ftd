@@ -1,0 +1,15 @@
+-- optional string $token-error:
+-- optional string $manage-site-error:
+
+-- void submit(site_slug, token_id):
+string site_slug:
+integer token_id:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/site/token/delete/",
+    "www.fifthtry.com/action/site/tokens/delete-token",
+    "POST",
+    ("site-slug", site_slug),
+    ("token-id", token_id)
+)

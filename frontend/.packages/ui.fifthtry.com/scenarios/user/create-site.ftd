@@ -1,0 +1,9 @@
+-- import: ui.fifthtry.com/pages/user/create-site
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+-- create-site.page:
+user-data: $john-doe.jd
+site-data: scenario-site
+dashboard-url: /scenarios/user/dashboard/
+create-site-url: /scenarios/user/create-site/

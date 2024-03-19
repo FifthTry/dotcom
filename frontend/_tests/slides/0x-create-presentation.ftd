@@ -1,0 +1,43 @@
+-- import: fastn
+
+-- fastn.test: create presentation test
+fixture: with-admin
+
+-- fastn.post: create presentation test
+url: /create-admin/
+id: post#/create-admin/ ;; default id is method#url
+http-status: 308
+
+{
+    "title": `${fastn.test_data.username}'s first presentation'`,
+    "description": "This is a test presentation",
+}
+
+-- fastn.post.test:
+
+;; off-band data includes the presentation id
+
+fastn.assert.not_null(fastn.test_data.presentation_id);
+ fastn.assert.eq(fastn.http_location, fastn.test_data.next_url);
+
+-- fastn.get: see if presentation page opens
+url: `/presentations/${fastn.test_data.presentation_id}/`
+
+fastn.assert.eq(
+    "checking if presentation title is correct",
+    fastn.get("presentation.title"),
+    fastn.test_data.steps["post#/create-admin/"].input["title"]
+);
+
+-- fastn.get.description:
+
+<EOB
+
+-- import: fastn/processors as pr
+
+-- string http-location:
+$processor$: pr.test-data
+
+-- ds.button: $http-location
+
+EOB>

@@ -1,0 +1,65 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/site-header
+-- import: ui.fifthtry.com/components/sites/token-info
+-- import: ui.fifthtry.com/components/label
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/actions/sites/tokens/create-token
+-- import: ui.fifthtry.com/actions/sites/tokens/delete-token
+-- import: ui.fifthtry.com/utils as u
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+sites-records.token list tokens:
+module create-token: create-token
+module delete-token: delete-token
+integer $active: -1
+optional string top-message:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+dashboard-url: $page.dashboard-url
+current-page: tokens
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-square.large
+	spacing: $ds.spaces.vertical-gap.large
+	margin: $ds.spaces.vertical-gap.zero
+	
+		-- ds.column:
+		spacing: $ds.spaces.vertical-gap.small
+		
+			-- ds.column:
+			align-content: left
+			background.solid: $ds.colors.background.step-1
+			inset: $ds.spaces.inset-square.medium
+			border: $ds.borders.uniform.small
+			
+				-- token-info.token-input:
+				create-token: $page.create-token
+				site-slug: $page.site.site-slug
+				
+			-- end: ds.column
+
+		-- end: ds.column
+
+		-- token-info.show-token: $d
+		for: d in $page.tokens
+		index: $LOOP.COUNTER
+		site: $page.site
+		delete-token: $page.delete-token
+		$active: $page.active
+		
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page

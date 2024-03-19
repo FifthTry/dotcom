@@ -1,0 +1,134 @@
+-- import: ui.fifthtry.com/records/sites as sr
+-- import: ui.fifthtry.com/actions/sites/editor/open-file
+
+-- component file-tree:
+sr.file-info list files:
+string $header-title: todo
+string site-slug:
+module open-file: open-file
+
+-- ds.column:
+width.fixed.px: 200
+height: fill-container
+spacing: $ds.spaces.horizontal-gap.medium
+background.solid: $ds.colors.background.step-1
+align-content: top-left
+inset: $ds.spaces.inset-square.medium
+
+	-- label-with-three-dots: FILES
+	
+	-- ds.column:
+	align-content: top-left
+	spacing: $ds.spaces.horizontal-gap.extra-small
+	
+		-- file-view: $file
+		for: file in $file-tree.files
+		$header-title: $file-tree.header-title
+		site-slug: $file-tree.site-slug
+		open-file: $file-tree.open-file
+		
+	-- end: ds.column
+
+-- end: ds.column
+
+-- end: file-tree
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component file-view:
+caption sr.file-info file:
+string $header-title:
+string site-slug:
+module open-file: open-file
+boolean $is-open: false
+
+-- ds.column:
+spacing: $ds.spaces.vertical-gap.extra-small
+
+	-- ds.row:
+	align-content: top-left
+	spacing: $ds.spaces.horizontal-gap.extra-small
+	$on-click$: $ftd.toggle($a = $file-view.is-open)
+
+		-- ftd.image: $assets.files.assets.down-arrow.svg
+		if: { ftd.len(file-view.file.children) > 0 && file-view.is-open }
+		width.fixed.px: 10
+		align-self: center
+
+		-- ftd.image: $assets.files.assets.right-arrow.svg
+		if: { ftd.len(file-view.file.children) > 0 && !file-view.is-open }
+		width.fixed.px: 10
+		align-self: center
+
+		-- ftd.image: $assets.files.assets.file.svg
+		if: { ftd.len(file-view.file.children) == 0 }
+		width.fixed.px: 20
+		align-self: center
+
+		-- ftd.text: $file-view.file.base-name
+		if: { ftd.len(file-view.file.children) == 0 }
+		$on-click$: $file-view.open-file.submit(name = $file-view.file.full-name, site_slug = $file-view.site-slug)
+		$on-click$: $ftd.set-string($a = $file-view.header-title, v = $file-view.file.full-name)
+		role: $ds.types.copy-small
+		color: $ds.colors.text-strong
+		style if { file-view.header-title == file-view.file.full-name }: underline, bold
+
+		-- ftd.text: $file-view.file.base-name
+        if: { ftd.len(file-view.file.children) > 0 }
+        $on-click$: $ftd.set-string($a = $file-view.header-title, v = $file-view.file.full-name)
+        role: $ds.types.copy-small
+        color: $ds.colors.text-strong
+        style if { file-view.header-title == file-view.file.full-name }: underline, bold
+        
+	-- end: ds.row
+
+	-- ds.column:
+	inset: $ds.spaces.inset-wide.small-zero
+	spacing: $ds.spaces.vertical-gap.zero
+	if: { ftd.len(file-view.file.children) > 0 && file-view.is-open }
+	
+		-- file-view: $obj
+		for: $obj in $file-view.file.children
+		$header-title: $file-view.header-title
+		site-slug: $file-view.site-slug
+		open-file: $file-view.open-file
+		
+	-- end: ds.column
+
+-- end: ds.column
+
+-- end: file-view
+
+
+
+-- component label-with-three-dots:
+caption label:
+private boolean $dots-hovered: false
+
+-- ds.row:
+align-content: top-left
+spacing: $ds.spaces.horizontal-gap.space-between
+
+	-- ds.copy-small: $label-with-three-dots.label
+	style: bold
+	
+	-- ftd.image: $assets.files.assets.dots-three.svg
+	width.fixed.px: 20
+	opacity: 0.5
+	opacity if { label-with-three-dots.dots-hovered }: 1
+	$on-mouse-enter$: $ftd.set-bool($a = $label-with-three-dots.dots-hovered, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $label-with-three-dots.dots-hovered, v = false)
+	
+-- end: ds.row
+
+-- end: label-with-three-dots

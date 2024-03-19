@@ -1,0 +1,27 @@
+-- import: ui.fifthtry.com/pages/sites/setting/tokens
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+
+
+-- tokens.page:
+site-data: scenario-site
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/user/dashboard/
+tokens: $tokens
+
+
+-- sites-records.token list tokens:
+
+-- sites-records.token: 1234-123123-12312312-123123
+id: 1
+can-read: true
+can-write: true
+created-at: 2 days ago
+last-used-at: 1 hour ago
+
+This is a token for general purpose stuff.
+
+-- end: tokens

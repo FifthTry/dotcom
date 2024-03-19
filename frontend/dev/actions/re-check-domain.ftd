@@ -1,0 +1,81 @@
+-- import: www.fifthtry.com/dev/actions
+exposing: action, user-field, system-field, validation
+
+
+
+-- action: re-check-domain
+reload: true
+url: /ft-ep/action/site/re-check-domain/
+code-reference: ft/src/action/recheck_domain.rs
+unimplemented: true
+
+-- action.description:
+
+This action updates DNS and SSL check schedule to current time (now)
+and sets the DNS and SSL statuses accordingly for the given domain.
+
+
+
+
+
+
+-- action.system-fields:
+
+	-- system-field: site-slug
+	
+	-- system-field.validations:
+	
+		-- validation: unknown-site
+		error-message: There is no such site. Maybe the slug of the site has changed, or site has been deleted.
+		status: done
+		
+		Check if the site is present. Maybe the site doesn't exist or has been already removed.
+		
+	-- end: system-field.validations
+
+	-- system-field: domain
+	
+	-- system-field.validations:
+	
+		-- validation: domain-is-present
+		error-message: There is no such domain. Maybe the domain for your site has been deleted.
+		status: done
+		
+		Check if the site domain is present. Maybe the site domain doesn't exist or
+		has been already removed.
+		
+	-- end: system-field.validations
+
+-- end: action.system-fields
+
+
+
+
+
+
+
+-- action.other-validations:
+
+	-- validation: not-org-member
+	error-message: Only organization members can perform this action. You may have been removed.
+	status: done
+	
+	Only people who are org member are allowed to perform this operation.
+	
+	-- validation: re-check-domain-org-rate-limit-reached
+	error-message: We allow this operation max 2 times per minute per org. Please try after some time.
+	implement-in-future: true
+	
+	A single org can only perform this operation max 2 times per minute.
+	
+	-- validation: global-rate-limit
+	error-message: We allow max 100 operations per minute. Please try after some time.
+	implement-in-future: true
+	
+	This endpoint will allow max 100 operations per minute.
+	
+-- end: action.other-validations
+
+
+
+-- end: action

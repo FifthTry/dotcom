@@ -1,0 +1,15 @@
+-- import: ui.fifthtry.com/records/user-data
+-- import: fastn/processors as pr
+
+
+-- record user-data-view:
+user-data.user-data ud:
+
+
+;; only use this file for pages that are not making other page specific requests
+-- user-data-view user-response:
+$processor$: pr.http
+url: /ft2/public/user-data/
+
+
+-- user-data.user-data ud: $user-response.ud

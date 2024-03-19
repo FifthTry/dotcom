@@ -1,0 +1,33 @@
+-- import: ui.fifthtry.com/pages/sites/setting/configure-github
+-- import: www.fifthtry.com/action/site/github/configure
+-- import: www.fifthtry.com/action/site/github/reconfigure
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: fastn/processors as pr
+-- import: ui.fifthtry.com/records/sites as sites-records
+
+
+-- string site-slug:
+$processor$: pr.request-data
+
+
+-- configure-github.page:
+user-data: $data.ud
+data: $data.page
+site: $data.site
+dashboard-url: $data.dashboard-url
+configure: configure
+reconfigure: reconfigure
+
+
+
+
+-- record gh-oidc-api:
+sites-records.gh-oidc-data page:
+sites-records.site-common-data site:
+string dashboard-url:
+ud.user-data ud:
+
+-- gh-oidc-api data:
+$processor$: pr.http
+url: /ft2/site/setting/gh-oidc/
+site-slug: $site-slug

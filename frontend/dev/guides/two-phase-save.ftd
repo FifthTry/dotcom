@@ -1,0 +1,20 @@
+-- ds.page: Two Phase Save
+
+When user edits the content, we have to first send it to server (render phase),
+and render it, load it in iframe. And once it is rendered, we will then create
+the snapshot and preview snapshot using browser APIs, and make another
+request (save phase) to server to save everything in one atomic operation.
+
+After the save phase, we will then update the UI (preview URL to go to site
+preview section, and thumbnail url to the to show in the site thumbnails bar.
+
+
+-- ds.h1: render phase
+
+We will use render API.
+
+-- ds.h1: save phase
+
+We will use `save` API to save.
+
+-- end: ds.page

@@ -1,0 +1,28 @@
+-- import: ui.fifthtry.com/pages/user/dashboard
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/pages/home
+-- import: fastn/processors as pr
+
+
+
+-- dashboard.page:
+data: $data.page
+user-data: $data.ud
+if: { data.ud.is-logged-in }
+
+-- home.page:
+user-data: $data.ud
+if: { !data.ud.is-logged-in }
+
+
+
+
+
+
+-- record dashboard-data-api:
+ud.dashboard-data page:
+ud.user-data ud:
+
+-- dashboard-data-api data:
+$processor$: pr.http
+url: /ft2/user/dashboard/

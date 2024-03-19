@@ -1,0 +1,27 @@
+-- import: www.fifthtry.com/dev/adr as _
+exposing: adr, c
+
+-- adr: `Anycast` Edge Servers
+status: accepted
+
+-- adr.context:
+
+`anycast` is a network routing technique where the same IP address is advertised from
+multiple locations. The routing protocol will then choose the closest location to the
+client.
+
+-- ds.code:
+lang: ftd
+
+\-- ftd.text: hello world
+
+-- end: adr.context
+
+
+-- adr.consequences:
+
+* Faster response times
+* Better availability
+* Better security
+
+-- end: adr.consequences

@@ -1,0 +1,32 @@
+-- component product:
+caption title:
+ftd.image-src icon:
+body about:
+string link:
+string cta: Read More
+
+-- ds.column:
+background.solid: $ds.colors.background.step-2
+inset: $ds.spaces.inset-tall.large
+width.fixed.percent: 48
+
+	-- ds.row:
+	
+		-- ftd.image: $product.icon
+		-- ds.heading-tiny: $product.title
+		
+	-- end: ds.row
+
+	-- ds.copy-regular:
+	height: fill-container
+	
+	$product.about
+	
+	-- ds.phosphor-icon-button: $product.cta
+	icon: arrow-right
+	link: $product.link
+	icon-position: at-end
+	
+-- end: ds.column
+
+-- end: product

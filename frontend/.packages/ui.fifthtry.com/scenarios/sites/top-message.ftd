@@ -1,0 +1,14 @@
+-- import: ui.fifthtry.com/pages/sites/site-info
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/scenarios/sites/site-info as site-info-scenario
+-- import: ui.fifthtry.com/scenarios/scenario-site
+-- import: ui.fifthtry.com/records/sites as sites-records
+
+-- site-info.page:
+site-data: scenario-site
+site: $site-info-scenario.acme-site
+dashboard-url: /scenarios/user/dashboard/
+user-data: $john-doe.jd
+top-message: This message can be passed to every page using the `top-message`. [Links](/) are also supported
+
+

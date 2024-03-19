@@ -1,0 +1,147 @@
+-- import: www.fifthtry.com/dev/actions
+exposing: action, user-field, system-field, validation
+
+
+
+-- action: add-domain
+url: /ft-ep/action/add-domain/
+reload: true
+code-reference: ft/src/action/add_domain.rs
+unimplemented: true
+
+-- action.description:
+
+This action adds the domain to a site.
+
+
+-- action.system-fields:
+
+	-- system-field: org-slug
+	
+	-- system-field.validations:
+	
+		-- validation: no-such-org
+		error-message: No such organisation. Maybe the slug of the organisation has changed, or organisation has been deleted.
+		
+		Check if org is present.
+		
+		
+		
+	-- end: system-field.validations
+
+
+
+
+	-- system-field: site-slug
+	
+	-- system-field.validations:
+	
+		-- validation: unknown-site
+		error-message: There is no such site. Maybe the slug of the site has changed, or site has been deleted.
+		
+		Check if the site is already present.
+		
+	-- end: system-field.validations
+
+-- end: action.system-fields
+
+
+
+
+
+
+-- action.user-fields:
+
+	-- user-field: domain
+	
+	-- user-field.validations:
+	
+		-- validation: domain-is-empty
+		error-message: Domain is required.
+		
+		-- validation: domain-regex
+		error-message: Domain must be lowercase and can only contain letters (a-z), numbers (0-9), and hyphens (-). Internationalized Domain Names (IDN) are not supported at this time.
+		
+		Must confirm with our regex for valid slugs.
+		The regex currently using is ^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*\.[a-z]{2,6}$
+		Where:
+		^: Represents the start of the string.
+		[a-z0-9]: Matches a single character that is a lowercase letter or a digit.
+		(?: ... )?: Represents a non-capturing group that is optional.
+		[a-z0-9-]{0,61}[a-z0-9]: Matches a string of characters consisting of lowercase letters, digits, or hyphens, between 0 and 61 characters long, followed by a single lowercase letter or digit.
+		\.: Matches a dot (.).
+		(...)*: Represents a capturing group that can occur zero or more times.
+		\.: Matches a dot (.).
+		[a-z]{2,6}: Matches a string of lowercase letters between 2 and 6 characters long.
+		$: Represents the end of the string.
+		
+		Instead of this `^((?!-)[a-z0–9-]{1, 63}(?<!-)\.)+[a-z]{2, 6}$` as look-ahead(?!) and
+		look-behind(?<!) is currently not supported
+		Where:
+		^ represents the starting of the string.
+		( represents the starting of the group.
+		(?!-) represents the string should not start with a hyphen (-).
+		[A-Za-z0–9-]{1, 63} represents the domain name should be a-z or A-Z or 0–9 and hyphen (-) between 1 and 63 characters long.
+		(?<!-) represents the string should not end with a hyphen (-).
+		\\. represents the string followed by a dot.
+		)+ represents the ending of the group, this group must appear at least 1 time, but allowed multiple times for subdomain.
+		[A-Za-z]{2, 6} represents the TLD must be A-Z or a-z between 2 and 6 characters long.
+		$ represents the ending of the string.
+		
+		This covers most of the cases. We have omit the capital case intentionally
+		
+		-- validation: unique-domain
+		error-message: Site with this domain <domain> already exists.
+		
+		Must not exist in DB.
+		
+		-- validation: maximum-domain-per-site-not-exceeded
+		error-message: Only 10 domains are allowed per site. If you want more, mail us at support@fifthtry.com.
+		implement-in-future: true
+		
+		We only allow upto 10 domains per site.
+		
+	-- end: user-field.validations
+
+-- end: action.user-fields
+
+
+
+
+
+
+
+
+
+
+-- action.other-validations:
+
+	-- validation: not-org-member
+	error-message: Only organization members can perform this action. You may have been removed.
+	
+	Check if user is org member
+	
+	-- validation: unauthorized-role
+	error-message: Only roles admin or manager can perform this action. Maybe you lost your role after loading the page.
+	
+	Only roles admin or manager can add the domain. We handle it as error that can happen in normal
+	course, because what if the admin changed the current user's role after the current user loaded
+	the page in their browser.
+	
+	-- validation: add-domain-org-rate-limit-reached
+	error-message: We only create max 5 domains per minute. Please try after some time.
+	implement-in-future: true
+	
+	A single org can only create 5 domains per minute.
+	
+	-- validation: global-rate-limit
+	implement-in-future: true
+	error-message: We only create max of 100 domains per min. Please try after some time.
+	
+	We only create max of 100 domains per min.
+	
+-- end: action.other-validations
+
+
+
+-- end: action

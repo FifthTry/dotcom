@@ -1,0 +1,40 @@
+-- ds.page: Templates
+
+We have presentation templates, which can be used to create presentations.
+
+-- ds.h1: How Are Templates Created?
+
+All presentations are created from another template. Each template has one or
+more slide-templates. Once a presentation is created from a
+presentation-template, all the slide-templates belonging to that
+presentation-template are copied into the presentation.
+
+-- ds.h1: Team Templates
+
+Each team can curate a bunch of "team templates", they are stored in TeamTemplate
+table, and only "managers" of a team can manage team templates.
+
+-- ds.h1: Public Template
+
+Any template can be made public, and then it will be available to all users.
+
+-- ds.h1: Featured Templates
+
+Any template can be made featured, and then it will be available to all users, and shown in featured
+templates list.
+
+-- ds.h1: Template Marketplace
+
+In future we can make templates paid, if you try to use a paid template, you
+will have to pay for it.
+
+-- ds.h1: Template Meta Data
+
+Along with owner, public (boolean), featured (boolean), and payment (optional
+$value, in future), each template has a `title`, and `description`.
+
+Beyond this, any template can have any number of custom fields.
+
+When a template is added to team, the custom fields are updated.
+
+-- end: ds.page

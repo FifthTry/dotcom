@@ -1,0 +1,96 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/utils as u
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+sites-records.gh-oidc-data data:
+optional string top-message:
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+dashboard-url: $page.dashboard-url
+current-page: github
+top-message: $page.top-message
+    
+    -- ds.section-column:
+    inset: $ds.spaces.inset-square.zero
+    spacing: $ds.spaces.vertical-gap.zero
+    margin: $ds.spaces.vertical-gap.extra-extra-large
+
+	-- ds.column:
+	inset: $ds.spaces.inset-square.large
+	spacing: $ds.spaces.vertical-gap.large
+
+        -- ds.row:
+        align-content: left
+        spacing: $ds.spaces.horizontal-gap.small
+
+            -- ftd.image:
+            src: $assets.files.assets.sites.info.svg
+
+            -- ds.copy-small: Use clift to update your site from github
+
+        -- end: ds.row
+
+        -- ds.row:
+        if: { ftd.device != "mobile" }
+        radius: $ds.radius.medium
+        inset: $ds.spaces.inset-square.large
+        border: $ds.borders.uniform.small
+        spacing: $ds.spaces.horizontal-gap.space-between
+        background.solid: $ds.colors.background.step-1
+
+            -- ds.copy-large:
+
+            $github-message(domain = $page.site.primary-domain)
+
+            -- ds.primary-button: Configure Now
+            link: $page.data.configure-url
+            width: wide
+            radius: curved
+
+        -- end: ds.row
+
+        -- ds.column:
+        if: { ftd.device == "mobile" }
+        radius: $ds.radius.medium
+        inset: $ds.spaces.inset-square.medium
+        border: $ds.borders.uniform.small
+        spacing: $ds.spaces.vertical-gap.large
+        background.solid: $ds.colors.background.step-1
+
+            -- ds.copy-large:
+
+            $github-message(domain = $page.site.primary-domain)
+
+            -- ds.primary-button: Configure Now
+            link: $page.data.configure-url
+            width: full
+            radius: curved
+
+        -- end: ds.column
+
+        -- end: ds.column
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+-- string github-message(domain):
+string domain:
+
+"You have not yet configured Github for [" + domain + "](///" + domain + ")."

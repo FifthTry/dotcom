@@ -1,0 +1,90 @@
+-- import: fifthtry.github.io/bling/note as note
+
+-- ds.page: Project guidelines
+
+At FifthTry, we place a high value on effective communication with our partner
+teams throughout the entire project lifecycle. We have established specific
+guidelines and processes to deliver the projects with speed without affecting
+the quality. The overall goal is to have a defined process from the start to
+the delivery of the project.
+
+
+We do not believe it is a good practice to share the updates on the delivery
+date. The process helps us to deliver the project while keeping our partners
+informed and updated on a regular basis.To achieve this, we are following the
+staged delivery where we came up with following `Priority Stages`:
+
+- Stage 1: **Create all the URLs**
+- Stage 2: **Put all the Content**
+- Stage 3: **Component Structure**
+- Stage 4: **Documentation**
+- Stage 5: **Implementation**
+- Stage 6: **Mobile Optimization**
+
+
+
+-- ds.h1: Stage 1: Create all the URLs
+
+In stage 1, with or without content, the team priortises on creating all the
+URLs for that project. That includes creating all the pages and configuring
+them using [`sitemap`](https://fastn.io/sitemap/).
+
+The question to answer at this stage is, do we have all the URLs working for
+the project?
+
+
+
+-- ds.h1: Stage 2: Put all the Content
+
+At this stage, we put all the content including images for all the URLs and
+verify the content is pixel to pixel matched.
+
+We do UI review with three stages of reviews: developer review, assigned
+person's review and peer review.
+
+The question to answer is, do we have all the content for every URL created in
+stage 1?
+
+-- note.note: Note
+
+After the Stage 2 is complete, the project is **Ready to Deploy**. We can ask
+the partner teams to deploy the project and we can continue with the remaining
+stages.
+
+
+
+-- ds.h1: Stage 3: Component Structure
+
+We create components that are used in the the project which follows the
+`Component Standards`.
+
+
+-- ds.h1: Stage 4: Documentation
+
+At this stage, we aim to complete the documentation which itself follows the
+`FTD Documentation Standards`.
+
+
+-- ds.h1: Stage 5: Implementation
+
+In this stage, specific to Desktop version, we inspect it everything has been
+implemented as required.
+
+
+-- ds.h1: Stage 6: Mobile Optimization
+
+It is not a rule that mobile optimization cannot be done in previous stages,
+but this stage verifies and answers the question, is the mobile optimization
+ready and working properly?
+
+
+These stages not only help us to deliver the project with accuracy but with
+conviction that we have followed a process and the partner teams get to see
+entire project lifecycle.
+
+
+Our commitment to open and transparent communication is an essential component
+of our overall approach to project management and delivery.
+
+
+-- end: ds.page

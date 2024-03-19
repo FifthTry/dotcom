@@ -1,0 +1,143 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+-- import: fastn-community.github.io/design-system/foundation-elements/shadow
+
+-- component row:
+optional caption title:
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap spacing: $ds.spaces.horizontal-gap.medium
+ftd.resizing width: fill-container
+optional ftd.resizing max-width:
+ftd.align align-content: center
+children content:
+optional string link:
+boolean wrap: false
+optional ftd.resizing height:
+optional ftd.background background:
+ds.element-radius radius: $ds.radius.medium
+ds.border-data border: $ds.borders.uniform.zero
+ftd.color border-color: $ds.colors.border
+optional ftd.color color:
+optional integer z-index:
+string list css:
+string list js:
+optional ftd.shadow shadow:
+
+-- ftd.row:
+width: $row.width
+max-width.fixed.px: $row.max-width
+height: $row.height
+padding-vertical.px: $row.inset.vertical
+padding-horizontal.px: $row.inset.horizontal
+spacing.fixed.px: $row.spacing.gap
+spacing if { row.spacing.gap == spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+align-content: $row.align-content
+children: $row.content
+background: $row.background
+link: $row.link
+wrap: $row.wrap
+border-top-left-radius.px if { row.radius.top-left != $radius.HACK-RADIUS-ROUND }: $row.radius.top-left
+border-top-right-radius.px if { row.radius.top-right != $radius.HACK-RADIUS-ROUND }: $row.radius.top-right
+border-bottom-left-radius.px if { row.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $row.radius.bottom-left
+border-bottom-right-radius.px if { row.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $row.radius.bottom-right
+border-top-left-radius.percent if { row.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+border-top-right-radius.percent if { row.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-left-radius.percent if { row.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-right-radius.percent if { row.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+border-top-width.px: $row.border.top
+border-bottom-width.px: $row.border.bottom
+border-left-width.px: $row.border.left
+border-right-width.px: $row.border.right
+border-color: $row.border-color
+z-index: $row.z-index
+color: $row.color
+css: $row.css
+js: $row.js
+shadow: $row.shadow
+
+-- end: ftd.row
+
+-- end: row
+
+
+
+
+
+
+
+
+
+
+-- ds.page: Row
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Row
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.rendered:
+	
+	\-- ds.row:
+	width.fixed.px: 280
+	height.fixed.px: 200
+	border-top: $ds.borders.thin
+	border-left: $ds.borders.thin
+	border-right: $ds.borders.thin
+	border-bottom: $ds.borders.thin
+	radius: $ds.radius.small
+	background.solid: $ds.colors.custom.five
+	align-content: center
+	shadow: $ds.shadow.extra-large
+	
+	\-- ds.copy-regular:
+	text: Text 1
+	width: hug-content
+	
+	\-- ds.copy-regular:
+	text: Text 1
+	width: hug-content
+	
+	\-- ds.copy-regular:
+	text: Text 1
+	width: hug-content
+	
+	\-- end: ds.row
+	
+		-- ds.row:
+		width.fixed.px: 280
+		height.fixed.px: 200
+		border: $ds.borders.uniform.small
+		radius: $ds.radius.small
+		background.solid: $ds.colors.custom.five
+		align-content: center
+		shadow: $ds.shadow.extra-large
+		
+			-- ds.copy-regular:
+			text: Row Text
+			width: hug-content
+			
+			-- ds.copy-regular:
+			text: Row Text
+			width: hug-content
+			
+			-- ds.copy-regular:
+			text: Row Text
+			width: hug-content
+			
+		-- end: ds.row
+
+	-- end: ds.rendered
+
+-- end: ds.section-column
+
+-- end: ds.page

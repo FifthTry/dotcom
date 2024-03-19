@@ -1,0 +1,103 @@
+-- import: fastn-community.github.io/dark-mode-switcher as dms
+-- import: fastn-community.github.io/design-system/demos
+
+
+-- or-type flush:
+
+-- constant integer to-header: 0 ;; as wide as header
+-- constant integer full: 1      ;; edge to edge
+-- constant integer wide: 2      ;; 20% wider than the header
+-- constant integer narrow: 3    ;; 20% narrower
+
+-- end: flush
+
+
+
+-- record page-widths:
+ftd.length regular:
+ftd.length narrow:
+ftd.length wide:
+
+-- page-widths widths:
+regular.px: 1000
+narrow.px: 800
+wide.px: 1200
+
+-- ds.page-widths narrow-widths:
+regular.px: 800
+narrow.px: 600
+wide.px: 1000
+
+
+-- component page:
+caption title:
+optional body description:
+children content:
+ds.gap spacing: $ds.spaces.vertical-gap.zero
+page-widths widths: $ds.widths
+;; todo: is the follow reference to `.gap` correct?
+ds.gap margin: $ds.spaces.vertical-gap.large
+ftd.background.solid background: $ds.colors.background.base
+boolean theme-switcher: false
+boolean fastn-badge: true
+ftd.align align-content: top-center
+
+-- ftd.document:
+title: $page.title
+description: $page.description
+colors: $ds.colors
+types: $ds.types
+
+	-- dms.dark-mode-switcher-float:
+	if: { page.theme-switcher }
+
+	-- ftd.image:
+	if: { page.fastn-badge }
+	src: $assets.files.assets.powered-by.svg
+	anchor: window
+	right.px: 0
+	bottom.px: 0
+	z-index: 99999999999999
+	link: https://fastn.com/
+	open-in-new-tab: true
+	
+	-- ds.column:
+	width: fill-container
+	height: fill-container
+	spacing: $page.spacing
+	color: $ds.colors.text
+	radius: $ds.radius.zero
+	background: $page.background
+	align-content: $page.align-content
+	
+		-- ui:
+		for: $ui in $page.content
+		
+	-- end: ds.column
+
+-- end: ftd.document
+
+-- end: page
+
+
+
+
+
+
+
+
+
+
+
+-- page-widths test-widths:
+regular.px: 400
+narrow.px: 300
+wide.px: 1200
+
+
+-- ds.page: Demo
+;; widths: $test-widths
+
+-- demos.demo:
+
+-- end: ds.page

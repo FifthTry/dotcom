@@ -1,0 +1,58 @@
+-- import: www.fifthtry.com/dev/views
+exposing: view, view-argument, validation
+
+
+-- view: dashboard
+url: /ft-ep/views/dashboard/
+unimplemented: true
+
+-- view.description:
+
+This view will fetch the sites dashboard contents for the logged-in user.
+
+-- view.view-arguments:
+
+	-- view-argument: org-slug
+	
+	-- view-argument.validations:
+	
+		-- validation: not-org-member
+		status: done
+		
+		Only people who have any role in the org can view the dashboard.
+		
+	-- end: view-argument.validations
+
+-- end: view.view-arguments
+
+-- view.other-validations:
+
+	-- validation: endpoint-per-add-domain-org-rate-limit-reached
+	implement-in-future: true
+	
+	A single org is allowed to make 5 requests per second to this endpoint.
+	
+	-- validation: global-rate-limit
+	implement-in-future: true
+	
+	This endpoint will at max allow 100 requests per second.
+	
+-- end: view.other-validations
+
+-- view.response:
+
+\;; Expected = dashboard-data
+\-- record dashboard-data:
+site list sites:
+string create-site-url:
+
+\-- record site:
+string name:
+string domain:
+string domain-with-host:
+string detail-url:
+string last-updated:
+string created-on:
+ftd.image-src placeholder-image:
+
+-- end: view

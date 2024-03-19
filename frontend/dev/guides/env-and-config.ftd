@@ -1,0 +1,152 @@
+-- ds.page: Using Editor as the only way to change settings
+
+I had a conversation yesterday with [@amitu](https://github.com/amitu/) where
+we talked about "not having mutating UI for settings". This document tries to
+be a summary of that conversation.
+
+-- ds.h1: What do we mean by settings
+
+-- ds.markdown:
+
+I have used the word "settings" to relate to the existing user settings
+(domain, github repo, etc) that we have currently.
+
+Settings also include:
+
+- **Environment variables**: We use env vars for a lot of things, auth, db,
+  mailing, etc.
+
+- **Mixed Privacy**: We call the ability to have some private and some public
+  pages in a single website "Mixed Privacy". Private pages are not visible to
+  unauthorized users (including its .ftd source). The mapping of which pages
+  are private/public is a setting
+
+- **Access Control**: We have done some experimentation with
+  `user-groups` already. This feature enables you to define
+  class of users and apply rules on these classes (or groups). There's a [demo
+  video](https://youtu.be/yZID38Zjwoo?t=1441) which better explains the idea.
+
+- Any other setting that demands some sort of history trail/record. Having a
+  record of who changed what setting is greatly helpful and that's why
+  programmers like to configure stuff through code (source files) and check it
+  in source control so that changes to their settings can be tracked.
+
+-- ds.h2: Discussed solution
+
+-- ds.markdown:
+
+Currently we have UI to manipulate domain settings and github repo settings
+form UI. This is good but in future we are going to have a lot more
+configuration like this which will require:
+
+- A change history: Who changed what and when
+- Access Control: Who can change what, admin should be able to change access,
+  programmers have read only access etc.
+- Sync experience: Users with access will be able to use `clift` to manage
+  these configuration on their machine or on fifthtry editor.
+
+Above stated requirementes kinda hint towards moving to a file based
+configuration. We have fifthtry editor in the working which will let authorized
+users change these configuration on fifthtry.com.
+
+This narrows down the problem to:
+
+- **Designing a DSL** in ftd which assists in declaring these configs.
+- **Managing access** to these ftd files.
+
+-- ds.h2: Designing a DSL
+
+Here are a few snippets. Note that these are **not final**.
+
+-- ds.code: Domain Settings
+lang: ftd
+
+\-- fifthtry.domain: siddhantCodes.me
+primary: true
+
+\-- fifthtry.domain: www.siddhantCodes.me
+
+-- ds.code: Github repo
+lang: ftd
+
+\-- fifthtry.sync-repo: main
+source: git@github.com:fastn-stack/fastn.com.git
+http-source: https://github.com/fastn-stack/fastn.com/
+branch: main
+rev: 0f37cfe ;; either branch or rev should suffice, let's not go in the details
+mirror: git@gitlab.com:fastn-stack/fastn.com.git
+
+
+-- ds.code: Environments (private config)
+lang: ftd
+
+\-- fifthtry.environment: FASTN_DB_URL
+value: postgresql://user:passwd@mpsql.c8dfs0e.us-west-2.rds.amazonaws.com/dbname
+
+\-- fifthtry.environment: FASTN_ENABLE_AUTH
+value: true
+
+
+-- ds.code: fifthtry Teams
+lang: ftd
+
+\-- string list admins:
+
+\-- string amitu: @amitu ;; fifthtry username
+\-- string arpita: @arpita
+
+\-- end: admins
+
+\-- string list bloggers:
+
+\-- string nandhini: @nandhini
+
+\-- end: bloggers
+
+\-- fifthtry.team: admins
+members: $admins
+
+\-- fifthtry.team: blog
+members: $bloggers
+
+-- ds.markdown:
+
+So far we have only introduced some new record types under this new namespace
+`fifthtry`. This namespace has no effect on fastn websites running outsided of
+fifthtry.
+
+-- ds.h2: Managing access
+
+The config file(s) (we should start with a single file) should be stored in a
+gitignored folder `.fifthtry`. If the source is on github or any other hosted
+git provider, we can't do anything about access control as we don't control
+these platforms, one solution would be to use private repos and use `clift` for
+access control on dev machines.
+
+There will be a file in the `.fifthtry` folder called `protected.ftd` which
+stores all the mappings and access control rules:
+
+-- ds.code: Example protected.ftd file
+lang: ftd
+
+\;; all files/folders are public by default
+\-- fifthtry.private-file: .fifthtry/config.ftd ;; relative to package root path
+rule: admins
+
+\-- fifthtry.private-folder: path/to/blog ;; relative to package root path
+rule: blog-team
+
+\-- fastn.user-group: admins
+fifthtry-team: admins ;; there associates to the team created on fifthtry
+
+\-- fastn.user-group: blog-team
+fifthtry-team: blog
+
+-- ds.markdown:
+
+Having these rules in one files means that the `clift` binary will be able to
+filter out files before downloading them on user's machine. Same thing will
+happen on fifthtry.com's editor where the rules will be read before granting
+any access (read/write)
+
+-- end: ds.page

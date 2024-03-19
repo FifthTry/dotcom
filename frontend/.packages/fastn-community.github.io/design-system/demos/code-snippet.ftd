@@ -1,0 +1,117 @@
+-- ds.page: Card
+
+-- ds.section-column:
+
+	-- ds.row:
+	align-content: left
+	
+		-- ds.phosphor-icon-button: Back
+		icon: arrow-left
+		link: index.html
+		
+		-- ds.heading-hero: Card
+		width: hug-content
+		
+	-- end: ds.row
+
+	-- ds.code:
+	
+	\-- card: Modern, Chic Penthouse with Mountain, City & Sea Views
+	image: $assets.files.assets.placeholder.jpg
+	price: \$119/night
+	rating: 4.84 (190)
+	location: CAPE TOWN
+	tag: PLUS
+	verified: VERIFIED
+	
+	-- card: Modern, Chic Penthouse with Mountain, City & Sea Views
+	image: $assets.files.assets.placeholder.jpg
+	price: \$119/night
+	rating: 4.84 (190)
+	location: CAPE TOWN
+	tag: PLUS
+	verified: VERIFIED
+	
+-- end: ds.section-column
+
+-- end: ds.page
+
+
+
+
+
+
+
+
+
+
+-- component card:
+caption title:
+ftd.image-src image:
+string price:
+string rating:
+string location:
+string tag:
+string verified:
+
+-- ds.container:
+width.fixed.percent: 38
+border: $ds.borders.uniform.small
+inset: $ds.spaces.inset-square.large
+border-color: $ds.colors.border
+
+	-- ds.column:
+	align-content: left
+	
+		-- ftd.image:
+		src: $card.image
+		width: fill-container
+		border-radius.px: $ds.radius.uniform.medium
+		
+		-- ds.row:
+		align-content: left
+		spacing: $ds.spaces.horizontal-gap.small
+		
+			-- ds.copy-regular: $card.tag
+			color: $ds.colors.custom.eight
+			width: hug-content
+			
+			-- ds.copy-regular: $card.verified
+			color: $ds.colors.custom.eight
+			width: hug-content
+			
+			-- ds.column:
+			width.fixed.px: 4
+			height.fixed.px: 4
+			radius: $ds.radius.round
+			background.solid: $ds.colors.custom.eight
+			
+			-- end: ds.column
+
+			-- ds.copy-regular: $card.location
+			color: $ds.colors.custom.eight
+			width: hug-content
+			
+		-- end: ds.row
+
+		-- ds.copy-large: $card.title
+		
+		-- ds.copy-small: $card.price
+		
+		-- ds.row:
+		spacing: $ds.spaces.horizontal-gap.extra-small
+		
+			-- ftd.image:
+			src: $assets.files.assets.star.svg
+			width.fixed.px: 18
+			height.fixed.px: 18
+			
+			-- ds.copy-regular: $card.rating
+			
+		-- end: ds.row
+
+	-- end: ds.column
+
+-- end: ds.container
+
+-- end: card

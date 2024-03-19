@@ -1,0 +1,129 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/actions/sites/tokens/create-token
+-- import: ui.fifthtry.com/actions/sites/tokens/delete-token
+-- import: ui.fifthtry.com/utils
+
+
+
+
+
+
+-- component show-token:
+caption sites-records.token token:
+sites-records.site-common-data site:
+module delete-token: delete-token
+private boolean $show-buttons: false
+integer index:
+integer $active:
+
+-- ds.section-column:
+
+	-- ds.row:
+	inset: $ds.spaces.inset-square.medium
+	border: $ds.borders.uniform.small
+	background.solid: $ds.colors.background.step-1
+	spacing: $ds.spaces.horizontal-gap.space-between
+	$on-mouse-enter$: $ftd.set-bool($a = $show-token.show-buttons, v = true)
+	$on-mouse-leave$: $ftd.set-bool($a = $show-token.show-buttons, v = false)
+	$on-mouse-leave$: $ftd.set-integer($a=$show-token.active, v=-1)
+
+			-- ds.column:
+	        spacing: $ds.spaces.vertical-gap.medium
+	        align-content: left
+
+	        -- ds.copy-to-clipboard-text: $show-token.token.token
+
+	            -- ds.copy-regular: $show-token.token.about
+
+                -- ds.label-text: Created At
+                value: $show-token.token.created-at
+                placement: vertical
+
+                -- ds.label-text: Last Used At
+                if: { show-token.token.last-used-at != NULL }
+                value: $show-token.token.created-at
+                placement: vertical
+
+	        -- end: ds.column
+
+	        -- ds.floater:
+	        if: { show-token.show-buttons }
+	        spacing: $ds.spaces.horizontal-gap.large
+	        right: 16
+	        top: 94
+	        width: hug-content
+	        height: fill-container
+
+	            -- ds.danger-button: Delete Token
+	            radius: curved
+	            $on-click$: $show-token.delete-token.submit(site_slug=$show-token.site.site-slug, token_id=$show-token.token.id)
+	            $on-click$: $ftd.set-integer($a=$show-token.active, v=$show-token.index)
+
+	        -- end: ds.floater
+
+	-- end: ds.row
+
+-- end: ds.section-column
+
+-- end: show-token
+
+
+
+
+
+
+
+
+
+
+-- component token-input:
+string $current-token: *$ftd.empty
+string site-slug:
+module create-token: create-token
+
+-- ds.section-column:
+margin: $ds.spaces.vertical-gap.zero
+
+		-- ds.column:
+		align-content: left
+		spacing: $ds.spaces.vertical-gap.small
+		
+			-- ds.row:
+			width: fill-container
+			align-content: left
+			spacing: $ds.spaces.horizontal-gap.medium
+			
+				-- ftd.text-input:
+				width: fill-container
+				color: $ds.colors.text-strong
+				background.solid: $ds.colors.background.step-1
+				padding.px: 8
+				height.fixed.px: 40
+				border-radius.px: 8
+				placeholder: What is the purpose of this token?
+				$on-input$: $ftd.set-string($a = $token-input.current-token, v = $VALUE)
+    			$on-input$: $utils.set-null($var = $token-input.create-token.token-error)
+				border-width.px: 1
+				border-color: $ds.colors.border
+				border-color if { token-input.create-token.token-error != NULL || token-input.create-token.manage-site-error != NULL }: $ds.colors.error.border
+
+                -- ds.primary-button: Create Token
+                radius: curved
+                $on-click$: $token-input.create-token.submit(site_slug=$token-input.site-slug, token_about=$token-input.current-token)
+
+			-- end: ds.row
+
+			-- ds.copy-small: $token-input.create-token.token-error
+			if: { token-input.create-token.token-error != NULL }
+			color: $ds.colors.error.text
+
+			-- ds.copy-small: $token-input.create-token.manage-site-error
+            if: { token-input.create-token.manage-site-error != NULL }
+            color: $ds.colors.error.text
+
+		-- end: ds.column
+
+
+-- end: ds.section-column
+
+-- end: token-input

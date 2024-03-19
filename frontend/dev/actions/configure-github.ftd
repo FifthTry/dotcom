@@ -1,0 +1,115 @@
+-- import: www.fifthtry.com/dev/actions
+exposing: action, user-field, system-field, validation
+
+
+
+-- action: configure-github
+redirect: /s/<site-slug>/github/
+url: /ft-ep/action/configure-github/
+code-reference: ft/src/action/configure_github.rs
+
+-- action.description:
+
+This action adds/updates the linked github repo for the given site.
+
+
+-- action.system-fields:
+
+	-- system-field: site-slug
+	
+	-- system-field.validations:
+	
+		-- validation: unknown-site
+		error-message: There is no such site. Maybe the slug of the site has changed, or site has been deleted.
+		status: done
+		
+		Check if the site is already present.
+		
+	-- end: system-field.validations
+
+
+-- end: action.system-fields
+
+
+
+
+
+
+
+
+
+
+-- action.user-fields:
+
+	-- user-field: github-org
+	
+	-- user-field.validations:
+	
+		-- validation: github-field-is-not-empty
+		status: done
+		
+		Check if github org field is not empty
+		
+	-- end: user-field.validations
+
+
+
+	-- user-field: github-repo-name
+	
+	-- user-field.validations:
+	
+		-- validation: github-field-is-not-empty
+		status: done
+		
+		Check if github repo name is not empty
+		
+	-- end: user-field.validations
+
+
+
+	-- user-field: github-repo-branch
+	
+	-- user-field.validations:
+	
+		-- validation: github-field-is-not-empty
+		status: done
+		
+		Check if github repo branch is not empty
+		
+	-- end: user-field.validations
+
+-- end: action.user-fields
+
+
+
+-- action.other-validations:
+
+	-- validation: not-org-member
+	error-message: Only organization members can perform this action. You may have been removed.
+	status: done
+	
+	Check if user is org member
+	
+	-- validation: unauthorized-role
+	error-message: Only roles admin or manager can perform this action. Maybe you lost your role after loading the page.
+	status: done
+	
+	Only roles admin or manager can add the domain. We handle it as error that can happen in normal
+	course, because what if the admin changed the current user's role after the current user loaded
+	the page in their browser.
+	
+	-- validation: configure-github-org-rate-limit-reached
+	error-message: We only update github information 5 times per minute. Please try after some time.
+	status: done
+	
+	A single org can only update github information 5 times per minute.
+	
+	-- validation: global-rate-limit
+	error-message: We allow max 100 operations per minute. Please try after some time.
+	implement-in-future: true
+	
+	This endpoint will allow max 100 operations per minute.
+	
+-- end: action.other-validations
+
+-- end: action

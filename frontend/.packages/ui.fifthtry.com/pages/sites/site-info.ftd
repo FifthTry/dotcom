@@ -1,0 +1,175 @@
+-- import: ui.fifthtry.com/components/sites/page as sites-page
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/site-header as h
+-- import: ui.fifthtry.com/components/label as l
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/utils
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+
+-- component page:
+module site-data: site-data
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+optional string top-message:
+
+-- sites-page.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+dashboard-url: $page.dashboard-url
+current-page: info
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-square.large
+	spacing: $ds.spaces.vertical-gap.large
+	
+		-- ftd.desktop:
+		
+			-- ds.row:
+			radius: $ds.radius.medium
+			inset: $ds.spaces.inset-square.large
+			border: $ds.borders.uniform.small
+			spacing: $ds.spaces.horizontal-gap.large
+			background.solid: $ds.colors.background.step-1
+			
+				-- ftd.image:
+				src: $page.site.preview-image
+				fit: cover
+				;;height.fixed.px: 313
+				
+				
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.large
+				align-content: top-left
+				
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-small
+					align-content: top-left
+
+					
+						-- ds.copy-regular: Website name
+						
+						-- ds.heading-tiny: $page.site.site-name
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-small
+					align-content: left
+					
+						-- ds.copy-regular: Last Updated
+						
+						-- ds.heading-tiny: $page.site.updated-on
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.extra-small
+					align-content: left
+					
+						-- ds.copy-regular: Primary Domain
+						
+						-- ds.icon-button: $page.site.primary-domain
+						icon: $assets.files.assets.sites.link.svg
+						link: $utils.with-https(domain = $page.site.primary-domain)
+						icon-position: at-end
+						kind: tertiary
+						size: small
+						
+					-- end: ds.column
+
+					-- ds.icon-button: Visit Site
+					icon: $assets.files.assets.sites.open.svg
+					link: $utils.with-https(domain = $page.site.primary-domain)
+					icon-position: at-end
+					width: full
+					
+				-- end: ds.column
+
+			-- end: ds.row
+
+		-- end: ftd.desktop
+
+		-- ftd.mobile:
+		
+			-- ds.column:
+			inset: $ds.spaces.inset-square.medium
+			spacing: $ds.spaces.vertical-gap.large
+			align-content: left
+			background.solid: $ds.colors.background.step-1
+			
+				-- ftd.image:
+				if: { page.site.preview-image == NULL }
+				src: $assets.files.assets.sites.about-card.svg
+				width: fill-container
+				border-radius.px: 8
+				
+				-- ftd.image:
+				src: $page.site.preview-image
+				width: fill-container
+				border-radius.px: 8
+				
+				-- ds.column:
+				spacing: $ds.spaces.vertical-gap.large
+				align-content: top-left
+				
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.small
+					
+						-- ds.copy-regular: Website name
+						
+						-- ds.heading-tiny: $page.site.site-name
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.small
+					align-content: left
+					
+						-- ds.copy-regular: Last Updated
+						
+						-- ds.heading-tiny: $page.site.updated-on
+						
+					-- end: ds.column
+
+					-- ds.column:
+					spacing: $ds.spaces.vertical-gap.small
+					
+						-- ds.copy-regular: Domains
+						
+						-- ds.row:
+						align-content: left
+						spacing: $ds.spaces.horizontal-gap.small
+						
+							-- ds.icon-button: $page.site.primary-domain
+							icon: $assets.files.assets.sites.link.svg
+							link: $utils.with-https(domain = $page.site.primary-domain)
+							icon-position: at-end
+							kind: tertiary
+							size: small
+							
+						-- end: ds.row
+
+					-- end: ds.column
+
+					-- ds.icon-button: Visit Site
+					icon: $assets.files.assets.sites.open.svg
+					link: $utils.with-https(domain = $page.site.primary-domain)
+					icon-position: at-end
+					width: full
+					
+				-- end: ds.column
+
+			-- end: ds.column
+
+		-- end: ftd.mobile
+
+	-- end: ds.section-column
+
+-- end: sites-page.page
+
+-- end: page

@@ -1,0 +1,32 @@
+-- ds.page: Render API
+
+This API is part of [two phase save](/dev/guides/two-phase-save/) process.
+
+-- ds.h1: URL And Arguments
+
+URL: /api/render/
+
+Method: Post
+
+-- ds.h2: `id`
+
+The `id` of the presentation. We need `presentation` to get the `FASTN.ftd`,
+`settings.ftd` etc.
+
+-- ds.h2: `content`
+
+FTD content to store.
+
+-- ds.h1: Response
+
+The response is a JSON object with the following fields:
+
+-- ds.h2: `preview-url`
+
+This is the URL that has to be loaded in an iframe.
+
+-- ds.h1: Behaviour
+
+
+
+-- end: ds.page

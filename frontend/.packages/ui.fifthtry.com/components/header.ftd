@@ -1,0 +1,166 @@
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/avatar
+-- import: ui.fifthtry.com/components/language-switcher
+-- import: ui.fifthtry.com/components/dark-mode-toggle
+-- import: ui.fifthtry.com/records/link
+
+-- component header:
+module site-data: site-data
+ud.user-data user-data:
+link.link list links:
+ds.gap margin: $ds.spaces.vertical-gap.zero
+boolean $sidebar: false
+boolean $menu: false
+boolean theme-toggle: true
+
+-- ds.section-column:
+margin: $ds.spaces.vertical-gap.zero
+inset: $ds.spaces.inset-wide.medium
+
+	-- ftd.desktop:
+
+        -- ds.row:
+        inset: $ds.spaces.inset-tall.zero-small
+        spacing: $ds.spaces.horizontal-gap.space-between
+        border: $ds.borders.bottom.small
+        radius: $ds.radius.zero
+
+            -- ftd.image:
+            src: $site-data.logo
+            link: $header.site-data.homepage
+
+            -- ds.row:
+            width: hug-content
+            spacing: $ds.spaces.horizontal-gap.medium
+
+                -- ds.copy-regular: $lang.home
+                link: $header.site-data.homepage
+
+                -- ds.copy-regular: $lang.pricing
+                link: $header.site-data.pricing-url
+
+                /-- language-switcher.dropdown:
+
+                -- avatar.avatar:
+                if: { header.user-data.is-logged-in }
+                user-data: $header.user-data
+                site-data: $header.site-data
+
+                -- ds.secondary-button: $lang.sign-in
+                if: { !header.user-data.is-logged-in }
+                link: $header.site-data.sign-in-url
+                radius: curved
+
+                -- ds.primary-button: $lang.sign-up
+                if: { !header.user-data.is-logged-in }
+                link: $header.site-data.sign-up-url
+                radius: curved
+
+            -- dark-mode-toggle.dark-mode-toggle:
+            if: {  header.theme-toggle }
+
+            -- end: ds.row
+
+        -- end: ds.row
+
+        -- ds.row:
+        align-content: top-left
+        spacing: $ds.spaces.horizontal-gap.medium
+        inset: $ds.spaces.inset-wide.medium-zero
+
+            -- toc-link: $t
+            for: t in $header.links
+
+        -- end: ds.row
+
+	-- end: ftd.desktop
+
+	-- ftd.mobile:
+	
+		-- ds.row:
+		width: fill-container
+		align-content: left
+		spacing: $ds.spaces.horizontal-gap.space-between
+		background.solid: $ds.colors.background.base
+		height.fixed.px: 80
+		
+			-- ftd.image:
+			src: $site-data.logo
+			link: $header.site-data.homepage
+
+			-- ftd.image:
+			src: $assets.files.assets.sites.menu.svg
+			$on-click$: $ftd.toggle($a = $header.menu)
+
+			-- ds.floater:
+			if: { header.menu }
+			background.solid: $ds.colors.background.step-1
+			left: 0
+			top: 66
+			inset: $ds.spaces.inset-tall.medium
+
+				-- ds.column:
+				spacing: $ds.spaces.horizontal-gap.large
+
+					-- ds.header-link: $lang.home
+					link: $header.site-data.homepage
+
+					-- ds.header-link: $lang.pricing
+					link: $header.site-data.pricing-url
+
+					/-- language-switcher.dropdown:
+
+					-- ds.secondary-button: $lang.sign-in
+					if: { !header.user-data.is-logged-in }
+					link: $header.site-data.sign-in-url
+					rounded: true
+					width: full
+
+					-- ds.primary-button: $lang.sign-up
+					if: { !header.user-data.is-logged-in }
+					link: $header.site-data.sign-up-url
+					rounded: true
+					width: full
+
+					-- avatar.avatar:
+					if: { header.user-data.is-logged-in }
+					user-data: $header.user-data
+
+                    -- dark-mode-toggle.dark-mode-toggle:
+                    if: {  header.theme-toggle }
+
+				-- end: ds.column
+
+			-- end: ds.floater
+
+		-- end: ds.row
+
+	-- end: ftd.mobile
+
+-- end: ds.section-column
+
+-- end: header
+
+
+
+
+
+
+
+
+-- component toc-link:
+caption link.link link:
+
+-- ds.row:
+border if { toc-link.link.is-active }: $ds.borders.bottom.medium
+border-color if { toc-link.link.is-active }: $ds.colors.accent.primary
+link: $toc-link.link.url
+width: hug-content
+radius: $ds.radius.zero
+
+	-- ds.copy-regular: $toc-link.link.text
+	
+-- end: ds.row
+
+-- end: toc-link

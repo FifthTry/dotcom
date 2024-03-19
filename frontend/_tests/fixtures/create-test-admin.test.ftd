@@ -1,0 +1,6 @@
+-- import: fastn
+
+-- fastn.test: Test Admin
+
+-- fastn.get: Creating Test Admin superuser
+url: /slides/action/create-test-admin/

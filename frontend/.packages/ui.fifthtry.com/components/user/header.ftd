@@ -1,0 +1,67 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/avatar
+-- import: ui.fifthtry.com/components/dark-mode-toggle
+
+
+
+
+
+
+
+-- component header:
+ud.user-data user-data:
+module site-data: site-data
+boolean $open: false
+string create-site-url:
+
+-- ds.section-column:
+margin: $ds.spaces.vertical-gap.medium
+border: $ds.borders.bottom.small
+radius: $ds.radius.zero
+
+	-- ds.row:
+	spacing: $ds.spaces.horizontal-gap.space-between
+	background.solid: $ds.colors.background.base
+	inset: $ds.spaces.inset-square.medium
+	
+		-- ds.row:
+		align-content: left
+		width: hug-content
+		spacing: $ds.spaces.horizontal-gap.medium
+		
+			-- ftd.image: $header.site-data.logo
+			link: $header.site-data.homepage
+			
+			-- ds.copy-regular: →
+			white-space: nowrap
+			
+			-- ds.copy-regular: My Sites
+			white-space: nowrap
+			
+		-- end: ds.row
+
+		-- ds.row:
+		spacing: $ds.spaces.horizontal-gap.large
+		align-content: right
+		;;width.fixed.px: 420
+		
+			-- ds.icon-button: Create new site
+			link: $header.create-site-url
+			kind: primary
+			icon-position: at-end
+			icon: $assets.files.assets.sites.add.svg
+			
+			-- avatar.avatar:
+			user-data: $header.user-data
+			
+			-- dark-mode-toggle.dark-mode-toggle:
+			
+		-- end: ds.row
+
+	-- end: ds.row
+
+-- end: ds.section-column
+
+-- end: header

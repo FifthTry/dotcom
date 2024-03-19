@@ -1,0 +1,10 @@
+-- ds.page: Hosted DB
+
+Every site hosted on FifthTry hosting service can opt to have a database. This database we
+offer PostgreSQL database. We may also offer Redis in the future.
+
+So for any site we have two database, the site database and the FifthTry database.
+
+
+
+-- end: ds.page

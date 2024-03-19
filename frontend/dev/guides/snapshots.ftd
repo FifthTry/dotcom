@@ -1,0 +1,38 @@
+-- ds.page: Snapshot
+
+We have to store snapshot of every slide, so we do not have to keep on rendering
+`ftd` files all the time.
+
+-- ds.h1: Storage
+
+In future we will store the snapshot in S3 or some such store. For making it
+easy to develop, we are storing it in database itself.
+
+-- ds.h2: Database Store
+
+We store the image in `slides_slide_snapshot` table. This table contains two
+columns, `preview` and `thumbnail`. In both columns we store the image
+content as PNG.
+
+In the `preview` column we store the full size image. The full size depends on
+the slide preset.
+
+In the `thumbnail` column we store the image of size 400x300 (??).
+
+-- ds.h2: Serving Image
+
+Even when we store the image in S3, we probably want to serve it via
+fastn/django because we want to guarantee that image is not readable by anyone
+other than those who have access to it. One way to do that is to make image URL
+hard to guess by using some kind of hash.
+
+TBD: If we should really also serve images via django in prod when we have S3
+implementation.
+
+For serving image we use the [`serve-image API`](/dev/apis/serve-image/).
+
+-- ds.h1: Creating Snapshots
+
+We will use two phase save process to save a slide.
+
+-- end: ds.page

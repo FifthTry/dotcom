@@ -1,0 +1,11 @@
+-- import: ui.fifthtry.com/pages/user/create-site
+-- import: ui.fifthtry.com/site-data
+-- import: www.fifthtry.com/action/myself/create-site-action
+-- import: www.fifthtry.com/just-user-data
+
+
+-- create-site.page:
+user-data: $just-user-data.ud
+dashboard-url: $site-data.homepage
+create-site-url: /create-site/
+create-site-action: create-site-action

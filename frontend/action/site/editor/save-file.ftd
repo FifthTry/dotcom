@@ -1,0 +1,18 @@
+-- optional string $save-error:
+
+-- void submit(site_slug, file_name, content):
+string site_slug:
+string file_name:
+string content:
+string updated_at:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/site/save-content/",
+    "www.fifthtry.com/action/site/editor/save-file",
+    "POST",
+    ("file-name", file_name),
+    ("site-slug", site_slug),
+    ("content", content),
+    ("updated-at", updated_at)
+)

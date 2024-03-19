@@ -1,0 +1,42 @@
+-- import: ui.fifthtry.com/components/page as p
+-- import: ui.fifthtry.com/components/blog/blog-home as blog
+;; -- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+
+
+-- component page:
+ud.user-data user-data:
+;; module site-data: site-data
+;; optional string top-message:
+
+-- p.page:
+user-data: $page.user-data
+;; site-data: $page.site-data
+;; top-message: $page.top-message
+
+
+-- ds.section-column:
+inset: $ds.spaces.inset-wide.large
+
+-- ds.heading-large: FifthTry Blog
+
+-- blog.blog:
+
+-- blog.blog-card: [Launching fifthtry.com](/scenarios/blogs/blog-post/)
+date: 1st March 2024
+
+The past three years have been quite a journey for us. With over 400 releases and 450+ stars on GitHub, and our community expanding to 3000+ engineers, creators, and founders, we've moved closer to our mission...
+
+-- end: blog.blog
+
+-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+
+
+
+
+

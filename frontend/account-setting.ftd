@@ -1,0 +1,63 @@
+-- ds.page: Account settings
+sidebar: true
+
+-- setting: Name
+detail: Yashveer Mehra
+cta-text: Edit
+cta-link: /
+
+-- setting: Email
+detail: YashveerMehra@fastn.com
+cta-text: Edit
+cta-link: /
+
+-- end: ds.page
+
+
+
+
+
+
+
+
+
+
+-- component setting:
+caption title:
+string detail:
+string cta-text:
+string cta-link:
+
+-- ftd.row:
+width: fill-container
+spacing: space-between
+padding-vertical.px: 16
+align-content: center
+border-bottom-width.px: 1
+border-color: $inherited.colors.border
+
+	-- ftd.column:
+	spacing.fixed.px: 4
+	color: $inherited.colors.text-strong
+	
+		-- ftd.text: $setting.title
+		role: $inherited.types.heading-tiny
+		style: bold
+		
+		-- ftd.text: $setting.detail
+		role: $inherited.types.copy-regular
+		
+	-- end: ftd.column
+
+	-- ftd.text: $setting.cta-text
+	link: $setting.cta-link
+	color: $inherited.colors.text-strong
+	role: $inherited.types.button-small
+	padding-horizontal.px: 16
+	padding-vertical.px: 8
+	border-radius.px: 8
+	background.solid: $inherited.colors.background.step-2
+	
+-- end: ftd.row
+
+-- end: setting

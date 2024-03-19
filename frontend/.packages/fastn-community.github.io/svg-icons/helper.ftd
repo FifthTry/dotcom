@@ -1,0 +1,32 @@
+-- ftd.text: SVG Icon Helper
+
+
+;; if you update this also update the helper.js.
+-- string SVG_ICON_CLASS: fastn-community-svg-icon-helper
+
+
+
+-- component icon:
+caption url:
+optional ftd.color color:
+integer size: 24
+
+-- ftd.container:
+display: inline
+width.fixed.px: $icon.size
+height.fixed.px: $icon.size
+color: $icon.color
+js: $assets.files.helper.js
+
+-- ftd.text: $icon.url
+classes: $SVG_ICON_CLASS
+opacity: 0.0
+width.fixed.px: $icon.size
+height.fixed.px: $icon.size
+
+-- end: ftd.container
+
+-- end: icon
+
+
+

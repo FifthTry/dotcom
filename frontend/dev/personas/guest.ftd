@@ -1,0 +1,10 @@
+-- ds.page: Guest
+
+Guests are not added to the team, but can be invited to collaborate on a presentation, and for that presentation
+they will have the access granted to them by the person who shared it.
+
+Guests can not create presentation, only participate in existing ones.
+
+Guests are also stored in TeamMember table for easy lookup.
+
+-- end: ds.page

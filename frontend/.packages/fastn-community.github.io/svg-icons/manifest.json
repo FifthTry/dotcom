@@ -1,0 +1,56 @@
+{
+    "files": {
+        "phosphor.ftd": {
+            "name": "phosphor.ftd",
+            "checksum": "F0BC191544FAF34D8BFF339AD5AE09E222A12F99367B5714979FFA6A8ED17B56",
+            "size": 1432
+        },
+        "index.ftd": {
+            "name": "index.ftd",
+            "checksum": "4567CF8C85298A23D99D210510F1F9F873FBE22024C227C9C10915856405CF9E",
+            "size": 2489
+        },
+        "helper.js": {
+            "name": "helper.js",
+            "checksum": "2A184945AECF0D6CD9B9B62E7FF0A68E19E071CB274B23D159A7F8AE658C4365",
+            "size": 2469
+        },
+        "FASTN.ftd": {
+            "name": "FASTN.ftd",
+            "checksum": "41633B1BFCB4675DA20ADF65DAF2F1106315EA0B9BE629E8AFAE5335DC7DF568",
+            "size": 203
+        },
+        "helper.ftd": {
+            "name": "helper.ftd",
+            "checksum": "6DA46B0C0B51DB2D639BB1D2C424C8F65E90F764E3E5342738215D2CDF35C4BE",
+            "size": 510
+        },
+        "fa.ftd": {
+            "name": "fa.ftd",
+            "checksum": "7D16106889118041C3E26823CEDDCCB68DA690D1BF9CCA7FFE689ADE7D9048F9",
+            "size": 582
+        },
+        "favicon.ico": {
+            "name": "favicon.ico",
+            "checksum": "65056A1D6C6AAE6E3DC4626E29F4BD4B628B17A8E9CC1D3A5E8FE9F6743F306B",
+            "size": 15406
+        },
+        "LICENSE.md": {
+            "name": "LICENSE.md",
+            "checksum": "DB6E69BE65C89148BE409CB16A19977A2412B0B1776D298B21E5548201D9F06B",
+            "size": 1071
+        },
+        "README.md": {
+            "name": "README.md",
+            "checksum": "38044B95EA5D411BBE116160DC03DADB7243D453BBEADBE736DB36629C6CE840",
+            "size": 255
+        },
+        "_config.yml": {
+            "name": "_config.yml",
+            "checksum": "A42D91290C93B5F17412C3B346737EA1C796E5D287306758AFE8B20470119D80",
+            "size": 21
+        }
+    },
+    "zip_url": "https://github.com/fastn-community/svg-icons/archive/e33d5f4900f4f05a21eb60c7dbad29290d404f89.zip",
+    "checksum": "DC91B0C49695ADF22AAE23366D0A238F06CC6080B200EA3E54D4EFCF9B631825"
+}

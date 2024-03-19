@@ -1,0 +1,16 @@
+-- import: fastn
+
+-- fastn.package: fastn-community.github.io/design-system
+favicon: /favicon.ico
+system: ds
+system-is-confidential: false
+
+-- fastn.dependency: fastn-community.github.io/dark-mode-switcher
+-- fastn.dependency: fastn-community.github.io/roboto-typography
+-- fastn.dependency: fastn-community.github.io/code-block
+-- fastn.dependency: fastn-community.github.io/svg-icons
+
+-- fastn.dependency: fastn-community.github.io/dark-flame-cs
+;; -- fastn.dependency: fastn-community.github.io/saturated-sunset-cs
+
+-- fastn.auto-import: fastn-community.github.io/design-system/assets

@@ -1,0 +1,58 @@
+-- import: fastn-community.github.io/design-system/foundation-elements/spaces
+-- import: fastn-community.github.io/design-system/foundation-elements/radius
+-- import: fastn-community.github.io/design-system/foundation-elements/borders
+-- import: fastn-community.github.io/design-system/foundation-elements/shadow
+
+-- component floater:
+ftd.anchor anchor: parent
+optional integer top:
+optional integer bottom:
+optional integer left:
+optional integer right:
+optional integer z-index:
+ds.hv inset: $ds.spaces.inset-square.zero
+ds.gap spacing: $ds.spaces.horizontal-gap.medium
+ftd.resizing width: fill-container
+ftd.align align-content: center
+optional ftd.background background:
+optional ftd.resizing height:
+ds.element-radius radius: $ds.radius.medium
+optional ds.border-data border:
+optional ftd.color border-color:
+optional ftd.shadow shadow:
+children content:
+
+-- ftd.column:
+width: $floater.width
+padding-vertical.px: $floater.inset.vertical
+padding-horizontal.px: $floater.inset.horizontal
+spacing.fixed.px: $floater.spacing.gap
+spacing if { floater.spacing.gap == spaces.HACK-SPACE-BETWEEN-MAGIC-NUMBER }: space-between
+background: $floater.background
+align-content: $floater.align-content
+border-color: $floater.border-color
+height: $floater.height
+border-top-left-radius.px if { floater.radius.top-left != $radius.HACK-RADIUS-ROUND }: $floater.radius.top-left
+border-top-right-radius.px if { floater.radius.top-right != $radius.HACK-RADIUS-ROUND }: $floater.radius.top-right
+border-bottom-left-radius.px if { floater.radius.bottom-left != $radius.HACK-RADIUS-ROUND }: $floater.radius.bottom-left
+border-bottom-right-radius.px if { floater.radius.bottom-right != $radius.HACK-RADIUS-ROUND }: $floater.radius.bottom-right
+border-top-left-radius.percent if { floater.radius.top-left == $radius.HACK-RADIUS-ROUND }: 50
+border-top-right-radius.percent if { floater.radius.top-right == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-left-radius.percent if { floater.radius.bottom-left == $radius.HACK-RADIUS-ROUND }: 50
+border-bottom-right-radius.percent if { floater.radius.bottom-right == $radius.HACK-RADIUS-ROUND }: 50
+border-top-width.px if { floater.border != NULL }: $floater.border.top
+border-bottom-width.px if { floater.border != NULL }: $floater.border.bottom
+border-right-width.px if { floater.border != NULL }: $floater.border.right
+border-left-width.px if { floater.border != NULL }: $floater.border.left
+anchor: $floater.anchor
+top.px: $floater.top
+bottom.px: $floater.bottom
+left.px: $floater.left
+right.px: $floater.right
+z-index: $floater.z-index
+shadow: $floater.shadow
+children: $floater.content
+
+-- end: ftd.column
+
+-- end: floater

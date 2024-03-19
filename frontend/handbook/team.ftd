@@ -1,0 +1,48 @@
+
+
+
+-- record team:
+caption name:
+optional ftd.image-src image:
+
+
+
+-- record person:
+caption name:
+optional string site:
+optional string started-on:
+optional string twitter-url:
+optional string linkedin-url:
+string designation:
+optional ftd.image-src profile-photo:
+optional team team:
+
+
+-- person amitu: Amit Upadhyay
+site: https://amitu.com/
+started-on: 1 year ago
+twitter-url: https://twitter.com/amitu
+linkedin-url: https://in.linkedin.com/in/amitu
+designation: CEO
+
+
+-- team devs: Developers
+-- team ftd-devs: FTD Developers
+
+
+-- person abrark: Abrar Khan
+site: http://www.abrark.com/
+started-on: 1 year ago
+twitter-url: https://twitter.com/abrark_asahi
+linkedin-url: https://www.linkedin.com/in/abrar-khan-815305100/
+designation: Senior Software Developer
+team: $devs
+
+
+-- person ganesh: Ganesh S Salunke
+site: http://www.ganeshsalunke.com/
+started-on: 1 month ago
+twitter-url: https://twitter.com/GaneshS05739912
+linkedin-url: https://www.linkedin.com/in/ganesh-s-891174ab/
+designation: Senior Manager Frontend
+team: $ftd-devs

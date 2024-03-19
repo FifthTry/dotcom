@@ -1,0 +1,8 @@
+-- void submit(team, presentation, order, module):
+string presentation:
+string team:
+integer order:
+string module:
+js: $assets.files.assets.functions.js
+
+callAlert("Delete Slide called")

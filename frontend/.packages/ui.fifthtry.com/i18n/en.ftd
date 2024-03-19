@@ -1,0 +1,41 @@
+-- string login: **Log in**
+
+-- string signup: **Create an account**
+
+-- string create-account: Don’t have an account?
+
+-- string existing-account: Already have an account?
+
+-- string checkbox-info: Remember me
+
+-- string signin-type: Sign up
+
+-- string signup-type: Log in
+
+-- string all-presentations: All Presentations
+
+-- string lang: en
+
+-- string templates: Templates
+
+-- string community-templates: Community Templates
+
+-- string university: University
+
+-- string university-title: FifthTry University - Learn To Grow
+
+-- string about: About
+
+-- string home: Home
+
+-- string company: Company
+
+-- string pricing: Pricing
+
+-- string enroll-now: Enroll Now
+
+-- string sign-in: Log in
+-- string sign-up: Sign up
+-- string sign-out: Sign Out
+
+-- string team: Team

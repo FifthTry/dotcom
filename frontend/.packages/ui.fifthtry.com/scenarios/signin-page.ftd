@@ -1,0 +1,6 @@
+-- import: ui.fifthtry.com/pages/signin
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+-- signin.page:
+site-data: scenario-site

@@ -1,0 +1,46 @@
+-- ds.page: FifthTry Hosted Sites
+
+-- ds.h1: How Does Auth Work With Hosted Sites?
+
+Hosted sites are created by someone how is logged in on FifthTry first. This is unavoidable.
+
+All FifthTry sites would have FifthTry OAuth enabled, so anyone with a FifthTry account can
+log in to any FifthTry site. In most case the owner will have opt in feature, or other ways to
+limit who can log in, most websites may not want any FifthTry owner to be able to login and
+do stuff on their site. So they may ask for permission (and owner has to approve each user)
+or the owner may set some rules (like only users with a certain email domain can log in).
+
+The site owner can also chose to activate other OAuth providers, like Google, Facebook, etc.
+
+-- ds.h1: How Is A Site Created
+
+-- ds.h2: Web UI
+
+The normal way to create a website is via the web UI. You can go to `fifthtry.com` and click
+on `Create Site` button. You will be asked to login, and then you will be asked to choose a
+template. Once you choose a template, you will be asked to choose other meta data like
+domain name, payment plan (which decides the amount of resources you get), etc.
+
+-- ds.h2: CLI
+
+You can also create a site using `fastn create-site` command. This command will ask you
+if you want to host your site using FifthTry, in which case it will ask you to login
+to FifthTry and call the `create-site` API endpoint.
+
+The `create-site` API endpoint will return a URL to which you can send the user to to
+configure the meta data for the site. The CLI will keep polling to see if site creation
+step is over.
+
+We will also give CLI flags to pass all the meta data, so that you can create a site without
+having to go through the web UI.
+
+-- ds.h1: API
+
+API endpoint for any hosted site would always be `api.fifthtry.com`.
+
+-- ds.h1: What Happens When A Site Is Created
+
+When a site is created, we store the meta data in the `sites` table. We will then communicate
+with the hostn service.
+
+-- end: ds.page

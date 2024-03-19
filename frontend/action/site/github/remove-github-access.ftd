@@ -1,0 +1,12 @@
+-- optional string $manage-site-error:
+
+-- void submit(site_slug):
+string site_slug:
+js: $assets.files.js.http.js
+
+http(
+    "/ft-ep/action/github/remove/",
+    "www.fifthtry.com/action/site/github/remove-github-access",
+    "POST",
+    ("site-slug", site_slug),
+)

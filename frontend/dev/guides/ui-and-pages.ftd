@@ -1,0 +1,15 @@
+-- ds.page: UI and Pages
+
+All UI that powers FifthTry.com is defined in `ui.fifthtry.com` package (`ui` in short).
+The `ui` contains "pages".
+
+`ui` internally contains more than just pages, but we should assume only the "pages" are
+as part of the public API.
+
+-- ds.h1: What is a Page?
+
+A page is the thing that is loaded in the browser, and covers the entire window. Pages
+are technically fastn components, but they are special components, in that they are the
+top level components. The pages must always be `ftd.document` components.
+
+-- end: ds.page
