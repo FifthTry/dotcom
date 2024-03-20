@@ -5,21 +5,33 @@ pub struct DeleteFile {
 }
 
 impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> where Self: Sized {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError>
+    where
+        Self: Sized,
+    {
         pub use ft_sdk::JsonBodyExt;
 
         let json_body = c.in_.req.json_body()?;
         let file_name = ft2::route::utils::json_field(&json_body, "file-name", "delete")?;
         let updated_at = ft2::route::utils::json_field(&json_body, "updated-at", "delete")?;
 
-        Ok(DeleteFile { file_name, updated_at })
+        Ok(DeleteFile {
+            file_name,
+            updated_at,
+        })
     }
 
-    fn action(&self, c: &mut ft2::route::Site) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> where Self: Sized {
+    fn action(
+        &self,
+        c: &mut ft2::route::Site,
+    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError>
+    where
+        Self: Sized,
+    {
         if !c.site_data.is_editable {
             return Err(ft_common::ActionError::single_error(
                 "delete",
-               "This site cannot be updated using editor. Help: Use clift to update.",
+                "This site cannot be updated using editor. Help: Use clift to update.",
             ));
         }
         if self.updated_at.lt(&c.site_data.updated_at) {
@@ -31,7 +43,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
 
         match delete_file(c.site_data.id, self.file_name.as_str()) {
             Ok(()) => Ok(ft_sdk::ActionOutput::Reload),
-            Err(e) => Err(e.get_action_error())
+            Err(e) => Err(e.get_action_error()),
         }
     }
 }
@@ -48,11 +60,10 @@ impl DeleteFileError {
             DeleteFileError::CantDeleteFile => ft_common::ActionError::single_error(
                 "delete",
                 "Something went wrong. Can't Delete File. Try again later.",
-            )
+            ),
         }
     }
 }
-
 
 fn delete_file(site_id: i64, path: &str) -> Result<(), DeleteFileError> {
     #[derive(serde::Serialize)]
