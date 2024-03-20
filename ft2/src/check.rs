@@ -5,7 +5,7 @@
 #[derive(thiserror::Error, Debug)]
 pub enum OrgManagementAccessError {
     #[error("Org management access error {0:?}")]
-    AccessError(ft_common::errors::OrgManagementAccessError),
+    AccessError(crate::errors::OrgManagementAccessError),
     #[error("Diesel error {0}")]
     Diesel(#[from] diesel::result::Error),
 }
@@ -26,7 +26,7 @@ pub fn if_org_exists_from_slug(
         Err(diesel::result::Error::NotFound) => {
             // Validation: no-such-org
             Err(OrgManagementAccessError::AccessError(
-                ft_common::errors::OrgManagementAccessError::NoSuchOrg,
+                crate::errors::OrgManagementAccessError::NoSuchOrg,
             ))
         }
         Err(e) => Err(e.into()),
@@ -49,7 +49,7 @@ pub fn if_org_exists_from_id(
         Err(diesel::result::Error::NotFound) => {
             // Validation: no-such-org
             Err(OrgManagementAccessError::AccessError(
-                ft_common::errors::OrgManagementAccessError::NoSuchOrg,
+                crate::errors::OrgManagementAccessError::NoSuchOrg,
             ))
         }
         Err(e) => Err(e.into()),
@@ -78,7 +78,7 @@ pub fn if_user_is_org_member(
         Err(diesel::result::Error::NotFound) => {
             // Validation returns msg: not-org-member
             Err(OrgManagementAccessError::AccessError(
-                ft_common::errors::OrgManagementAccessError::NotOrgMember,
+                crate::errors::OrgManagementAccessError::NotOrgMember,
             ))
         }
         Err(e) => Err(e.into()),
@@ -101,7 +101,7 @@ pub fn if_user_is_org_member_and_has_manage_permissions(
     if !role.has_manage_permissions() {
         // Validation returns msg: unauthorized-role
         return Err(OrgManagementAccessError::AccessError(
-            ft_common::errors::OrgManagementAccessError::UnauthorizedRole,
+            crate::errors::OrgManagementAccessError::UnauthorizedRole,
         ));
     }
     Ok(())
@@ -136,6 +136,7 @@ pub fn if_user_is_org_member_and_has_manage_permissions(
 //     Ok(Some(org_slug))
 // }
 //
+
 // Validation: no-such-org, not-org-member, unauthorized-role
 pub fn if_user_can_manage_org_using_slug(
     user_id: i64,

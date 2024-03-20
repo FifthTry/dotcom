@@ -4,7 +4,10 @@ pub struct GetContent {
 }
 
 impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for GetContent {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> where Self: Sized {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError>
+    where
+        Self: Sized,
+    {
         pub use ft_sdk::JsonBodyExt;
 
         let file_name: String = match c.in_.req.json_body()?.field("file-name")? {
@@ -21,17 +24,23 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for GetContent {
         Ok(GetContent { file_name })
     }
 
-    fn action(&self, c: &mut ft2::route::Site) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> where Self: Sized {
+    fn action(
+        &self,
+        c: &mut ft2::route::Site,
+    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError>
+    where
+        Self: Sized,
+    {
         let file = ft2::File::from_path(
             c.site_data.id,
             c.site_data.domain.as_str(),
             &c.site_data.updated_at,
             self.file_name.as_str(),
-        ).map_err(|e| e.into_action_error())?;
+        )
+        .map_err(|e| e.into_action_error())?;
 
-        Ok(ft_sdk::ActionOutput::Data(std::collections::HashMap::from([(
-            "content".to_string(),
-            serde_json::to_value(file).unwrap(),
-        )])))
+        Ok(ft_sdk::ActionOutput::Data(std::collections::HashMap::from(
+            [("content".to_string(), serde_json::to_value(file).unwrap())],
+        )))
     }
 }

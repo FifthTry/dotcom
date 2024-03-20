@@ -1,6 +1,7 @@
 extern crate self as ft2;
 
 pub mod check;
+pub mod errors;
 mod file;
 mod route;
 mod ud;
