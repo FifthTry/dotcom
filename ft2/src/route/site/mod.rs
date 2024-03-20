@@ -7,6 +7,9 @@ pub use info::Info;
 mod get_content;
 pub use get_content::GetContent;
 
+mod delete_file;
+pub use delete_file::DeleteFile;
+
 pub mod setting;
 
 

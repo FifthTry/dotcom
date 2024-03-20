@@ -15,6 +15,7 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
         // editor stuff
         "/site/editor/" => Site::page::<site::Editor>(r),
         "/ft2/site/get-content/" => Site::action::<site::GetContent>(r),
+        "/ft2/site/delete-file/" => Site::action::<site::DeleteFile>(r),
 
         // public
         "/public/user-data/" => Public::page::<public::UserData>(r),
