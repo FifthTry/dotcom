@@ -45,6 +45,11 @@
       "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
       "size": 340
     },
+    "actions/sites/editor/delete-file.ftd": {
+      "name": "actions/sites/editor/delete-file.ftd",
+      "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
+      "size": 340
+    },
     "actions/sites/github/configure.ftd": {
       "name": "actions/sites/github/configure.ftd",
       "checksum": "9F0C9D8A7A254B86446EE47C9FE56ED0FFCFA714874BB161172EAC365DC53BF2",

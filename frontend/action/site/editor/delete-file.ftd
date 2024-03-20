@@ -1,0 +1,16 @@
+-- optional string $delete-error:
+
+-- void submit(site_slug, file_name, updated_at):
+string site_slug:
+string file_name:
+string updated_at:
+js: $assets.files.js.http.js
+
+http(
+    "/ft2/site/delete-file/",
+    "www.fifthtry.com/action/site/editor/delete-file",
+    "POST",
+    ("file-name", file_name),
+    ("site-slug", site_slug),
+    ("updated-at", updated_at)
+)

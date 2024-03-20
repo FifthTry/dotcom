@@ -1,6 +1,6 @@
 -- optional string $save-error:
 
--- void submit(site_slug, file_name, content):
+-- void submit(site_slug, file_name, content, updated_at):
 string site_slug:
 string file_name:
 string content:
