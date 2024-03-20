@@ -85,7 +85,7 @@ spacing: $ds.spaces.vertical-gap.extra-small
 
 		-- ftd.text: $file-view.file.base-name
         if: { ftd.len(file-view.file.children) > 0 }
-        $on-click$: $ftd.set-string($a = $file-view.header-title, v = $file-view.file.full-name)
+        ;; $on-click$: $ftd.set-string($a = $file-view.header-title, v = $file-view.file.full-name)
         role: $ds.types.copy-small
         color: $ds.colors.text-strong
         style if { file-view.header-title == file-view.file.full-name }: underline, bold

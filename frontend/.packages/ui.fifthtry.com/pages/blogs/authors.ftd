@@ -5,7 +5,7 @@
 -- author.author: Nandhini Devi
 photo: $assets.files.assets.team.nandhini-devi.jpg
 profile: Freelance Copywriter
-bio-url: https://github.com/nandhinidevie
+bio-url: https://www.linkedin.com/in/nandhini-devi-elumalai/
 
 I'm currently working at FifthTry, handling all things content – blogs, 
 docs, homepages, and socials. If you come across "if you can type, 
@@ -28,3 +28,51 @@ bio-url: https://github.com/Arpita-Jaiswal
 I am building `fastn`.
 
 -- end: author-arpita
+
+
+-- component author-amit:
+
+-- author.author: Amit Upadhyay
+photo: $assets.files.assets.team.amitu.jpg
+profile: Founder, CEO
+bio-url: https://www.linkedin.com/in/amitu/
+
+Building fastn.com
+
+-- end: author-amit
+
+-- component author-meenu:
+
+-- author.author: Meenu Kumari
+photo: $assets.files.assets.team.meenu.jpeg
+profile: Fastn Builder - FTD Dev
+bio-url: https://github.com/MeenuKumari28
+
+Building fastn.com
+
+-- end: author-meenu
+
+
+-- component author-rithik:
+
+-- author.author: Rithik Seth
+photo: $assets.files.assets.team.rithik.jpg
+profile: Software Developer
+bio-url: https://github.com/Heulitig
+
+Working in FifthTry.
+
+-- end: author-rithik
+
+
+-- component author-harsh:
+
+-- author.author: Harsh Singh
+photo: $assets.files.assets.team.harsh.jpeg
+profile: Software Developer
+bio-url: https://www.linkedin.com/in/harshsingh-in/
+
+Working in FifthTry.
+
+-- end: author-harsh
+

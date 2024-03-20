@@ -1,0 +1,13 @@
+
+-- record package-info:
+optional caption title:
+optional string template-url:
+optional ftd.image-src screenshot:
+optional string template-name:
+optional body desc:
+optional string updated-on:
+optional string preview-url:
+optional string domain-name:
+optional string github-url:
+string list features:
+string list pages:

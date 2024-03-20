@@ -11,7 +11,7 @@ widths: $widths
 
 ;; There is a build issue in the below component call
 ;; will fix this later
-/-- products:
+-- products:
 
 -- footer:
 
@@ -24,7 +24,7 @@ widths: $widths
 -- ds.section-row:
 
 	-- ftd.image:
-	src: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-ycom-dark.svg
+	src: https://www.fifthtry.com/-/ui.fifthtry.com/assets/logo-dark.svg
 	
 	-- ds.row:
 	spacing: $ds.spaces.horizontal-gap.extra-large
@@ -58,7 +58,7 @@ align-content: top-center
 margin: $ds.spaces.vertical-gap.extra-extra-large
 
 	-- product: FTD Language for prose
-	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/ftd-logo.svg
+	icon: $assets.files.assets.ftd-logo.svg
 	link: /
 	
 	FTD is the innovative programming language for writing prose. Say goodbye to
@@ -67,7 +67,7 @@ margin: $ds.spaces.vertical-gap.extra-extra-large
 	
 	
 	-- product: Fastn static site generator
-	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/fastn-logo.svg
+	icon: $assets.files.assets.fastn-logo.svg
 	link: /
 	
 	Fastn is a powerful command line tool written in Rust that offers a seamless
@@ -77,7 +77,7 @@ margin: $ds.spaces.vertical-gap.extra-extra-large
 	
 	-- product: HOSTN hosting fastn sites
 	link: /
-	icon: https://www.fifthtry.com/-/fifthtry.com/assets/images/hostn-logo.svg
+	icon: $assets.files.assets.hostn-logo.svg
 	
 	An FASTN package contains one or more “ftd modules”, and the modules export one
 	or more “symbols”, eg records, variables, components and so on. Hosting FASTN
@@ -90,7 +90,7 @@ margin: $ds.spaces.vertical-gap.extra-extra-large
 
 -- component product:
 caption title:
-string icon:
+ftd.image-src icon:
 body about:
 string link:
 
@@ -101,7 +101,9 @@ height: fill-container
 
 	-- ds.row:
 	
-		-- ftd.image: $product.icon
+		-- ftd.image: 
+		src: $product.icon
+
 		-- ds.heading-small: $product.title
 		
 	-- end: ds.row
@@ -137,7 +139,7 @@ margin: $ds.spaces.vertical-gap.extra-large
 	-- ftd.image:
 	height.fixed.px: 38
 	max-width.fixed.px: 120
-	src: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+	src: https://www.fifthtry.com/-/ui.fifthtry.com/assets/logo-dark.svg
 	
 	-- ds.inline-row:
 	spacing: $ds.spaces.horizontal-gap.large

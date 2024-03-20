@@ -10,6 +10,9 @@ exposing: border-data, border-thickness, borders
 -- import: fastn-community.github.io/design-system/foundation-elements/shadow as _
 export: shadow-data, shadow
 
+-- import: fastn-community.github.io/design-system/record as _
+export: package-info
+
 -- import: fastn-community.github.io/design-system/foundation-elements/spaces as _
 export: hv, gap, insets, squishes, stretches, gaps, space-data, spaces
 
