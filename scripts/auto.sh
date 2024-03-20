@@ -3,7 +3,8 @@ export PROJ_ROOT=$(pwd)
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
+export DATABASE_URL=${DATABASE_URL:-postgresql://127.0.0.1/fifthtry}
+export FASTN_DB_URL=${FASTN_DB_URL:-postgresql://127.0.0.1/fifthtry}
 
 function pushd2() {
     PUSHED=$(pwd)
@@ -20,7 +21,7 @@ function build-ft2-wasm() {
     pushd2 "${PROJ_ROOT}/ft2" || return 1
     # cargo clean
     cargo build --target wasm32-unknown-unknown --release || return 1
-    cp target/wasm32-unknown-unknown/release/ft2.wasm ../frontend/ || return 1
+    cp ../target/wasm32-unknown-unknown/release/ft2.wasm ../frontend/ || return 1
     popd2
 }
 
