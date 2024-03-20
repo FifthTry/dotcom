@@ -20,45 +20,47 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
         use ft_common::prelude::*;
         use ft_common::schema::ft_domain;
 
-        // todo: make this transaction later
-        // transaction is not implemented yet for PgConnection
-        match diesel::insert_into(ft_domain::table)
-            .values(&ft_common::Domain {
-                site_id: c.site_data.id,
-                domain: self.domain.to_string(),
+        c.conn.transaction(|conn| {
+            match diesel::insert_into(ft_domain::table)
+                .values(&ft_common::Domain {
+                    site_id: c.site_data.id,
+                    domain: self.domain.to_string(),
 
-                dns_status: ft_common::DnsStatus::PendingNew.as_str(),
-                dns_attempts: 0,
-                dns_check_scheduled_at: c.in_.now,
+                    dns_status: ft_common::DnsStatus::PendingNew.as_str(),
+                    dns_attempts: 0,
+                    dns_check_scheduled_at: c.in_.now,
 
-                ssl_status: ft_common::SslStatus::PendingNew.as_str(),
-                ssl_http_token: None,
-                ssl_http_proof: None,
-                ssl_check_scheduled_at: None,
-                ssl_certificate_issued_at: None,
-                ssl_certificate_pem: None,
-                ssl_encrypted_private_key_pem: None,
+                    ssl_status: ft_common::SslStatus::PendingNew.as_str(),
+                    ssl_http_token: None,
+                    ssl_http_proof: None,
+                    ssl_check_scheduled_at: None,
+                    ssl_certificate_issued_at: None,
+                    ssl_certificate_pem: None,
+                    ssl_encrypted_private_key_pem: None,
 
-                created_at: c.in_.now,
-                updated_at: c.in_.now,
-            })
-            .execute(&mut c.conn)
-        {
-            Ok(_) => (),
-            Err(diesel::result::Error::DatabaseError(
-                diesel::result::DatabaseErrorKind::UniqueViolation,
-                _,
-            )) => {
-                // Validation returns msg: unique-domain
-                return Err(ft_common::errors::AddDomainError::DomainAlreadyExists(
-                    self.domain.clone(),
-                )
-                .to_action_error());
-            }
-            Err(e) => return Err(e.into()),
-        };
+                    created_at: c.in_.now,
+                    updated_at: c.in_.now,
+                })
+                .execute(conn)
+            {
+                Ok(_) => (),
+                Err(diesel::result::Error::DatabaseError(
+                        diesel::result::DatabaseErrorKind::UniqueViolation,
+                        _,
+                    )) => {
+                    // Validation returns msg: unique-domain
+                    return Err(ft_common::errors::AddDomainError::DomainAlreadyExists(
+                        self.domain.clone(),
+                    )
+                        .to_action_error());
+                }
+                Err(e) => return Err(e.into()),
+            };
 
-        c.site_data.update_updated_at(&mut c.conn, c.in_.now)?;
+            c.site_data.update_updated_at(conn, c.in_.now)?;
+            Ok(())
+        })?;
+
         Ok(ft_sdk::ActionOutput::Reload)
     }
 }
