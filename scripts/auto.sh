@@ -28,14 +28,14 @@ function build-ft2-wasm() {
 function upload-frontend-debug() {
     pushd2 "${PROJ_ROOT}/frontend" || return 1
 
-    mkdir -p "${PROJ_ROOT}/tejar-cache"
+    mkdir -p "${PROJ_ROOT}/../ft/tejar-cache"
 
-    rm frontend/.gitignore
-    DEBUG_USE_TEJAR_FOLDER="${PROJ_ROOT}/tejar-cache" \
+    rm .gitignore
+    DEBUG_USE_TEJAR_FOLDER="${PROJ_ROOT}/../ft/tejar-cache" \
       FIFTHTRY_SITE_WRITE_TOKEN="fifthtry-write-token" \
       DEBUG_API_FIFTHTRY_COM="http://127.0.0.1" \
       clift upload localhost
-    echo '*.wasm' > frontend/.gitignore
+    echo '*.wasm' > .gitignore
     popd2
 }
 
