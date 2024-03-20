@@ -12,8 +12,6 @@ pub use delete_file::DeleteFile;
 
 pub mod setting;
 
-
-
 /// Site category is for views that only site members can access.
 pub struct Site {
     pub conn: ft_sdk::PgConnection,
@@ -45,8 +43,10 @@ impl ft_sdk::Layout for Site {
         ft_sdk::println!("from_in 2");
         let site_slug = match ty {
             ft_sdk::RequestType::Page => in_.req.query().get("site-slug").map(|v| v.to_string()),
-            ft_sdk::RequestType::Action => { use ft_sdk::JsonBodyExt;
-                in_.req.json_body()?.field::<String>("site-slug")? }
+            ft_sdk::RequestType::Action => {
+                use ft_sdk::JsonBodyExt;
+                in_.req.json_body()?.field::<String>("site-slug")?
+            }
         };
         let site_slug = match site_slug {
             Some(v) => v.to_string(),
