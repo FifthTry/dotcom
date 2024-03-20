@@ -4,6 +4,7 @@ pub mod check;
 mod file;
 mod route;
 mod ud;
+pub mod validation;
 
 pub use file::{file_type, File, FileText, FileTextError, FileType};
 

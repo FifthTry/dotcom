@@ -16,7 +16,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
                 ));
             }
         };
-        let site_slug = validate_site_slug(site_slug.as_str())?;
+        let site_slug = crate::validation::validate_site_slug(site_slug.as_str())?;
 
         Ok(CreateSite { site_slug })
 
@@ -153,45 +153,4 @@ fn get_sample_document_histories(
             editor_id,
         })
         .collect()
-}
-
-fn validate_site_slug(site_slug: &str) -> Result<String, ft_common::ActionError> {
-    let site_slug = site_slug.trim().to_string();
-
-    // Validation returns msg: site-slug-is-lowercase
-    if site_slug != site_slug.to_lowercase() {
-        // we explicitly warn user instead of converting it to lower case, because
-        // user might be relying on case, and change in case breaks the meaning they
-        // are going for, e.g. MissIng and missing are different things, maybe they would
-        // prefer miss-ing.fifthtry.site and not missing.fifthtry.site
-        return Err(ft_common::ActionError::single_error(
-            "site",
-            "site-slug should be in lowercase",
-        ));
-    }
-
-    // Validation returns msg: site-slug-is-not-empty
-    if site_slug.is_empty() {
-        return Err(ft_common::ActionError::single_error(
-            "site",
-            "site-slug should not be empty",
-        ));
-    }
-
-    static RE: once_cell::sync::Lazy<regex::Regex> =
-        once_cell::sync::Lazy::new(|| regex::Regex::new(r"^[a-z0-9]+(?:-[a-z0-9]+)*$").unwrap());
-
-    // Validation returns msg: site-slug-regex
-    if !RE.is_match(site_slug.as_str()) {
-        return Err(ft_common::ActionError::single_error(
-            "site",
-            "site-slug is not valid",
-        ));
-    }
-
-    // NOTE: We do not check if slug is unique or not here, because we are doing it in
-    // the transaction lower down, which is a more reliable check, no need to do the query
-    // twice. This is same reason as mentioned in the note in the verify method.
-
-    Ok(site_slug)
 }

@@ -8,7 +8,9 @@ mod get_content;
 pub use get_content::GetContent;
 
 pub mod setting;
-
+pub mod domain;
+pub mod github;
+pub mod token;
 
 
 /// Site category is for views that only site members can access.
