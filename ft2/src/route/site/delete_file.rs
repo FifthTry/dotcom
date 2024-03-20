@@ -66,8 +66,11 @@ fn delete_file(site_id: i64, path: &str) -> Result<(), DeleteFileError> {
         path: path.to_string(),
     });
     let ptr = unsafe { hostn_delete_file(ptr, len) };
-    let value = ft_sys::memory::json_from_ptr::<Option<()>>(ptr);
-    value.ok_or(DeleteFileError::CantDeleteFile)
+    let value = ft_sys::memory::json_from_ptr::<bool>(ptr);
+    if !value {
+        return Err(DeleteFileError::CantDeleteFile);
+    }
+    Ok(())
 }
 
 extern "C" {
