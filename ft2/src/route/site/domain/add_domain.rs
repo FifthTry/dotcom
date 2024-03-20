@@ -1,5 +1,3 @@
-use diesel::Connection;
-
 pub struct AddDomain {
     pub domain: String,
 }
@@ -22,6 +20,8 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
         use ft_common::prelude::*;
         use ft_common::schema::ft_domain;
 
+        // todo: make this transaction later
+        // transaction is not implemented yet for PgConnection
         match diesel::insert_into(ft_domain::table)
             .values(&ft_common::Domain {
                 site_id: c.site_data.id,
