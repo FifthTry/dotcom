@@ -35,6 +35,11 @@
       "checksum": "BBB9344BC904AA24615410E6A51AE9422F13895572FE316AC5D9A7771E925E75",
       "size": 175
     },
+    "actions/sites/editor/delete-file.ftd": {
+      "name": "actions/sites/editor/delete-file.ftd",
+      "checksum": "FE7F5C896824BD76E03F5974FDE47BF1BE5C5426AD2FE202F1465F94FF51F1C7",
+      "size": 311
+    },
     "actions/sites/editor/open-file.ftd": {
       "name": "actions/sites/editor/open-file.ftd",
       "checksum": "BF28FB0923B72914E6D5976A2903C923D91C6E3BCF9775554C39BD50FB52E6EA",
@@ -42,13 +47,8 @@
     },
     "actions/sites/editor/save-file.ftd": {
       "name": "actions/sites/editor/save-file.ftd",
-      "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
-      "size": 340
-    },
-    "actions/sites/editor/delete-file.ftd": {
-      "name": "actions/sites/editor/delete-file.ftd",
-      "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
-      "size": 340
+      "checksum": "F6C1B39183DC2A4D8E020BDF219AEF9DBB758CE14A987FD33A2FAC1587C73086",
+      "size": 352
     },
     "actions/sites/github/configure.ftd": {
       "name": "actions/sites/github/configure.ftd",
@@ -1187,8 +1187,8 @@
     },
     "components/sites/file-tree.ftd": {
       "name": "components/sites/file-tree.ftd",
-      "checksum": "84B1152988BD1C285704C1C3F136C73A3B0FC00780FEDE984D83EF8DC5C958D6",
-      "size": 3410
+      "checksum": "0C52922584B3FBC8C34A93393996345B7D3F5C59E77CF8A57EDF05DCE4A00A7F",
+      "size": 3413
     },
     "components/sites/header.ftd": {
       "name": "components/sites/header.ftd",
@@ -1317,8 +1317,8 @@
     },
     "pages/blogs/authors.ftd": {
       "name": "pages/blogs/authors.ftd",
-      "checksum": "651CACEA0FB98180E34E4A6EED36EF345DEE96773480C498011E3EE869334EE8",
-      "size": 878
+      "checksum": "29A3907E765902F2B911A82C5652D0A58772B47A2147583A6B84FEE79AE51435",
+      "size": 1774
     },
     "pages/blogs/home.ftd": {
       "name": "pages/blogs/home.ftd",
@@ -1367,13 +1367,13 @@
     },
     "pages/signup.ftd": {
       "name": "pages/signup.ftd",
-      "checksum": "83B7C02182CC8B4736D3DBA13BD61B2BAFE2F42769294A3232F52AB81B948579",
-      "size": 14239
+      "checksum": "18DFB3010DCF00831CBB13607C957CA8501C881649F89C6108B98EE93B60E778",
+      "size": 14164
     },
     "pages/sites/editor.ftd": {
       "name": "pages/sites/editor.ftd",
-      "checksum": "B2407DA32BABC37AB9CF20594645E2ED7C4CC4985BEC2822BCEA171490A19798",
-      "size": 3956
+      "checksum": "D8FC54E4E03E09E6409239F5DAD35824AFC0BB1C4FDDA51D0DE6372F6744F76D",
+      "size": 4487
     },
     "pages/sites/setting/configure-github.ftd": {
       "name": "pages/sites/setting/configure-github.ftd",
@@ -1587,8 +1587,8 @@
     },
     "scenarios/signup-page.ftd": {
       "name": "scenarios/signup-page.ftd",
-      "checksum": "2056039FE8187DDDE0F6B06901D59FCFCA5A82BD7508EACCCCC6A65C7932FD28",
-      "size": 203
+      "checksum": "851FBA4A873D77F13D0CCBDD3FF964C65A980770059CB16C8D9DA39FD009ACED",
+      "size": 133
     },
     "scenarios/sites/editor/image-preview.ftd": {
       "name": "scenarios/sites/editor/image-preview.ftd",
@@ -1697,8 +1697,8 @@
     },
     "web-components/code-editor.js": {
       "name": "web-components/code-editor.js",
-      "checksum": "D3DFAF039CA46A1F942C14264F59BD1A190EB441B43EAC51E6B01F9CF4C998BC",
-      "size": 2930
+      "checksum": "A1DEF2611A60A36912316ABA39C665E21F8F97BA17C02DE4E010CB9DCB6F55F7",
+      "size": 3118
     },
     "web-components/code-preview.js": {
       "name": "web-components/code-preview.js",
@@ -1707,10 +1707,10 @@
     },
     "web-components/index.ftd": {
       "name": "web-components/index.ftd",
-      "checksum": "AC9C8005A8F376392FD5A70C69340C083565BB2B8AE72D6C5C72C2A7DDDF17E2",
-      "size": 361
+      "checksum": "8374DA1940E044E1C236F93CA834EC4D5107EA3AFAD2EE2FBF2E51A757B959B5",
+      "size": 388
     }
   },
   "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
-  "checksum": "78D50BC9F78BD73EBC98B29672074EF092F14CF174A82614B9DD3C82FD332C59"
+  "checksum": "3B489B605BE50B4ACCC6854A5B3BD33E9D4F4538BCDCDEB917A5C2895AFD33FF"
 }
