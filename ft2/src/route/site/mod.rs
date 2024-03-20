@@ -8,6 +8,7 @@ mod get_content;
 pub use get_content::GetContent;
 
 pub mod setting;
+pub mod domain;
 
 
 
