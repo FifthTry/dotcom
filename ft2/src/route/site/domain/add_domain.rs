@@ -7,7 +7,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
         pub use ft_sdk::JsonBodyExt;
 
         let domain_input: String = c.in_.req.json_body()?.field("domain")?.unwrap_or_default();
-        let domain = crate::validation::validate_domain(domain_input.as_str())?;
+        let domain = ft2::validation::validate_domain(domain_input.as_str())?;
 
         Ok(AddDomain { domain })
     }
