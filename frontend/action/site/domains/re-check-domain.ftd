@@ -6,7 +6,7 @@ string domain:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/site/re-check-domain/",
+    "/ft2/site/recheck-domain/",
     "www.fifthtry.com/action/site/domains/re-check-domain",
     "POST",
     ("site-slug", site_slug),

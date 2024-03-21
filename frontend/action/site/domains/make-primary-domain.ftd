@@ -7,7 +7,7 @@ string domain:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/site/make-primary-domain/",
+    "/ft2/site/make-primary-domain/",
     "www.fifthtry.com/action/site/domains/make-primary-domain",
     "POST",
     ("site-slug", site_slug),

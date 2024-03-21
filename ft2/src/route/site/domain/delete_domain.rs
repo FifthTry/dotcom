@@ -5,9 +5,23 @@ pub struct DeleteDomain {
 impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteDomain {
     fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
         pub use ft_sdk::JsonBodyExt;
+        pub use ft2::errors::ToActionError;
 
-        // No validation required
         let domain: String = c.in_.req.json_body()?.field("domain")?.unwrap_or_default();
+        if domain.ends_with(".fifthtry.site") {
+            // Validation returns msg: cannot-delete-fifthtry-domain
+            return Err(
+                ft2::errors::DeleteDomainError::CannotDeleteFifthTryDomain.to_action_error(),
+            );
+        }
+
+        if c.site_data.domain == domain {
+            // Validation returns msg: cannot-delete-primary-domain
+            return Err(
+                ft2::errors::DeleteDomainError::CannotDeletePrimaryDomain.to_action_error(),
+            );
+        }
+
         Ok(DeleteDomain { domain })
     }
 
@@ -18,20 +32,6 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteDomain {
         use ft2::errors::ToActionError;
         use ft_common::prelude::*;
         use ft_common::schema::ft_domain;
-
-        if self.domain.ends_with(".fifthtry.site") {
-            // Validation returns msg: cannot-delete-fifthtry-domain
-            return Err(
-                ft2::errors::DeleteDomainError::CannotDeleteFifthTryDomain.to_action_error(),
-            );
-        }
-
-        if c.site_data.domain == self.domain {
-            // Validation returns msg: cannot-delete-primary-domain
-            return Err(
-                ft2::errors::DeleteDomainError::CannotDeletePrimaryDomain.to_action_error(),
-            );
-        }
 
         // Deleting domain
         c.conn.transaction(|conn| {

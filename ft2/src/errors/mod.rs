@@ -7,6 +7,9 @@ pub use common::{ManageSiteError, OrgManagementAccessError};
 mod delete_domain;
 pub use delete_domain::DeleteDomainError;
 
+mod make_primary_domain;
+pub use make_primary_domain::MakePrimaryDomainError;
+
 pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
     fn field_name(&self) -> &'static str;
 }
