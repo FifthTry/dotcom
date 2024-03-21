@@ -7,7 +7,7 @@ string domain:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/site/delete-domain/",
+    "/ft2/site/delete-domain/",
     "www.fifthtry.com/action/site/domains/delete-domain",
     "POST",
     ("site-slug", site_slug),
