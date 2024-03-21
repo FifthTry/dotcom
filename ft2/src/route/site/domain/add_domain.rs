@@ -16,7 +16,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
         &self,
         c: &mut ft2::route::Site,
     ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> {
-        use crate::errors::ToActionError;
+        use ft2::errors::ToActionError;
         use ft_common::prelude::*;
         use ft_common::schema::ft_domain;
 
@@ -49,7 +49,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
                     _,
                 )) => {
                     // Validation returns msg: unique-domain
-                    return Err(crate::errors::AddDomainError::DomainAlreadyExists(
+                    return Err(ft2::errors::AddDomainError::DomainAlreadyExists(
                         self.domain.clone(),
                     )
                     .to_action_error());

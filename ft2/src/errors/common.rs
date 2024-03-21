@@ -1,10 +1,10 @@
 #[derive(Debug)]
 pub enum ManageSiteError {
     UnknownSite, // unknown-site
-    OrgManagementAccessError(crate::errors::OrgManagementAccessError),
+    OrgManagementAccessError(ft2::errors::OrgManagementAccessError),
 }
 
-impl crate::errors::FieldError for ManageSiteError {
+impl ft2::errors::FieldError for ManageSiteError {
     fn field_name(&self) -> &'static str {
         "manage-site"
     }
@@ -26,7 +26,7 @@ pub enum OrgManagementAccessError {
     UnauthorizedRole, // unauthorized-role
 }
 
-impl crate::errors::FieldError for OrgManagementAccessError {
+impl ft2::errors::FieldError for OrgManagementAccessError {
     fn field_name(&self) -> &'static str {
         "manage-org"
     }

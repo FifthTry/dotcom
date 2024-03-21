@@ -1,6 +1,6 @@
 // Validation returns msg: domain-regex
 pub fn validate_domain(domain: &str) -> Result<String, ft_common::ActionError> {
-    use crate::errors::ToActionError;
+    use ft2::errors::ToActionError;
 
     let domain = domain
         .trim()
@@ -11,7 +11,7 @@ pub fn validate_domain(domain: &str) -> Result<String, ft_common::ActionError> {
 
     // Validation returns msg: domain-is-empty
     if domain.is_empty() {
-        return Err(crate::errors::AddDomainError::IsEmpty.to_action_error());
+        return Err(ft2::errors::AddDomainError::IsEmpty.to_action_error());
     }
 
     // Understanding regex
@@ -33,7 +33,7 @@ pub fn validate_domain(domain: &str) -> Result<String, ft_common::ActionError> {
 
     // Validation returns msg: domain-regex
     if !RE.is_match(domain.as_str()) {
-        return Err(crate::errors::AddDomainError::MalformedDomain.to_action_error());
+        return Err(ft2::errors::AddDomainError::MalformedDomain.to_action_error());
     }
 
     Ok(domain)

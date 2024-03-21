@@ -8,6 +8,6 @@ pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
     fn field_name(&self) -> &'static str;
 }
 
-pub trait ToActionError: ft_common::TranslatedString + crate::errors::FieldError {
+pub trait ToActionError: ft_common::TranslatedString + ft2::errors::FieldError {
     fn to_action_error(&self) -> ft_common::ActionError;
 }

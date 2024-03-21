@@ -5,7 +5,7 @@ pub enum AddDomainError {
     DomainAlreadyExists(String), // unique-site-slug // unique-domain
 }
 
-impl crate::errors::FieldError for AddDomainError {
+impl ft2::errors::FieldError for AddDomainError {
     fn field_name(&self) -> &'static str {
         "domain"
     }
@@ -23,9 +23,9 @@ impl ft_common::TranslatedString for AddDomainError {
     }
 }
 
-impl crate::errors::ToActionError for AddDomainError {
+impl ft2::errors::ToActionError for AddDomainError {
     fn to_action_error(&self) -> ft_common::ActionError {
-        use crate::errors::FieldError;
+        use ft2::errors::FieldError;
         use ft_common::TranslatedString;
 
         ft_common::ActionError::single_error(
