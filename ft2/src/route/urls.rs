@@ -8,6 +8,7 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
 
         // site domain actions
         "/ft2/site/add-domain/" => Site::action::<site::domain::AddDomain>(r),
+        "/ft2/site/delete-domain/" => Site::action::<site::domain::DeleteDomain>(r),
 
         // site settings
         "/site/setting/domains/" => Site::page::<site::setting::Domains>(r),
