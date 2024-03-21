@@ -1,0 +1,24 @@
+-- optional string $key-error:
+-- optional string $value-error:
+
+-- void update(id, key, value):
+integer id:
+string key:
+string value:
+js: $assets.files.assets.functions.js
+
+callAlert("updating env: " + id + " " + key + " " + value)
+
+
+-- void create-env(key, value):
+string key:
+string value:
+js: $assets.files.assets.functions.js
+
+callAlert("creating env: " + key + " " + value)
+
+-- void remove(id):
+integer id:
+js: $assets.files.assets.functions.js
+
+callAlert("deleting env: " + id)

@@ -1420,10 +1420,40 @@
           "checksum": "17AAAE1EF7311E1242DE290690E19CF70BBFFAD2D65380F60C4F0E8086BCDCE4",
           "size": 220
         },
+        "assets/fastn-logo-dark.svg": {
+          "name": "assets/fastn-logo-dark.svg",
+          "checksum": "B82980A0566A43453849F1E293D6E724280ED7976B0EDFC30D343CD5D10D2227",
+          "size": 5205
+        },
+        "assets/fastn-logo.svg": {
+          "name": "assets/fastn-logo.svg",
+          "checksum": "A2EE52458DAB43F3A6D8A279654F307E71505AA985CAD3991EDC4D4ED8CCBF49",
+          "size": 5205
+        },
+        "assets/ftd-logo-dark.svg": {
+          "name": "assets/ftd-logo-dark.svg",
+          "checksum": "0E0E929D4D8045018D9CC8E8CF3A2A959FFAB80BD35228469DE75FB9CA3E4655",
+          "size": 3771
+        },
+        "assets/ftd-logo.svg": {
+          "name": "assets/ftd-logo.svg",
+          "checksum": "31BEEA3010E27F5A21A4A0EDAAF3D89D3677FEA73424064EE532D0A42B6251A4",
+          "size": 3771
+        },
         "assets/gradient.svg": {
           "name": "assets/gradient.svg",
           "checksum": "DC756B7B1A502111AD9C020DEC05C757F146F7C4BD72572686C19D88A0DA747C",
           "size": 8026
+        },
+        "assets/hostn-logo-dark.svg": {
+          "name": "assets/hostn-logo-dark.svg",
+          "checksum": "E13746A1F70B9EC17384C4FD9FE29D5D060E757177EAEB0AA2B5BB13974117A7",
+          "size": 6247
+        },
+        "assets/hostn-logo.svg": {
+          "name": "assets/hostn-logo.svg",
+          "checksum": "06C2FBD1DC517AFD72487E5FD70AB51DB51D0AD6FC8C8D0DAF0E22A890BE2041",
+          "size": 6254
         },
         "assets/hubspot-dark.svg": {
           "name": "assets/hubspot-dark.svg",
@@ -1510,6 +1540,11 @@
           "checksum": "5703CD3F57AA0CDC3CFA4E8C26E460713E6DF08D1E6D5D62127B2C2C408C7151",
           "size": 3878919
         },
+        "assets/yc-dark.svg": {
+          "name": "assets/yc-dark.svg",
+          "checksum": "C3A317E023FB0BFFF68EC5DCEDF035F986BEDB6A91F623E6B7A79C821D94BC6A",
+          "size": 13751
+        },
         "assets/yc.svg": {
           "name": "assets/yc.svg",
           "checksum": "7EF1BEC586D66543FD7A37BDDE0B27F6BF893825D0A9986D5E4AD57C0E16F99E",
@@ -1527,8 +1562,8 @@
         },
         "components/button.ftd": {
           "name": "components/button.ftd",
-          "checksum": "EC4F6BC10070711E22AA37799BFBAEF8CFAE583FD59589062FE9A0CC17CA3E98",
-          "size": 14192
+          "checksum": "60D790F658B8A0F9E736A8B2066308BA1B15933E6A766814E01F78A43551C0EA",
+          "size": 14591
         },
         "components/checkbox.ftd": {
           "name": "components/checkbox.ftd",
@@ -1552,8 +1587,8 @@
         },
         "components/icon-button.ftd": {
           "name": "components/icon-button.ftd",
-          "checksum": "99B1978A212B79503FBFE0BBF20223999B359067A7166620BC873137D8666D2E",
-          "size": 10053
+          "checksum": "5DC53AB764248CC52171644DABD9A016D43A3394012AA954C85316616BD8649E",
+          "size": 10210
         },
         "components/input.ftd": {
           "name": "components/input.ftd",
@@ -1562,8 +1597,8 @@
         },
         "components/label-text.ftd": {
           "name": "components/label-text.ftd",
-          "checksum": "107D3EDE17838D6D7602D753F9CF8F971D93347E92E078B409F45D56DEDA3F00",
-          "size": 1577
+          "checksum": "7287117D126182A09923CDBC063531F298C124FA9206100084531B4F139B0C12",
+          "size": 1606
         },
         "components/toggle.ftd": {
           "name": "components/toggle.ftd",
@@ -1575,20 +1610,15 @@
           "checksum": "DB4B957FABA9B5721ADA2B9BC8A506DCD8FFFE2DDE114A2BB53D5AB4ADB8DD19",
           "size": 2018
         },
-        "demos/dropbase.ftd": {
-          "name": "demos/dropbase.ftd",
-          "checksum": "51622CB449D4AB2760D4A2E659A0ED3F34D165B0E87A48F26CE9DC848C82ECF8",
-          "size": 17433
-        },
         "demos/ft-old.ftd": {
           "name": "demos/ft-old.ftd",
-          "checksum": "43588446BC2B7830F901B3E5B54BFBF918E2B41016F0B57D16F7E07A99D9BE66",
-          "size": 3105
+          "checksum": "8EF5BE3A8B97EFFE4A229FBCEC464B76A8F56DCE21862B08A2F96E71DB9E053F",
+          "size": 2999
         },
         "demos/index.ftd": {
           "name": "demos/index.ftd",
-          "checksum": "6B1460249DB7DDA46B65EF19972D0B7CCB1EA39F81CE8598BBDFAE09442DB297",
-          "size": 299
+          "checksum": "FDAA8B0D89367B84164DE0FFE5E80A90020E037058BFEA738D26CD7D9F10A4D5",
+          "size": 502
         },
         "favicon.ico": {
           "name": "favicon.ico",
@@ -1602,8 +1632,8 @@
         },
         "foundation-elements/column.ftd": {
           "name": "foundation-elements/column.ftd",
-          "checksum": "9356330282AF34D6D97F942F4B9243BEB8105DAE1EFFECF1F4DFC65CDF274185",
-          "size": 3412
+          "checksum": "8DBD9D2DF8B68082BA52B538105EA34A8A8602A43822A60F0A8901A098675F87",
+          "size": 3471
         },
         "foundation-elements/container.ftd": {
           "name": "foundation-elements/container.ftd",
@@ -1632,8 +1662,8 @@
         },
         "foundation-elements/row.ftd": {
           "name": "foundation-elements/row.ftd",
-          "checksum": "E3A8DD850FEE67CA8D0C9D8550459AD571538AACD8A8337BDB484FA6E53CC3BE",
-          "size": 3715
+          "checksum": "FE55B0CCCB4658F3C35436EB58B1112037BEE5AA2AA4649BF2671F6E1B7754CE",
+          "size": 3840
         },
         "foundation-elements/section-column.ftd": {
           "name": "foundation-elements/section-column.ftd",
@@ -1657,8 +1687,13 @@
         },
         "index.ftd": {
           "name": "index.ftd",
-          "checksum": "16FC6E4E770DC80C5B03E41CB481D1EDD0EEBAFEB6E0879AFADA32FABCF4CC18",
-          "size": 4800
+          "checksum": "83128E61F2ED33F7855561F17F4EA72910401324EF8416A8437CB8C740C306D5",
+          "size": 4885
+        },
+        "record.ftd": {
+          "name": "record.ftd",
+          "checksum": "50E29512E4B805A9E862DA2D94AC2C1275DDE4C3B146F3F326D6ACA3D497699E",
+          "size": 320
         },
         "slide.ftd": {
           "name": "slide.ftd",
@@ -1671,8 +1706,8 @@
           "size": 10641
         }
       },
-      "zip_url": "https://github.com/fastn-community/design-system/archive/9a8f4912abfd87cb1d23f306da8ac14e24746505.zip",
-      "checksum": "2AB364D3BA1048B6D7488AED637A0A8C46B46754CEFDC12BF0353393AD05F31B"
+      "zip_url": "https://github.com/fastn-community/design-system/archive/f5cfb371265e664227dbf8d901f8b12e4d2bd7af.zip",
+      "checksum": "8BA06F13E94D7FE4196332F6A4E8DCC3C22D724F158AA95B4EBCF9AA273C664D"
     },
     "fastn-community.github.io/doc-site": {
       "files": {
@@ -8335,6 +8370,11 @@
           "checksum": "BBB9344BC904AA24615410E6A51AE9422F13895572FE316AC5D9A7771E925E75",
           "size": 175
         },
+        "actions/sites/editor/delete-file.ftd": {
+          "name": "actions/sites/editor/delete-file.ftd",
+          "checksum": "FE7F5C896824BD76E03F5974FDE47BF1BE5C5426AD2FE202F1465F94FF51F1C7",
+          "size": 311
+        },
         "actions/sites/editor/open-file.ftd": {
           "name": "actions/sites/editor/open-file.ftd",
           "checksum": "BF28FB0923B72914E6D5976A2903C923D91C6E3BCF9775554C39BD50FB52E6EA",
@@ -8342,8 +8382,8 @@
         },
         "actions/sites/editor/save-file.ftd": {
           "name": "actions/sites/editor/save-file.ftd",
-          "checksum": "06EB9241F7DC0BB8DA95EEAD5AC6A9724A5786BB8178148754F04BE483596B20",
-          "size": 340
+          "checksum": "F6C1B39183DC2A4D8E020BDF219AEF9DBB758CE14A987FD33A2FAC1587C73086",
+          "size": 352
         },
         "actions/sites/github/configure.ftd": {
           "name": "actions/sites/github/configure.ftd",
@@ -8359,6 +8399,11 @@
           "name": "actions/sites/github/remove-github-access.ftd",
           "checksum": "097A5C401B45167C4B7267EEE59AFDB9DBA574EAD304DC50F5A2A3BF228CEA2F",
           "size": 158
+        },
+        "actions/sites/settings/environment.ftd": {
+          "name": "actions/sites/settings/environment.ftd",
+          "checksum": "8BE6EC74B2398BBAC6D328C44A0EC1581FF5F2F23D29514FC246E894AF649ECA",
+          "size": 485
         },
         "actions/sites/tokens/create-token.ftd": {
           "name": "actions/sites/tokens/create-token.ftd",
@@ -9482,8 +9527,8 @@
         },
         "components/sites/file-tree.ftd": {
           "name": "components/sites/file-tree.ftd",
-          "checksum": "84B1152988BD1C285704C1C3F136C73A3B0FC00780FEDE984D83EF8DC5C958D6",
-          "size": 3410
+          "checksum": "0C52922584B3FBC8C34A93393996345B7D3F5C59E77CF8A57EDF05DCE4A00A7F",
+          "size": 3413
         },
         "components/sites/header.ftd": {
           "name": "components/sites/header.ftd",
@@ -9497,8 +9542,8 @@
         },
         "components/sites/setting/page.ftd": {
           "name": "components/sites/setting/page.ftd",
-          "checksum": "833CF1F27C332AC088366746D3A341109FE666B52C6D646EB08885D47407A64D",
-          "size": 1782
+          "checksum": "D10AF5ADBB6465A19BFCA29769983E88785D2FE5E60920D2A8F9F95DF7725885",
+          "size": 1971
         },
         "components/sites/show-site-info.ftd": {
           "name": "components/sites/show-site-info.ftd",
@@ -9582,8 +9627,8 @@
         },
         "index.ftd": {
           "name": "index.ftd",
-          "checksum": "E32F9188F53A12691FC1D01078424FA44620BD3572C9B1F38516D96B13562DBB",
-          "size": 2540
+          "checksum": "C0543BEA2B3CBAEC46FA68BFE5E63B5A684F7732DD4608804693EF1327CAA5CA",
+          "size": 2601
         },
         "pages/about/index.ftd": {
           "name": "pages/about/index.ftd",
@@ -9612,8 +9657,8 @@
         },
         "pages/blogs/authors.ftd": {
           "name": "pages/blogs/authors.ftd",
-          "checksum": "651CACEA0FB98180E34E4A6EED36EF345DEE96773480C498011E3EE869334EE8",
-          "size": 878
+          "checksum": "29A3907E765902F2B911A82C5652D0A58772B47A2147583A6B84FEE79AE51435",
+          "size": 1774
         },
         "pages/blogs/home.ftd": {
           "name": "pages/blogs/home.ftd",
@@ -9662,13 +9707,13 @@
         },
         "pages/signup.ftd": {
           "name": "pages/signup.ftd",
-          "checksum": "83B7C02182CC8B4736D3DBA13BD61B2BAFE2F42769294A3232F52AB81B948579",
-          "size": 14239
+          "checksum": "18DFB3010DCF00831CBB13607C957CA8501C881649F89C6108B98EE93B60E778",
+          "size": 14164
         },
         "pages/sites/editor.ftd": {
           "name": "pages/sites/editor.ftd",
-          "checksum": "B2407DA32BABC37AB9CF20594645E2ED7C4CC4985BEC2822BCEA171490A19798",
-          "size": 3956
+          "checksum": "9237075527053403272D22F7625010D517EB5DCE56CEFF63B8CE21D6EB03CA4D",
+          "size": 5407
         },
         "pages/sites/setting/configure-github.ftd": {
           "name": "pages/sites/setting/configure-github.ftd",
@@ -9679,6 +9724,11 @@
           "name": "pages/sites/setting/domains.ftd",
           "checksum": "71A7D396A10338205E492FA849CB312BB53C47FB86B1F4BFEEA1ABBD37026716",
           "size": 2056
+        },
+        "pages/sites/setting/environments.ftd": {
+          "name": "pages/sites/setting/environments.ftd",
+          "checksum": "B8227FE001F2460D1B2D7AE1A884B786A2C7509760E752CCF94311D95E600FB5",
+          "size": 4243
         },
         "pages/sites/setting/github-configured.ftd": {
           "name": "pages/sites/setting/github-configured.ftd",
@@ -9777,8 +9827,8 @@
         },
         "records/sites.ftd": {
           "name": "records/sites.ftd",
-          "checksum": "CC094B55B8F1A459F7329B6C81E6C41C2271CAE9ED58FED6CA9B9D73624561A2",
-          "size": 1463
+          "checksum": "C30AFCF3EBE3518DDF541B0B4C5DCB7EC2B335173165800A4D0AE06D9CA549ED",
+          "size": 1550
         },
         "records/user-data.ftd": {
           "name": "records/user-data.ftd",
@@ -9882,8 +9932,8 @@
         },
         "scenarios/signup-page.ftd": {
           "name": "scenarios/signup-page.ftd",
-          "checksum": "2056039FE8187DDDE0F6B06901D59FCFCA5A82BD7508EACCCCC6A65C7932FD28",
-          "size": 203
+          "checksum": "851FBA4A873D77F13D0CCBDD3FF964C65A980770059CB16C8D9DA39FD009ACED",
+          "size": 133
         },
         "scenarios/sites/editor/image-preview.ftd": {
           "name": "scenarios/sites/editor/image-preview.ftd",
@@ -9905,6 +9955,11 @@
           "checksum": "059D7EC33E3E3AA197F8380D3EE5E3761DB15FA1F1C7686AA89FE9C8DC9A662A",
           "size": 763
         },
+        "scenarios/sites/setting/environments.ftd": {
+          "name": "scenarios/sites/setting/environments.ftd",
+          "checksum": "CD77DE920F793754F34A367C218A5C8A5D3F16537C3E5D9F21EAC8A3A037A91B",
+          "size": 636
+        },
         "scenarios/sites/setting/github-configured.ftd": {
           "name": "scenarios/sites/setting/github-configured.ftd",
           "checksum": "0792D7CC2441A4F5F90DD640A95B9B6798184F57FAE476F6B78FE875845A28A6",
@@ -9922,8 +9977,8 @@
         },
         "scenarios/sites/site-info.ftd": {
           "name": "scenarios/sites/site-info.ftd",
-          "checksum": "66CC40FCE091CD3ED64B127D2F08CF4849FB6671E5EA5B87ABA1EBDC28E51F89",
-          "size": 860
+          "checksum": "814318BBA8463B352E127A237612B63FAA8A6CB0919662CA395E2CAA92C18552",
+          "size": 916
         },
         "scenarios/sites/top-message.ftd": {
           "name": "scenarios/sites/top-message.ftd",
@@ -9972,8 +10027,8 @@
         },
         "scenarios/user/dashboard.ftd": {
           "name": "scenarios/user/dashboard.ftd",
-          "checksum": "93EE97CBD0F44A27F181F43CE03732AA3FA3844E7690AACDF538103CBCAB4AA5",
-          "size": 979
+          "checksum": "69FFE2EF222AB8C1FF5E774B9A5D6B84FAFD48BD769C9AFABEE9C9DC4EE3166A",
+          "size": 1036
         },
         "site-data.ftd": {
           "name": "site-data.ftd",
@@ -9992,8 +10047,8 @@
         },
         "web-components/code-editor.js": {
           "name": "web-components/code-editor.js",
-          "checksum": "D3DFAF039CA46A1F942C14264F59BD1A190EB441B43EAC51E6B01F9CF4C998BC",
-          "size": 2930
+          "checksum": "A1DEF2611A60A36912316ABA39C665E21F8F97BA17C02DE4E010CB9DCB6F55F7",
+          "size": 3118
         },
         "web-components/code-preview.js": {
           "name": "web-components/code-preview.js",
@@ -10002,12 +10057,12 @@
         },
         "web-components/index.ftd": {
           "name": "web-components/index.ftd",
-          "checksum": "AC9C8005A8F376392FD5A70C69340C083565BB2B8AE72D6C5C72C2A7DDDF17E2",
-          "size": 361
+          "checksum": "8374DA1940E044E1C236F93CA834EC4D5107EA3AFAD2EE2FBF2E51A757B959B5",
+          "size": 388
         }
       },
       "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
-      "checksum": "78D50BC9F78BD73EBC98B29672074EF092F14CF174A82614B9DD3C82FD332C59"
+      "checksum": "874433D745DAB8319961618B2CB75754DD7AE2853A1C111E5AA9D5FFFF778AF7"
     }
   }
 }

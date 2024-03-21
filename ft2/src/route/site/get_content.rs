@@ -10,16 +10,8 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for GetContent {
     {
         pub use ft_sdk::JsonBodyExt;
 
-        let file_name: String = match c.in_.req.json_body()?.field("file-name")? {
-            Some(v) => v,
-            None => {
-                // Validation returns msg: site-slug-missing
-                return Err(ft_common::ActionError::single_error(
-                    "open",
-                    "file-name is missing",
-                ));
-            }
-        };
+        let file_name =
+            ft2::route::utils::json_field(&c.in_.req.json_body()?, "file-name", "open")?;
 
         Ok(GetContent { file_name })
     }

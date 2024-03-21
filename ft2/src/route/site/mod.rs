@@ -8,6 +8,10 @@ mod get_content;
 pub use get_content::GetContent;
 
 pub mod domain;
+
+mod delete_file;
+pub use delete_file::DeleteFile;
+
 pub mod setting;
 
 /// Site category is for views that only site members can access.

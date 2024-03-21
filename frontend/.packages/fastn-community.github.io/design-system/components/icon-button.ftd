@@ -25,6 +25,7 @@ button.button-kind kind: primary
 button.button-radius radius: curved
 boolean rounded: false
 boolean $hover: false
+boolean open-in-new-tab: false
 
 -- button-wrapper:
 title: $icon-button.title
@@ -36,6 +37,7 @@ size: $icon-button.size
 kind: $icon-button.kind
 radius: $icon-button.radius
 rounded: $icon-button.rounded
+open-in-new-tab: $icon-button.open-in-new-tab
 
 	-- ftd.image:
 	src: $icon-button.icon
@@ -265,6 +267,7 @@ boolean rounded: false
 button.button-size size: medium
 button.button-kind kind: primary
 children uis:
+boolean open-in-new-tab: false
 
 -- ds.row:
 background.solid if { button-wrapper.kind == primary && button-wrapper.kind != link && button-wrapper.variant == solid}: $ds.colors.cta-primary.base
@@ -294,6 +297,7 @@ color if { button-wrapper.kind == danger }: $ds.colors.cta-danger.text
 color if { button-wrapper.kind == secondary && button-wrapper.variant == outline }: $ds.colors.text-strong
 link: $button-wrapper.link
 wrap: true
+open-in-new-tab: $button-wrapper.open-in-new-tab
 
 	-- ftd.text: $button-wrapper.title
 	if: { button-wrapper.title != NULL && button-wrapper.icon-position == at-end}

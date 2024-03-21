@@ -1,0 +1,10 @@
+-- optional string $delete-error:
+
+-- void submit(site_slug, file_name, updated_at):
+string site_slug:
+string file_name:
+string updated_at:
+js: $assets.files.assets.functions.js
+
+callAlert("delete file name: " + file_name + " site: " + site_slug + " updated_at: " + updated_at)
+;; call submit with http options

@@ -6,16 +6,8 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
     fn validate(c: &mut ft2::route::MySelf) -> Result<Self, ft_common::ActionError> {
         pub use ft_sdk::JsonBodyExt;
 
-        let site_slug: String = match c.in_.req.json_body()?.field("site-slug")? {
-            Some(v) => v,
-            None => {
-                // Validation returns msg: site-slug-missing
-                return Err(ft_common::ActionError::single_error(
-                    "site",
-                    "site-slug is missing",
-                ));
-            }
-        };
+        let site_slug: String =
+            ft2::route::utils::json_field(&c.in_.req.json_body()?, "site-slug", "site")?;
         let site_slug = validate_site_slug(site_slug.as_str())?;
 
         Ok(CreateSite { site_slug })

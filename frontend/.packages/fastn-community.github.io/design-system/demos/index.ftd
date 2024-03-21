@@ -7,16 +7,16 @@ align-content: left
 	
 	-- ds.copy-regular:
 	
-	- [Dropbase.io](demos/dropbase/)
+	- [Dropbase.io](https://nandhinidevie.github.io/dropbase.io/)
 	- [ft(old)](demos/ft-old/)
 	- [Card](demos/code-snippet/)
+	- [CodeTogether](https://nandhinidevie.github.io/code/)
+	- [TalkNotes](https://nandhinidevie.github.io/talknotes-practise/)
+	- [Spellcraft](https://www.xypnox.com/spellcraft/)
 	
 -- end: ds.section-column
 
 -- end: demo
-
-
-
 
 -- ds.page: Demo
 

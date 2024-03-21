@@ -1,0 +1,27 @@
+-- import: ui.fifthtry.com/pages/sites/setting/environments
+-- import: ui.fifthtry.com/scenarios/john-doe
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/scenarios/sites/site-info
+-- import: ui.fifthtry.com/scenarios/scenario-site
+
+-- environments.page:
+site-data: scenario-site
+user-data: $john-doe.jd
+site: $site-info.acme-site
+dashboard-url: /scenarios/user/dashboard/
+envs: $envs
+
+
+-- sites-records.environment list envs:
+
+-- sites-records.environment:
+id: 1
+key: BIN_PATH
+value: /usr/bin/
+
+-- sites-records.environment:
+id: 2
+key: DATABASE_URL
+value: postgresql://localhost/my-db
+
+-- end: envs

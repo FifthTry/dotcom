@@ -4,6 +4,7 @@
 default-language: en
 translation-en: www.fifthtry.com/i18n/en
 translation-hi: www.fifthtry.com/i18n/hi
+favicon: /favicon.svg
 
 -- fastn.dependency: fastn-community.github.io/midnight-storm-typography as typo
 -- fastn.dependency: fastn-community.github.io/dark-flame-cs as cs

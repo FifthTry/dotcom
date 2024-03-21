@@ -1,0 +1,160 @@
+-- import: ui.fifthtry.com/components/sites/setting/page as p
+-- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/actions/sites/settings/environment
+
+
+-- component page:
+module site-data: site-data
+module action: environment
+sites-records.environment list envs:
+ud.user-data user-data:
+sites-records.site-common-data site:
+string dashboard-url:
+optional string top-message:
+private boolean $reveal: false
+private string $current-key: *$ftd.empty
+private string $current-value: *$ftd.empty
+
+-- p.page:
+site-data: $page.site-data
+user-data: $page.user-data
+site: $page.site
+current-page: environments
+dashboard-url: $page.dashboard-url
+top-message: $page.top-message
+
+	-- ds.section-column:
+	inset: $ds.spaces.inset-tall.large
+	
+		-- ds.primary-button: Reveal Config Vars
+		title if { page.reveal }: Hide Config Vars
+		radius: curved
+		$on-click$: $ftd.toggle($a = $page.reveal)
+		
+		-- env-row:
+		action: environment
+		env: $env
+		for: $env in $page.envs
+		if: { page.reveal }
+		
+		-- ds.row:
+		if: { page.reveal }
+		
+			-- ftd.column:
+			
+				-- ftd.text-input:
+				type: text
+				$on-input$: $ftd.set-string($a = $page.current-key, v = $VALUE)
+				height.fixed.px: 32
+				border-radius.px: 4
+				placeholder: KEY
+				background.solid: transparent
+				border-width.px: 1
+				border-color: $inherited.colors.border
+				border-color if { page.action.key-error != NULL }: $inherited.colors.error.border
+				padding.px: 8
+				color: $inherited.colors.text-strong
+				margin-right.px: 8
+				
+				-- ds.copy-small: $page.action.key-error
+				if: { page.action.key-error != NULL }
+				color: $ds.colors.error.text
+				
+			-- end: ftd.column
+
+			-- ftd.column:
+			
+				-- ftd.text-input:
+				type: text
+				$on-input$: $ftd.set-string($a = $page.current-value, v = $VALUE)
+				height.fixed.px: 32
+				border-radius.px: 4
+				placeholder: VALUE
+				background.solid: transparent
+				border-width.px: 1
+				border-color: $inherited.colors.border
+				border-color if { page.action.value-error != NULL }: $inherited.colors.error.border
+				padding.px: 8
+				color: $inherited.colors.text-strong
+				margin-right.px: 8
+				
+				-- ds.copy-small: $page.action.key-error
+				if: { page.action.key-error != NULL }
+				color: $ds.colors.error.text
+				
+			-- end: ftd.column
+
+			-- ds.primary-button: Add
+			$on-click$: $page.action.create-env(key = $page.current-key, value = $page.current-value)
+			
+		-- end: ds.row
+
+	-- end: ds.section-column
+
+-- end: p.page
+
+-- end: page
+
+-- component env-row:
+module action: environment
+sites-records.environment env:
+private string $current-key: *$env-row.env.key
+private string $current-value: *$env-row.env.value
+
+-- ds.row:
+
+	-- ftd.column:
+	
+		-- ftd.text-input:
+		type: text
+		$on-input$: $ftd.set-string($a = $env-row.current-key, v = $VALUE)
+		height.fixed.px: 32
+		border-radius.px: 4
+		value: $env-row.env.key
+		background.solid: transparent
+		border-width.px: 1
+		border-color: $inherited.colors.border
+		border-color if { env-row.action.key-error != NULL }: $inherited.colors.error.border
+		padding.px: 8
+		color: $inherited.colors.text-strong
+		margin-right.px: 8
+		
+		-- ds.copy-small: $env-row.action.key-error
+		if: { env-row.action.key-error != NULL }
+		color: $ds.colors.error.text
+		
+	-- end: ftd.column
+
+	-- ftd.column:
+	
+		-- ftd.text-input:
+		type: text
+		height.fixed.px: 32
+		border-radius.px: 4
+		$on-input$: $ftd.set-string($a = $env-row.current-value, v = $VALUE)
+		value: $env-row.env.value
+		background.solid: transparent
+		border-width.px: 1
+		border-color: $inherited.colors.border
+		border-color if { env-row.action.value-error != NULL }: $inherited.colors.error.border
+		padding.px: 8
+		color: $inherited.colors.text-strong
+		margin-right.px: 8
+		
+		-- ds.copy-small: $env-row.action.value-error
+		if: { env-row.action.value-error != NULL }
+		color: $ds.colors.error.text
+		
+	-- end: ftd.column
+
+	-- ds.primary-button: Save
+	$on-click$: $env-row.action.update(id = $env-row.env.id, key = $env-row.current-key, value = $env-row.current-value)
+	
+	-- ds.primary-button: Remove
+	$on-click$: $env-row.action.remove(id = $env-row.env.id)
+	
+-- end: ds.row
+
+-- end: env-row
