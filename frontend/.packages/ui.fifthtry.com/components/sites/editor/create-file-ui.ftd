@@ -1,0 +1,112 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/utils
+-- import: ui.fifthtry.com/web-components
+
+-- import: ui.fifthtry.com/actions/sites/editor/create-file
+
+
+
+
+
+-- component create-file-ui:
+module create-file: create-file
+sites-records.site-common-data site:
+boolean $create: false
+string $content: *$ftd.empty
+string $file-name: *$ftd.empty
+
+-- ds.section-column:
+radius: $ds.radius.zero
+inner-background.solid: $ds.colors.background.base
+if: { create-file-ui.create }
+
+    -- file-header:
+    create-file: $create-file-ui.create-file
+    site-slug: $create-file-ui.site.site-slug
+    $content: $create-file-ui.content
+    $create: $create-file-ui.create
+    $file-name: $create-file-ui.file-name
+
+    -- web-components.code-editor: $create-file-ui.file-name
+    $content: $create-file-ui.content
+
+-- end: ds.section-column
+
+
+-- end: create-file-ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component file-header:
+module create-file: create-file
+string site-slug:
+boolean $create:
+string $file-name:
+string $content:
+
+-- ds.row:
+width: fill-container
+spacing: $ds.spaces.horizontal-gap.space-between
+background.solid: $ds.colors.background.base
+
+    -- file-name-input:
+    $file-full-name: $file-header.file-name
+
+	-- ds.row:
+    width: hug-content
+
+        -- ds.primary-button: SAVE
+        if: { file-header.file-name != ftd.empty }
+        $on-click$: $file-header.create-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, content = $file-header.content)
+
+        -- ds.primary-button: CANCEL
+        $on-click$: $ftd.set-bool($a = $file-header.create, v = false)
+        $on-click$: $ftd.set-string($a = $file-header.content, v = *$ftd.empty)
+
+    -- end: ds.row
+
+-- end: ds.row
+
+-- end: file-header
+
+
+
+
+
+
+
+
+
+
+
+-- component file-name-input:
+string $file-full-name:
+
+-- ds.row:
+align-content: left
+
+-- ftd.text-input:
+padding-vertical.px: 8
+padding-horizontal.px: 16
+border-radius.px: 8
+border-width.px: 1
+placeholder: Enter file name
+role: $inherited.types.label-large
+$on-input$: $ftd.set-string($a = $file-name-input.file-full-name, v = $VALUE)
+
+-- end: ds.row
+
+
+-- end: file-name-input
+

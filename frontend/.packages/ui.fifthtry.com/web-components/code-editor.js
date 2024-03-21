@@ -23,6 +23,7 @@ class CodeEditor extends HTMLElement {
     const webComponent = this;
     webComponent.style.width = '100%';
     webComponent.style.height = '100%';
+    webComponent.style.minHeight = '280px';
 
     // Import CodeMirror CSS
     const codemirrorCss = document.createElement('link');
@@ -56,10 +57,14 @@ class CodeEditor extends HTMLElement {
     // Wait for CodeMirror library to be loaded before initializing the editor
     codemirrorJs.onload = () => {
       let data = window.ftd.component_data(this);
-      let initial_content = fastn_utils.getStaticValue(data.file.get().get('content')).trim();
+      let initial_content = "";
+      let file = data.file.get();
+      if (file !== null) {
+        initial_content = fastn_utils.getStaticValue(file.get('content')).trim();
+      }
       let openFile = data.openfile.get();
       if (openFile !== null) {
-        initial_content = fastn_utils.getStaticValue(data.openfile.get().get('text').get().get('content'))
+        initial_content = fastn_utils.getStaticValue(openFile.get('text').get().get('content'))
       }
 
       var editor = CodeMirror.fromTextArea(codeEditor, {
