@@ -65,6 +65,11 @@
       "checksum": "097A5C401B45167C4B7267EEE59AFDB9DBA574EAD304DC50F5A2A3BF228CEA2F",
       "size": 158
     },
+    "actions/sites/settings/environment.ftd": {
+      "name": "actions/sites/settings/environment.ftd",
+      "checksum": "8BE6EC74B2398BBAC6D328C44A0EC1581FF5F2F23D29514FC246E894AF649ECA",
+      "size": 485
+    },
     "actions/sites/tokens/create-token.ftd": {
       "name": "actions/sites/tokens/create-token.ftd",
       "checksum": "EC4D117BDBEA3FCBCE578C0F2D7FF4879E6AC31E04B3DABE82C3C6361ECF741B",
@@ -1202,8 +1207,8 @@
     },
     "components/sites/setting/page.ftd": {
       "name": "components/sites/setting/page.ftd",
-      "checksum": "833CF1F27C332AC088366746D3A341109FE666B52C6D646EB08885D47407A64D",
-      "size": 1782
+      "checksum": "D10AF5ADBB6465A19BFCA29769983E88785D2FE5E60920D2A8F9F95DF7725885",
+      "size": 1971
     },
     "components/sites/show-site-info.ftd": {
       "name": "components/sites/show-site-info.ftd",
@@ -1287,8 +1292,8 @@
     },
     "index.ftd": {
       "name": "index.ftd",
-      "checksum": "E32F9188F53A12691FC1D01078424FA44620BD3572C9B1F38516D96B13562DBB",
-      "size": 2540
+      "checksum": "C0543BEA2B3CBAEC46FA68BFE5E63B5A684F7732DD4608804693EF1327CAA5CA",
+      "size": 2601
     },
     "pages/about/index.ftd": {
       "name": "pages/about/index.ftd",
@@ -1372,8 +1377,8 @@
     },
     "pages/sites/editor.ftd": {
       "name": "pages/sites/editor.ftd",
-      "checksum": "D8FC54E4E03E09E6409239F5DAD35824AFC0BB1C4FDDA51D0DE6372F6744F76D",
-      "size": 4487
+      "checksum": "9237075527053403272D22F7625010D517EB5DCE56CEFF63B8CE21D6EB03CA4D",
+      "size": 5407
     },
     "pages/sites/setting/configure-github.ftd": {
       "name": "pages/sites/setting/configure-github.ftd",
@@ -1384,6 +1389,11 @@
       "name": "pages/sites/setting/domains.ftd",
       "checksum": "71A7D396A10338205E492FA849CB312BB53C47FB86B1F4BFEEA1ABBD37026716",
       "size": 2056
+    },
+    "pages/sites/setting/environments.ftd": {
+      "name": "pages/sites/setting/environments.ftd",
+      "checksum": "B8227FE001F2460D1B2D7AE1A884B786A2C7509760E752CCF94311D95E600FB5",
+      "size": 4243
     },
     "pages/sites/setting/github-configured.ftd": {
       "name": "pages/sites/setting/github-configured.ftd",
@@ -1482,8 +1492,8 @@
     },
     "records/sites.ftd": {
       "name": "records/sites.ftd",
-      "checksum": "CC094B55B8F1A459F7329B6C81E6C41C2271CAE9ED58FED6CA9B9D73624561A2",
-      "size": 1463
+      "checksum": "C30AFCF3EBE3518DDF541B0B4C5DCB7EC2B335173165800A4D0AE06D9CA549ED",
+      "size": 1550
     },
     "records/user-data.ftd": {
       "name": "records/user-data.ftd",
@@ -1610,6 +1620,11 @@
       "checksum": "059D7EC33E3E3AA197F8380D3EE5E3761DB15FA1F1C7686AA89FE9C8DC9A662A",
       "size": 763
     },
+    "scenarios/sites/setting/environments.ftd": {
+      "name": "scenarios/sites/setting/environments.ftd",
+      "checksum": "CD77DE920F793754F34A367C218A5C8A5D3F16537C3E5D9F21EAC8A3A037A91B",
+      "size": 636
+    },
     "scenarios/sites/setting/github-configured.ftd": {
       "name": "scenarios/sites/setting/github-configured.ftd",
       "checksum": "0792D7CC2441A4F5F90DD640A95B9B6798184F57FAE476F6B78FE875845A28A6",
@@ -1627,8 +1642,8 @@
     },
     "scenarios/sites/site-info.ftd": {
       "name": "scenarios/sites/site-info.ftd",
-      "checksum": "66CC40FCE091CD3ED64B127D2F08CF4849FB6671E5EA5B87ABA1EBDC28E51F89",
-      "size": 860
+      "checksum": "814318BBA8463B352E127A237612B63FAA8A6CB0919662CA395E2CAA92C18552",
+      "size": 916
     },
     "scenarios/sites/top-message.ftd": {
       "name": "scenarios/sites/top-message.ftd",
@@ -1677,8 +1692,8 @@
     },
     "scenarios/user/dashboard.ftd": {
       "name": "scenarios/user/dashboard.ftd",
-      "checksum": "93EE97CBD0F44A27F181F43CE03732AA3FA3844E7690AACDF538103CBCAB4AA5",
-      "size": 979
+      "checksum": "69FFE2EF222AB8C1FF5E774B9A5D6B84FAFD48BD769C9AFABEE9C9DC4EE3166A",
+      "size": 1036
     },
     "site-data.ftd": {
       "name": "site-data.ftd",
@@ -1712,5 +1727,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
-  "checksum": "3B489B605BE50B4ACCC6854A5B3BD33E9D4F4538BCDCDEB917A5C2895AFD33FF"
+  "checksum": "874433D745DAB8319961618B2CB75754DD7AE2853A1C111E5AA9D5FFFF778AF7"
 }
