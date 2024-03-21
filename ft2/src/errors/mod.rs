@@ -4,6 +4,9 @@ pub use add_domain::AddDomainError;
 mod common;
 pub use common::{ManageSiteError, OrgManagementAccessError};
 
+mod delete_domain;
+pub use delete_domain::DeleteDomainError;
+
 pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
     fn field_name(&self) -> &'static str;
 }
