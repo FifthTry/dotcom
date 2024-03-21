@@ -1397,8 +1397,8 @@
     },
     "pages/sites/editor.ftd": {
       "name": "pages/sites/editor.ftd",
-      "checksum": "FC9218E7BC0F4C7BD93724E19E4FFEF26CE486414C01A868243870B17946DBD0",
-      "size": 2148
+      "checksum": "75EA5E41BFBA548005414971B437CF23EB512D14AC987CAA51AD2F7F1F5963E1",
+      "size": 3507
     },
     "pages/sites/setting/configure-github.ftd": {
       "name": "pages/sites/setting/configure-github.ftd",
@@ -1747,5 +1747,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
-  "checksum": "A9A591F74716DB6D716EF6EF8DD6FAF1F3A102AF920383F5EA3806F2C9420229"
+  "checksum": "6C7DF7C173E5739076CA19739A43F868E628F17D3E95C8BDEABF92FBB4151232"
 }
