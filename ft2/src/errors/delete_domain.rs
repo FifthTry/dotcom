@@ -1,9 +1,7 @@
 #[derive(Debug)]
 pub enum DeleteDomainError {
-    DomainNotFound,
-    // domain-is-present
-    CannotDeletePrimaryDomain,
-    // cannot-delete-primary-domain
+    DomainNotFound, // domain-is-present
+    CannotDeletePrimaryDomain, // cannot-delete-primary-domain
     CannotDeleteFifthTryDomain, // cannot-delete-fifthtry-domain
 }
 
