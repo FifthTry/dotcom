@@ -12,6 +12,11 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
         "/ft2/site/make-primary-domain/" => Site::action::<site::domain::MakePrimaryDomain>(r),
         "/ft2/site/recheck-domain/" => Site::action::<site::domain::RecheckDomain>(r),
 
+        // site github actions
+        "/ft2/site/github/configure/" => Site::action::<site::github::Configure>(r),
+        "/ft2/site/github/reconfigure/" => Site::action::<site::github::Reconfigure>(r),
+        "/ft2/site/github/remove/" => Site::action::<site::github::Remove>(r),
+
         // site settings
         "/site/setting/domains/" => Site::page::<site::setting::Domains>(r),
         "/site/setting/gh-oidc/" => Site::page::<site::setting::GithubOidc>(r),

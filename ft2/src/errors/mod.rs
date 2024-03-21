@@ -10,6 +10,9 @@ pub use delete_domain::DeleteDomainError;
 mod make_primary_domain;
 pub use make_primary_domain::MakePrimaryDomainError;
 
+mod github;
+pub use github::{GithubRepoFieldError, GithubRepoField};
+
 pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
     fn field_name(&self) -> &'static str;
 }

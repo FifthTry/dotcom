@@ -27,3 +27,42 @@ pub fn validate_domain(domain: &str) -> Result<String, ft_common::ActionError> {
 
     Ok(domain)
 }
+
+
+
+
+// Validation returns msg: github-field-is-not-empty
+pub fn validate_github_org(
+    value: &str,
+) -> Result<String, ft2::errors::GithubRepoFieldError> {
+    if value.is_empty() {
+        return Err(ft2::errors::GithubRepoFieldError::IsEmpty(
+            ft2::errors::GithubRepoField::Organization,
+        ));
+    }
+    Ok(value.to_string())
+}
+
+// Validation returns msg: github-field-is-not-empty
+pub fn validate_github_repo_name(
+    value: &str,
+) -> Result<String, ft2::errors::GithubRepoFieldError> {
+    if value.is_empty() {
+        return Err(ft2::errors::GithubRepoFieldError::IsEmpty(
+            ft2::errors::GithubRepoField::RepoName,
+        ));
+    }
+    Ok(value.to_string())
+}
+
+// Validation returns msg: github-field-is-not-empty
+pub fn validate_github_repo_branch(
+    value: &str,
+) -> Result<String, ft2::errors::GithubRepoFieldError> {
+    if value.is_empty() {
+        return Err(ft2::errors::GithubRepoFieldError::IsEmpty(
+            ft2::errors::GithubRepoField::RepoBranch,
+        ));
+    }
+    Ok(value.to_string())
+}

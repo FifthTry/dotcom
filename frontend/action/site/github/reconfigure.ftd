@@ -11,7 +11,7 @@ string github_repo_branch:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/github/reconfigure/",
+    "/ft2/site/github/reconfigure/",
     "www.fifthtry.com/action/site/github/reconfigure",
     "POST",
     ("site-slug", site_slug),
