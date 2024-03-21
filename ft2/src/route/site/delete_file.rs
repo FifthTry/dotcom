@@ -51,7 +51,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
 #[derive(thiserror::Error, Debug)]
 pub enum DeleteFileError {
     #[error("{0}")]
-    DeleteWasmError(String)
+    DeleteWasmError(String),
 }
 
 impl DeleteFileError {
