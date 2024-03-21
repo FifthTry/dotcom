@@ -1,0 +1,88 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/utils
+-- import: ui.fifthtry.com/web-components
+
+-- import: ui.fifthtry.com/actions/sites/editor/open-file
+-- import: ui.fifthtry.com/actions/sites/editor/save-file
+
+
+
+
+
+-- component edit-ui:
+module open-file: open-file
+module save-file: save-file
+sites-records.file current-file:
+sites-records.site-common-data site:
+string header-title:
+boolean $edit: false
+optional string $content:
+
+-- ds.section-column:
+radius: $ds.radius.zero
+inner-background.solid: $ds.colors.background.base
+
+    -- file-header:
+    save-file: $edit-ui.save-file
+    current-file: $edit-ui.current-file
+    file-name: $edit-ui.header-title
+    site-slug: $edit-ui.site.site-slug
+    $content: $edit-ui.content
+    $edit: $edit-ui.edit
+
+    -- web-components.code-editor: $edit-ui.header-title
+    file: $edit-ui.current-file.text
+    openfile: $edit-ui.open-file.content
+    $content: $edit-ui.content
+
+
+-- end: ds.section-column
+
+
+-- end: edit-ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component file-header:
+module save-file: save-file
+sites-records.file current-file:
+string file-name:
+string site-slug:
+optional string $content:
+boolean $edit: false
+
+-- ds.row:
+width: fill-container
+spacing: $ds.spaces.horizontal-gap.space-between
+background.solid: $ds.colors.background.base
+
+    -- ds.copy-regular: $file-header.file-name
+    style: bold
+
+	-- ds.row:
+    width: hug-content
+
+        -- ds.primary-button: SAVE
+        if: { file-header.content != NULL }
+        $on-click$: $file-header.save-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, content = $file-header.content, updated_at = $file-header.current-file.updated-at)
+
+        -- ds.primary-button: CANCEL
+        $on-click$: $ftd.set-bool($a = $file-header.edit, v = false)
+        $on-click$: $utils.set-null($var = $file-header.content)
+
+    -- end: ds.row
+
+-- end: ds.row
+
+-- end: file-header

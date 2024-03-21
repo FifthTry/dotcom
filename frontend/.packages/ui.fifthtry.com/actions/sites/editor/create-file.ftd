@@ -1,0 +1,10 @@
+-- optional string $create-error:
+
+-- void submit(site_slug, file_name, content, updated_at):
+string site_slug:
+string file_name:
+string content:
+js: $assets.files.assets.functions.js
+
+callAlert("create file name: " + file_name + " site: " + site_slug + " content: " + content)
+;; call submit with http options

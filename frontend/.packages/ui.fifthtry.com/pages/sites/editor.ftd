@@ -1,15 +1,17 @@
 -- import: ui.fifthtry.com/records/sites as sites-records
--- import: ui.fifthtry.com/components/sites/file-tree
--- import: ui.fifthtry.com/components/sites/code-preview
--- import: ui.fifthtry.com/components/sites/file-browser
--- import: ui.fifthtry.com/web-components
+
+-- import: ui.fifthtry.com/components/sites/editor/browser
+-- import: ui.fifthtry.com/components/sites/editor/edit-ui
+-- import: ui.fifthtry.com/components/sites/editor/create-file-ui
+-- import: ui.fifthtry.com/records/user-data as ud
+-- import: ui.fifthtry.com/components/sites/page as p
+
 -- import: ui.fifthtry.com/actions/sites/editor/open-file
 -- import: ui.fifthtry.com/actions/sites/editor/save-file
 -- import: ui.fifthtry.com/actions/sites/editor/delete-file
--- import: ui.fifthtry.com/records/user-data as ud
--- import: ui.fifthtry.com/components/sites/page as p
+-- import: ui.fifthtry.com/actions/sites/editor/create-file
 -- import: ui.fifthtry.com/site-data
--- import: ui.fifthtry.com/utils
+
 
 -- record editor-data:
 sites-records.file-info list files:
@@ -31,10 +33,12 @@ editor-data data:
 module open-file: open-file
 module save-file: save-file
 module delete-file: delete-file
+module create-file: create-file
 string $header-title: *$page.data.current-file.full-name
 optional string top-message:
 boolean $edit: false
 optional string $content:
+boolean $create: false
 
 -- p.page:
 site-data: $page.site-data
@@ -44,149 +48,37 @@ current-page: editor
 dashboard-url: $page.dashboard-url
 top-message: $page.top-message
 
-	-- ds.section-row:
-	radius: $ds.radius.zero
-	inner-background.solid: $ds.colors.background.base
-	;; css: [ $assets.files.assets.css.code-editor.css, $assets.files.assets.css.code-preview.css ]
+    -- browser.browser:
+    open-file: $page.open-file
+    delete-file: $page.delete-file
+    files: $page.data.files
+    current-file: $page.data.current-file
+    site: $page.site
+    $header-title: $page.header-title
+    $create: $page.create
+    $edit: $page.edit
+    if: { !page.create && !page.edit }
 
-		/-- code-preview.code-preview:
-		site-base-url: $page.data.site-base-url
-        $site-relative-url: *$page.data.site-relative-url
-		if: { page.data.current-file.filetype != "image" && !page.edit }
+
+    -- edit-ui.edit-ui:
+    open-file: $page.open-file
+    save-file: $page.save-file
+    current-file: $page.data.current-file
+    site: $page.site
+    $edit: $page.edit
+    $content: $page.content
+    header-title: $page.header-title
+    if: { page.edit && page.data.current-file.text != NULL }
 
 
-		-- file-tree.file-tree:
-		files: $page.data.files
-		open-file: $page.open-file
-		$header-title: $page.header-title
-		site-slug: $page.site.site-slug
-
-		-- ds.column:
-		height: fill-container
-		align-content: top-center
-		width: fill-container
-
-		    -- file-header:
-		    data: $page.data
-		    $edit: $page.edit
-		    $content: $page.content
-		    file-name: $page.header-title
-		    save-file: $page.save-file
-		    delete-file: $page.delete-file
-		    openfile: $page.open-file.content
-		    site-slug: $page.site.site-slug
-
-            -- ds.column:
-            width: fill-container
-            align-content: left
-
-            -- browser:
-            data: $page.data
-            open-file: $page.open-file
-            $header-title: $page.header-title
-            if: { !page.edit }
-
-			-- web-components.code-editor: $page.header-title
-			file: $page.data.current-file.text
-			openfile: $page.open-file.content
-			$content: $page.content
-			if: { page.edit && page.data.current-file.text != NULL }
-
-			-- ftd.text: $page.open-file.open-error
-			$on-click-outside$: $utils.set-null($var = $page.open-file.open-error)
-            if: { page.open-file.open-error != NULL }
-            color: red
-            role: $inherited.types.copy-small
-
-            -- ftd.text: $page.save-file.save-error
-            $on-click-outside$: $utils.set-null($var = $page.save-file.save-error)
-            if: { page.save-file.save-error != NULL }
-            color: red
-            role: $inherited.types.copy-small
-
-            -- ftd.text: $page.delete-file.delete-error
-            $on-click-outside$: $utils.set-null($var = $page.delete-file.delete-error)
-            if: { page.delete-file.delete-error != NULL }
-            color: red
-            role: $inherited.types.copy-small
-
-			-- end: ds.column
-
-		-- end: ds.column
-
-	-- end: ds.section-row
+    -- create-file-ui.create-file-ui:
+    create-file: $page.create-file
+    site: $page.site
+    $create: $page.create
+    if: { page.create }
 
 -- end: p.page
 
 -- end: page
 
-
-
-
-
--- component file-header:
-editor-data data:
-boolean $edit: false
-optional string $content:
-string file-name:
-string site-slug:
-module save-file: save-file
-module delete-file: delete-file
-optional sites-records.file openfile:
-
--- ds.row:
-width: fill-container
-align-content: right
-;; spacing: $ds.spaces.horizontal-gap.space-between
-background.solid: $ds.colors.background.base
-
-	-- ds.row:
-    width: hug-content
-
-        -- ds.primary-button: EDIT
-        if: { file-header.data.current-file.text != NULL && !file-header.edit && file-header.openfile == NULL }
-        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
-
-        -- ds.primary-button: EDIT
-        if: { file-header.openfile != NULL && file-header.openfile.text != NULL }
-        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
-
-        -- ds.primary-button: DELETE
-        $on-click$: $file-header.delete-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, updated_at = $file-header.data.current-file.updated-at)
-
-        -- ds.primary-button: SAVE
-        if: { file-header.content != NULL }
-        $on-click$: $file-header.save-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, content = $file-header.content, updated_at = $file-header.data.current-file.updated-at)
-
-    -- end: ds.row
-
--- end: ds.row
-
--- end: file-header
-
-
-
-
-
-
--- component browser:
-editor-data data:
-module open-file: open-file
-string $header-title:
-
--- ds.column:
-
-    -- file-browser.file-browser:
-    file: $browser.open-file.content
-    title: $browser.header-title
-    if: { browser.open-file.content != NULL }
-
-    -- file-browser.file-browser:
-    file: $browser.data.current-file
-    title: $browser.header-title
-    if: { browser.open-file.content == NULL }
-
--- end: ds.column
-
--- end: browser
 

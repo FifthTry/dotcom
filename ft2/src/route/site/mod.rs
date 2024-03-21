@@ -12,7 +12,14 @@ pub mod domain;
 mod delete_file;
 pub use delete_file::DeleteFile;
 
+mod create_file;
+pub use create_file::CreateFile;
+
+mod save_file;
+pub use save_file::SaveFile;
+
 pub mod setting;
+
 
 /// Site category is for views that only site members can access.
 pub struct Site {
