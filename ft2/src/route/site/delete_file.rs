@@ -60,14 +60,15 @@ impl DeleteFileError {
             DeleteFileError::DeleteWasmError(error) => error.to_owned(),
         };
 
-        ft_common::ActionError::single_error(
-            "delete",
-            error.as_str(),
-        )
+        ft_common::ActionError::single_error("delete", error.as_str())
     }
 }
 
-fn delete_file(site_id: i64, path: &str, updated_at: chrono::DateTime<chrono::Utc>) -> Result<(), DeleteFileError> {
+fn delete_file(
+    site_id: i64,
+    path: &str,
+    updated_at: chrono::DateTime<chrono::Utc>,
+) -> Result<(), DeleteFileError> {
     #[derive(serde::Serialize)]
     struct InputData {
         site_id: i64,
