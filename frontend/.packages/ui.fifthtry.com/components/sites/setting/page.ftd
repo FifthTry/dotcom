@@ -59,6 +59,11 @@ sites-records.site-common-data site:
         is-active if { setting-left-column.current-page == "github" }: true
         link: $setting-left-column.site.github-url
 
+        -- sites-header.tab-link: Environments
+        is-active if { setting-left-column.current-page == "environments" }: true
+        link: $setting-left-column.site.environments-url
+
     -- end: ds.column
 
 -- end: setting-left-column
+

@@ -13,6 +13,7 @@ string cr-list-url:
 string domains-url:
 string updated-on:
 ftd.image-src preview-image:
+string environments-url:
 
 
 
@@ -58,3 +59,8 @@ string url:
 optional file-text text:
 optional string error:
 string updated-at:
+
+-- record environment:
+integer id:
+string key:
+string value:

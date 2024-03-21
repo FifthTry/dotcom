@@ -52,6 +52,7 @@ spacing: $ds.spaces.vertical-gap.medium.gap
     - [Github (Un-configured)](/scenarios/sites/setting/github/)
     - [Github (Configured)](/scenarios/sites/setting/github-configured/)
     - [Site Tokens](/scenarios/sites/setting/tokens/)
+    - [Environments](/scenarios/sites/setting/environments/)
 
 	-- page-block: Site Editor Pages
 	

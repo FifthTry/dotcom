@@ -41,7 +41,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
             ));
         }
 
-        match delete_file(c.site_data.id, self.file_name.as_str()) {
+        match delete_file(c.site_data.id, self.file_name.as_str(), self.updated_at) {
             Ok(()) => Ok(ft_sdk::ActionOutput::Reload),
             Err(e) => Err(e.get_action_error()),
         }
@@ -50,38 +50,39 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
 
 #[derive(thiserror::Error, Debug)]
 pub enum DeleteFileError {
-    #[error("Cant delete file")]
-    CantDeleteFile,
+    #[error("{0}")]
+    DeleteWasmError(String)
 }
 
 impl DeleteFileError {
     fn get_action_error(&self) -> ft_common::ActionError {
-        match self {
-            DeleteFileError::CantDeleteFile => ft_common::ActionError::single_error(
-                "delete",
-                "Something went wrong. Can't Delete File. Try again later.",
-            ),
-        }
+        let error = match self {
+            DeleteFileError::DeleteWasmError(error) => error.to_owned(),
+        };
+
+        ft_common::ActionError::single_error(
+            "delete",
+            error.as_str(),
+        )
     }
 }
 
-fn delete_file(site_id: i64, path: &str) -> Result<(), DeleteFileError> {
+fn delete_file(site_id: i64, path: &str, updated_at: chrono::DateTime<chrono::Utc>) -> Result<(), DeleteFileError> {
     #[derive(serde::Serialize)]
-    struct GetContentInputData {
+    struct InputData {
         site_id: i64,
         path: String,
+        updated_at: chrono::DateTime<chrono::Utc>,
     }
 
-    let (ptr, len) = ft_sys::memory::json_ptr(GetContentInputData {
+    let (ptr, len) = ft_sys::memory::json_ptr(InputData {
         site_id,
         path: path.to_string(),
+        updated_at,
     });
     let ptr = unsafe { hostn_delete_file(ptr, len) };
-    let value = ft_sys::memory::json_from_ptr::<bool>(ptr);
-    if !value {
-        return Err(DeleteFileError::CantDeleteFile);
-    }
-    Ok(())
+    let value = ft_sys::memory::json_from_ptr::<Result<(), String>>(ptr);
+    value.map_err(|e| DeleteFileError::DeleteWasmError(e))
 }
 
 extern "C" {

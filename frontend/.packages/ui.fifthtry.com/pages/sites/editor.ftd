@@ -9,6 +9,7 @@
 -- import: ui.fifthtry.com/records/user-data as ud
 -- import: ui.fifthtry.com/components/sites/page as p
 -- import: ui.fifthtry.com/site-data
+-- import: ui.fifthtry.com/utils
 
 -- record editor-data:
 sites-records.file-info list files:
@@ -75,6 +76,10 @@ top-message: $page.top-message
 		    openfile: $page.open-file.content
 		    site-slug: $page.site.site-slug
 
+            -- ds.column:
+            width: fill-container
+            align-content: left
+
             -- browser:
             data: $page.data
             open-file: $page.open-file
@@ -86,6 +91,26 @@ top-message: $page.top-message
 			openfile: $page.open-file.content
 			$content: $page.content
 			if: { page.edit && page.data.current-file.text != NULL }
+
+			-- ftd.text: $page.open-file.open-error
+			$on-click-outside$: $utils.set-null($var = $page.open-file.open-error)
+            if: { page.open-file.open-error != NULL }
+            color: red
+            role: $inherited.types.copy-small
+
+            -- ftd.text: $page.save-file.save-error
+            $on-click-outside$: $utils.set-null($var = $page.save-file.save-error)
+            if: { page.save-file.save-error != NULL }
+            color: red
+            role: $inherited.types.copy-small
+
+            -- ftd.text: $page.delete-file.delete-error
+            $on-click-outside$: $utils.set-null($var = $page.delete-file.delete-error)
+            if: { page.delete-file.delete-error != NULL }
+            color: red
+            role: $inherited.types.copy-small
+
+			-- end: ds.column
 
 		-- end: ds.column
 
@@ -164,3 +189,4 @@ string $header-title:
 -- end: ds.column
 
 -- end: browser
+
