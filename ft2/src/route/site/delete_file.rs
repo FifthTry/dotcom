@@ -34,12 +34,12 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
                 "This site cannot be updated using editor. Help: Use clift to update.",
             ));
         }
-        if self.updated_at.lt(&c.site_data.updated_at) {
-            return Err(ft_common::ActionError::single_error(
-                "delete",
-                "Looks like content has been updated.",
-            ));
-        }
+        // if self.updated_at.lt(&c.site_data.updated_at) {
+        //     return Err(ft_common::ActionError::single_error(
+        //         "delete",
+        //         "Looks like content has been updated.",
+        //     ));
+        // }
 
         match delete_file(c.site_data.id, self.file_name.as_str(), self.updated_at) {
             Ok(()) => Ok(ft_sdk::ActionOutput::Reload),
