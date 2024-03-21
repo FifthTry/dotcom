@@ -13,6 +13,12 @@ pub use make_primary_domain::MakePrimaryDomainError;
 mod github;
 pub use github::{GithubRepoFieldError, GithubRepoField};
 
+mod create_token;
+pub use create_token::CreateTokenError;
+
+mod delete_token;
+pub use delete_token::DeleteTokenError;
+
 pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
     fn field_name(&self) -> &'static str;
 }

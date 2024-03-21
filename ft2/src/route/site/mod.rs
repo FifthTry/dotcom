@@ -14,6 +14,7 @@ pub use delete_file::DeleteFile;
 
 pub mod setting;
 pub mod github;
+pub mod token;
 
 /// Site category is for views that only site members can access.
 pub struct Site {

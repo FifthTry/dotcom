@@ -17,6 +17,10 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
         "/ft2/site/github/reconfigure/" => Site::action::<site::github::Reconfigure>(r),
         "/ft2/site/github/remove/" => Site::action::<site::github::Remove>(r),
 
+        // site token actions
+        "/ft2/site/token/create/" => Site::action::<site::token::Create>(r),
+        "/ft2/site/token/delete/" => Site::action::<site::token::Delete>(r),
+
         // site settings
         "/site/setting/domains/" => Site::page::<site::setting::Domains>(r),
         "/site/setting/gh-oidc/" => Site::page::<site::setting::GithubOidc>(r),

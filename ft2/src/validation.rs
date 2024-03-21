@@ -66,3 +66,16 @@ pub fn validate_github_repo_branch(
     }
     Ok(value.to_string())
 }
+
+pub fn validate_token_about(
+    about: &str,
+) -> Result<String, ft2::errors::CreateTokenError> {
+    let about = about.trim().to_string();
+
+    if about.is_empty() {
+        return Err(ft2::errors::CreateTokenError::IsEmpty);
+    }
+
+    Ok(about)
+}
+
