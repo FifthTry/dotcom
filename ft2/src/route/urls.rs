@@ -6,6 +6,9 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
         // site
         "/site/info/" => Site::page::<site::Info>(r),
 
+        // site domain actions
+        "/ft2/site/add-domain/" => Site::action::<site::domain::AddDomain>(r),
+
         // site settings
         "/site/setting/domains/" => Site::page::<site::setting::Domains>(r),
         "/site/setting/gh-oidc/" => Site::page::<site::setting::GithubOidc>(r),
