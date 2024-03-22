@@ -64,3 +64,11 @@ string updated-at:
 integer id:
 string key:
 string value:
+
+
+
+-- record editor-data:
+file-info list files:
+file current-file:
+string site-base-url:
+string site-relative-url:

@@ -1,7 +1,16 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/utils
+
+
 -- component code-preview:
 string site-base-url:
 string $site-relative-url:
 integer $device-selected: 1
+boolean create:
+boolean edit:
+boolean $preview:
+sites-records.file current-file:
+optional sites-records.file openfile:
 
 -- ftd.column:
 
@@ -9,9 +18,17 @@ integer $device-selected: 1
 site-base-url: $code-preview.site-base-url
 $site-relative-url: $code-preview.site-relative-url
 $device-selected: $code-preview.device-selected
+$preview: $code-preview.preview
 
 -- expander:
 device-selected: $code-preview.device-selected
+
+-- mover:
+create: $code-preview.create
+edit: $code-preview.edit
+preview: $code-preview.preview
+current-file: $code-preview.current-file
+openfile: $code-preview.openfile
 
 -- end: ftd.column
 
@@ -38,14 +55,33 @@ boolean expand: $add-expandable(selected = $expander.device-selected)
 
 
 
+-- component mover:
+boolean create:
+boolean edit:
+boolean preview:
+sites-records.file current-file:
+optional sites-records.file openfile:
+boolean move: $add-mover(create = $mover.create, edit = $mover.edit, current_file = $mover.current-file, openfile = $mover.current-file, preview = $mover.preview)
+
+-- ftd.column:
+
+-- end: mover
+
+
+
+
+
+
+
 
 
 -- component code-preview-helper:
 string site-base-url:
 string $site-relative-url:
-string url: $full-url(a = $code-preview-helper.site-base-url, b = $code-preview-helper.site-relative-url)
+string url: $utils.full-url(a = $code-preview-helper.site-base-url, b = $code-preview-helper.site-relative-url)
 boolean $expand: true
 integer $device-selected:
+boolean $preview:
 
 
 -- ftd.column:
@@ -70,6 +106,7 @@ classes if { code-preview-helper.device-selected == 2 }: tablet
 
         -- control-panel:
         $selected: $code-preview-helper.device-selected
+        $preview: $code-preview-helper.preview
         devices: $devices
 
         -- navigation-bar:
@@ -277,24 +314,35 @@ height: 500
 -- component control-panel:
 device-info list devices:
 integer $selected:
+boolean $preview:
 
 -- ftd.row:
 anchor: parent
 top.px: -41
 top.px if {control-panel.selected == 2}: -53
 left.px: -12
-spacing.fixed.px: 5
+spacing: space-between
+width: fill-container
 
-    -- ftd.image:
-    src: $assets.files.assets.move-icon.svg
-    width.fixed.px: 20
-    cursor: move
-    id: header
+    -- ftd.row:
+    spacing.fixed.px: 5
     align-self: center
 
-    -- device-dropdown:
-    $selected: $control-panel.selected
-    devices: $devices
+        -- ftd.image:
+        src: $assets.files.assets.move-icon.svg
+        width.fixed.px: 20
+        cursor: move
+        id: header
+        align-self: center
+
+        -- device-dropdown:
+        $selected: $control-panel.selected
+        devices: $devices
+
+    -- end: ftd.row
+
+    -- ds.copy-large: X
+    $on-click$: $ftd.set-bool($a = $control-panel.preview, v = false)
 
 -- end: ftd.row
 
@@ -383,11 +431,7 @@ width.fixed.px: 10
 
 
 
--- string full-url(a,b):
-string a:
-string b:
 
-a + b
 
 
 
@@ -415,3 +459,15 @@ js: $assets.files.assets.js.code-preview.js
 
 
 addExpandable(selected)
+
+
+-- boolean add-mover(create, edit, current_file, openfile):
+boolean create:
+boolean edit:
+boolean preview:
+sites-records.file current_file:
+optional sites-records.file openfile:
+js: $assets.files.assets.js.code-preview.js
+
+
+addMover(create, edit, preview, current_file, openfile)

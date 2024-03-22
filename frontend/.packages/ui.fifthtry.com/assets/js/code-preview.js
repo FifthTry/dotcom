@@ -8,6 +8,16 @@ function addExpandable(device) {
     return true;
 }
 
+
+function addMover(create, edit, preview, current_file, openfile) {
+    let component = document.getElementById("preview-container");
+    if (component !== null && preview.get() && !create.get() && !edit.get() && ((openfile.get() !== null && openfile.get().get("filetype").get() !== "image") || (openfile.get() === null && current_file.get().get("filetype").get() !== "image"))) {
+        dragElement(component);
+        return false;
+    }
+    return true;
+}
+
 function dragElement(element) {
     // Reference to the entire window
     const windowElement = element;

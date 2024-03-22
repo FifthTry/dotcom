@@ -8,7 +8,7 @@ string updated_at:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/site/save-content/",
+    "/ft2/site/save-file/",
     "www.fifthtry.com/action/site/editor/save-file",
     "POST",
     ("file-name", file_name),

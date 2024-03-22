@@ -4,6 +4,7 @@
 -- import: www.fifthtry.com/action/site/editor/open-file
 -- import: www.fifthtry.com/action/site/editor/save-file
 -- import: www.fifthtry.com/action/site/editor/delete-file
+-- import: www.fifthtry.com/action/site/editor/create-file
 -- import: fastn/processors as pr
 
 -- string site-slug:
@@ -22,12 +23,14 @@ data: $data.page
 open-file: open-file
 save-file: save-file
 delete-file: delete-file
+create-file: create-file
+
 
 -- record site-info-api:
 sites-records.site-common-data site:
 string dashboard-url:
 ud.user-data ud:
-editor.editor-data page:
+sites-records.editor-data page:
 
 -- site-info-api data:
 $processor$: pr.http

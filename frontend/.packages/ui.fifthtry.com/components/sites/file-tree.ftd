@@ -6,6 +6,7 @@ sr.file-info list files:
 string $header-title: todo
 string site-slug:
 module open-file: open-file
+boolean $create: false
 
 -- ds.column:
 width.fixed.px: 200
@@ -15,7 +16,8 @@ background.solid: $ds.colors.background.step-1
 align-content: top-left
 inset: $ds.spaces.inset-square.medium
 
-	-- label-with-three-dots: FILES
+	-- label-with-plus: FILES
+	$create: $file-tree.create
 	
 	-- ds.column:
 	align-content: top-left
@@ -111,24 +113,21 @@ spacing: $ds.spaces.vertical-gap.extra-small
 
 
 
--- component label-with-three-dots:
+-- component label-with-plus:
 caption label:
-private boolean $dots-hovered: false
+boolean $create: false
 
 -- ds.row:
-align-content: top-left
+align-content: left
 spacing: $ds.spaces.horizontal-gap.space-between
 
-	-- ds.copy-small: $label-with-three-dots.label
+	-- ds.copy-regular: $label-with-plus.label
 	style: bold
-	
-	-- ftd.image: $assets.files.assets.dots-three.svg
-	width.fixed.px: 20
-	opacity: 0.5
-	opacity if { label-with-three-dots.dots-hovered }: 1
-	$on-mouse-enter$: $ftd.set-bool($a = $label-with-three-dots.dots-hovered, v = true)
-	$on-mouse-leave$: $ftd.set-bool($a = $label-with-three-dots.dots-hovered, v = false)
+
+	-- ds.primary-button: \\+
+	size: small
+    $on-click$: $ftd.set-bool($a=$label-with-plus.create, v=true)
 	
 -- end: ds.row
 
--- end: label-with-three-dots
+-- end: label-with-plus

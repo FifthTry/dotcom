@@ -21,3 +21,10 @@ string org_slug:
 optional string $var:
 
 var = null
+
+
+-- string full-url(a,b):
+string a:
+string b:
+
+a + b

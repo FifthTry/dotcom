@@ -96,7 +96,7 @@ pub fn if_user_is_org_member_and_has_manage_permissions(
     };
 
     println!("Found org member with role: {role_s}");
-    let role: ft_common::MemberRole = role_s.as_str().into();
+    let role: ft2::MemberRole = role_s.as_str().into();
 
     if !role.has_manage_permissions() {
         // Validation returns msg: unauthorized-role

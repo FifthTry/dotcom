@@ -31,6 +31,8 @@ pub fn route(r: http::Request<bytes::Bytes>) -> http::Response<bytes::Bytes> {
         "/site/editor/" => Site::page::<site::Editor>(r),
         "/ft2/site/get-content/" => Site::action::<site::GetContent>(r),
         "/ft2/site/delete-file/" => Site::action::<site::DeleteFile>(r),
+        "/ft2/site/create-file/" => Site::action::<site::CreateFile>(r),
+        "/ft2/site/save-file/" => Site::action::<site::SaveFile>(r),
 
         // public
         "/public/user-data/" => Public::page::<public::UserData>(r),

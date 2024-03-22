@@ -1,0 +1,190 @@
+-- import: ui.fifthtry.com/records/sites as sites-records
+-- import: ui.fifthtry.com/components/sites/file-tree
+-- import: ui.fifthtry.com/components/sites/file-browser
+-- import: ui.fifthtry.com/components/sites/code-preview
+-- import: ui.fifthtry.com/utils
+
+-- import: ui.fifthtry.com/actions/sites/editor/open-file
+-- import: ui.fifthtry.com/actions/sites/editor/delete-file
+
+
+
+-- component browser:
+module open-file: open-file
+module delete-file: delete-file
+sites-records.editor-data data:
+sites-records.site-common-data site:
+string $header-title:
+boolean $create:
+boolean $edit:
+boolean $preview: false
+
+-- ds.section-row:
+radius: $ds.radius.zero
+inner-background.solid: $ds.colors.background.base
+
+    -- code-preview.code-preview:
+    site-base-url: $browser.data.site-base-url
+    $site-relative-url: *$browser.data.site-relative-url
+    create: $browser.create
+    edit: $browser.edit
+    $preview: $browser.preview
+    current-file: $browser.data.current-file
+    openfile: $browser.open-file.content
+    if: { browser.preview && browser.data.current-file.filetype != "image" }
+
+    -- file-tree.file-tree:
+    files: $browser.data.files
+    open-file: $browser.open-file
+    $header-title: $browser.header-title
+    site-slug: $browser.site.site-slug
+    $create: $browser.create
+
+    -- ds.column:
+    height: fill-container
+    align-content: top-center
+    width: fill-container
+
+        -- file-header:
+        data: $browser.data
+        openfile: $browser.open-file.content
+        $edit: $browser.edit
+        $preview: $browser.preview
+        file-name: $browser.header-title
+        site-slug: $browser.site.site-slug
+        delete-file: $browser.delete-file
+
+        -- browser-ui:
+        current-file: $browser.data.current-file
+        open-file: $browser.open-file
+        header-title: $browser.header-title
+
+    -- end: ds.column
+
+-- end: ds.section-row
+
+
+-- end: browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component file-header:
+sites-records.editor-data data:
+optional sites-records.file openfile:
+boolean $edit: false
+boolean $preview:
+string file-name:
+string site-slug:
+module delete-file: delete-file
+
+-- ds.row:
+width: fill-container
+align-content: right
+background.solid: $ds.colors.background.base
+
+	-- ds.row:
+    width: hug-content
+
+        -- ftd.row:
+        align-self: center
+        margin-top.px: 6
+        if: { file-header.data.current-file.filetype != "image" }
+
+            -- ftd.text: PREVIEW
+            if: { !file-header.preview }
+            $on-click$: $ftd.set-bool($a=$file-header.preview, v=true)
+            background.solid: $ds.colors.cta-primary.base
+            color: $ds.colors.cta-primary.text
+            border-top-left-radius.px: 8
+            border-bottom-left-radius.px: 8
+            padding-vertical.px: 8
+            padding-left.px: 16
+            padding-right.px: 9
+            role: $ds.types.link
+
+            -- ftd.image:
+            if: { !file-header.preview }
+            src: $assets.files.assets.sites.open.svg
+            background.solid: $ds.colors.cta-primary.base
+            border-top-right-radius.px: 8
+            border-bottom-right-radius.px: 8
+            border-left-width.px: 1
+            border-color: white
+            padding-vertical.px: 7
+            padding-left.px: 9
+            padding-right.px: 16
+            link: $utils.full-url(a = $file-header.data.site-base-url, b = $file-header.data.site-relative-url)
+            open-in-new-tab: true
+
+            -- ftd.image:
+            if: { file-header.preview }
+            src: $assets.files.assets.sites.open.svg
+            background.solid: $ds.colors.cta-primary.base
+            border-radius.px: 8
+            padding-vertical.px: 7
+            padding-horizontal.px: 16
+            link: $utils.full-url(a = $file-header.data.site-base-url, b = $file-header.data.site-relative-url)
+            open-in-new-tab: true
+
+        -- end: ftd.row
+
+        -- ds.primary-button: EDIT
+        if: { file-header.data.current-file.text != NULL && !file-header.edit && file-header.openfile == NULL }
+        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
+
+        -- ds.primary-button: EDIT
+        if: { file-header.openfile != NULL && file-header.openfile.text != NULL }
+        $on-click$: $ftd.set-bool($a=$file-header.edit, v=true)
+
+        -- ds.primary-button: DELETE
+        $on-click$: $file-header.delete-file.submit(site_slug = $file-header.site-slug, file_name = $file-header.file-name, updated_at = $file-header.data.current-file.updated-at)
+
+    -- end: ds.row
+
+-- end: ds.row
+
+-- end: file-header
+
+
+
+
+
+
+
+
+
+
+
+
+-- component browser-ui:
+sites-records.file current-file:
+module open-file: open-file
+string header-title:
+
+-- ds.column:
+
+    -- file-browser.file-browser:
+    file: $browser-ui.open-file.content
+    title: $browser-ui.header-title
+    if: { browser-ui.open-file.content != NULL }
+
+    -- file-browser.file-browser:
+    file: $browser-ui.current-file
+    title: $browser-ui.header-title
+    if: { browser-ui.open-file.content == NULL }
+
+-- end: ds.column
+
+-- end: browser-ui
