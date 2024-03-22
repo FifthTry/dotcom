@@ -61,10 +61,43 @@ function upload-frontend-github() {
 function upload-frontend-prod() {
     pushd2 "${PROJ_ROOT}/frontend" || return 1
 
+    if [ -z "$(git status --porcelain)" ]; then
+      echo "working directory clean"
+    else
+      git status
+      echo "working directory dirty"
+      return 1
+    fi
+
+    cd ../../ft || return 1
+
+    if [ -z "$(git status --porcelain)" ]; then
+      echo "ft working directory clean"
+    else
+      git status
+      echo "ft working directory dirty"
+      return 1
+    fi
+
+    ft_hash="$(git describe --tags --always)"
+    expected_hash="1623c3eb"
+
+    if [ "$ft_hash" == "$expected_hash" ]; then
+      echo "ft has correct hash"
+    else
+      echo "ft commit hash is $ft_hash, expected $expected_hash"
+      return 1
+    fi
+
+    cd ../dotcom/frontend || return 1
+    git describe --tags --always >> frontend/dotcom.commit.hash
     rm frontend/.gitignore
+
     FIFTHTRY_SITE_WRITE_TOKEN=$(cat ../token.txt) \
-      clift upload ft
+      echo "going to upload"  # clift upload ft
+
     echo '*.wasm' > frontend/.gitignore
+    rm frontend/dotcom.commit.hash
 
     popd2
 }
