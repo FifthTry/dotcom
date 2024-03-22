@@ -19,6 +19,8 @@ mod save_file;
 pub use save_file::SaveFile;
 
 pub mod setting;
+pub mod github;
+pub mod token;
 
 
 /// Site category is for views that only site members can access.

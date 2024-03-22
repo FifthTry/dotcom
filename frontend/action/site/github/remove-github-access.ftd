@@ -5,7 +5,7 @@ string site_slug:
 js: $assets.files.js.http.js
 
 http(
-    "/ft-ep/action/github/remove/",
+    "/ft2/site/github/remove/",
     "www.fifthtry.com/action/site/github/remove-github-access",
     "POST",
     ("site-slug", site_slug),

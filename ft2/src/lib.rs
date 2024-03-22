@@ -6,6 +6,7 @@ mod file;
 mod route;
 mod ud;
 pub mod validation;
+pub mod uuid;
 mod member_role;
 
 pub use file::{file_type, File, FileText, FileTextError, FileType};
