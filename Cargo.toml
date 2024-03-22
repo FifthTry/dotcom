@@ -35,3 +35,4 @@ ft-common = { path = "../ft/ft-common", features = ["wasm"], default-features = 
 diesel = "2"
 regex = "1"
 once_cell = "1"
+rand = "0.5"

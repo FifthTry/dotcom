@@ -59,12 +59,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Create {
     }
 }
 
-// todo: fix this - uuid not supported default for wasm-unknown-unknown target
-// pub fn generate_token() -> String {
-//     uuid::Uuid::new_v4().to_string()
-// }
-
-// todo: remove this when above is fixed
 pub fn generate_token() -> String {
-    "token".to_string()
+    let seed: f64 = ft_sdk::env::random();
+    ft2::uuid::gen_uuid_with_xorshift(seed)
 }
