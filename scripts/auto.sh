@@ -78,7 +78,7 @@ function upload-frontend-prod() {
     fi
 
     ft_hash="$(git describe --tags --always)"
-    expected_hash="1623c3eb"  # <-- update this line when updating ft
+    expected_hash="a6820c78"  # <-- update this line when updating ft
 
     if [[ "$ft_hash" == "$expected_hash" ]]; then
       echo "ft has correct hash"
