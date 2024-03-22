@@ -8797,8 +8797,8 @@
         },
         "assets/js/code-preview.js": {
           "name": "assets/js/code-preview.js",
-          "checksum": "87FA11DF047D3B2FB6022E05FEB12E2DE86002D1F2B9A5521B83EA51823A1CFD",
-          "size": 5374
+          "checksum": "5CF02FAF3C06B98909F676129D8E10047E3B7C5AE845C9E979B30FF9D936788C",
+          "size": 5835
         },
         "assets/light-mode-dark.svg": {
           "name": "assets/light-mode-dark.svg",
@@ -9522,13 +9522,13 @@
         },
         "components/sites/code-preview.ftd": {
           "name": "components/sites/code-preview.ftd",
-          "checksum": "6E81CD7986F57CEB6650F6F8B8E2DBA7D4F5E0BE48B84E894B47BDCCF074ED60",
-          "size": 7743
+          "checksum": "B2E601BB3BA9CFAB81F9CD50896FCE2FBBA75BF0E8A5BBDB7B77BEC79496029C",
+          "size": 9057
         },
         "components/sites/editor/browser.ftd": {
           "name": "components/sites/editor/browser.ftd",
-          "checksum": "BA9838A57713FA4DCB5568C5087603E706AF362C9DD85253A54CE08BF5DC1F11",
-          "size": 2960
+          "checksum": "506283A240407275CD2B6A7B6528BD609AF8242E8825AED0077EBE0BFFB3D5A0",
+          "size": 5054
         },
         "components/sites/editor/create-file-ui.ftd": {
           "name": "components/sites/editor/create-file-ui.ftd",
@@ -9732,8 +9732,8 @@
         },
         "pages/sites/editor.ftd": {
           "name": "pages/sites/editor.ftd",
-          "checksum": "75EA5E41BFBA548005414971B437CF23EB512D14AC987CAA51AD2F7F1F5963E1",
-          "size": 3507
+          "checksum": "EBDB38121B75CC2E3463A636163E5CC0AA2EC7608F91ED542CDAB26A74282D31",
+          "size": 3330
         },
         "pages/sites/setting/configure-github.ftd": {
           "name": "pages/sites/setting/configure-github.ftd",
@@ -9847,8 +9847,8 @@
         },
         "records/sites.ftd": {
           "name": "records/sites.ftd",
-          "checksum": "C30AFCF3EBE3518DDF541B0B4C5DCB7EC2B335173165800A4D0AE06D9CA549ED",
-          "size": 1550
+          "checksum": "5F7D8190EB8B11A62F7EFAAEABB35DBED82FC2181B386FF036118C631C959999",
+          "size": 1665
         },
         "records/user-data.ftd": {
           "name": "records/user-data.ftd",
@@ -9957,13 +9957,13 @@
         },
         "scenarios/sites/editor/image-preview.ftd": {
           "name": "scenarios/sites/editor/image-preview.ftd",
-          "checksum": "E9EB9D26A5409D426A5DD365F05A9422547168171DF3B8E1E8C7746ADBA4CF89",
-          "size": 1105
+          "checksum": "3BBF1E1E171F421E592E96F2AE46BA8AED6A002F31B8BC61D50C66B0ADE64FE1",
+          "size": 1101
         },
         "scenarios/sites/editor/index.ftd": {
           "name": "scenarios/sites/editor/index.ftd",
-          "checksum": "570E1FEC7C4B75FB5D49D7D04A278FFE12D0324B7F4A3C6F49C99D0226CD334A",
-          "size": 1155
+          "checksum": "87AFD1421B0E4794B96240769B0FA98419460CDE66BEE6BB1E302BC116AF70AA",
+          "size": 1151
         },
         "scenarios/sites/setting/configure-github.ftd": {
           "name": "scenarios/sites/setting/configure-github.ftd",
@@ -10057,8 +10057,8 @@
         },
         "utils.ftd": {
           "name": "utils.ftd",
-          "checksum": "5819C77E93D44BCE0038371A118AAEB4A902353F85EABE45C3FA4723C1CE9B7E",
-          "size": 341
+          "checksum": "F20F4C66CD196A172CD2ACD9C26BE607F6257521C2C5170E3506D408A439C101",
+          "size": 395
         },
         "vercel.json": {
           "name": "vercel.json",
@@ -10082,7 +10082,7 @@
         }
       },
       "zip_url": "https://codeload.github.com/fifthtry/ui/zip/refs/heads/main",
-      "checksum": "6C7DF7C173E5739076CA19739A43F868E628F17D3E95C8BDEABF92FBB4151232"
+      "checksum": "D209228DA3A94CA804B769E55D860E274F8AE8BBEB35EE0E6D810E3BEEA8509E"
     }
   }
 }

@@ -13,7 +13,7 @@ data: $data
 
 
 
--- editor.editor-data data:
+-- sr.editor-data data:
 files: $files
 current-file: $current-file
 ;; site-homepage-url: https://www.fastn.com/

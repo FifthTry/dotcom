@@ -14,13 +14,6 @@
 -- import: ui.fifthtry.com/site-data
 
 
--- record editor-data:
-sites-records.file-info list files:
-sites-records.file current-file:
-string site-base-url:
-string site-relative-url:
-
-
 
 
 
@@ -30,7 +23,7 @@ module site-data: site-data
 ud.user-data user-data:
 sites-records.site-common-data site:
 string dashboard-url:
-editor-data data:
+sites-records.editor-data data:
 module open-file: open-file
 module save-file: save-file
 module delete-file: delete-file
@@ -52,8 +45,7 @@ top-message: $page.top-message
     -- browser.browser:
     open-file: $page.open-file
     delete-file: $page.delete-file
-    files: $page.data.files
-    current-file: $page.data.current-file
+    data: $page.data
     site: $page.site
     $header-title: $page.header-title
     $create: $page.create

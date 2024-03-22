@@ -30,7 +30,7 @@ create-file: create-file
 sites-records.site-common-data site:
 string dashboard-url:
 ud.user-data ud:
-editor.editor-data page:
+sites-records.editor-data page:
 
 -- site-info-api data:
 $processor$: pr.http
