@@ -64,7 +64,6 @@ function upload-frontend-prod() {
     if [ -z "$(git status --porcelain)" ]; then
       echo "working directory clean"
     else
-      git status
       echo "working directory dirty"
       return 1
     fi
@@ -74,7 +73,6 @@ function upload-frontend-prod() {
     if [ -z "$(git status --porcelain)" ]; then
       echo "ft working directory clean"
     else
-      git status
       echo "ft working directory dirty"
       return 1
     fi
@@ -82,7 +80,7 @@ function upload-frontend-prod() {
     ft_hash="$(git describe --tags --always)"
     expected_hash="1623c3eb"
 
-    if [ "$ft_hash" == "$expected_hash" ]; then
+    if [[ "$ft_hash" == "$expected_hash" ]]; then
       echo "ft has correct hash"
     else
       echo "ft commit hash is $ft_hash, expected $expected_hash"
@@ -90,15 +88,25 @@ function upload-frontend-prod() {
     fi
 
     cd ../dotcom/frontend || return 1
-    git describe --tags --always >> frontend/dotcom.commit.hash
-    rm frontend/.gitignore
+
+    git describe --tags --always >> dotcom.commit.hash
+    rm .gitignore
+
+    echo "building latest wasm"
+    build-ft2-wasm || return 1
 
     FIFTHTRY_SITE_WRITE_TOKEN=$(cat ../token.txt) \
       echo "going to upload"  # clift upload ft
 
-    echo '*.wasm' > frontend/.gitignore
-    rm frontend/dotcom.commit.hash
+    echo '*.wasm' > .gitignore
+    rm dotcom.commit.hash
 
+    popd2
+}
+
+function reload-auto() {
+    pushd2 "${PROJ_ROOT}" || return 1
+    source scripts/auto.sh
     popd2
 }
 
