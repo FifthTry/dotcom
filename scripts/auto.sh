@@ -96,7 +96,7 @@ function upload-frontend-prod() {
     build-ft2-wasm || return 1
 
     FIFTHTRY_SITE_WRITE_TOKEN=$(cat ../token.txt) \
-      echo "going to upload"  # clift upload ft
+      clift upload ft
 
     echo '*.wasm' > .gitignore
     rm dotcom.commit.hash
