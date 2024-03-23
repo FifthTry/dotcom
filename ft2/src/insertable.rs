@@ -65,6 +65,7 @@ pub struct Site {
     pub is_static: bool,
     pub is_public: bool,
     pub is_editable: bool,
+    pub is_package: bool,
     pub domain: String,
     pub created_at: chrono::DateTime<chrono::Utc>,
     pub updated_at: chrono::DateTime<chrono::Utc>,

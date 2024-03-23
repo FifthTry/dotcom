@@ -61,6 +61,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft2::ActionError> for CreateSite {
                     is_static: true,
                     is_public: true,
                     is_editable: true,
+                    is_package: false,
                     domain: site_default_domain.clone(),
                     created_at: i.in_.now,
                     updated_at: i.in_.now,
