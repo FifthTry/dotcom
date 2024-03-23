@@ -54,7 +54,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Configure {
         // Inserting gh-oidc entry
         c.conn.transaction(|conn| {
             match diesel::insert_into(ft_gh_oidc_repo_rule::table)
-                .values(&ft_common::GhOidcRepoRule {
+                .values(ft2::GhOidcRepoRule {
                     gh_repo: github_repo.to_string(),
                     gh_branch: self.github_repo_branch.to_string(),
                     site_id: c.site_data.id,

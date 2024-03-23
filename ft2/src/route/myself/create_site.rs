@@ -55,7 +55,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
         // transaction
         i.conn.transaction(|conn| {
             let site_id: i64 = match diesel::insert_into(ft_site::table)
-                .values(&ft_common::Site {
+                .values(ft2::Site {
                     name: self.site_slug.to_string(),
                     slug: self.site_slug.to_string(),
                     is_static: true,

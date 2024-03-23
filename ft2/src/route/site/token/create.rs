@@ -34,7 +34,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Create {
         // Todo: Handle org rate limit checks later
         c.conn.transaction(|conn| {
             match diesel::insert_into(ft_site_token::table)
-                .values(&ft_common::SiteToken {
+                .values(ft2::SiteToken {
                     about: self.about.clone(),
                     token: generate_token(),
                     can_read: self.can_read,

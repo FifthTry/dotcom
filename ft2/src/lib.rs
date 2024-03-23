@@ -10,11 +10,13 @@ pub mod uuid;
 mod member_role;
 pub mod site;
 pub mod urls;
+pub mod insertable;
 
+pub use insertable::*;
 pub use file::{file_type, File, FileText, FileTextError, FileType};
 pub use route::route;
 pub use ud::{GetUDError, UserData};
-pub use crate::member_role::MemberRole;
+pub use member_role::MemberRole;
 
 #[no_mangle]
 pub extern "C" fn main_ft() {

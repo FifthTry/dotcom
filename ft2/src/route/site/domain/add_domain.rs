@@ -22,7 +22,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
 
         c.conn.transaction(|conn| {
             match diesel::insert_into(ft_domain::table)
-                .values(&ft_common::Domain {
+                .values(ft2::Domain {
                     site_id: c.site_data.id,
                     domain: self.domain.to_string(),
 
