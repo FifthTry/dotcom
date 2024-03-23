@@ -21,7 +21,7 @@ impl ft_sdk::Page<ft2::route::Public, ft_common::ActionError> for UserDashboard 
 pub fn get_all_sites(
     user_id: i64,
     username: &str,
-) -> Result<Vec<ft_common::site::SiteCommonData>, ft_common::ActionError> {
+) -> Result<Vec<ft2::site::SiteCommonData>, ft_common::ActionError> {
     use ft_common::{prelude::*, schema::ft_site};
 
     let mut conn = ft_sdk::default_pg()?;
@@ -35,7 +35,7 @@ pub fn get_all_sites(
 
     let mut sites = vec![];
     for s in sites_data {
-        sites.push(ft_common::site::SiteCommonData::new(
+        sites.push(ft2::site::SiteCommonData::new(
             username,
             s.slug.as_str(),
             s.name.as_str(),
@@ -51,7 +51,7 @@ pub fn get_all_sites(
 // inside sites/dashboard.ftd
 #[derive(Default, Debug, serde::Serialize)]
 pub struct UserDashboard {
-    pub sites: Vec<ft_common::site::SiteCommonData>,
+    pub sites: Vec<ft2::site::SiteCommonData>,
     #[serde(rename = "create-site-url")]
     pub create_site_url: String,
 }

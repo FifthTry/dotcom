@@ -17,7 +17,7 @@ pub fn get_all_sites(
     conn: &mut ft_sdk::PgConnection,
     org_id: i64,
     org_slug: &str,
-) -> Result<Vec<ft_common::site::SiteCommonData>, ft_common::ActionError> {
+) -> Result<Vec<ft2::site::SiteCommonData>, ft_common::ActionError> {
     use ft_common::{prelude::*, schema::ft_site};
 
     // Fetching all sites belonging to the given org
@@ -29,7 +29,7 @@ pub fn get_all_sites(
 
     let mut sites = vec![];
     for s in sites_data {
-        sites.push(ft_common::site::SiteCommonData::new(
+        sites.push(ft2::site::SiteCommonData::new(
             org_slug,
             s.slug.as_str(),
             s.name.as_str(),

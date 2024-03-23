@@ -28,13 +28,13 @@ pub struct Site {
     pub conn: ft_sdk::PgConnection,
     pub in_: ft_sdk::In,
     pub ud: ft2::UserData,
-    pub site_data: ft_common::site::SiteQueryData,
+    pub site_data: ft2::site::SiteQueryData,
 }
 
 #[derive(serde::Serialize)]
 #[serde(rename_all = "kebab-case")]
 pub struct SiteOutput {
-    site: ft_common::site::SiteCommonData,
+    site: ft2::site::SiteCommonData,
     dashboard_url: String,
     ud: ft2::UserData,
     pub page: serde_json::Value,
@@ -74,8 +74,8 @@ impl ft_sdk::Layout for Site {
 
         let site_data = match ft_site::table
             .filter(ft_site::slug.eq(site_slug))
-            .select(ft_common::site::SiteQueryData::as_select())
-            .first::<ft_common::site::SiteQueryData>(&mut conn)
+            .select(ft2::site::SiteQueryData::as_select())
+            .first::<ft2::site::SiteQueryData>(&mut conn)
         {
             Ok(v) => v,
             Err(diesel::NotFound) => {
@@ -123,7 +123,7 @@ impl ft_sdk::Layout for Site {
     fn json(&mut self, page: serde_json::Value) -> Result<serde_json::Value, Self::Error> {
         Ok(serde_json::to_value(SiteOutput {
             page,
-            site: ft_common::site::SiteCommonData::new(
+            site: ft2::site::SiteCommonData::new(
                 &self.ud.username,
                 &self.site_data.slug,
                 &self.site_data.name,
