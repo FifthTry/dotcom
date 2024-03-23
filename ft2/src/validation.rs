@@ -1,5 +1,5 @@
 // Validation returns msg: domain-regex
-pub fn validate_domain(domain: &str) -> Result<String, ft_common::ActionError> {
+pub fn validate_domain(domain: &str) -> Result<String, ft2::ActionError> {
     use ft2::errors::ToActionError;
 
     let domain = domain

@@ -24,5 +24,5 @@ pub trait FieldError: ft_common::TranslatedString + std::fmt::Debug {
 }
 
 pub trait ToActionError: ft_common::TranslatedString + ft2::errors::FieldError {
-    fn to_action_error(&self) -> ft_common::ActionError;
+    fn to_action_error(&self) -> ft2::ActionError;
 }

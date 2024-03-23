@@ -2,8 +2,8 @@ pub struct MakePrimaryDomain {
     domain: String,
 }
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for MakePrimaryDomain {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for MakePrimaryDomain {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError> {
         pub use ft_sdk::JsonBodyExt;
         pub use ft2::errors::ToActionError;
         use ft_common::prelude::*;
@@ -43,7 +43,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for MakePrimaryDom
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> {
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError> {
         use ft_common::prelude::*;
         use ft_common::schema::ft_site;
 
@@ -54,7 +54,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for MakePrimaryDom
                 ft_site::updated_at.eq(c.in_.now),
             ))
             .execute(&mut c.conn)
-            .map_err(ft_common::ActionError::Diesel)?;
+            .map_err(ft2::ActionError::Diesel)?;
 
         Ok(ft_sdk::ActionOutput::Reload)
     }

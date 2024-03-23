@@ -17,8 +17,8 @@ struct Token {
 #[serde(transparent)]
 pub struct Tokens(Vec<Token>);
 
-impl ft_sdk::Page<ft2::route::Site, ft_common::ActionError> for Tokens {
-    fn page(i: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Page<ft2::route::Site, ft2::ActionError> for Tokens {
+    fn page(i: &mut ft2::route::Site) -> Result<Self, ft2::ActionError> {
         use ft_common::{prelude::*, schema::ft_site_token};
 
         Ok(Tokens(

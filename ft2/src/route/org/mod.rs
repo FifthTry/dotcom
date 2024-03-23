@@ -15,7 +15,7 @@ pub struct OrgOutput {
 }
 
 impl ft_sdk::Layout for Org {
-    type Error = ft_common::ActionError;
+    type Error = ft2::ActionError;
 
     fn from_in(in_: ft_sdk::In, _ty: ft_sdk::RequestType) -> Result<Self, Self::Error> {
         use ft_sdk::QueryExt;
@@ -24,7 +24,7 @@ impl ft_sdk::Layout for Org {
 
         let ud = match ft2::route::ud(&mut conn, &in_) {
             Err(e) => {
-                return Err(ft_common::ActionError::Unauthorized(format!(
+                return Err(ft2::ActionError::Unauthorized(format!(
                     "user not logged in: {e:?}"
                 )));
             }
@@ -35,7 +35,7 @@ impl ft_sdk::Layout for Org {
             Some(v) => v.to_string(),
             None => {
                 ft_sdk::println!("org-slug is missing");
-                return Err(ft_common::ActionError::UsageError {
+                return Err(ft2::ActionError::UsageError {
                     message: "org-slug is missing".to_string(),
                 });
             }
@@ -48,7 +48,7 @@ impl ft_sdk::Layout for Org {
         ) {
             Ok(v) => v,
             Err(ft2::check::OrgManagementAccessError::AccessError(e)) => {
-                return Err(ft_common::ActionError::OrgManagementAccessError(format!(
+                return Err(ft2::ActionError::OrgManagementAccessError(format!(
                     "{e:?}"
                 )));
             }

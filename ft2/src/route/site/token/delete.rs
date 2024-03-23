@@ -2,8 +2,8 @@ pub struct Delete {
     token_id: i64,
 }
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Delete {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for Delete {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError> {
         pub use ft_sdk::JsonBodyExt;
 
         // No validation
@@ -16,7 +16,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Delete {
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> {
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError> {
         pub use ft2::errors::ToActionError;
         use ft_common::prelude::*;
         use ft_common::schema::ft_site_token;

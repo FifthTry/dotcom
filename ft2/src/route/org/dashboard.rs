@@ -1,5 +1,5 @@
-impl ft_sdk::Page<ft2::route::Org, ft_common::ActionError> for ft2::route::public::UserDashboard {
-    fn page(i: &mut ft2::route::Org) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Page<ft2::route::Org, ft2::ActionError> for ft2::route::public::UserDashboard {
+    fn page(i: &mut ft2::route::Org) -> Result<Self, ft2::ActionError> {
         ft_sdk::println!("hello wasm");
         let dashboard_data = Self {
             sites: get_all_sites(&mut i.conn, i.org_id, i.org_slug.as_str())?,
@@ -17,7 +17,7 @@ pub fn get_all_sites(
     conn: &mut ft_sdk::PgConnection,
     org_id: i64,
     org_slug: &str,
-) -> Result<Vec<ft2::site::SiteCommonData>, ft_common::ActionError> {
+) -> Result<Vec<ft2::site::SiteCommonData>, ft2::ActionError> {
     use ft_common::{prelude::*, schema::ft_site};
 
     // Fetching all sites belonging to the given org

@@ -2,8 +2,8 @@ pub struct AddDomain {
     pub domain: String,
 }
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for AddDomain {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError> {
         pub use ft_sdk::JsonBodyExt;
 
         let domain_input: String = c.in_.req.json_body()?.field("domain")?.unwrap_or_default();
@@ -15,7 +15,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for AddDomain {
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> {
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError> {
         use ft2::errors::ToActionError;
         use ft_common::prelude::*;
         use ft_common::schema::ft_domain;

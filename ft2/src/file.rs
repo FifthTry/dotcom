@@ -74,9 +74,9 @@ pub enum FileError {
 }
 
 impl FileError {
-    pub(crate) fn into_action_error(self) -> ft_common::ActionError {
+    pub(crate) fn into_action_error(self) -> ft2::ActionError {
         match self {
-            FileError::DieselError(d) => ft_common::ActionError::Diesel(d),
+            FileError::DieselError(d) => ft2::ActionError::Diesel(d),
         }
     }
 }

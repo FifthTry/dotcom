@@ -2,8 +2,8 @@ pub struct CreateSite {
     pub site_slug: String,
 }
 
-impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
-    fn validate(c: &mut ft2::route::MySelf) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Action<ft2::route::MySelf, ft2::ActionError> for CreateSite {
+    fn validate(c: &mut ft2::route::MySelf) -> Result<Self, ft2::ActionError> {
         pub use ft_sdk::JsonBodyExt;
 
         let site_slug: String =
@@ -46,7 +46,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
     fn action(
         &self,
         i: &mut ft2::route::MySelf,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError> {
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError> {
         use ft_common::prelude::*;
         use ft_common::schema::{ft_document, ft_document_history, ft_site};
         // Inserting Site
@@ -76,7 +76,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
                     _,
                 )) => {
                     // Validation returns msg: unique-site-slug
-                    return Err(ft_common::ActionError::single_error(
+                    return Err(ft2::ActionError::single_error(
                         "site-slug",
                         "site-slug already exists",
                     ));
@@ -147,7 +147,7 @@ fn get_sample_document_histories(
         .collect()
 }
 
-fn validate_site_slug(site_slug: &str) -> Result<String, ft_common::ActionError> {
+fn validate_site_slug(site_slug: &str) -> Result<String, ft2::ActionError> {
     let site_slug = site_slug.trim().to_string();
 
     // Validation returns msg: site-slug-is-lowercase
@@ -156,7 +156,7 @@ fn validate_site_slug(site_slug: &str) -> Result<String, ft_common::ActionError>
         // user might be relying on case, and change in case breaks the meaning they
         // are going for, e.g. MissIng and missing are different things, maybe they would
         // prefer miss-ing.fifthtry.site and not missing.fifthtry.site
-        return Err(ft_common::ActionError::single_error(
+        return Err(ft2::ActionError::single_error(
             "site",
             "site-slug should be in lowercase",
         ));
@@ -164,7 +164,7 @@ fn validate_site_slug(site_slug: &str) -> Result<String, ft_common::ActionError>
 
     // Validation returns msg: site-slug-is-not-empty
     if site_slug.is_empty() {
-        return Err(ft_common::ActionError::single_error(
+        return Err(ft2::ActionError::single_error(
             "site",
             "site-slug should not be empty",
         ));
@@ -175,7 +175,7 @@ fn validate_site_slug(site_slug: &str) -> Result<String, ft_common::ActionError>
 
     // Validation returns msg: site-slug-regex
     if !RE.is_match(site_slug.as_str()) {
-        return Err(ft_common::ActionError::single_error(
+        return Err(ft2::ActionError::single_error(
             "site",
             "site-slug is not valid",
         ));

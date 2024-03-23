@@ -15,13 +15,13 @@ pub struct MyselfOutput {
 }
 
 impl ft_sdk::Layout for MySelf {
-    type Error = ft_common::ActionError;
+    type Error = ft2::ActionError;
 
     fn from_in(in_: ft_sdk::In, _ty: ft_sdk::RequestType) -> Result<Self, Self::Error> {
         let mut conn = ft_sdk::default_pg()?;
         let ud = match ft2::route::ud(&mut conn, &in_) {
             Err(e) => {
-                return Err(ft_common::ActionError::Unauthorized(format!(
+                return Err(ft2::ActionError::Unauthorized(format!(
                     "user not logged in: {e:?}"
                 )));
             }

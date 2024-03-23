@@ -10,8 +10,8 @@ pub struct GithubOidc {
     configure_url: String,
 }
 
-impl ft_sdk::Page<ft2::route::Site, ft_common::ActionError> for GithubOidc {
-    fn page(i: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Page<ft2::route::Site, ft2::ActionError> for GithubOidc {
+    fn page(i: &mut ft2::route::Site) -> Result<Self, ft2::ActionError> {
         use ft_common::prelude::*;
         use ft_common::schema::{ft_gh_oidc_repo_rule, ft_site};
 

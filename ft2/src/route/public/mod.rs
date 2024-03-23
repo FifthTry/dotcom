@@ -16,7 +16,7 @@ pub struct PublicOutput {
 }
 
 impl ft_sdk::Layout for Public {
-    type Error = ft_common::ActionError;
+    type Error = ft2::ActionError;
 
     fn from_in(in_: ft_sdk::In, _ty: ft_sdk::RequestType) -> Result<Self, Self::Error> {
         Ok(Public {

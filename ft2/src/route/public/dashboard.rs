@@ -1,5 +1,5 @@
-impl ft_sdk::Page<ft2::route::Public, ft_common::ActionError> for UserDashboard {
-    fn page(i: &mut ft2::route::Public) -> Result<Self, ft_common::ActionError> {
+impl ft_sdk::Page<ft2::route::Public, ft2::ActionError> for UserDashboard {
+    fn page(i: &mut ft2::route::Public) -> Result<Self, ft2::ActionError> {
         let ud = match i.in_.ud {
             Some(ref ud) => ud,
             None => return Ok(UserDashboard::default()),
@@ -21,7 +21,7 @@ impl ft_sdk::Page<ft2::route::Public, ft_common::ActionError> for UserDashboard 
 pub fn get_all_sites(
     user_id: i64,
     username: &str,
-) -> Result<Vec<ft2::site::SiteCommonData>, ft_common::ActionError> {
+) -> Result<Vec<ft2::site::SiteCommonData>, ft2::ActionError> {
     use ft_common::{prelude::*, schema::ft_site};
 
     let mut conn = ft_sdk::default_pg()?;

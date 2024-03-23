@@ -3,8 +3,8 @@ pub struct GetContent {
     file_name: String,
 }
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for GetContent {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError>
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for GetContent {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError>
     where
         Self: Sized,
     {
@@ -19,7 +19,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for GetContent {
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError>
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError>
     where
         Self: Sized,
     {

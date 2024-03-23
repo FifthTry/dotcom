@@ -41,7 +41,7 @@ pub struct SiteOutput {
 }
 
 impl ft_sdk::Layout for Site {
-    type Error = ft_common::ActionError;
+    type Error = ft2::ActionError;
 
     fn from_in(in_: ft_sdk::In, ty: ft_sdk::RequestType) -> Result<Self, Self::Error> {
         use ft_common::{prelude::*, schema::ft_site};
@@ -63,7 +63,7 @@ impl ft_sdk::Layout for Site {
             Some(v) => v.to_string(),
             None => {
                 ft_sdk::println!("site-slug is missing");
-                return Err(ft_common::ActionError::UsageError {
+                return Err(ft2::ActionError::UsageError {
                     message: "site-slug is missing".to_string(),
                 });
             }
@@ -81,7 +81,7 @@ impl ft_sdk::Layout for Site {
             Err(diesel::NotFound) => {
                 // Validation returns msg: unknown-site
                 ft_sdk::println!("site not found");
-                return Err(ft_common::ActionError::NotFound {
+                return Err(ft2::ActionError::NotFound {
                     message: "There is no such site. Maybe the slug of the site has changed, or site has been deleted.".to_string()
                 });
             }
@@ -95,7 +95,7 @@ impl ft_sdk::Layout for Site {
                 match ft2::check::if_user_can_view_org_contents(ud.user_id, org_id, &mut conn) {
                     Ok(v) => v,
                     Err(ft2::check::OrgManagementAccessError::AccessError(e)) => {
-                        return Err(ft_common::ActionError::OrgManagementAccessError(format!(
+                        return Err(ft2::ActionError::OrgManagementAccessError(format!(
                             "{e:?}"
                         )));
                     }
@@ -104,7 +104,7 @@ impl ft_sdk::Layout for Site {
             }
             None => {
                 if site_data.created_by != ud.user_id {
-                    return Err(ft_common::ActionError::Unauthorized(
+                    return Err(ft2::ActionError::Unauthorized(
                         "You do not have access to this site".to_string(),
                     ));
                 }

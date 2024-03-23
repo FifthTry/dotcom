@@ -4,8 +4,8 @@ pub struct DeleteFile {
     updated_at: chrono::DateTime<chrono::Utc>,
 }
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError>
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for DeleteFile {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError>
     where
         Self: Sized,
     {
@@ -24,18 +24,18 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for DeleteFile {
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError>
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError>
     where
         Self: Sized,
     {
         if !c.site_data.is_editable {
-            return Err(ft_common::ActionError::single_error(
+            return Err(ft2::ActionError::single_error(
                 "delete",
                 "This site cannot be updated using editor. Help: Use clift to update.",
             ));
         }
         // if self.updated_at.lt(&c.site_data.updated_at) {
-        //     return Err(ft_common::ActionError::single_error(
+        //     return Err(ft2::ActionError::single_error(
         //         "delete",
         //         "Looks like content has been updated.",
         //     ));
@@ -55,12 +55,12 @@ pub enum DeleteFileError {
 }
 
 impl DeleteFileError {
-    fn get_action_error(&self) -> ft_common::ActionError {
+    fn get_action_error(&self) -> ft2::ActionError {
         let error = match self {
             DeleteFileError::DeleteWasmError(error) => error.to_owned(),
         };
 
-        ft_common::ActionError::single_error("delete", error.as_str())
+        ft2::ActionError::single_error("delete", error.as_str())
     }
 }
 

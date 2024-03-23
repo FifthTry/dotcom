@@ -83,7 +83,7 @@ impl SiteQueryData {
         &self,
         conn: &mut ft_sdk::PgConnection,
         now: ft_common::DateTime,
-    ) -> Result<(), ft_common::ActionError> {
+    ) -> Result<(), ft2::ActionError> {
         use ft_common::prelude::*;
         use ft_common::schema::ft_site;
 
@@ -102,7 +102,7 @@ impl SiteQueryData {
         &self,
         conn: &mut ft_common::Conn,
         now: ft_common::DateTime,
-    ) -> Result<(), ft_common::ActionError> {
+    ) -> Result<(), ft2::ActionError> {
         use diesel_async::RunQueryDsl;
         use ft_common::prelude::*;
         use ft_common::schema::ft_site;

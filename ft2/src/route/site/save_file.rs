@@ -6,8 +6,8 @@ pub struct SaveFile {
 }
 
 
-impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for SaveFile {
-    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft_common::ActionError>
+impl ft_sdk::Action<ft2::route::Site, ft2::ActionError> for SaveFile {
+    fn validate(c: &mut ft2::route::Site) -> Result<Self, ft2::ActionError>
     where
         Self: Sized,
     {
@@ -28,12 +28,12 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for SaveFile {
     fn action(
         &self,
         c: &mut ft2::route::Site,
-    ) -> Result<ft_sdk::ActionOutput, ft_common::ActionError>
+    ) -> Result<ft_sdk::ActionOutput, ft2::ActionError>
     where
         Self: Sized,
     {
         if !c.site_data.is_editable {
-            return Err(ft_common::ActionError::single_error(
+            return Err(ft2::ActionError::single_error(
                 "save",
                 "This site cannot be updated using editor. Help: Use clift to update.",
             ));
@@ -53,12 +53,12 @@ pub enum SaveFileError {
 }
 
 impl SaveFileError {
-    fn get_action_error(&self) -> ft_common::ActionError {
+    fn get_action_error(&self) -> ft2::ActionError {
         let error = match self {
             SaveFileError::SaveWasmError(error) => error.to_owned(),
         };
 
-        ft_common::ActionError::single_error("save", error.as_str())
+        ft2::ActionError::single_error("save", error.as_str())
     }
 }
 

@@ -15,18 +15,18 @@ pub use urls::route;
 pub fn ud(
     conn: &mut ft_sdk::PgConnection,
     in_: &ft_sdk::In,
-) -> Result<ft2::UserData, ft_common::ActionError> {
+) -> Result<ft2::UserData, ft2::ActionError> {
     match ft2::ud::get_optional_ud(conn, in_) {
         Ok(Some(ud)) => Ok(ud),
         Ok(None) => {
             tracing::error!("user not logged in");
-            Err(ft_common::ActionError::Unauthorized(
+            Err(ft2::ActionError::Unauthorized(
                 "user not logged in".to_string(),
             ))
         }
         Err(e) => {
             tracing::error!("failed to get user data: {:?}", e);
-            Err(ft_common::ActionError::ServerError {
+            Err(ft2::ActionError::ServerError {
                 message: "failed to get user data".to_string(),
             })
         }
