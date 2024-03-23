@@ -8,7 +8,7 @@ impl ft_sdk::Page<ft2::route::Public, ft_common::ActionError> for UserDashboard 
 
         let user_dashboard_data = UserDashboard {
             sites: get_all_sites(ud.id, ud.username.as_str())?,
-            create_site_url: ft_common::urls::create_user_site_url(),
+            create_site_url: ft2::urls::create_user_site_url(),
         };
 
         tracing::info!("dashboard_view_response: {user_dashboard_data:?}");

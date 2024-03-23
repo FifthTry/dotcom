@@ -70,7 +70,7 @@ impl ft_sdk::Action<ft2::route::Site, ft_common::ActionError> for Configure {
             Ok(())
         })?;
 
-        let github_url = ft_common::urls::github_url(c.site_data.slug.as_str());
+        let github_url = ft2::urls::github_url(c.site_data.slug.as_str());
         Ok(ft_sdk::ActionOutput::Redirect(github_url))
     }
 }

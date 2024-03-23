@@ -50,7 +50,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
         use ft_common::prelude::*;
         use ft_common::schema::{ft_document, ft_document_history, ft_site};
         // Inserting Site
-        let site_default_domain = ft_common::urls::site_slug_url(self.site_slug.as_str());
+        let site_default_domain = ft2::urls::site_slug_url(self.site_slug.as_str());
 
         // transaction
         i.conn.transaction(|conn| {
@@ -104,7 +104,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft_common::ActionError> for CreateSite {
             Ok(())
         })?;
 
-        let site_url = ft_common::urls::site_info_url(self.site_slug.as_str());
+        let site_url = ft2::urls::site_info_url(self.site_slug.as_str());
 
         Ok(ft_sdk::ActionOutput::Redirect(site_url))
     }

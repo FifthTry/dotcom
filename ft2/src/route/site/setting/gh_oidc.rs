@@ -31,7 +31,7 @@ impl ft_sdk::Page<ft2::route::Site, ft_common::ActionError> for GithubOidc {
                 account: "".to_string(),
                 repo: "".to_string(),
                 site_domain: i.site_data.domain.clone(),
-                configure_url: ft_common::urls::github_configure_form_url(
+                configure_url: ft2::urls::github_configure_form_url(
                     i.site_data.slug.as_str(),
                 ),
                 branch: "main".to_string(),
@@ -46,7 +46,7 @@ impl ft_sdk::Page<ft2::route::Site, ft_common::ActionError> for GithubOidc {
                     repo: repo.to_string(),
                     branch: branch.to_string(),
                     is_configured: true,
-                    configure_url: ft_common::urls::github_configure_form_url(
+                    configure_url: ft2::urls::github_configure_form_url(
                         i.site_data.slug.as_str(),
                     ),
                 })

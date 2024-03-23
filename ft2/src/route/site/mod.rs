@@ -130,7 +130,7 @@ impl ft_sdk::Layout for Site {
                 &self.site_data.domain,
                 self.site_data.updated_at,
             ),
-            dashboard_url: ft_common::urls::user_dashboard_url(&self.ud.username),
+            dashboard_url: ft2::urls::user_dashboard_url(&self.ud.username),
             ud: self.ud.clone(),
         })?)
     }

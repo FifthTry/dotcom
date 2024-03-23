@@ -9,6 +9,7 @@ pub mod validation;
 pub mod uuid;
 mod member_role;
 pub mod site;
+pub mod urls;
 
 pub use file::{file_type, File, FileText, FileTextError, FileType};
 pub use route::route;

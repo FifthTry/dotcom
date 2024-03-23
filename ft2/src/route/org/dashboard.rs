@@ -3,7 +3,7 @@ impl ft_sdk::Page<ft2::route::Org, ft_common::ActionError> for ft2::route::publi
         ft_sdk::println!("hello wasm");
         let dashboard_data = Self {
             sites: get_all_sites(&mut i.conn, i.org_id, i.org_slug.as_str())?,
-            create_site_url: ft_common::urls::create_org_site_url(i.org_slug.as_str()),
+            create_site_url: ft2::urls::create_org_site_url(i.org_slug.as_str()),
         };
 
         tracing::info!("dashboard_view_response: {dashboard_data:?}");
