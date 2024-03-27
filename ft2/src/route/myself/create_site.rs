@@ -66,6 +66,7 @@ impl ft_sdk::Action<ft2::route::MySelf, ft2::ActionError> for CreateSite {
                     updated_at: i.in_.now,
                     org_id: None,
                     created_by: i.ud.user_id,
+                    is_package: false
                 })
                 .returning(ft_site::id)
                 .get_result::<i64>(conn)

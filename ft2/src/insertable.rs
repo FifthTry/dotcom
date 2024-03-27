@@ -70,6 +70,7 @@ pub struct Site {
     pub updated_at: chrono::DateTime<chrono::Utc>,
     pub org_id: Option<i64>,
     pub created_by: i64,
+    pub is_package: bool
 }
 
 
